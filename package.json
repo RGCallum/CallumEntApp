@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "concurrently": "^4.1.0",
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "react": "^16.8.6"
   },
   "devDependencies": {},
   "scripts": {

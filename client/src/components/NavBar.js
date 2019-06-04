@@ -38,7 +38,7 @@ class NavBar extends Component {
             <NavBarStyles>
                 <div>
                     <Link to="/"> 🏠 Home</Link>
-                    <Link to="/users"> 🎬 Users</Link>
+                    <Link to="/employees"> 🎬 Employees</Link>
                     <Link to="/signup"> 🗂 Sign-Up</Link>
 
                 </div>

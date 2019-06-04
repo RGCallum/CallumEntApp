@@ -31,15 +31,15 @@ class Info extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post('/api/films/:filmId', this.state.newInfo).then(res => {
+    axios.post('/api/invoices/:invoiceId', this.state.newInfo).then(res => {
       console.log(res.data)
-      this.props.history.push(`/films/:filmId/${res.data._id}`)
+      this.props.history.push(`/invoices/:invoiceId/${res.data._id}`)
     })
     
   }
 
   getAllInfos = () => {
-    axios.get('/api/films/:filmId').then((res) => {
+    axios.get('/api/invoices/:invoiceId').then((res) => {
       this.setState({infos: res.data})
     })
   }
@@ -49,8 +49,8 @@ class Info extends Component {
   render() {
     return (
       <div> 
-        {/* <h3> All About {this.state.film.name}'s </h3> */}
-        films show
+        {/* <h3> All About {this.state.invoice.name}'s </h3> */}
+        invoices show
                 <div>
                     {this.state.infos.map((info) => (
                         <div key={info._id}>
@@ -59,7 +59,7 @@ class Info extends Component {
                     ))}
                 </div>
 
-        <h3>Edit Film Info</h3>
+        <h3>Edit Invoice Info</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name">Name: </label>
@@ -97,7 +97,9 @@ class Info extends Component {
           <button type="submit">Create Info</button>
         </form>
       </div>
+      
     );
+    
   }
 }
 export default Info;

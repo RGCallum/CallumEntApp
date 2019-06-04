@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Users from './Users';
+import Employees from './Employees';
 
 
 const ImgStyles = styled.div`
@@ -55,10 +55,10 @@ class Home extends Component {
                 <ImgStyles>
                     <CountStyles>
                         Welcome to NoBu Shorts <br/>
-                        A space for Independent Filmmakers to display their work! <br/>
-                        Although the film may have "No Budget" <br/>
+                        A space for Independent Invoicemakers to display their work! <br/>
+                        Although the invoice may have "No Budget" <br/>
                         it doesn't have to look that way!
-                       <br/> <Link to="/users">
+                       <br/> <Link to="/employees">
                        <HoverButton>
                         <button>Click to Enter </button>
                         </HoverButton>

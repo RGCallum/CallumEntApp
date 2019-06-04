@@ -1,7 +1,7 @@
 const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
-const Film = new Schema({
+const Invoice = new Schema({
     name: String,
     image: String,
     link: String,
@@ -13,5 +13,5 @@ const Film = new Schema({
     awards: String
 })
 
-module.exports = mongoose.model('Film', Film)
+module.exports = mongoose.model('Invoice', Invoice)
 

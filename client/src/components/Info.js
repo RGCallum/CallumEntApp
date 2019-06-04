@@ -59,7 +59,7 @@ class Info extends Component {
           </div>
         )) } */}
 
-        <h3>Edit Film Info</h3>
+        <h3>Edit Invoice Info</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name">Name: </label>
@@ -107,20 +107,20 @@ export default Info;
 
 
 //     componentDidMount() {
-//     // make an api call to get one single film
-//     // On the server URL is '/api/films/:filmId'
-//     const filmId = this.props.match.params.filmId
-//     axios.get(`/api/films/${filmId}`).then(res => {
+//     // make an api call to get one single invoice
+//     // On the server URL is '/api/invoices/:invoiceId'
+//     const invoiceId = this.props.match.params.invoiceId
+//     axios.get(`/api/invoices/${invoiceId}`).then(res => {
 //       console.log(res.data)
 //       this.setState({
-//         films: res.data,
+//         invoices: res.data,
 //         infos: res.data.infos
 //       })
 //     })
 //   }
 
 //   handleCreateNewInfo = () => {
-//     const filmId = this.props.match.params.filmId
+//     const invoiceId = this.props.match.params.invoiceId
 //     const payload = {
 //         name: 'name',
 //         image: 'image',
@@ -135,7 +135,7 @@ export default Info;
 //     //   location: 'location',
 //     //   awards: 'awards'
 //     }
-//     axios.post(`/api/films/${filmId}/infos`, payload).then(res => {
+//     axios.post(`/api/invoices/${invoiceId}/infos`, payload).then(res => {
 //       const newInfo = res.data
 //       console.log(res.data)
 //       const newStateInfos = [...this.state.infos, newInfo]
@@ -186,7 +186,7 @@ export default Info;
 //     render() {
 //         return (
 //             <div>
-//                            {/* <h1>{this.state.film.name}'s Infos </h1> */}
+//                            {/* <h1>{this.state.invoice.name}'s Infos </h1> */}
 
 
 
@@ -204,8 +204,8 @@ export default Info;
 // import axios from 'axios'
 // import styled from 'styled-components'
 
-// // Need info about a film
-// // Need info about that films infos
+// // Need info about a invoice
+// // Need info about that invoices infos
 
 // const InfoStyles = styled.div`
 //   display: flex;
@@ -285,20 +285,20 @@ export default Info;
   
 
 //   componentDidMount() {
-//     // make an api call to get one single film
-//     // On the server URL is '/api/films/:filmId'
-//     const filmId = this.props.match.params.filmId
-//     axios.get(`/api/films/${filmId}`).then(res => {
+//     // make an api call to get one single invoice
+//     // On the server URL is '/api/invoices/:invoiceId'
+//     const invoiceId = this.props.match.params.invoiceId
+//     axios.get(`/api/invoices/${invoiceId}`).then(res => {
 //       console.log(res.data)
 //       this.setState({
-//         films: res.data,
+//         invoices: res.data,
 //         infos: res.data.infos
 //       })
 //     })
 //   }
 
 //   handleCreateNewInfo = () => {
-//     const filmId = this.props.match.params.filmId
+//     const invoiceId = this.props.match.params.invoiceId
 //     const payload = {
 //         name: 'name',
 //         image: 'image',
@@ -313,7 +313,7 @@ export default Info;
 //     //   location: 'location',
 //     //   awards: 'awards'
 //     }
-//     axios.post(`/api/films/${filmId}/infos`, payload).then(res => {
+//     axios.post(`/api/invoices/${invoiceId}/infos`, payload).then(res => {
 //       const newInfo = res.data
 //       const newStateInfos = [...this.state.infos, newInfo]
 //       this.setState({ infos: newStateInfos })
@@ -334,17 +334,17 @@ export default Info;
 //     })
 //   }
 
-// //   handleDelete = filmId => {
+// //   handleDelete = invoiceId => {
 // //     // some unique value
-// //     axios.delete(`/api/films`).then(() => {
-// //       //Remove the film with filmID from this.state.films
-// //       const newFilms = [...this.state.films]
-// //       // Return only films that are NOT the id provided
-// //       const filtered = newFilms.filter(film => {
-// //         return film._id !== filmId // ! = =
+// //     axios.delete(`/api/invoices`).then(() => {
+// //       //Remove the invoice with invoiceID from this.state.invoices
+// //       const newInvoices = [...this.state.invoices]
+// //       // Return only invoices that are NOT the id provided
+// //       const filtered = newInvoices.filter(invoice => {
+// //         return invoice._id !== invoiceId // ! = =
 // //       })
-// //       // Take filtered data and set it to films
-// //       this.setState({ films: filtered })
+// //       // Take filtered data and set it to invoices
+// //       this.setState({ invoices: filtered })
 // //     })
 // //   }
 
@@ -380,7 +380,7 @@ export default Info;
 //       <div>
 //         <NameNButtonStyle>
 
-//           {/* <h1>{this.state.film.name}'s Infos </h1> */}
+//           {/* <h1>{this.state.invoice.name}'s Infos </h1> */}
 //           <br />
 //         </NameNButtonStyle>
 //         <NewInfoButton onClick={this.handleCreateNewInfo}>
@@ -505,20 +505,20 @@ export default Info;
     
     
 //   componentDidMount() {
-//     // make an api call to get one single film
-//     // On the server URL is '/api/films/:filmId'
-//     const filmId = this.props.match.params.filmId
-//     axios.get(`/api/films/${filmId}`).then(res => {
+//     // make an api call to get one single invoice
+//     // On the server URL is '/api/invoices/:invoiceId'
+//     const invoiceId = this.props.match.params.invoiceId
+//     axios.get(`/api/invoices/${invoiceId}`).then(res => {
 //       console.log(res.data)
 //       this.setState({
-//         film: res.data,
+//         invoice: res.data,
 //         infos: res.data.infos
 //       })
 //     })
 //   }
 
 //   handleCreateNewInfo = () => {
-//     const filmId = this.props.match.params.filmId
+//     const invoiceId = this.props.match.params.invoiceId
 //     const payload = {
 //       name: 'name',
 //       link: 'link',
@@ -531,7 +531,7 @@ export default Info;
 //       awards: 'awards',
 
 //     }
-//     axios.post(`/api/films/${filmId}/infos`, payload).then(res => {
+//     axios.post(`/api/invoices/${invoiceId}/infos`, payload).then(res => {
 //       const newInfo = res.data
 //       const newStateInfos = [...this.state.infos, newInfo]
 //       this.setState({ infos: newStateInfos })
@@ -584,10 +584,10 @@ export default Info;
 //   render() {
 //     return (
 //       <div>
-//           Film info page
+//           Invoice info page
 //         <NameNButtonStyle>
 
-//           {/* <h1>{this.state.film.filmname}'s Infos </h1> */}
+//           {/* <h1>{this.state.invoice.invoicename}'s Infos </h1> */}
 //           <br />
 //         </NameNButtonStyle>
 //         <NewInfoButton onClick={this.handleCreateNewInfo}>

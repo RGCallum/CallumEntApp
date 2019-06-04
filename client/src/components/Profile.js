@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Users from './Users';
+import Employees from './Employees';
 
 
 
 
-const UserStyles = styled.div`
+const EmployeeStyles = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -57,7 +57,7 @@ const UserStyles = styled.div`
 `
 
 
-const UsersContainerStyle = styled.div`
+const EmployeesContainerStyle = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -75,8 +75,8 @@ const NameNButtonStyle = styled.div`
 
 class Profile extends Component {
     state = {
-        user: {},
-        username: '',
+        employee: {},
+        employeename: '',
         password: '',
         email: '',
         bio: '',
@@ -84,45 +84,45 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        const userId = this.props.match.params.userId
-        axios.get(`/api/users/${userId}`).then(res => {
+        const employeeId = this.props.match.params.employeeId
+        axios.get(`/api/employees/${employeeId}`).then(res => {
             console.log(res.data)
             this.setState({
-                user: res.data,
+                employee: res.data,
             })
         })
     }
 
-    handleDelete = userId => {
-       if (this.props.match.params.userId) {   
-          const userId = this.props.match.params.userId;  
-          console.log(userId);
-          axios.delete(`/api/users/${userId}`)
-          .then(res => {this.setState({ user: res.data.user });
-        this.props.history.push(`/users/`)
+    handleDelete = employeeId => {
+       if (this.props.match.params.employeeId) {   
+          const employeeId = this.props.match.params.employeeId;  
+          console.log(employeeId);
+          axios.delete(`/api/employees/${employeeId}`)
+          .then(res => {this.setState({ employee: res.data.employee });
+        this.props.history.push(`/employees/`)
 
     }) }
   }
 
     handleChange = (event) => {
         //take it
-        const user = {...this.state.user}
+        const employee = {...this.state.employee}
         //change it
         const name = event.target.name
         const value = event.target.value    
-        user[name] = value
+        employee[name] = value
         //put it back
-        this.setState({ user })
+        this.setState({ employee })
     }
 
     handleUpdate = () => {
-        const userId = this.props.match.params.id
-        const updatedUser = this.state.user
-        console.log(userId)
-        axios.patch(`/api/users/${userId}`, updatedUser)
+        const employeeId = this.props.match.params.id
+        const updatedEmployee = this.state.employee
+        console.log(employeeId)
+        axios.patch(`/api/employees/${employeeId}`, updatedEmployee)
         .then((res) => {
         console.log(res.data)
-        this.setState({ user: this.state.user })
+        this.setState({ employee: this.state.employee })
             })
     }
 
@@ -132,35 +132,35 @@ class Profile extends Component {
             <div>
   
                     <NameNButtonStyle>
-                     <h1>{this.state.user.username}'s Profile </h1>
+                     <h1>{this.state.employee.employeename}'s Profile </h1>
                         <br />
                     </NameNButtonStyle>
 
                     <div>Type in field to edit
-                <UsersContainerStyle>
+                <EmployeesContainerStyle>
 
 
-                    <UserStyles>
+                    <EmployeeStyles>
 
                         <input
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
-                            type="text" name="username" placeholder={this.state.user.username}
-                            value={this.state.user.username}
+                            type="text" name="employeename" placeholder={this.state.employee.employeename}
+                            value={this.state.employee.employeename}
                         />
                         <input
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
                             name="image" placeholder='Change Photo'
-                            // value={this.state.user.image} 
+                            // value={this.state.employee.image} 
                         />   
-                        <img src={this.state.user.image} alt="user pic" />
+                        <img src={this.state.employee.image} alt="employee pic" />
 
                         <input
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
                             type='password' placeholder='Change Password'
-                            // value={this.state.user.password} 
+                            // value={this.state.employee.password} 
                             name="password" 
                         />                   
 
@@ -168,21 +168,21 @@ class Profile extends Component {
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
                             name="email" placeholder='Email'
-                            value={this.state.user.email} 
+                            value={this.state.employee.email} 
                         />
                         <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={this.handleChange}
                             name="bio" placeholder='Your Bio'
-                            value={this.state.user.bio} 
+                            value={this.state.employee.bio} 
                         />
                         
-                        <Link to={`/users`}> 
-                        <button onClick={this.handleDelete}>Delete User</button>
+                        <Link to={`/employees`}> 
+                        <button onClick={this.handleDelete}>Delete Employee</button>
                         </Link> 
 
-                    </UserStyles>
-                        </UsersContainerStyle>
+                    </EmployeeStyles>
+                        </EmployeesContainerStyle>
                     </div>
  
                     Profile

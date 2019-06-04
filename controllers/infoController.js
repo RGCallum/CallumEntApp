@@ -1,12 +1,12 @@
-const Film = require('../models/Film')
+const Invoice = require('../models/Invoice')
 const Info = require('../models/Info')
 
 const infoController = {
     index: (req, res) => {
-        var filmId = req.params.filmId
-        Film.findById(filmId).populate('infos')
-            .then((film) => {
-                res.send(film.infos)
+        var invoiceId = req.params.invoiceId
+        Invoice.findById(invoiceId).populate('infos')
+            .then((invoice) => {
+                res.send(invoice.infos)
             })
     },
     show: (req, res) => {
@@ -26,22 +26,22 @@ const infoController = {
     update: (req, res) => {
         var infoId = req.params.infoId
         Info.findByIdAndUpdate(infoId, req.body, { new: true })
-            .then((updatedFilm) => {
-                updatedFilm.save()
-                res.send(updatedFilm)
+            .then((updatedInvoice) => {
+                updatedInvoice.save()
+                res.send(updatedInvoice)
             })
     },
     create: (req, res) => {
-        var filmId = req.params.filmId
-        Film.findById(filmId)
-            .then((film) => {
-                console.log(film)
+        var invoiceId = req.params.invoiceId
+        Invoice.findById(invoiceId)
+            .then((invoice) => {
+                console.log(invoice)
                 Info.create(req.body)
-                    .then((newFilm) => {
-                        console.log(newFilm)
-                        film.infos.push(newFilm)
-                        film.save()
-                        res.send(newFilm)
+                    .then((newInvoice) => {
+                        console.log(newInvoice)
+                        invoice.infos.push(newInvoice)
+                        invoice.save()
+                        res.send(newInvoice)
                     })
             })
     }

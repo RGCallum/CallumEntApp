@@ -20,7 +20,7 @@ img{
 }
 
 
-animation: color-change-5x 30s linear infinite alternate both;
+// animation: color-change-5x 30s linear infinite alternate both;
 
 @keyframes color-change-5x {
   0% {
@@ -41,7 +41,7 @@ animation: color-change-5x 30s linear infinite alternate both;
 }
 
 `
-const UserContainer = styled.div`
+const EmployeeContainer = styled.div`
 border: inset #C0C0C0;
 background-color: #ffffff70;
 width: 30vw;
@@ -71,11 +71,11 @@ img{
 
 `
 
-class User extends Component {
+class Employee extends Component {
   state = {
-    users: [],
-    newUser: {
-      username: '',
+    employees: [],
+    newEmployee: {
+      employeename: '',
       password: '',
       email: '',
       bio: '',
@@ -84,30 +84,30 @@ class User extends Component {
   }
 
   handleChange = (event) => {
-    const updatedNewUser = { ...this.state.newUser }
+    const updatedNewEmployee = { ...this.state.newEmployee }
 
-    updatedNewUser[event.target.name] = event.target.value
-    this.setState({ newUser: updatedNewUser })
+    updatedNewEmployee[event.target.name] = event.target.value
+    this.setState({ newEmployee: updatedNewEmployee })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post('/api/users', this.state.newUser).then(res => {
+    axios.post('/api/employees', this.state.newEmployee).then(res => {
       console.log(res.data)
-      this.props.history.push(`/users/${res.data._id}`)
+      this.props.history.push(`/employees/${res.data._id}`)
     })
 
   }
 
-  getAllUsers = () => {
-    axios.get('/api/users').then((res) => {
-      this.setState({ users: res.data })
+  getAllEmployees = () => {
+    axios.get('/api/employees').then((res) => {
+      this.setState({ employees: res.data })
     })
   }
 
   componentDidMount() {
-    this.getAllUsers()
+    this.getAllEmployees()
   }
 
   render() {
@@ -115,20 +115,20 @@ class User extends Component {
       <div>
         <BkgdColors>
         <br/>
-          <h1>Featured Filmmakers: </h1>
+          <h1>My Employees</h1>
 <br/>
-          {this.state.users.map((user) => (
-            <div key={user._id}>
+          {this.state.employees.map((employee) => (
+            <div key={employee._id}>
 
-              <UserContainer>
-                <Link to={`/users/${user._id}`}> 
-                <h2>{user.username}</h2>  <br/>
-                <ProImg><img src={user.image} alt="profile pic"/></ProImg>
+              <EmployeeContainer>
+                <Link to={`/employees/${employee._id}`}> 
+                <h2>{employee.employeename}</h2>  <br/>
+                <ProImg><img src={employee.image} alt="profile pic"/></ProImg>
                   <br />
                 </Link>
-                <h5> {user.bio}</h5> 
+                <h5> {employee.bio}</h5> 
                 <br />
-              </UserContainer>
+              </EmployeeContainer>
 
             </div>
 
@@ -137,30 +137,30 @@ class User extends Component {
           <h3>Sign-Up</h3>
           <form onSubmit={this.handleSubmit}>
             <div>
-              <label htmlFor="username">User Name: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.username} type="text" name="username" />
+              <label htmlFor="employeename">Employee Name: </label>
+              <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />
             </div>
             <div>
               <label htmlFor="password">Password: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.password} type="password" name="password" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.password} type="password" name="password" />
             </div>
             <div>
               <label htmlFor="email">Email: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.email} type="text" name="email" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.email} type="text" name="email" />
             </div>
             <div>
               <label htmlFor="bio">Bio: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.bio} type="text" name="bio" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.bio} type="text" name="bio" />
             </div>
             <div>
               <label htmlFor="image">Image: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.image} type="text" name="image" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.image} type="text" name="image" />
             </div>
             <div>
-              <label htmlFor="films">Films: </label>
-              <input onChange={this.handleChange} value={this.state.newUser.films} type="text" name="films" />
+              <label htmlFor="invoices">Invoices: </label>
+              <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />
             </div>
-            <button type="submit">Create User</button>
+            <button type="submit">Create Employee</button>
           </form>
         </BkgdColors>
       </div>
@@ -168,4 +168,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default Employee;

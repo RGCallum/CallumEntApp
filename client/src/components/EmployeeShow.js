@@ -214,6 +214,7 @@ class EmployeeShow extends Component {
                             return (
 
                                 <InvoiceStyles>
+
                                     <label htmlFor="employeename">{this.state.employee.employeename} </label>
                                     <label htmlFor="idnumber" >{this.state.employee.idnumber} </label>
 <br/>

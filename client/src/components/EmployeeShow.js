@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import infoShow from './infoShow';
 
 
 
@@ -27,25 +26,23 @@ const InvoiceStyles = styled.div`
     color: white;
     background-color: red;
     border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 10px;
   }
+
   .button2{
     position: absolute;
     top: 20px;
     left: 10px;
     color: blue; 
   }
-  input,
+
   
-  textarea {
-      height: 90px;
-    background-color: transparent;
-    border: none;
-     
-  }
+
   input {
     height: 30%;
     
-    font-size: 1.3rem;
+    font-size: 13px;
 
   }
   textarea {
@@ -61,14 +58,27 @@ const InvoiceStyles = styled.div`
 `
 
 const NewInvoiceButton = styled.button`
-  background: #1d3557;
+  background: rgb(43, 172, 174, 0.6);
   color: white;
-  font-size: 1.3rem;
+  font-size: 16px;
   padding: 10px 10px;
   border-radius: 5px;
 
 `
+const EditProfileBtn = styled.button`
+font-size: 16px;
+background: purple;
+color: white;
+border-radius: 5px;
+button{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 9px 9px;
 
+}
+`
 const InvoicesContainerStyle = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -95,15 +105,17 @@ class EmployeeShow extends Component {
         employee: '',
         invoices: [],
         newInvoice: {
+            date: '',
+            payperiod: '',
             name: '',
-            image: '',
-            link: '',
-            synopsis: '',
-            role: '',
-            type: '',
-            year: '',
-            location: '',
-            awards: '',
+            idnumber: '',
+            client: '',
+            frequency: '',
+            rate: '',
+            temptotal: '',
+            arisefee: '',
+            callumfee: '',
+            totaldue: '',
         }
     }
 
@@ -174,99 +186,110 @@ class EmployeeShow extends Component {
     render() {
         return (
             <div>
-                
-  
-                    
-                    <NameNButtonStyle>
-                      <h1>{this.state.employee.employeename}'s Invoices </h1>
-                        <img src={this.state.employee.image}  alt="invoice pic" />
-                        <br />
-                    </NameNButtonStyle>
-                    <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                       Add New Invoice
+
+
+
+                <NameNButtonStyle>
+                    <h1>{this.state.employee.employeename}'s Invoices </h1>
+                    <br />
+                </NameNButtonStyle>
+                <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
+                    Add New Invoice
                     </NewInvoiceButton>
+                <EditProfileBtn>
+                    <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > <button>Edit {this.state.employee.employeename}'s Profile</button> </Link>
+                </EditProfileBtn>
 
-                  <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > <button>Edit Profile</button> </Link>
+                <div>Type in fields below to edit Invoice Info
+
+                    <InvoicesContainerStyle>
+
+                        {this.state.invoices.map(invoice => {
+                            const deleteInvoice = () => {
+
+                                return this.handleDelete(invoice._id)
+
+                            }
+
+                            return (
+
+                                <InvoiceStyles>
+                                    <label htmlFor="employeename">{this.state.employee.employeename} </label>
+                                    <label htmlFor="idnumber" >{this.state.employee.idnumber} </label>
+<br/>
+                                    <label htmlFor="datetoday" >Date: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="date" name="datetoday" value={invoice.date} 
+                                    />
+                                    <label htmlFor="payperiod">Pay Period: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="text" name="payperiod" value={invoice.payperiod} placeholder='mm/dd/yyyy - mm/dd/yyyy'
+                                    />
+
+                                    <label htmlFor="client">Client: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        name="client" value={invoice.role} placeholder='Client'
+                                    />
+                                    <label htmlFor="rate">Rate: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="number" name="rate" value={invoice.rate} placeholder='Rate of pay'
+                                    />
+                                    <label htmlFor="frequency">Per: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="number" name="frequency" value={invoice.frequency} placeholder='Minute/Half-Hour/Hour'
+                                    />
+                                    <label htmlFor="temptotal">Total: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="number" name="temptotal" value={invoice.temptotal} placeholder='Total'
+                                    />
+                                    <label htmlFor="arisefee">Arise Fee: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="text" name="arisefee" value='$19.75'
+                                    />
+                                    <label htmlFor="callumfee">Callum Ent. Fee: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="text" name="callumfee" value='10%'
+                                    />
+                                    <label htmlFor="totaldue">Total Due this period: </label>
+                                    <input
+                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                        type="number" name="totaldue" value={invoice.totaldue} 
+                                    />
+<br/>
+
+<br/>
+
+                                    <button onClick={deleteInvoice}>Delete Invoice</button>
 
 
-            <div>Type in fields below to edit Invoice Info
-
-        <InvoicesContainerStyle>
-            
-                    {this.state.invoices.map(invoice => {
-                        const deleteInvoice = () => {
-
-                            return this.handleDelete(invoice._id)
-
-                        }
-
-                        return (
-
-                            <InvoiceStyles>
-
-                                <input
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    type="text" name="name" placeholder='Name'
-                                    value={invoice.name}
-                                />
-
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="image" placeholder='Photo'
-                                />                   <img src={invoice.image} alt="invoice pic" />
-
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="link"  placeholder='Link to invoice'
-                                />
-                                <Link to=''>{invoice.link}</Link>
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="synopsis" value={invoice.synopsis} placeholder='Synopsis'
-                                />
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="role" value={invoice.role} placeholder='Your Role'
-                                />
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="type" value={invoice.type} placeholder='Type of Work...invoice/music video/'
-                                />
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="year" value={invoice.year} placeholder='Year released'
-                                />
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="location" value={invoice.location} placeholder='Location'
-                                />
-                                <textarea
-                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                    name="awards" value={invoice.awards} placeholder='Awards'
-                                />
-                                <button onClick={deleteInvoice}>Delete Invoice</button>
+                                </InvoiceStyles>
 
 
-                            </InvoiceStyles>
+                            )
 
-
-                        )
-                        
-                    })}
-                </InvoicesContainerStyle>
-                    </div>                
+                        })}
+                    </InvoicesContainerStyle>
                 </div>
-                )
-            }
-        }
-        
+            </div>
+        )
+    }
+}
+
 export default EmployeeShow

@@ -9,31 +9,31 @@ display:flex;
 *{
     margin: 0;
 }
+font-family: helvetica;
+font-size: 30px;
+color: white;
+text-shadow: 1px 1px 1px black;
 align-items: center;
 justify-content: center;
-
-img{
+background-color: #587d9689;
+// img{
     
-  position: relative;
-  z-index: -2;
-//   height: 114vh;
-width: 100vw;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-//   margin-top: 100;
-
-
-
-}`
+// //   position: relative;
+// //   z-index: -2;
+//      width: 20vw;
+//      background-size: cover;
+//      background-repeat: no-repeat;
+// //   margin-top: 100;
+// }
+`
 
 const CountStyles = styled.div`
     z-index: 1;
-    position: absolute;
-    background-size: 10%;
-    width: -30%;
-    height: -10%;
-    margin-top: -10%;
+    // position: absolute;
+    // background-size: 10%;
+    // width: -30%;
+    height: 100vw;
+    // margin-top: -10%;
     
 `
 const HoverButton = styled.div`
@@ -54,10 +54,8 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles>
-                        Welcome to NoBu Shorts <br/>
-                        A space for Independent Invoicemakers to display their work! <br/>
-                        Although the invoice may have "No Budget" <br/>
-                        it doesn't have to look that way!
+                        
+                        Callum Enterprise Invoice
                        <br/> <Link to="/employees">
                        <HoverButton>
                         <button>Click to Enter </button>
@@ -65,7 +63,7 @@ class Home extends Component {
                         </Link>
   {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
                      </CountStyles> 
-                    <img src="/images/blankScreenTheatre3.png" alt="curtain" />
+                    {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                 </ImgStyles>
 
             </div>

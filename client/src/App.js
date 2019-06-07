@@ -6,7 +6,6 @@ import Invoices from './components/Invoices'
 import Employees from './components/Employees'
 import Info from './components/Info'
 import EmployeeShow from './components/EmployeeShow';
-import infoShow from './components/infoShow';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 
@@ -27,7 +26,6 @@ class App extends Component {
             <Route exact path="/invoices/:invoiceId" component={Invoices}/>
             <Route exact path="/employees/:employeeId" component={EmployeeShow}/>
             <Route exact path="/infos/:infoId" component={Info}/>
-            <Route exact path='/api/invoices/:invoiceId/infoId' component={infoShow}/>
             <Route exact path="/employees/:employeeId/profile/" component={Profile}/>
             <Route exact path="/signup" component={SignUp}/>
 

@@ -76,10 +76,10 @@ class Employee extends Component {
     employees: [],
     newEmployee: {
       employeename: '',
-      password: '',
+      idnumber: '',
       email: '',
-      bio: '',
-      image: '',
+      phone: '',
+      
     }
   }
 
@@ -123,8 +123,7 @@ class Employee extends Component {
               <EmployeeContainer>
                 <Link to={`/employees/${employee._id}`}> 
                 <h2>{employee.employeename}</h2>  <br/>
-                <ProImg><img src={employee.image} alt="profile pic"/></ProImg>
-                  <br />
+                
                 </Link>
                 <h5> {employee.bio}</h5> 
                 <br />
@@ -141,7 +140,7 @@ class Employee extends Component {
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />
             </div>
             <div>
-              <label htmlFor="password">Password: </label>
+              <label htmlFor="idnumber">ID Number: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.password} type="password" name="password" />
             </div>
             <div>
@@ -149,13 +148,10 @@ class Employee extends Component {
               <input onChange={this.handleChange} value={this.state.newEmployee.email} type="text" name="email" />
             </div>
             <div>
-              <label htmlFor="bio">Bio: </label>
+              <label htmlFor="phone">Phone: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.bio} type="text" name="bio" />
             </div>
-            <div>
-              <label htmlFor="image">Image: </label>
-              <input onChange={this.handleChange} value={this.state.newEmployee.image} type="text" name="image" />
-            </div>
+
             <div>
               <label htmlFor="invoices">Invoices: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />

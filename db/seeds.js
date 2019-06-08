@@ -6,7 +6,8 @@ const mongoose = require('./connections')
 
 const invoice1 = new Invoice({
     date: 06/01/2019,
-    payperiod: 05/15/2019, 
+    payperiodstart: 05/15/2019, 
+    payperiodend: 05/30/2019, 
     name: 'Nola Darling',
     idnumber: 'CSP123456',
     client: 'Comcast',
@@ -19,7 +20,8 @@ const invoice1 = new Invoice({
 })
 const invoice2 = new Invoice({
     date: 06/01/2019,
-    payperiod: 05/15/2019, 
+    payperiodstart: 05/15/2019, 
+    payperiodend: 05/30/2019,  
     name: 'Sha Bizness',
     idnumber: 'CSP489623',
     client: 'Comcast',
@@ -33,7 +35,8 @@ const invoice2 = new Invoice({
 
 const invoice3 = new Invoice({
     date: 06/01/2019,
-    payperiod: 05/15/2019, 
+    payperiodstart: 05/15/2019, 
+    payperiodend: 05/30/2019, 
     name: 'Taminck Fortune',
     idnumber: 'CSP356748',
     client: 'Comcast',

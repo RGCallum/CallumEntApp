@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom'
 
 
 const InvoiceStyles = styled.div`
-  display: flex;
+  display: block;
   position: relative;
   flex-direction: column;
-  width: 600px;
-  height: 600px;
+
   background: rgb(43, 172, 174, 0.6);
   border-radius: 2px;
   border: inset 5;
@@ -136,9 +135,8 @@ class EmployeeShow extends Component {
     handleCreateNewInvoice = () => {
         const employeeId = this.props.match.params.employeeId
         const payload = {
-            name: 'Invoice Name',
-            image: 'image',
-            link: 'link',
+            name: '',
+            
             //   info: 'Invoice Description'
 
         }
@@ -214,65 +212,71 @@ class EmployeeShow extends Component {
                             return (
 
                                 <InvoiceStyles>
-
-                                    <label htmlFor="employeename">{this.state.employee.employeename} </label>
+<table border='1'><tr></tr>
+<tr></tr>
+                                        <tr></tr>
+                                        <tr><td>Invoice
+</td></tr>
+                                        
+                                    <label htmlFor="employeename">{this.state.employee.employeename} </label><br/>
                                     <label htmlFor="idnumber" >{this.state.employee.idnumber} </label>
 <br/>
                                     <label htmlFor="datetoday" >Date: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
-                                        type="date" name="datetoday" value={invoice.date} 
-                                    />
+                                        type="date" name="date" value={invoice.date} 
+                                    /><br/>
                                     <label htmlFor="payperiod">Pay Period: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="text" name="payperiod" value={invoice.payperiod} placeholder='mm/dd/yyyy - mm/dd/yyyy'
-                                    />
+                                    /><br/>
 
                                     <label htmlFor="client">Client: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
-                                        name="client" value={invoice.role} placeholder='Client'
+                                        type="text" name="client" value={invoice.client} placeholder='Client'
                                     />
                                     <label htmlFor="rate">Rate: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="number" name="rate" value={invoice.rate} placeholder='Rate of pay'
                                     />
                                     <label htmlFor="frequency">Per: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="number" name="frequency" value={invoice.frequency} placeholder='Minute/Half-Hour/Hour'
                                     />
                                     <label htmlFor="temptotal">Total: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="number" name="temptotal" value={invoice.temptotal} placeholder='Total'
                                     />
                                     <label htmlFor="arisefee">Arise Fee: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="text" name="arisefee" value='$19.75'
                                     />
                                     <label htmlFor="callumfee">Callum Ent. Fee: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="text" name="callumfee" value='10%'
                                     />
                                     <label htmlFor="totaldue">Total Due this period: </label>
-                                    <input
+                                    <textarea
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                         type="number" name="totaldue" value={invoice.totaldue} 
                                     />
+</table>
 <br/>
 
 <br/>

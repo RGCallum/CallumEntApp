@@ -12,7 +12,7 @@ const Invoice = new Schema({
     temptotal: Number,
     arisefee: Number,
     callumfee: Number,
-    totaldue: String
+    totaldue: Number
 })
 
 module.exports = mongoose.model('Invoice', Invoice)

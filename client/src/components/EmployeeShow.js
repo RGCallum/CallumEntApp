@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 
-
-
 const InvoiceStyles = styled.div`
   display: flex;
   position: relative;
@@ -18,7 +16,6 @@ const InvoiceStyles = styled.div`
   margin: 10px 0;
   
  
-
   button {
     position: absolute;
     bottom: 5px;
@@ -37,13 +34,11 @@ const InvoiceStyles = styled.div`
     color: blue; 
   }
 
-  
 
   input {
     height: 30%;
-    
     font-size: 13px;
-
+    font-family: helvetica;
   }
   textarea {
     height: 70%;
@@ -229,13 +224,13 @@ class EmployeeShow extends Component {
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="date" name="payperiodstart" value={invoice.payperiodstart} placeholder='mm/dd/yyyy - mm/dd/yyyy'
+                                            type="date" name="payperiodstart" value={invoice.payperiodstart} 
                                         /><br />
                                         <label htmlFor="payperiodend">Pay Period End: </label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="date" name="payperiodend" value={invoice.payperiodend} placeholder='mm/dd/yyyy - mm/dd/yyyy'
+                                            type="date" name="payperiodend" value={invoice.payperiodend} 
                                         /><br />
                                         <label htmlFor="client">Client: </label>
                                         <input
@@ -259,7 +254,7 @@ class EmployeeShow extends Component {
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="frequency" value={invoice.frequency} placeholder='Minute/Half-Hour/Hour'
+                                            type="number" name="frequency" value={invoice.frequency} placeholder='Time worked'
                                         />
                                         <label htmlFor="subtotal">Subtotal: </label>
                                         <input

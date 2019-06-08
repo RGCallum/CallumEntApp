@@ -12,7 +12,7 @@ const invoice1 = new Invoice({
     client: 'Comcast',
     frequency: 725,
     rate: .023,
-    temptotal: 166.95,
+    subtotal: 166.95,
     arisefee: 19.75,
     callumfee: .10,
     totaldue: 229.20
@@ -25,7 +25,7 @@ const invoice2 = new Invoice({
     client: 'Comcast',
     frequency: 725,
     rate: .023,
-    temptotal: 166.95,
+    subtotal: 166.95,
     arisefee: 19.75,
     callumfee: .10,
     totaldue: 229.20
@@ -39,7 +39,7 @@ const invoice3 = new Invoice({
     client: 'Comcast',
     frequency: 725,
     rate: .023,
-    temptotal: 166.95,
+    subtotal: 166.95,
     arisefee: 19.75,
     callumfee: .10,
     totaldue: 229.20

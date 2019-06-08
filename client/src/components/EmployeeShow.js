@@ -112,7 +112,7 @@ class EmployeeShow extends Component {
             client: '',
             frequency: '',
             rate: '',
-            temptotal: '',
+            subtotal: '',
             arisefee: '',
             callumfee: '',
             totaldue: '',
@@ -219,7 +219,7 @@ class EmployeeShow extends Component {
                                         <label htmlFor="idnumber" >{this.state.employee.idnumber} </label>
                                         <br />
                                         <label htmlFor="date" >Date: </label>
-                                        <textarea
+                                        <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="date" name="date" value={invoice.date}
@@ -255,29 +255,29 @@ class EmployeeShow extends Component {
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="number" name="frequency" value={invoice.frequency} placeholder='Minute/Half-Hour/Hour'
                                         />
-                                        <label htmlFor="temptotal">Total: </label>
+                                        <label htmlFor="subtotal">Subtotal: </label>
                                         <textarea
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="temptotal" value={invoice.rate * invoice.frequency} placeholder='Total'
+                                            type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)} 
                                         />
                                         <label htmlFor="arisefee">Arise Fee: </label>
                                         <textarea
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="text" name="arisefee" value='$19.75'
+                                            type="number" name="arisefee" value={invoice.arisefee}
                                         />
                                         <label htmlFor="callumfee">Callum Ent. Fee: </label>
                                         <textarea
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="callumfee" id='callumfee' value={invoice.rate * invoice.frequency *.10} placeholder='10%'
+                                            type="number" name="callumfee" value={(invoice.rate * invoice.frequency *.10).toFixed(2)} 
                                         />
                                         <label htmlFor="totaldue">Total Due this period: </label>
                                         <textarea
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="totaldue" value={invoice.temptotal - invoice.callumfee - invoice.arisefee}
+                                            type="number" name="totaldue" value={(.10 *-invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - invoice.arisefee).toFixed(2)} 
                                         />
                                     <br />
 

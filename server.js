@@ -19,7 +19,7 @@ connection.on('error', (err) => {
 }) 
 
 app.use(bodyParser.json());
-app.get('/employees', (req,res) => {
+app.get('/placeholder', (req,res) => {
   res.send('WTF is up world 2019!')
 })
 app.use(express.urlencoded({ extended: true }));

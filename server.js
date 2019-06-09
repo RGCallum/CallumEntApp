@@ -19,17 +19,20 @@ connection.on('error', (err) => {
 }) 
 
 app.use(bodyParser.json());
-app.get('/placeholder', (req,res) => {
+app.get('/helloworld', (req,res) => {
   res.send('WTF is up world 2019!')
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(__dirname + '/client/build/'));
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/build/index.html')
-});
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, '/client/build')));
+// Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+  });
+}
 
 app.use('/', routes);
 

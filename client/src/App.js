@@ -8,12 +8,7 @@ import Info from './components/Info'
 import EmployeeShow from './components/EmployeeShow';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
-import {
-  ReactiveBase,
-  CategorySearch,
-  RatingsFilter,
-  ResultCard
-} from '@appbaseio/reactivesearch';
+
 
 
 

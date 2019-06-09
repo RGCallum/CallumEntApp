@@ -4,11 +4,18 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const routes = require('./routes/index')
-const path = require("path")
+const io = require('socket.io')();
 
 mongoose.connect(process.env.MONGODB_URI); 
 
-
+io.on('connection', (client) => {
+  client.on('subscribeToTimer', (interval) => {
+    console.log('client is subscribing to timer with interval ', interval);
+    setInterval(() => {
+      client.emit('timer', new Date());
+    }, interval);
+  });
+});
 const connection = mongoose.connection;
 connection.on('connected', () => {
   console.log('Mongoose Connected Successfully')
@@ -20,7 +27,7 @@ connection.on('error', (err) => {
 
 app.use(bodyParser.json());
 app.get('/', (req,res) => {
-  res.send('WTF is up world 2019!')
+  res.send('WTF is up world!')
 })
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

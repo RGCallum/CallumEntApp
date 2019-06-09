@@ -1,8 +1,8 @@
 {
-  "name": "CallumApp",
+  "name": "callumapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "yep",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.19.0",
@@ -24,7 +24,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",

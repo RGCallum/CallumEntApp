@@ -3,6 +3,7 @@ const router = express.Router()
 const employeeController = require('../controllers/employeeController')
 const invoicesController = require('../controllers/invoicesController')
 const infoController = require('../controllers/infoController')
+import '@appbaseio/reactivesearch/dist/css/style.min.css';
 
 
 router.get('/api/employees', employeeController.index)

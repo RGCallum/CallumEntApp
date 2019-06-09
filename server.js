@@ -21,7 +21,7 @@ connection.on('error', (err) => {
 app.use(bodyParser.json());
 app.get('/placeholder', (req,res) => {
   res.send('WTF is up world 2019!')
-})
+});
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -29,9 +29,9 @@ app.use(express.static(__dirname + '/client/build/'));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
-})
+});
 
-app.use('/', routes)
+app.use('/', routes);
 
 
 

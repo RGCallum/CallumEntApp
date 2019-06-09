@@ -32,10 +32,10 @@ app.get('/', (req,res) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(__dirname + 'client/build/'));
+app.use(express.static(__dirname + '/client/build/'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'client/build/index.html')
+    res.sendFile(__dirname + '/client/build/index.html')
 })
 
 app.use('/', routes)

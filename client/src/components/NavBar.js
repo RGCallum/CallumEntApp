@@ -9,7 +9,6 @@ const NavBarStyles = styled.div`
 }
 display: flex ;
 flex-direction: row ;
-flex-wrap: wrap ;
 justify-content: flex-start ;
 align-items: center ;
 align-content: flex-start ;
@@ -19,8 +18,6 @@ font-weight: 200;
 color: white;
 font-size: 13px;
 font-family: helvetica;
-margin: 0;
-
 
 i{
     color: turquoise;
@@ -52,12 +49,12 @@ class NavBar extends Component {
 
             <NavBarStyles>
                 <LogoStyles>
-                <img src="/images/CAL_ent_logo.png" alt="logo" />
+                <Link to="/"> <img src="/images/CAL_ent_logo.png" alt="logo" /></Link>
 
             </LogoStyles>
                 <div>
 
-                    <Link to="/"> <i className="fa fa-home"></i>Home</Link>
+                    {/* <Link to="/"> <i className="fa fa-home"></i>Home</Link> */}
                     <Link to="/employees"> <i className="fa fa-users"></i>Employees</Link>
                     {/* <Link to="/signup"> <i className="fa fa-user-plus"></i>Sign-Up</Link> */}
 

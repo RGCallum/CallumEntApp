@@ -32,17 +32,17 @@ app.get('/', (req,res) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static(__dirname + '/client/build/'));
+app.use(express.static(__dirname + 'client/build/'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/client/build/index.html')
+    res.sendFile(__dirname + 'client/build/index.html')
 })
 
 app.use('/', routes)
 
 // const port = 8000;
 // io.listen(port);
-// console.log('socket io is listening on port ', port);
+console.log('socket io is listening on port ', port);
 
 const PORT = process.env.PORT || 3001;
 

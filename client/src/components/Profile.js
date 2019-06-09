@@ -12,7 +12,7 @@ const EmployeeStyles = styled.div`
   position: relative;
   flex-direction: column;
   width: 600px;
-  height: 600px;
+//   height: 600px;
   background: rgb(43, 172, 174, 0.6);
   border-radius: 2px;
   border: inset 5;
@@ -26,20 +26,9 @@ const EmployeeStyles = styled.div`
     background-color: red;
     border-radius: 5px;
   }
-  .button2{
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    color: blue; 
-  }
-  input,
+
+ 
   
-  textarea {
-      height: 90px;
-    background-color: transparent;
-    border: none;
-     
-  }
   input {
     height: 30%;
     
@@ -48,7 +37,8 @@ const EmployeeStyles = styled.div`
   }
   textarea {
     height: 70%;
-
+    background-color: transparent;
+    // border: none;
   }
   img{
    max-width: 250px;
@@ -77,10 +67,9 @@ class Profile extends Component {
     state = {
         employee: {},
         employeename: '',
-        password: '',
+        idnumber: '',
         email: '',
-        bio: '',
-        image: '',
+        phone: '',
     }
 
     componentDidMount() {
@@ -121,7 +110,7 @@ class Profile extends Component {
         console.log(employeeId)
         axios.patch(`/api/employees/${employeeId}`, updatedEmployee)
         .then((res) => {
-        console.log(res.data)
+        console.log(res.data, 'updates')
         this.setState({ employee: this.state.employee })
             })
     }
@@ -142,39 +131,32 @@ class Profile extends Component {
 
                     <EmployeeStyles>
 
-                        <input
+                        <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
                             type="text" name="employeename" placeholder={this.state.employee.employeename}
                             value={this.state.employee.employeename}
                         />
-                        <input
-                            onBlur={() => this.handleUpdate()}
-                            onChange={(event) => this.handleChange(event)}
-                            name="image" placeholder='Change Photo'
-                            // value={this.state.employee.image} 
-                        />   
-                        <img src={this.state.employee.image} alt="employee pic" />
 
-                        <input
+                        <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
-                            type='password' placeholder='Change Password'
-                            // value={this.state.employee.password} 
-                            name="password" 
+                            type='text' placeholder='idnumber'
+                            value={this.state.employee.idnumber} 
+                            name="idnumber" 
                         />                   
 
-                        <input
+                        <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
-                            name="email" placeholder='Email'
+                            type='text' name="email" placeholder='Email'
                             value={this.state.employee.email} 
                         />
                         <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={this.handleChange}
-                            name="bio" placeholder='Your Bio'
-                            value={this.state.employee.bio} 
+                            type='text' name="phone" placeholder='phone'
+                            value={this.state.employee.phone} 
                         />
                         
                         <Link to={`/employees`}> 

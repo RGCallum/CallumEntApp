@@ -122,11 +122,12 @@ class Employee extends Component {
 
               <EmployeeContainer>
                 <Link to={`/employees/${employee._id}`}> 
-                <h2>{employee.employeename}</h2>  <br/>
+                <h2>{employee.employeename}</h2>  
                 
                 </Link>
-                <h5> {employee.bio}</h5> 
-                <br />
+                <h5> {employee.idnumber}</h5> 
+                <h5> {employee.email}</h5> 
+                <h5> {employee.phone}</h5> 
               </EmployeeContainer>
 
             </div>

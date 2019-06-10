@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const routes = require('./routes/index');
 const path = require('path');
-var passport = require('passport');
+// var passport = require('passport');
 
 mongoose.connect(process.env.MONGODB_URI); 
 
@@ -28,8 +28,8 @@ app.use(express.json());
 
 app.use(express.static(__dirname + '/client/build/'));
 
-app.use(passport.initialize()); // after line no.20 (express.static)
-require("./config/passport");
+// app.use(passport.initialize()); // after line no.20 (express.static)
+// require("./config/passport");
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employees from './Employees';
 import { GoogleLogin } from 'react-google-login';
-import { GoogleLogout } from 'react-google-login';
 
 
 const ImgStyles = styled.div`
@@ -73,12 +72,7 @@ class Home extends Component {
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
-  <GoogleLogout
-      buttonText="Logout"
-    //   onLogoutSuccess={logout}
-
-    >
-    </GoogleLogout>
+ 
                         </Link>
   {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
                      </CountStyles> 

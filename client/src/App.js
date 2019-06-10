@@ -8,7 +8,6 @@ import Info from './components/Info'
 import EmployeeShow from './components/EmployeeShow';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
-import Googlelogout from './components/Googlelogout';
 
 
 
@@ -29,7 +28,7 @@ class App extends Component {
             <Route exact path="/employees/:employeeId" component={EmployeeShow}/>
             <Route exact path="/infos/:infoId" component={Info}/>
             <Route exact path="/employees/:employeeId/profile/" component={Profile}/>
-            <Route exact path="/Googlelogout" component={Googlelogout}/>
+            <Route exact path="/signup" component={SignUp}/>
 
 
             

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employees from './Employees';
+import { GoogleLogin } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 
 
 const ImgStyles = styled.div`
@@ -49,6 +51,10 @@ button {
 
 class Home extends Component {
     render() {
+        const responseGoogle = (response) => {
+            console.log(response);
+          }
+         
         return (
             <div>
 
@@ -60,12 +66,26 @@ class Home extends Component {
                        <HoverButton>
                         <button>Click to Enter </button>
                         </HoverButton>
+                        <GoogleLogin
+    clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
+  <GoogleLogout
+      buttonText="Logout"
+    //   onLogoutSuccess={logout}
+
+    >
+    </GoogleLogout>
                         </Link>
   {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
                      </CountStyles> 
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                 </ImgStyles>
 
+               
             </div>
         );
     }

@@ -8,6 +8,7 @@ import Info from './components/Info'
 import EmployeeShow from './components/EmployeeShow';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
+import Googlelogout from './components/Googlelogout';
 
 
 
@@ -16,6 +17,7 @@ import SignUp from './components/SignUp';
 
 
 class App extends Component {
+
   render() {
     return (
       <Router>
@@ -27,7 +29,7 @@ class App extends Component {
             <Route exact path="/employees/:employeeId" component={EmployeeShow}/>
             <Route exact path="/infos/:infoId" component={Info}/>
             <Route exact path="/employees/:employeeId/profile/" component={Profile}/>
-            <Route exact path="/signup" component={SignUp}/>
+            <Route exact path="/Googlelogout" component={Googlelogout}/>
 
 
             

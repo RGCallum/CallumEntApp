@@ -20,7 +20,7 @@ connection.on('error', (err) => {
 }) 
 
 app.use(bodyParser.json());
-app.get('/helloworld', (req,res) => {
+app.get('/', (req,res) => {
   res.send('WTF is up world 2019!')
 });
 app.use(express.urlencoded({ extended: true }));

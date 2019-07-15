@@ -9,23 +9,25 @@ const InvoiceStyles = styled.div`
   position: relative;
   flex-direction: column;
   width: 600px;
-  height: 600px;
+//   height: 900px;
   background: rgb(43, 172, 174, 0.6);
   border-radius: 2px;
   border: inset 5;
   margin: 10px 0;
-  
+  font-family: helvetica;
  
   button {
     position: absolute;
     bottom: 5px;
-    right: 200px;
+    right: 50px;
     color: white;
     background-color: red;
     border-radius: 5px;
     padding: 10px 10px;
     font-size: 10px;
+    
   }
+
 
   .button2{
     position: absolute;
@@ -33,12 +35,18 @@ const InvoiceStyles = styled.div`
     left: 10px;
     color: blue; 
   }
+  #print-button {
+    // display: none;
+    width: 50px;
+    text-decoration: none;
+}
 
 
   input {
     height: 30%;
     font-size: 13px;
     font-family: helvetica;
+    color: red;
   }
   textarea {
     height: 70%;
@@ -225,14 +233,14 @@ class EmployeeShow extends Component {
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="date" name="payperiodstart" value={invoice.payperiodstart} 
-                                        /><br />
+                                        />
                                         <label htmlFor="payperiodend">Pay Period End: </label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="date" name="payperiodend" value={invoice.payperiodend} 
                                         /><br />
-                                        <label htmlFor="client">Client: </label>
+                                        <label htmlFor="client">Client1: </label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -256,11 +264,36 @@ class EmployeeShow extends Component {
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="number" name="frequency" value={invoice.frequency} placeholder='Time worked'
                                         />
+                                        
+                                        <label htmlFor="client2">Client2: </label>
+                                        <input
+                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                            type="text" name="client2" value={invoice.client2} placeholder='Client2'
+                                        />
+                                        <label htmlFor="rate2">Rate $: </label>
+                                        <input
+                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                            type="number" name="rate2" value={invoice.rate2} placeholder='Rate of pay2'
+                                        />
+                                        <label htmlFor="frequency2">Per:
+                                            <select>
+                                                <option value="minute">Minute</option>
+                                                <option selected value="halfhour">Half Hour</option>
+                                                <option value="hour">Hour</option>
+                                            </select>
+                                        </label>
+                                        <input
+                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                            type="number" name="frequency2" value={invoice.frequency2} placeholder='Time worked2'
+                                        />
                                         <label htmlFor="subtotal">Subtotal: </label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)} 
+                                            type="number" name="subtotal" value={(invoice.rate * invoice.frequency+invoice.rate2 * invoice.frequency2).toFixed(2)} 
                                         />
                                         <label htmlFor="arisefee">Arise Fee: </label>
                                         <input
@@ -272,21 +305,23 @@ class EmployeeShow extends Component {
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="callumfee" value={(invoice.rate * invoice.frequency *.10).toFixed(2)} 
+                                            type="number" name="callumfee" value={(invoice.rate * invoice.frequency *.10 + invoice.rate2 * invoice.frequency2 *.10).toFixed(2)} 
                                         />
                                         <label htmlFor="totaldue">Total Due this period: </label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="totaldue" value={(.10 *-invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - invoice.arisefee).toFixed(2)} 
+                                            type="number" name="totaldue" value={((.10 *-invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 *-invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - invoice.arisefee).toFixed(2)} 
                                         />
                                     <br />
 
                                     <br />
 
-                                    <button onClick={deleteInvoice}>Delete Invoice</button>
-
-
+                                    <button onClick={deleteInvoice} id="delBtn">Delete Invoice</button>
+                                   
+                                    <a href="javascript:window.print()"><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
+                                    <a href="javascript:window.print()"><img src="https://banner2.kisspng.com/20180629/sjy/kisspng-pdf-computer-icons-download-pdf-5b3643b8acb769.6550170315302829367075.jpg" alt="print this page" id="print-button" />Select "Save As PDF" under destination</a>
+                                   
                                 </InvoiceStyles>
 
 

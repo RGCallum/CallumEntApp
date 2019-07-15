@@ -30,11 +30,7 @@ background-color: #587d9689;
 
 const CountStyles = styled.div`
     z-index: 1;
-    // position: absolute;
-    // background-size: 10%;
-    // width: -30%;
     height: 100vw;
-    // margin-top: -10%;
     
 `
 const HoverButton = styled.div`
@@ -44,22 +40,29 @@ button {
     color: white;
     background-color: blue;
     border-radius: 5px;
+    
   }
 `
+const LoginOutStyles = styled.div`
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+`
+
 
 
 class Home extends Component {
     render() {
         const responseGoogle = (response) => {
             console.log(response);
-          }
-         
+        }
+
         return (
             <div>
 
                 <ImgStyles>
                     <CountStyles>
-                        
+
                         Callum Enterprise Invoice
                        <br/> <Link to="/employees">
                        <HoverButton>
@@ -74,12 +77,12 @@ class Home extends Component {
   /> */}
  
                         </Link>
-  {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
-                     </CountStyles> 
+                        {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
+                    </CountStyles>
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                 </ImgStyles>
 
-               
+
             </div>
         );
     }

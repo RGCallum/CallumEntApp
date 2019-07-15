@@ -17,6 +17,8 @@
     "mongo": "^0.1.0",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
     "postinstall": "^0.4.2",
     "react": "^16.8.6",
     "react-router": "^5.0.0",

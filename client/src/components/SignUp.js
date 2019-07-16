@@ -61,7 +61,7 @@ class Employee extends Component {
       employees: [],
       newEmployee: {
         employeename: '',
-        password: '',
+        idnumber: '',
         email: '',
         bio: '',
         image: '',
@@ -113,8 +113,8 @@ class Employee extends Component {
               <br/>
 
               <div>
-                <label htmlFor="password">Password: </label>
-                <input onChange={this.handleChange} value={this.state.newEmployee.password} type="password" name="password" />
+                <label htmlFor="idnumber">ID Number: </label>
+                <input onChange={this.handleChange} value={this.state.newEmployee.idnumber} type="idnumber" name="idnumber" />
               </div>
               <br/>
 

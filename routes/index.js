@@ -38,4 +38,6 @@ router.delete('/api/infos/:infoId', infoController.delete)
 router.patch('/api/infos/:infoId', infoController.update)
 router.post('/api/invoices/:invoiceId/infoId', infoController.create)
 
+router.patch('/api/employees/:employeeId/profile', employeeController.update)
+
 module.exports = router

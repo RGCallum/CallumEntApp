@@ -142,7 +142,7 @@ class Employee extends Component {
             </div>
             <div>
               <label htmlFor="idnumber">ID Number: </label>
-              <input onChange={this.handleChange} value={this.state.newEmployee.password} type="password" name="password" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.idnumber} type="idnumber" name="idnumber" />
             </div>
             <div>
               <label htmlFor="email">Email: </label>

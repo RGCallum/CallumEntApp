@@ -51,6 +51,7 @@ class Info extends Component {
       <div> 
         {/* <h3> All About {this.state.invoice.name}'s </h3> */}
         invoices show
+
                 <div>
                     {this.state.infos.map((info) => (
                         <div key={info._id}>

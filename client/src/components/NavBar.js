@@ -8,9 +8,6 @@ const NavBarStyles = styled.div`
     
 }
 display: flex ;
-flex-direction: row ;
-justify-content: flex-start ;
-align-items: center ;
 align-content: flex-start ;
 padding: 10px;
 background: black;
@@ -18,6 +15,9 @@ font-weight: 200;
 color: white;
 font-size: 13px;
 font-family: helvetica;
+width: 100%;
+margin-left: -8px;
+Margin-top: -8px;
 
 i{
     color: turquoise;

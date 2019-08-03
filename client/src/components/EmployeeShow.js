@@ -11,11 +11,13 @@ const InvoiceStyles = styled.div`
   width: 800px;
 //   height: 100vh;
   background: rgb(43, 172, 174, 0.6);
+
   border-radius: 3px;
-  border: gray inset 2px;
+  border: gray inset 1px;
   margin: 10px 0;
   font-family: helvetica;
 //   color: white;
+font-size: 12px;
 
  
   button {
@@ -256,6 +258,7 @@ class EmployeeShow extends Component {
                             return (
 
                                 <InvoiceStyles>
+                                        <label htmlFor="invoiceNum">Invoice: {invoice._id} </label><br />
 
                                     <LogoStyles>
                                         <img src="/images/CAL_ent_logo.png" alt="logo" />

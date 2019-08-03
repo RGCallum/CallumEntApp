@@ -27,7 +27,7 @@ router.get(
 );
 
 router.get('/api/employees/:employeeId/invoiceId', invoicesController.index)
-router.get('/api/employees/invoices/:invoiceId', invoicesController.show)
+router.get('/api/employees/:employeeId/invoices/:invoiceId', invoicesController.show)
 router.delete('/api/invoices/:invoiceId', invoicesController.delete)
 router.patch('/api/invoices/:invoiceId', invoicesController.update)
 router.post('/api/employees/:employeeId/invoices', invoicesController.create)
@@ -38,6 +38,6 @@ router.delete('/api/infos/:infoId', infoController.delete)
 router.patch('/api/infos/:infoId', infoController.update)
 router.post('/api/invoices/:invoiceId/infoId', infoController.create)
 
-router.patch('/api/employees/:employeeId/profile', employeeController.update)
+// router.patch('/api/employees/:employeeId/profile', employeeController.update)
 
 module.exports = router

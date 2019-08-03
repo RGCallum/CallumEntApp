@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employees from './Employees';
-// import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 
 
 const ImgStyles = styled.div`
@@ -11,36 +11,45 @@ display:flex;
     margin: 0;
 }
 font-family: helvetica;
-font-size: 30px;
-color: white;
-text-shadow: 1px 1px 1px black;
+font-size: 90px;
+color: black;
+font-weight: 700;
+text-shadow: 1px 1px 1px #587d9689;
 align-items: center;
 justify-content: center;
-background-color: #587d9689;
-// img{
+// background-color: #587d9689;
+z-index: 1;
+img{
     
-// //   position: relative;
-// //   z-index: -2;
-//      width: 20vw;
-//      background-size: cover;
-//      background-repeat: no-repeat;
-// //   margin-top: 100;
-// }
+  position: absolute;
+    z-index: -2;
+    //  width: 150%;
+     background-size: cover;
+     background-repeat: no-repeat;
+    margin-top: -100px;
+  
+}
 `
 
 const CountStyles = styled.div`
     z-index: 1;
     height: 100vw;
+    text-align: center;
     
 `
 const HoverButton = styled.div`
 button {
+    cursor: pointer;
     bottom: 5px;
     right: 200px;
     color: white;
-    background-color: blue;
+    background-color: #587d96;
     border-radius: 5px;
     
+  }
+  button:hover{
+    background-color: white;
+    color: #587d96;
   }
 `
 const LoginOutStyles = styled.div`
@@ -62,24 +71,24 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles>
+                        CalPay
 
-                        Callum Enterprise Invoice
-                       <br/> <Link to="/employees">
-                       <HoverButton>
-                        <button>Click to Enter </button>
-                        </HoverButton>
-                        {/* <GoogleLogin
-    clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
-    buttonText="Login"
-    onSuccess={responseGoogle}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  /> */}
- 
-                        </Link>
-                        {/* <img id = 'countdown' src="/images/clapping.gif" alt="countdown"/> */}
+                        <br />
+                        <Link to="/employees">
+                            <HoverButton>
+                                <button>Click to Enter </button>
+                            </HoverButton></Link>
+                        <GoogleLogin
+                            clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'} />
+
+
                     </CountStyles>
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
+                    <img src='/images/office.jpeg' alt="people" />
                 </ImgStyles>
 
 

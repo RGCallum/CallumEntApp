@@ -45,7 +45,7 @@ const EmployeeContainer = styled.div`
 border: inset #C0C0C0;
 background-color: #ffffff70;
 width: 30vw;
-border-radius: 15px;
+border-radius: 5px;
 display: flex ;
 flex-direction: column ;
 flex-wrap: wrap ;
@@ -122,7 +122,7 @@ class Employee extends Component {
 
               <EmployeeContainer>
                 <Link to={`/employees/${employee._id}`}> 
-                <h2>{employee.employeename}</h2>  
+                <h3>{employee.employeename}</h3>  
                 
                 </Link>
                 <h5> {employee.idnumber}</h5> 
@@ -134,7 +134,7 @@ class Employee extends Component {
 
           ))} <br/>
 
-          <h3>Sign-Up</h3>
+          <h3>Add New Employee</h3>
           <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="employeename">Employee Name: </label>

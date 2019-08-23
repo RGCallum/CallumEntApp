@@ -1,8 +1,7 @@
 # CallumEntApp
-This invoice app is created with React and MongoDB running on a heroku website.
-I created this app for a customer service business that manages contractors who work with Arise. (more info about that on callumenterprise.com)
+CalPay is a small business payroll app created with MongoDB, Express, React and Node. I created this app for a logistics company and than refactored it for a customer service company.
 The owner needed an invoice app that she can access whether on a computer or phone or anywhere in the world that allowed her to create and manage invoices for her contractors.
-Basically the owner needed 
+Basically the owner needed: 
 1 - Be able to calculate payment and save automatically
 2 - Have a password protected login for other managers to use invoice
 3 - Be able to export and print the invoice, add specific export button that goes .

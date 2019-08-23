@@ -79,7 +79,10 @@ margin-left: 50%;
 {
 .noprint {display:none;}
 }
-
+span{
+    // text-shadow: 1px 1px 1px black;
+    // display: none;
+}
 `
 
 const Topbtns = styled.div`
@@ -303,7 +306,7 @@ class EmployeeShow extends Component {
                 <Topbtns>
                     <div className="noprint">
                         <NameNButtonStyle>
-                            <h1>👩🏾‍🦱{this.state.employee.employeename}'s Invoices </h1>
+                            <h1>👤{this.state.employee.employeename}'s Invoices </h1>
                             <br />
                         </NameNButtonStyle>
                         <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
@@ -334,10 +337,10 @@ class EmployeeShow extends Component {
                                     <LogoStyles>
                                         <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' />
                                         <br />
-                                        <label htmlFor="employeename" className='employeename'>👩🏾‍🦱{this.state.employee.employeename} </label> <br />
-                                        <label htmlFor="idnumber" className='idnumber'> 💳{this.state.employee.idnumber} </label><br />
-                                        <label htmlFor="email" className='email'> ✉️{this.state.employee.email} </label><br />
-                                        <label htmlFor="phone" className='phone'> 📱{this.state.employee.phone} </label>
+                                        <label htmlFor="employeename" className='employeename'> <span> 👤</span>{this.state.employee.employeename} </label> <br />
+                                        <label htmlFor="idnumber" className='idnumber'> <span>💳</span> {this.state.employee.idnumber} </label><br />
+                                        <label htmlFor="email" className='email'>  <span>✉️</span> {this.state.employee.email} </label><br />
+                                        <label htmlFor="phone" className='phone'> <span>📱</span>  {this.state.employee.phone} </label>
 
                                     </LogoStyles>
                                     <TopInvoice>

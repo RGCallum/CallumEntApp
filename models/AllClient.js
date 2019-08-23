@@ -1,7 +1,7 @@
 const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
-const Info = new Schema({
+const AllClient = new Schema({
     name: String,
     synopsis: String,
     role: String,
@@ -12,4 +12,4 @@ const Info = new Schema({
     awards: String
 })
 
-module.exports = mongoose.model('Info', Info)
+module.exports = mongoose.model('AllClient', AllClient)

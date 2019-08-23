@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const employeeController = require('../controllers/employeeController')
 const invoicesController = require('../controllers/invoicesController')
-const infoController = require('../controllers/infoController')
+const allClientController = require('../controllers/allClientController')
 var passport = require('passport');
 
 
@@ -32,11 +32,11 @@ router.delete('/api/invoices/:invoiceId', invoicesController.delete)
 router.patch('/api/invoices/:invoiceId', invoicesController.update)
 router.post('/api/employees/:employeeId/invoices', invoicesController.create)
 
-router.get('/api/invoices/:invoiceId', infoController.index)
-router.get('/api/invoices/:invoiceId', infoController.show)
-router.delete('/api/infos/:infoId', infoController.delete)
-router.patch('/api/infos/:infoId', infoController.update)
-router.post('/api/invoices/:invoiceId/infoId', infoController.create)
+router.get('/api/invoices/:invoiceId', allClientController.index)
+router.get('/api/invoices/:invoiceId', allClientController.show)
+router.delete('/api/allClients/:allClientId', allClientController.delete)
+router.patch('/api/allClients/:allClientId', allClientController.update)
+router.post('/api/invoices/:invoiceId/allClientId', allClientController.create)
 
 // router.patch('/api/employees/:employeeId/profile', employeeController.update)
 

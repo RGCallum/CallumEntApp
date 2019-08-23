@@ -33,6 +33,14 @@ a:visited{
 a:hover{
     color: turquoise;
 }
+@media print
+{
+.noprint {display:none;}
+}
+.noprint{
+    display: flex;
+    justify-content: space-around;
+}
 `
 const LogoStyles = styled.div`
 {
@@ -47,19 +55,20 @@ class NavBar extends Component {
     render() {
         return (
 
-            <NavBarStyles>
-                <LogoStyles>
-                <Link to="/"> <img src="/images/CAL_ent_logo.png" alt="logo" /></Link>
+            <NavBarStyles >
+                <div className="noprint">
+                    <LogoStyles>
+                        <Link to="/"> <img src="/images/CAL_ent_logo.png" alt="logo" /></Link>
 
-            </LogoStyles>
-                <div>
+                    </LogoStyles>
+                    <div>
 
-                    {/* <Link to="/"> <i className="fa fa-home"></i>Home</Link> */}
-                    <Link to="/employees"> <i className="fa fa-users"></i>Employees</Link>
-                    {/* <Link to="/signup"> <i className="fa fa-user-plus"></i>Sign-Up</Link> */}
+                        {/* <Link to="/"> <i className="fa fa-home"></i>Home</Link> */}
+                        <Link to="/employees"> <i className="fa">👩🏾‍🦱👨🏽‍🦳🧔🏾👱🏽‍♀️</i>Employees</Link>
+                        {/* <Link to="/signup"> <i className="fa fa-user-plus"></i>Sign-Up</Link> */}
 
+                    </div>
                 </div>
-
             </NavBarStyles>
         );
     }

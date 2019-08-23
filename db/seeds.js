@@ -1,6 +1,6 @@
 const Employee = require('../models/Employee.js')
 const Invoice = require('../models/Invoice.js')
-const Info = require('../models/Info.js')
+const AllClient = require('../models/AllClient.js')
 const mongoose = require('./connections')
 
 

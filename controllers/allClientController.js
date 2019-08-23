@@ -1,31 +1,31 @@
 const Invoice = require('../models/Invoice')
-const Info = require('../models/Info')
+const AllClient = require('../models/AllClient')
 
-const infoController = {
+const allClientController = {
     index: (req, res) => {
         var invoiceId = req.params.invoiceId
-        Invoice.findById(invoiceId).populate('infos')
+        Invoice.findById(invoiceId).populate('allClients')
             .then((invoice) => {
-                res.send(invoice.infos)
+                res.send(invoice.allClients)
             })
     },
     show: (req, res) => {
-        var infoId = req.params.infoId
-        Info.findById(infoId)
-            .then((info) => {
-                res.send(info)
+        var allClientId = req.params.allClientId
+        AllClient.findById(allClientId)
+            .then((allClient) => {
+                res.send(allClient)
             })
     },
     delete: (req, res) => {
-        var infoId = req.params.infoId
-        Info.findByIdAndDelete(infoId)
+        var allClientId = req.params.allClientId
+        AllClient.findByIdAndDelete(allClientId)
             .then(() => {
                 res.send(200)
             })
     },
     update: (req, res) => {
-        var infoId = req.params.infoId
-        Info.findByIdAndUpdate(infoId, req.body, { new: true })
+        var allClientId = req.params.allClientId
+        AllClient.findByIdAndUpdate(allClientId, req.body, { new: true })
             .then((updatedInvoice) => {
                 updatedInvoice.save()
                 res.send(updatedInvoice)
@@ -36,10 +36,10 @@ const infoController = {
         Invoice.findById(invoiceId)
             .then((invoice) => {
                 console.log(invoice)
-                Info.create(req.body)
+                AllClient.create(req.body)
                     .then((newInvoice) => {
                         console.log(newInvoice)
-                        invoice.infos.push(newInvoice)
+                        invoice.allClients.push(newInvoice)
                         invoice.save()
                         res.send(newInvoice)
                     })
@@ -48,4 +48,4 @@ const infoController = {
 
 }
 
-module.exports = infoController
+module.exports = allClientController

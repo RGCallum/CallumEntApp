@@ -16,7 +16,13 @@ const Invoice = new Schema({
     subtotal: Number,
     arisefee: Number,
     callumfee: Number,
-    totaldue: Number
+    totaldue: Number,
+    allClients: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "AllClient"
+        }
+      ]
 })
 
 module.exports = mongoose.model('Invoice', Invoice)

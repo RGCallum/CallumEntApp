@@ -5,20 +5,39 @@ import styled from 'styled-components'
 
 
 const BkgdColors = styled.div`
+font-size: 12px;
+color: white;
+text-shadow: 1px 1px 10px black;
 display: flex ;
 flex-direction: column ;
 flex-wrap: wrap ;
 justify-content: center ;
 align-items: center ;
 align-content: center ;
-
+font-family: helvetica;
+background-image: url('https://images.pexels.com/photos/1124062/pexels-photo-1124062.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+background-size: cover;
+background-repeat: no-repeat;
+a:visited{
+color: default;
+}
 *{
     margin: 0;
 }
 img{
-  border: inset 2px;
+  // border: inset 2px;
 }
+.addemp{
+  background-color: rgba(255,255,255,0.94);
+padding: 20px;
+border: inset #C0C0C0;
+color: black;
+text-shadow: none;
 
+}
+.overlay{
+  // background-color:  rgba(255,255,255,0.64);
+}
 
 // animation: color-change-5x 30s linear infinite alternate both;
 
@@ -43,9 +62,9 @@ img{
 `
 const EmployeeContainer = styled.div`
 border: inset #C0C0C0;
-background-color: #ffffff70;
-width: 30vw;
-border-radius: 5px;
+background-color: rgba(255,255,255,0.94);
+// width: 30vw;
+// border-radius: 5px;
 display: flex ;
 flex-direction: column ;
 flex-wrap: wrap ;
@@ -54,6 +73,8 @@ align-items: center ;
 align-content: center ;
 padding: 10px;
 box-shadow: 1px 1px 1px;
+color: black;
+text-shadow: none;
 
 `
 
@@ -112,8 +133,9 @@ class Employee extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <BkgdColors>
+          <div className="overlay">
         <br/>
           <h1>My Employees</h1>
 <br/>
@@ -134,8 +156,9 @@ class Employee extends Component {
 
           ))} <br/>
 
-          <h3>Add New Employee</h3>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className='addemp'>
+          <h3>Add New Employee</h3> <br/>
+
             <div>
               <label htmlFor="employeename">Employee Name: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />
@@ -159,6 +182,7 @@ class Employee extends Component {
             </div>
             <button type="submit">Create Employee</button>
           </form>
+          </div>
         </BkgdColors>
       </div>
     );

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 const InvoiceStyles = styled.div`
+
   display: flex;
   justify-content: center;
   position: relative;
@@ -360,11 +361,11 @@ class EmployeeShow extends Component {
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="text" name="client" value={invoice.client} placeholder='Client'
                                         />
-                                        <label htmlFor="rate" className='required-field'>Rate: </label>
+                                       <label htmlFor="rate" className='required-field'>Rate: </label> 
                                         $<input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay'
+                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                         />
                                         <label htmlFor="frequency">Per:
 

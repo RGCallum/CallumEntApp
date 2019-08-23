@@ -37,10 +37,10 @@ a:hover{
 {
 .noprint {display:none;}
 }
-.noprint{
-    display: flex;
-    justify-content: space-around;
-}
+// .noprint{
+//     display: flex;
+//     justify-content: space-around;
+// }
 `
 const LogoStyles = styled.div`
 {

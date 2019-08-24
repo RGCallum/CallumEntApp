@@ -80,9 +80,16 @@ margin-left: 50%;
 .noprint {display:none;}
 }
 span{
-    // text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.4);
     // display: none;
+    font-size: 15px;
 }
+
+  td {
+    // border:1px solid black;
+padding: 10px;
+
+    }
 `
 
 const Topbtns = styled.div`
@@ -337,15 +344,15 @@ class EmployeeShow extends Component {
                                     <LogoStyles>
                                         <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' />
                                         <br />
-                                        <label htmlFor="employeename" className='employeename'> <span> 👤</span>{this.state.employee.employeename} </label> <br />
-                                        <label htmlFor="idnumber" className='idnumber'> <span>💳</span> {this.state.employee.idnumber} </label><br />
-                                        <label htmlFor="email" className='email'>  <span>✉️</span> {this.state.employee.email} </label><br />
+                                        <label htmlFor="employeename" className='employeename'> <span> 👤 </span>{this.state.employee.employeename} </label> <br />
+                                        <label htmlFor="idnumber" className='idnumber'> <span> 💳 </span> {this.state.employee.idnumber} </label><br />
+                                        <label htmlFor="email" className='email'>  <span> ✉️ </span> {this.state.employee.email} </label><br />
                                         <label htmlFor="phone" className='phone'> <span>📱</span>  {this.state.employee.phone} </label>
 
                                     </LogoStyles>
                                     <TopInvoice>
 
-                                        <th> <label htmlFor="date" className='required-field' >📆Today's Date: </label></th>
+                                        <th> <label htmlFor="date" className='required-field' > <span> 📆 </span> Today's Date: </label></th>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -353,9 +360,9 @@ class EmployeeShow extends Component {
                                         /><br />
                                         <br /><br />
                                     </TopInvoice>
-                                    <PeriodInvoice>
+                                    <PeriodInvoice> 
 
-                                        <th>    <label htmlFor="payperiodstart" className='required-field'>🗓Pay Period: </label>  </th>
+                                        <th>    <label htmlFor="payperiodstart" className='required-field'><span> 🗓 </span>Pay Period: </label>  </th>
                                         <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
@@ -372,19 +379,19 @@ class EmployeeShow extends Component {
 
                                     <br /><br />
                                     <Client1Invoice>
-                                        <th> <label htmlFor="client" className='required-field'>🗂Client: </label></th>
+                                        <tr> <td><th><label htmlFor="client" className='required-field'><span> 🗂 </span>Client: </label></th>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="text" name="client" value={invoice.client} placeholder='Client'
-                                        />
-                                        <label htmlFor="rate" className='required-field'>💵Rate: </label>
+                                        /></td> 
+                                     <td>  <th><label htmlFor="rate" className='required-field'><span> 💵 </span>Rate: </label></th>
                                         $<input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
-                                        />
-                                        <label htmlFor="frequency">⌛️Per:
+                                        /></td> 
+                                   <td>   <th><label htmlFor="frequency"><span> ⌛ ️</span>Per: </label></th>
 
                                             <select onClick={this.handleSelectChange}>
 
@@ -393,17 +400,17 @@ class EmployeeShow extends Component {
                                                 <option value="Hour">Hour(s)</option>
                                             </select>
 
-                                        </label>
-
-                                        <label htmlFor="timew" className='required-field'>⏱Time Worked:</label>
+                                       
+                                        </td>  
+                                    <td>  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
                                         />
-                                        {this.state.result} <br />
+                                        {this.state.result} </td> </tr>
 
-
+                                        <br />
                                     </Client1Invoice>
                                     {/* <Client2Invoice className='client2Invoice'>
                                         <th>  <label htmlFor="client2">Client2: </label></th>
@@ -458,7 +465,7 @@ class EmployeeShow extends Component {
                                         />
                                         <br /><br />
                                         <TotalDue>
-                                            <th>   <label htmlFor="totaldue">Total 💵 Due this period: </label></th>
+                                            <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
                                             $<input
                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                 onChange={(event) => this.handleChange(event, invoice._id)}

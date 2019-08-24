@@ -9,13 +9,13 @@ font-size: 12px;
 color: white;
 text-shadow: 1px 1px 10px black;
 display: flex ;
-flex-direction: column ;
-flex-wrap: wrap ;
+// flex-direction: column ;
+// flex-wrap: wrap ;
 justify-content: center ;
 align-items: center ;
 align-content: center ;
 font-family: helvetica;
-background-image: url('https://images.pexels.com/photos/1124062/pexels-photo-1124062.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 background-size: cover;
 background-repeat: no-repeat;
 a:visited{

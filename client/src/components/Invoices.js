@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-class AllClient extends Component {
+class Invoices extends Component {
       state = {
-        allClients: [],
-        newAllClient: {
+        invoices: [],
+        newInvoice: {
           name:'',  
           synopsis: '',
           role: '',
@@ -18,29 +18,29 @@ class AllClient extends Component {
   }
 
   componentDidMount(){
-    this.getAllAllClients()
+    this.getAllInvoices()
   }
     
   handleChange = (event) => {
-    const updatedNewAllClient = {...this.state.newAllClient}
+    const updatedNewInvoice = {...this.state.newInvoice}
 
-    updatedNewAllClient[event.target.name] = event.target.value
-    this.setState({newAllClient: updatedNewAllClient})
+    updatedNewInvoice[event.target.name] = event.target.value
+    this.setState({newInvoice: updatedNewInvoice})
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post('/api/invoices/:invoiceId', this.state.newAllClient).then(res => {
+    axios.post('/api/invoices/:invoiceId', this.state.newInvoice).then(res => {
       console.log(res.data)
       this.props.history.push(`/invoices/:invoiceId/${res.data._id}`)
     })
     
   }
 
-  getAllAllClients = () => {
+  getAllInvoices = () => {
     axios.get('/api/invoices/:invoiceId').then((res) => {
-      this.setState({allClients: res.data})
+      this.setState({invoices: res.data})
     })
   }
 
@@ -53,49 +53,49 @@ class AllClient extends Component {
         invoices show
 
                 <div>
-                    {this.state.allClients.map((allClient) => (
-                        <div key={allClient._id}>
-                            {/* <Link to={`/allClients/${allClient._id}`}>{allClient.name}</Link> */}
+                    {this.state.invoices.map((invoice) => (
+                        <div key={invoice._id}>
+                            {/* <Link to={`/invoices/${invoice._id}`}>{invoice.name}</Link> */}
                         </div>
                     ))}
                 </div>
 
-        <h3>Edit Invoice AllClient</h3>
+        <h3>Edit Invoice Invoice</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name">Name: </label>
             <input onChange={this.handleChange} 
-            value={this.state.newAllClient.name} type="text" name="name"/>
+            value={this.state.newInvoice.name} type="text" name="name"/>
           </div>
           <div>
             <label htmlFor="synopsis">Synopsis: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.synopsis} type="synopsis" name="synopsis"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.synopsis} type="synopsis" name="synopsis"/>
           </div>
           <div>
             <label htmlFor="role">Role: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.role} type="text" name="role"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.role} type="text" name="role"/>
           </div>
           <div>
             <label htmlFor="type">type: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.type} type="text" name="type"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.type} type="text" name="type"/>
           </div>
           <div>
             <label htmlFor="year">Year: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.year} type="text" name="year"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.year} type="text" name="year"/>
           </div>
           <div>
             <label htmlFor="location">Location: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.location} type="text" name="location"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.location} type="text" name="location"/>
           </div>
           <div>
             <label htmlFor="image">Image: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.image}  type="text" name="image"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.image}  type="text" name="image"/>
           </div>
           <div>
             <label htmlFor="awards">Awards: </label>
-            <input onChange={this.handleChange} value={this.state.newAllClient.awards} placeholder= {this.state.newAllClient.awards} type="text" name="awards"/>
+            <input onChange={this.handleChange} value={this.state.newInvoice.awards} placeholder= {this.state.newInvoice.awards} type="text" name="awards"/>
           </div>
-          <button type="submit">Create AllClient</button>
+          <button type="submit">Create Invoice</button>
         </form>
       </div>
       
@@ -103,6 +103,6 @@ class AllClient extends Component {
     
   }
 }
-export default AllClient;
+export default Invoices;
 
 

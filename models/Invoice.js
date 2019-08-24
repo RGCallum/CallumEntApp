@@ -9,6 +9,7 @@ const Invoice = new Schema({
     idnumber: String,
     client: String,
     frequency: Number,
+    image: String,
     rate: Number,
     client2: String,
     frequency2: Number,

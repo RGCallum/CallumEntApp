@@ -18,6 +18,7 @@ const InvoiceStyles = styled.div`
 background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
 background-repeat: no-repeat;
+
 font-size: 12px;
 .dollar::before {
     content: "$";
@@ -65,7 +66,7 @@ font-weight: bold;
   }
   img{
    max-width: 250px;
-   )  
+     
   }
   a{
     text-decoration: none;
@@ -181,7 +182,9 @@ const InvoicesContainerStyle = styled.div`
 //   background-color: rgba(232, 232, 232, 0.653);
   font-family: helvetica;
   font-size: 10px;
-  .dataent{display:none;}
+  .dataent {
+      display:none;
+    }
 `
 
 const NameNButtonStyle = styled.div`
@@ -201,13 +204,29 @@ const LogoStyles = styled.div`
 
 
     img{
-        width: 10%;
-        // z-index: -10;
+        width: 15%;
+        z-index: 10;
         position: absolute;
-        margin-left: 80%;
+        margin-left: 75%;
+        max-width: 250px;
+        margin-top: -10%;
+    }
+    .addlogotext{
+        margin-left: 65%;
+padding: 10px;
+position: relative;
 
     }
+     .logo{
+        z-index: 10;
+        position: absolute;
+        margin-left: 65%;
+
+    }
+    
+    
 `
+
 class EmployeeShow extends Component {
 
     state = {
@@ -220,6 +239,7 @@ class EmployeeShow extends Component {
             payperiodstart: '',
             payperiodend: '',
             name: '',
+            image:'',
             idnumber: '',
             client: '',
             frequency: '',
@@ -342,13 +362,21 @@ class EmployeeShow extends Component {
                                     <label htmlFor="invoiceNum" className="invoiceNum">Invoice: {invoice._id} </label><br />
 
                                     <LogoStyles>
-                                        <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' />
+                                        {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
                                         <br />
                                         <label htmlFor="employeename" className='employeename'> <span> 👤 </span>{this.state.employee.employeename} </label> <br />
                                         <label htmlFor="idnumber" className='idnumber'> <span> 💳 </span> {this.state.employee.idnumber} </label><br />
                                         <label htmlFor="email" className='email'>  <span> ✉️ </span> {this.state.employee.email} </label><br />
                                         <label htmlFor="phone" className='phone'> <span>📱</span>  {this.state.employee.phone} </label>
+                                        <label className="noprint addlogotext" htmlFor=""> Add your logo⬇: <br/> </label>
+                                         <input className='logo noprint'
+                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                            name="image" placeholder='Paste your logo url here'
+                                        />
 
+                                       <a href={invoice.link}>  
+                                        <img src={invoice.image} alt="invoice pic" /></a> 
                                     </LogoStyles>
                                     <TopInvoice>
 
@@ -374,7 +402,8 @@ class EmployeeShow extends Component {
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="date" name="payperiodend" value={invoice.payperiodend}
-                                        /><br />
+                                        /><br /><br/>
+
                                     </PeriodInvoice>
 
                                     <br /><br />
@@ -395,9 +424,9 @@ class EmployeeShow extends Component {
 
                                             <select onClick={this.handleSelectChange}>
 
-                                                <option value="Minute">Minute(s)</option>
-                                                <option value="HalfHour">Half Hour(s)</option>
-                                                <option value="Hour">Hour(s)</option>
+                                                <option value="Minutes">Minute(s)</option>
+                                                <option value="Half Hours">Half Hour(s)</option>
+                                                <option value="Hours">Hour(s)</option>
                                             </select>
 
                                        

@@ -63,7 +63,7 @@ class Employee extends Component {
         employeename: '',
         idnumber: '',
         email: '',
-        bio: '',
+        phone: '',
         image: '',
       }
     }
@@ -125,8 +125,8 @@ class Employee extends Component {
               <br/>
 
               <div>
-                <label htmlFor="bio">Bio: </label>
-                <input onChange={this.handleChange} value={this.state.newEmployee.bio} type="text" name="bio" />
+                <label htmlFor="phone">phone: </label>
+                <input onChange={this.handleChange} value={this.state.newEmployee.phone} type="text" name="phone" />
               </div>
               <br/>
 

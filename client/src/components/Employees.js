@@ -9,7 +9,7 @@ font-size: 12px;
 color: white;
 text-shadow: 1px 1px 10px black;
 display: flex ;
-// flex-direction: column ;
+flex-direction: row ;
 // flex-wrap: wrap ;
 justify-content: center ;
 align-items: center ;
@@ -137,7 +137,8 @@ class Employee extends Component {
         <BkgdColors>
           <div className="overlay">
         <br/>
-          <h1>My Employees</h1>
+          <h1><i className="fa">👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻</i> <br/> My Employees</h1>
+          
 <br/>
           {this.state.employees.map((employee) => (
             <div key={employee._id}>
@@ -173,7 +174,7 @@ class Employee extends Component {
             </div>
             <div>
               <label htmlFor="phone">Phone: </label>
-              <input onChange={this.handleChange} value={this.state.newEmployee.bio} type="text" name="bio" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.phone} type="text" name="phone" />
             </div>
 
             <div>

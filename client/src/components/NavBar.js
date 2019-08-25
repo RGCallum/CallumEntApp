@@ -10,7 +10,7 @@ const NavBarStyles = styled.div`
 display: flex;
 justify-content: space-around;
 padding: 10px;
-background: black;
+background: rgb(28, 147, 145);
 font-weight: 200;
 color: white;
 font-size: 13px;

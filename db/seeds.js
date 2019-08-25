@@ -57,7 +57,7 @@ const invoice3 = new Invoice({
 
 
 const employee1 = new Employee({
-    employeename: "Nola Darling",
+    employeename: "👩🏾‍🦱 Nola Darling",
     idnumber: "CSP123456",
     email: "yurrr@gmail.com",
     phone: "9178957463",
@@ -65,7 +65,7 @@ const employee1 = new Employee({
     invoices: [invoice1]
 })
 const employee2 = new Employee({
-    employeename: "Sha Bizness",
+    employeename: "👩🏾 Sha Bizness",
     idnumber: "CSP489623",
     email: "invoices@gmail.com",
     phone: "2128070984",
@@ -73,7 +73,7 @@ const employee2 = new Employee({
     invoices: [invoice2]
 })
 const employee3 = new Employee({
-    employeename: "Taminck Fortune",
+    employeename: "🧔🏾Taminck Fortune",
     idnumber: "CSP356748",
     email: "lit@gmail.com",
     phone: "718378465",

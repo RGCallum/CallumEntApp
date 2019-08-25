@@ -5,6 +5,14 @@ import styled from 'styled-components'
 
 
 const BkgdColors = styled.div`
+a{
+  text-decoration: none;
+  color: rgb(28, 147, 145);
+
+}
+a:hover{
+  color: blue;
+}
 font-size: 12px;
 color: white;
 text-shadow: 1px 1px 10px black;
@@ -19,7 +27,6 @@ background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6
 background-size: cover;
 background-repeat: no-repeat;
 a:visited{
-color: default;
 }
 *{
     margin: 0;
@@ -159,8 +166,9 @@ class Employee extends Component {
           ))} <br/>
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
-          <h3>Add New Employee</h3> <br/>
-
+          <h3>Add New Employee</h3> 
+You can also use emojis <br/>
+<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾 👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
             <div>
               <label htmlFor="employeename" >Employee Name: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />

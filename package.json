@@ -12,6 +12,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^2.1.1",
     "git": "^0.1.5",
     "html-react-parser": "^0.7.1",
     "mongo": "^0.1.0",
@@ -33,7 +34,8 @@
     "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd client && npm install && npm run build",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -48,5 +50,5 @@
   "engines": {
     "node": "11.10.0"
   },
-  "homepage": "https://github.com/RGCallum/CallumEntApp#readme"
+  "homepage": "https://rgcallum.github.io/CallumEntApp"
 }

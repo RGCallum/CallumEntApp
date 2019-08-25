@@ -426,8 +426,8 @@ class EmployeeShow extends Component {
                                                     {this.state.employee.phone} </label>
 
 
-                                                <a href={invoice.link} >
-                                                    <img src={invoice.image} alt="Add your logo⬆︎" /></a>
+                                                <a href={invoice.link} > <a href="https://imgbb.com" target="_blank">
+                                                    <img src={invoice.image} alt="Add your logo⬆︎" /></a></a>
                                             </LogoStyles>
                                             <TopInvoice>
 

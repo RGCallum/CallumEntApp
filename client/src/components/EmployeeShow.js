@@ -12,6 +12,9 @@ position: relative;
 #imgurl{
     width: 99.5%;
     font-style: italic;
+    font-weight: 100;
+    font-size: 10px;
+
 }
 
 `
@@ -46,7 +49,7 @@ font-size: 12px;
 }
 .employeename, .idnumber{
     font-size: 20px;
-// font-weight: bold;
+font-weight: bold;
 
   }
   button {
@@ -136,6 +139,10 @@ margin-top: 10px;
 `
 const Client1Invoice = styled.div`
 // border: black solid 1px;
+input::placeholder{
+    font-weight: 100;
+    font-size: 10px;
+}
 `
 const Client2Invoice = styled.div`
 // border: black solid 1px;
@@ -186,7 +193,8 @@ const NewInvoiceButton = styled.button`
   font-size: 16px;
 //   padding: 10px 10px;
   border-radius: 5px;
-  
+  font-weight: 100;
+
 `
 const EditProfileBtn = styled.button`
 font-size: 16px;
@@ -201,6 +209,7 @@ button{
     color: white;
     font-size: 16px;
     // padding: 9px 9px;
+    font-weight: 100;
 
 }
 `
@@ -391,7 +400,7 @@ class EmployeeShow extends Component {
 
 
                         <div className="noprint">
-                            All changes auto save <br />
+                            All updates are auto saved <br />
                         </div>
 
                         {this.state.invoices.map(invoice => {
@@ -403,11 +412,11 @@ class EmployeeShow extends Component {
                             }
 
                             return (
-                                <Addlogo><label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <br /> </label>
+                                <Addlogo><label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from click here for a url 💻</a><br /> </label>
                                     <input className='logo noprint' id='imgurl'
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
-                                        name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) Upload your logo to imgbb.com for a free url!'
+                                        name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) '
                                     />
                                     <InvoiceStyles>
 
@@ -420,8 +429,11 @@ class EmployeeShow extends Component {
 
                                             <LogoStyles>
 
-                                            <a href={invoice.link} > <a href="https://imgbb.com" target="_blank">
-                                                    <img src={invoice.image} alt="Add your logo⬆︎" /></a></a>
+                                            <a href={invoice.link} > 
+                                            {/* <a href="https://imgbb.com" target="_blank"> */}
+                                                    <img src={invoice.image} alt="Add your logo⬆︎" />
+                                                    {/* </a> */}
+                                                    </a>
                                                 {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
                                                 <br />
                                                 <div className="employeeinfo">

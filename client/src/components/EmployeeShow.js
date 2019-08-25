@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Select from 'react-select';
 
 
 const InvoiceStyles = styled.div`
@@ -241,7 +242,11 @@ position: relative;
     
     
 `
-
+const options = [
+    { value: 'min', label: 'min' },
+    { value: 'hlf', label: 'hlf' },
+    { value: 'hr', label: 'hr' },
+];
 class EmployeeShow extends Component {
 
     state = {
@@ -370,7 +375,7 @@ class EmployeeShow extends Component {
 
                         <div className="noprint">
                             All changes auto save <br />
-                            </div>
+                        </div>
 
                         {this.state.invoices.map(invoice => {
 
@@ -463,9 +468,18 @@ class EmployeeShow extends Component {
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                     /></td>
-                                                <td>   <th><label htmlFor="frequency"><span> ⌛ ️</span>Per: </label></th>
 
-                                                    <select onClick={this.handleSelectChange}>
+                                                <td>  <th><label htmlFor="result" ><span> ⌛ </span>Intervals: </label></th>
+                                                    <input
+                                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
+                                                    /></td>
+
+                                                {/* <td>   <th><label htmlFor="frequency"><span> ⌛ ️</span>Per: </label></th>
+
+                                                    <select onClick={this.handleSelectChange}
+                                                    >
 
                                                         <option value="Minutes">Minute(s)</option>
                                                         <option value="Half Hours">Half Hour(s)</option>
@@ -473,14 +487,16 @@ class EmployeeShow extends Component {
                                                     </select>
 
 
-                                                </td>
+                                                </td> */}
                                                 <td>  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
                                                     />
-                                                    {this.state.result} </td> </tr>
+                                                    {invoice.result}
+                                                    {this.state.result}
+                                                </td> </tr>
 
                                             <br />
                                         </Client1Invoice>
@@ -543,15 +559,15 @@ class EmployeeShow extends Component {
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                     type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                /> 
+                                                />
                                             </TotalDue>
                                         </TotalsInvoice>
                                         <br /><br /><br />
                                         <OptionsInvoice className='noprint'>
                                             {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                         <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
-                                            <a href="javascript:window.print()" ><span>🖨</span> <br/> Print Invoice</a> 
-                                            <a href="javascript:window.print()"><span>📥</span> <br/> Download <br/> (Select Destination) </a>
+                                            <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
+                                            <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
                                             <br />
 
                                             {/* <button className='noprint' onClick={(deleteInvoice)} id="delBtn" >Delete Invoice</button> */}

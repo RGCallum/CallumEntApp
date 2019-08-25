@@ -12,12 +12,14 @@ const invoice1 = new Invoice({
     idnumber: 'CSP123456',
     image: 'https://ddinstallers.com/Images/D&Dlogo.png',
     client: 'Comcast',
-    frequency: 725,
-    rate: .023,
-    subtotal: 166.95,
+    frequency: 30,
+    rate: 5.5,
+    result: "half hour",
+
+    subtotal: 165,
     arisefee: 19.75,
     callumfee: .10,
-    totaldue: 229.20
+    totaldue: 128.75
 })
 const invoice2 = new Invoice({
     date: 06/01/2019,
@@ -29,6 +31,7 @@ const invoice2 = new Invoice({
     client: 'Comcast',
     frequency: 725,
     rate: .023,
+    result: "minute",
     subtotal: 166.95,
     arisefee: 19.75,
     callumfee: .10,
@@ -44,12 +47,12 @@ const invoice3 = new Invoice({
     image: 'https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3034007-inline-i-applelogo.jpg',
 
     client: 'Comcast',
-    frequency: 725,
-    rate: .023,
-    subtotal: 166.95,
+    frequency: 10,
+    rate: 10,
+    subtotal: 100,
     arisefee: 19.75,
     callumfee: .10,
-    totaldue: 229.20
+    totaldue: 70.25
 })
 
 

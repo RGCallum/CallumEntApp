@@ -28,7 +28,7 @@ input::placeholder{
   flex-direction: column;
   width: 800px;
   padding: 20px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 3px blue;
   margin: 10px 0;
   font-family: helvetica;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
@@ -193,7 +193,7 @@ font-size: 16px;
 background: #6A7FDB;
 color: white;
 border-radius: 5px;
-margin-left: 50%;
+margin-left: 60%;
 
 button{
     background: transparent;
@@ -220,6 +220,7 @@ const InvoicesContainerStyle = styled.div`
 `
 
 const NameNButtonStyle = styled.div`
+margin-left: 30%;
 h1{
     font-weight: 200;
 }  

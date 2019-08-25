@@ -398,7 +398,7 @@ class EmployeeShow extends Component {
                                     <input className='logo noprint' id='imgurl'
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
-                                        name="image" placeholder='Paste your logo url here.'
+                                        name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) Upload your logo to imgbb.com for a free url!'
                                     />
                                     <InvoiceStyles>
 

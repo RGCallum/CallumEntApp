@@ -17,7 +17,7 @@ position: relative;
 `
 
 const InvoiceStyles = styled.div`
-
+font-weight: 200;
 input::placeholder{
     // color: red;
     font-style: italic;
@@ -46,7 +46,7 @@ font-size: 12px;
 }
 .employeename, .idnumber{
     font-size: 20px;
-font-weight: bold;
+// font-weight: bold;
 
   }
   button {
@@ -90,8 +90,9 @@ font-weight: bold;
     font-size: 10px;
   }
   .invoiceNum{
-// margin-left: 68%;
+margin-left: 68%;
 color: rgba(0,0,0, 0.7);
+font-weight: 200;
   }
   @media print
   {
@@ -122,12 +123,15 @@ const Topbtns = styled.div`
 
 const TopInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 50%;
-margin-top: -70px;
+margin-left: 65%;
+margin-top: 10px;
+position: absolute;
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 50%;
+margin-left: 35%;
+margin-top: 10px;
+
 
 `
 const Client1Invoice = styled.div`
@@ -230,15 +234,23 @@ h1{
 
 `
 const LogoStyles = styled.div`
-
+font-weight: 200;
+.employeeinfo{
+    // margin-top: 5%;
+    position: absolute;
+    // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+    padding: 10px;
+    // border: solid rgba(0,0,0, 0.2) .5px;
+}
 
     img{
-        width: 15%;
+        width: 10%;
         z-index: 10;
-        position: absolute;
-        margin-left: 60%;
+        position: relative;
+        // margin-left: 60%;
         max-width: 250px;
-        margin-top: -10%;
+        margin-top: -5%;
+        margin-bottom: 50px;
     }
 
      .logo{
@@ -250,11 +262,7 @@ const LogoStyles = styled.div`
     
     
 `
-const options = [
-    { value: 'min', label: 'min' },
-    { value: 'hlf', label: 'hlf' },
-    { value: 'hr', label: 'hr' },
-];
+
 class EmployeeShow extends Component {
 
     state = {
@@ -410,24 +418,26 @@ class EmployeeShow extends Component {
                                             <label htmlFor="invoiceNum" className="invoiceNum">Invoice: {invoice._id} </label><br />
 
                                             <LogoStyles>
+
+                                            <a href={invoice.link} > <a href="https://imgbb.com" target="_blank">
+                                                    <img src={invoice.image} alt="Add your logo⬆︎" /></a></a>
                                                 {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
                                                 <br />
+                                                <div className="employeeinfo">
                                                 <label htmlFor="employeename" className='employeename'>
                                                     {/* <span> 👤 </span> */}
                                                     {this.state.employee.employeename} </label> <br />
                                                 <label htmlFor="idnumber" className='idnumber'>
                                                     {/* <span> 💳 </span> */}
-                                                    {this.state.employee.idnumber} </label><br />
+                                                   ID: {this.state.employee.idnumber} </label><br />
                                                 <label htmlFor="email" className='email'>
                                                     {/* <span> ✉️ </span> */}
                                                     {this.state.employee.email} </label><br />
                                                 <label htmlFor="phone" className='phone'>
                                                     {/* <span>📱</span>  */}
                                                     {this.state.employee.phone} </label>
+                                                    </div>
 
-
-                                                <a href={invoice.link} > <a href="https://imgbb.com" target="_blank">
-                                                    <img src={invoice.image} alt="Add your logo⬆︎" /></a></a>
                                             </LogoStyles>
                                             <TopInvoice>
 

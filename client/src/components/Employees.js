@@ -137,7 +137,7 @@ class Employee extends Component {
         <BkgdColors>
           <div className="overlay">
         <br/>
-          <h1><i className="fa">👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻</i> <br/> My Employees</h1>
+          <h1>👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻 <br/> My Employees</h1>
           
 <br/>
           {this.state.employees.map((employee) => (
@@ -157,11 +157,11 @@ class Employee extends Component {
 
           ))} <br/>
 
-          <form onSubmit={this.handleSubmit} className='addemp'>
+          <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
           <h3>Add New Employee</h3> <br/>
 
             <div>
-              <label htmlFor="employeename">Employee Name: </label>
+              <label htmlFor="employeename" >Employee Name: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />
             </div>
             <div>
@@ -177,10 +177,10 @@ class Employee extends Component {
               <input onChange={this.handleChange} value={this.state.newEmployee.phone} type="text" name="phone" />
             </div>
 
-            <div>
+            {/* <div>
               <label htmlFor="invoices">Invoices: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />
-            </div>
+            </div> */}
             <button type="submit">Create Employee</button>
           </form>
           </div>

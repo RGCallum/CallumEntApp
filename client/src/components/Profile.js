@@ -160,7 +160,10 @@ class Profile extends Component {
                         />
                         
                         <Link to={`/employees`}> 
-                        <button onClick={this.handleDelete}>Delete Employee</button>
+                        <button className='noprint' onClick={e =>
+                                            window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
+                                            this.handleDelete(e)}>Delete Employee</button>
+                        {/* <button onClick={this.handleDelete}>Delete Employee</button> */}
                         </Link> 
 
                     </EmployeeStyles>

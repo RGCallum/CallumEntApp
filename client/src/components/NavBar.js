@@ -7,8 +7,8 @@ const NavBarStyles = styled.div`
     margin: 0;
     
 }
-display: flex ;
-align-content: flex-start ;
+display: flex;
+justify-content: space-around;
 padding: 10px;
 background: black;
 font-weight: 200;
@@ -17,7 +17,7 @@ font-size: 13px;
 font-family: helvetica;
 width: 100%;
 margin-left: -8px;
-Margin-top: -8px;
+margin-top: -8px;
 
 i{
     color: turquoise;
@@ -43,6 +43,8 @@ a:hover{
 // }
 `
 const LogoStyles = styled.div`
+display: flex;
+justify-content: space-around;
 {
     img{
         width: 5%;
@@ -58,13 +60,17 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> <img src="/images/CAL_ent_logo.png" alt="logo" /></Link>
+                        <Link to="/"> 🏠 Home 
+                        {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
+                        </Link> 
+
+                        <Link to="/employees"> 👩🏾‍🦱🧔🏾 Employees </Link>
+                        {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>
                     <div>
 
                         {/* <Link to="/"> <i className="fa fa-home"></i>Home</Link> */}
-                        <Link to="/employees"> <i className="fa">👩🏾‍🦱👨🏽‍🦳🧔🏾👱🏽‍♀️</i>Employees</Link>
                         {/* <Link to="/signup"> <i className="fa fa-user-plus"></i>Sign-Up</Link> */}
 
                     </div>

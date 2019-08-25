@@ -3,6 +3,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Select from 'react-select';
+import AddLineItem from './AddLineItem'
+import LineItems from './LineItems'
 
 const Addlogo = styled.div`
 .addlogotext{
@@ -279,7 +281,9 @@ class EmployeeShow extends Component {
 
         employee: '',
         invoices: [],
-
+        lineItems: [
+            
+        ],
         newInvoice: {
             date: '',
             payperiodstart: '',
@@ -366,6 +370,24 @@ class EmployeeShow extends Component {
             result: event.target.value
         })
     }
+    deleteLineItem = (id) => {
+        const lineItems = this.state.lineItems.filter(lineItem => {
+            return lineItem.id !== id
+        });
+        this.setState({
+            lineItems: lineItems
+        })
+    }
+    addLineItem = (lineItem) => {
+        lineItem.id = Math.random();
+        let lineItems = [...this.state.lineItems, lineItem];
+        this.setState({
+            lineItems: lineItems
+        })
+    }
+
+
+
     // disCli2() {
     //     document.getElementsByName('input').style.display = 'block'
     // }
@@ -377,6 +399,9 @@ class EmployeeShow extends Component {
 
 
                 <Topbtns>
+
+
+
                     <div className="noprint">
                         <NameNButtonStyle>
                             <h1>{this.state.employee.employeename}'s Invoices </h1>
@@ -412,7 +437,7 @@ class EmployeeShow extends Component {
                             }
 
                             return (
-                                <Addlogo><label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from click here for a url 💻</a><br /> </label>
+                                <Addlogo><label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
                                     <input className='logo noprint' id='imgurl'
                                         onBlur={() => this.handleUpdate(invoice._id)}
                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -429,27 +454,27 @@ class EmployeeShow extends Component {
 
                                             <LogoStyles>
 
-                                            <a href={invoice.link} > 
-                                            {/* <a href="https://imgbb.com" target="_blank"> */}
+                                                <a href={invoice.link} >
+                                                    {/* <a href="https://imgbb.com" target="_blank"> */}
                                                     <img src={invoice.image} alt="Add your logo⬆︎" />
                                                     {/* </a> */}
-                                                    </a>
+                                                </a>
                                                 {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
                                                 <br />
                                                 <div className="employeeinfo">
-                                                <label htmlFor="employeename" className='employeename'>
-                                                    {/* <span> 👤 </span> */}
-                                                    {this.state.employee.employeename} </label> <br />
-                                                <label htmlFor="idnumber" className='idnumber'>
-                                                    {/* <span> 💳 </span> */}
-                                                   ID: {this.state.employee.idnumber} </label><br />
-                                                <label htmlFor="email" className='email'>
-                                                    {/* <span> ✉️ </span> */}
-                                                    {this.state.employee.email} </label><br />
-                                                <label htmlFor="phone" className='phone'>
-                                                    {/* <span>📱</span>  */}
-                                                    {this.state.employee.phone} </label>
-                                                    </div>
+                                                    <label htmlFor="employeename" className='employeename'>
+                                                        {/* <span> 👤 </span> */}
+                                                        {this.state.employee.employeename} </label> <br />
+                                                    <label htmlFor="idnumber" className='idnumber'>
+                                                        {/* <span> 💳 </span> */}
+                                                        ID: {this.state.employee.idnumber} </label><br />
+                                                    <label htmlFor="email" className='email'>
+                                                        {/* <span> ✉️ </span> */}
+                                                        {this.state.employee.email} </label><br />
+                                                    <label htmlFor="phone" className='phone'>
+                                                        {/* <span>📱</span>  */}
+                                                        {this.state.employee.phone} </label>
+                                                </div>
 
                                             </LogoStyles>
                                             <TopInvoice>
@@ -501,19 +526,6 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
                                                         /></td>
-
-                                                    {/* <td>   <th><label htmlFor="frequency"><span> ⌛ ️</span>Per: </label></th>
-
-                                                    <select onClick={this.handleSelectChange}
-                                                    >
-
-                                                        <option value="Minutes">Minute(s)</option>
-                                                        <option value="Half Hours">Half Hour(s)</option>
-                                                        <option value="Hours">Hour(s)</option>
-                                                    </select>
-
-
-                                                </td> */}
                                                     <td>  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
                                                         <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
@@ -525,6 +537,11 @@ class EmployeeShow extends Component {
                                                     </td> </tr>
 
                                                 <br />
+                                                {/* <div className="lineItem-app container">
+                                                    <h1 className="center blue-text">LineItems</h1>
+                                                    <LineItems lineItems={this.state.lineItems} deleteLineItem={this.deleteLineItem} />
+                                                    <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
+                                                </div> */}
                                             </Client1Invoice>
                                             {/* <Client2Invoice className='client2Invoice'>
                                         <th>  <label htmlFor="client2">Client2: </label></th>

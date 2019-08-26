@@ -128,22 +128,42 @@ const Topbtns = styled.div`
 
 const TopInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 65%;
+margin-left: 67%;
 margin-top: 10px;
 position: absolute;
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 35%;
+margin-left: 40%;
 margin-top: 10px;
 
 
 `
 const Client1Invoice = styled.div`
-// border: black solid 1px;
+// border: gray solid 1px;
+display: flex;
+justify-content: space-evenly;
+width: 100%;
 input::placeholder{
     font-weight: 100;
     font-size: 10px;
+}
+tr{
+    border-collapse:collapse;
+    border:1px solid gray;
+    }
+    
+    td{
+    border-left:1px solid gray;
+    }
+th{
+    // border-bottom:1px solid gray;
+    // width: 100%;
+
+}
+#box{
+    // border: gray solid 1px;
+
 }
 `
 const Client2Invoice = styled.div`
@@ -248,7 +268,7 @@ h1{
 const LogoStyles = styled.div`
 font-weight: 200;
 .employeeinfo{
-    // margin-top: 5%;
+    margin-left: 5%;
     position: absolute;
     // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
     padding: 10px;
@@ -456,7 +476,7 @@ class EmployeeShow extends Component {
 
                                                 <a href={invoice.link} >
                                                     {/* <a href="https://imgbb.com" target="_blank"> */}
-                                                    <img src={invoice.image} alt="Add your logo⬆︎" />
+                                                    <img src={invoice.image} alt="Add your logo" />
                                                     {/* </a> */}
                                                 </a>
                                                 {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
@@ -505,36 +525,39 @@ class EmployeeShow extends Component {
 
                                             </PeriodInvoice>
 
-                                            <br /><br />
+                                            <br /><br /> 
                                             <Client1Invoice>
-                                                <tr> <td><th><label htmlFor="client" className='required-field'><span> 🗂 </span>Client: </label></th>
-                                                    <input
+                                                <tr> <td id="box"><th><label htmlFor="client" className='required-field'><span> 🗂 </span>Client: </label></th>
+                                                    <input 
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="text" name="client" value={invoice.client} placeholder='Client'
                                                     /></td>
-                                                    <td>  <th><label htmlFor="rate" className='required-field'><span> 💵 </span>Rate: </label></th>
-                                                        $<input
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
-                                                        /></td>
-
-                                                    <td>  <th><label htmlFor="result" ><span> ⌛ </span>Intervals: </label></th>
-                                                        <input
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
-                                                        /></td>
-                                                    <td>  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
+                                                     <td id="box">  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
                                                         <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
                                                         />
-                                                        {invoice.result}
-                                                        {this.state.result}
-                                                    </td> </tr>
+                                                        {/* {invoice.result}
+                                                        {this.state.result} */}
+                                                    </td> 
+                                                    
+
+                                                    <td id="box">  <th><label htmlFor="result" ><span> ⌛ </span>Interval Type: </label></th>
+                                                        <input
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
+                                                        /></td>
+                                                        <td id="box">  <th><label htmlFor="rate" className='required-field'><span> 💵 </span>Interval Rate: </label></th>
+                                                        $<input
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
+                                                        /></td>
+                                                    
+                                                    </tr>
 
                                                 <br />
                                                 {/* <div className="lineItem-app container">

@@ -152,7 +152,7 @@ class Profile extends Component {
                      <a href={`/employees`}> 
                         <button className='noprint' onClick={e =>
                                             window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
-                                            this.handleDelete(e)}>Delete {this.state.employee.employeename} from directory</button>
+                                            this.handleDelete(e)}> ⛔️ Delete {this.state.employee.employeename} from directory</button>
                         </a> 
                         <br /> <br/>
                     </NameNButtonStyle>

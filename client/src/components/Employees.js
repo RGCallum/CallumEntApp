@@ -5,74 +5,50 @@ import styled from 'styled-components'
 
 
 const BkgdColors = styled.div`
+*{
+  margin: 0;
+}
+font-size: 12px;
+color: white;
+display: flex ;
+justify-content: center ;
+font-family: helvetica;
+background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+
 h1{
-  color: white;
-// text-shadow: 1px 1px 1px rgb(28, 147, 145);
-// border: inset #C0C0C0;
-// background-color: rgba(255,255,255,0.94);
+  color: rgb(28, 147, 145);
+text-shadow: 1px 1px 1px black;
 display: flex;
 justify-content: center;
 }
 a{
   text-decoration: none;
   color: rgb(28, 147, 145);
-
 }
 a:hover{
   color: blue;
 }
-font-size: 12px;
-color: white;
-// text-shadow: 1px 1px 10px black;
-display: flex ;
-flex-direction: row ;
-// flex-wrap: wrap ;
-justify-content: center ;
-align-items: center ;
-align-content: center ;
-font-family: helvetica;
-background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
-background-size: cover;
-background-repeat: no-repeat;
 a:visited{
 }
-*{
-    margin: 0;
-}
-img{
-  // border: inset 2px;
-}
+
+
 .addemp{
   background-color: rgba(255,255,255,0.94);
 padding: 20px;
 border: inset #C0C0C0;
 color: black;
 text-shadow: none;
-
 }
 .overlay{
-  // background-color:  rgba(255,255,255,0.64);
+  background-color:  rgba(255,255,255,0.94);
+  border: inset #C0C0C0 1px;
+
 }
 
-// animation: color-change-5x 30s linear infinite alternate both;
 
-@keyframes color-change-5x {
-  0% {
-    background: #19dcea;
-  }
-  25% {
-    background: #b22cff;
-  }
-  50% {
-    background: #ea2222;
-  }
-  75% {
-    background: #f5be10;
-  }
-  100% {
-    background: #3bd80d;
-  }
-}
 
 `
 const EmployeeContainer = styled.div`
@@ -93,19 +69,9 @@ text-shadow: none;
 
 `
 
-const ProImg = styled.div`
-display: flex ;
-flex-direction: row ;
-flex-wrap: wrap ;
-justify-content: center ;
-align-items: center ;
-align-content: center ;
-img{
-  max-width: 150px;
-  border-radius: 500px;    
- }
 
-`
+
+
 
 class Employee extends Component {
   state = {

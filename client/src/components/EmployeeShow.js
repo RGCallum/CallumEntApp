@@ -221,7 +221,6 @@ const NewInvoiceButton = styled.button`
   background: rgb(28, 125, 147);
   color: white;
   font-size: 16px;
-//   padding: 10px 10px;
   border-radius: 5px;
   font-weight: 100;
 
@@ -232,23 +231,21 @@ background: #6A7FDB;
 color: white;
 border-radius: 5px;
 margin-left: 60%;
-
-button{
-    background: transparent;
-    border: none;
+font-size: 16px;
+font-weight: 100;
+a{
+    text-decoration: none;
     color: white;
-    font-size: 16px;
-    // padding: 9px 9px;
-    font-weight: 100;
 
+}
+a:visited{
+    color: white;
 }
 `
 
 const InvoicesContainerStyle = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-//   background-color: rgba(232, 232, 232, 0.653);
+//   display: flex;
+//   justify-content: center;
   font-family: helvetica;
   font-size: 10px;
   @media print
@@ -259,12 +256,12 @@ const InvoicesContainerStyle = styled.div`
 `
 
 const NameNButtonStyle = styled.div`
-margin-left: 30%;
+display: flex;
+justify-content: center;
+
 h1{
     font-weight: 200;
 }  
-  flex-wrap: wrap;
-  align-content: center;
   img{
     max-width: 200px;
     max-height: 200px;
@@ -440,12 +437,17 @@ class EmployeeShow extends Component {
 
 
                             <br />
+
+                            
                         </NameNButtonStyle>
                         <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
                             + Add New Invoice
                     </NewInvoiceButton>
-                        <EditProfileBtn>
-                            <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > <button>{this.state.employee.employeename} Profile</button> </Link>
+                        <EditProfileBtn onClick={this.state.employee.employeename} >
+                        <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > 
+                        ⚙️ {this.state.employee.employeename} Profile
+                            
+                            </Link>
                         </EditProfileBtn>
 
                     </div>

@@ -9,10 +9,10 @@ import Employees from './Employees';
 
 const EmployeeStyles = styled.div`
   display: flex;
+  justify-content: center;
   position: relative;
   flex-direction: column;
-  width: 600px;
-//   height: 600px;
+  
   background: rgb(43, 172, 174, 0.6);
   border-radius: 2px;
   border: inset 5;
@@ -20,11 +20,10 @@ const EmployeeStyles = styled.div`
   
   button {
     position: absolute;
-    bottom: 5px;
-    right: 200px;
     color: white;
     background-color: red;
     border-radius: 5px;
+    padding: 10px;
   }
 
  
@@ -44,22 +43,44 @@ const EmployeeStyles = styled.div`
    max-width: 250px;
        
   }
+  font-weight: 200;
+
 `
 
 
 const EmployeesContainerStyle = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-content: center;
-  background-color: rgba(232, 232, 232, 0.653); 
+  // display: flex;
+  // justify-content: space-evenly;
+  // flex-wrap: wrap;
+  // align-content: center;
+  // background-color: rgba(232, 232, 232, 0.653); 
+  font-family: helvetica;
+  font-weight: 200;
+
 `
 
 const NameNButtonStyle = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: helvetica;
+h1{
+  font-weight: 500;
+
+}
+  h2, h3{
+    font-weight: 200;
+
+  }
+  button {
+    position: absolute;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: -11%;
+  }
   
 `
 
@@ -121,17 +142,28 @@ class Profile extends Component {
             <div>
   
                     <NameNButtonStyle>
-                     <h1>{this.state.employee.employeename}'s Profile </h1>
-                        <br />
+                      <br/>
+                     <h1> 👤 {this.state.employee.employeename}</h1>
+                     <h2> 💳 ID: {this.state.employee.idnumber} </h2>
+                     <h3> ✉️ Email: {this.state.employee.email}</h3>
+                     <h3> 📱 Phone: {this.state.employee.phone} </h3>
+
+                   
+                     <a href={`/employees`}> 
+                        <button className='noprint' onClick={e =>
+                                            window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
+                                            this.handleDelete(e)}>Delete {this.state.employee.employeename} from directory</button>
+                        </a> 
+                        <br /> <br/>
                     </NameNButtonStyle>
 
-                    <div>Type in field to edit
+                    <div>
                 <EmployeesContainerStyle>
 
 
                     <EmployeeStyles>
 
-                        <textarea
+                        {/* <textarea
                             onBlur={() => this.handleUpdate()}
                             onChange={(event) => this.handleChange(event)}
                             type="text" name="employeename" placeholder={this.state.employee.employeename}
@@ -157,20 +189,18 @@ class Profile extends Component {
                             onChange={this.handleChange}
                             type='text' name="phone" placeholder='phone'
                             value={this.state.employee.phone} 
-                        />
+                        /> */}
                         
-                        <Link to={`/employees`}> 
+                        {/* <Link to={`/employees`}> 
                         <button className='noprint' onClick={e =>
                                             window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
                                             this.handleDelete(e)}>Delete Employee</button>
-                        {/* <button onClick={this.handleDelete}>Delete Employee</button> */}
-                        </Link> 
+                        </Link>  */}
 
                     </EmployeeStyles>
                         </EmployeesContainerStyle>
                     </div>
  
-                    Profile
                 
                 </div>
                 )

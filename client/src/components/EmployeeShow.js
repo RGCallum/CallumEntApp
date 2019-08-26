@@ -33,7 +33,7 @@ input::placeholder{
   flex-direction: column;
   width: 800px;
   padding: 20px;
-  box-shadow: 1px 1px 3px blue;
+  box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
   margin: 10px 0;
   font-family: helvetica;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
@@ -150,11 +150,15 @@ input::placeholder{
 }
 tr{
     border-collapse:collapse;
-    border:1px solid gray;
+    border:1px solid rgba(0,0,0, 0.2);
+    // box-shadow: 1px 1px 4px rgba(0,0,0, 0.4);
+
     }
     
     td{
-    border-left:1px solid gray;
+    border-left:1px solid rgba(0,0,0, 0.2);
+    // box-shadow: 1px 1px 1px rgba(0,0,0, 0.4);
+
     }
 th{
     // border-bottom:1px solid gray;
@@ -276,11 +280,13 @@ font-weight: 200;
 }
 
     img{
-        width: 10%;
+        width: 8%;
         z-index: 10;
         position: relative;
         // margin-left: 60%;
         max-width: 250px;
+        margin-left: 2%;
+
         margin-top: -5%;
         margin-bottom: 50px;
     }

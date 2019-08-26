@@ -18,6 +18,8 @@ const Invoice = new Schema({
     subtotal: Number,
     arisefee: Number,
     callumfee: Number,
+    namefee: String,
+    otherfee: String,
     totaldue: Number,
     allClients: [
         {

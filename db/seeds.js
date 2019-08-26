@@ -15,10 +15,11 @@ const invoice1 = new Invoice({
     frequency: 30,
     rate: 5.5,
     result: "half hour",
-
     subtotal: 165,
     arisefee: 19.75,
     callumfee: .10,
+    namefee: .10,
+    otherfee: "IB fee",
     totaldue: 128.75
 })
 const invoice2 = new Invoice({
@@ -35,6 +36,9 @@ const invoice2 = new Invoice({
     subtotal: 166.95,
     arisefee: 19.75,
     callumfee: .10,
+    namefee: .10,
+    otherfee: "IB fee",
+
     totaldue: 229.20
 })
 
@@ -45,13 +49,14 @@ const invoice3 = new Invoice({
     name: 'Taminck Fortune',
     idnumber: 'CSP356748',
     image: 'https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3034007-inline-i-applelogo.jpg',
-
     client: 'Comcast',
     frequency: 10,
     rate: 10,
     subtotal: 100,
     arisefee: 19.75,
     callumfee: .10,
+    otherfee: "IB fee",
+    namefee: .10,
     totaldue: 70.25
 })
 

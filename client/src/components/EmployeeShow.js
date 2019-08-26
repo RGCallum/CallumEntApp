@@ -186,6 +186,10 @@ input{
     background: rgba(151, 240, 240, 0.2);
 
 }
+input::placeholder{
+    font-weight: 100;
+    font-size: 10px;
+}
 `
 const TotalDue = styled.div`
 // border: black solid 1px;
@@ -316,6 +320,8 @@ class EmployeeShow extends Component {
             payperiodend: '',
             name: '',
             image: '',
+            namefee: '',
+            otherfee: '',
             idnumber: '',
             client: '',
             frequency: '',
@@ -481,9 +487,11 @@ class EmployeeShow extends Component {
                                             <LogoStyles>
 
                                                 <a href={invoice.link} >
-                                                    {/* <a href="https://imgbb.com" target="_blank"> */}
-                                                    <img src={invoice.image} alt="Add your logo" />
-                                                    {/* </a> */}
+                                                    {/* Company can add its own logo here */}
+                                                    <img src={invoice.image} alt="Add your logo"  />
+                                                    {/* Callum Enterprise logo */}
+                                                    {/* <img src="/images/CAL_ent_logo.png" alt="Add your logo"  /> */}
+
                                                 </a>
                                                 {/* <img src="/images/CAL_ent_logo.png" alt="logo" className='logo' /> */}
                                                 <br />
@@ -610,12 +618,42 @@ class EmployeeShow extends Component {
                                                     type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                 // value={(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                 />
-                                                <th>   <label htmlFor="arisefee" >Arise Fee:</label></th>
+
+                                                {/* changeable fees for another company fee */}
+                                                <br/> <br/>
+                                                <th>   <label htmlFor="namefee" >Add'l Fees to subtract (opt):</label></th>
+                                                <input
+                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                type="text" placeholder="Name of Fee" name="namefee" value={invoice.namefee} /> <br/>
+                                                $<input className="arfee"
+                                                    onBlur={() => this.handleUpdate(invoice._id)}
+                                                    onChange={(event) => this.handleChange(event, invoice._id)}
+                                                    type="number" name="arisefee" value={invoice.arisefee} placeholder='enter 0 if none' required='true'
+                                                />
+                                                <br/> <br/>
+                                                <th>    <label htmlFor="otherfee">Other fee (use decimals): </label></th>
+                                                <input
+                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                type="text" placeholder="Name of Fee" name="otherfee" value={invoice.otherfee} /> <br/>
+                                                $<input
+                                                    onBlur={() => this.handleUpdate(invoice._id)}
+                                                    onChange={(event) => this.handleChange(event, invoice._id)}
+                                                    type="number" name="callumfee" placeholder='enter 0 if none' value={(invoice.callumfee)}
+                                                // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
+                                                />
+<br/> <br/>
+
+                                                {/* Callum Enterprise Arise fees */}
+                                                {/* <th>   <label htmlFor="arisefee" >Arise Fee:</label></th>
                                                 $<input className="arfee"
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                     type="number" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
                                                 />
+
+
                                                 <th>    <label htmlFor="callumfee">IB Fee 10%:  </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -623,15 +661,26 @@ class EmployeeShow extends Component {
                                                     type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
                                                 />
-                                                <br /><br />
+                                                <br /><br /> */}
+
+
                                                 <TotalDue>
+                                                    {/* any company totals */}
                                                     <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
+                                                    $<input
+                                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="number" name="totaldue" value={((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
+                                                    // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
+                                                    />
+                                                    {/* Callum Ent totals */}
+                                                    {/* <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
                                                     $<input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                    />
+                                                    /> */}
                                                 </TotalDue>
                                             </TotalsInvoice>
                                             <br /><br /><br />

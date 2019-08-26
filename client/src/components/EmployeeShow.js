@@ -68,7 +68,6 @@ font-weight: bold;
 
 
 #print-button {
-    // display: none;
     width: 50px;
     text-decoration: none;
 }

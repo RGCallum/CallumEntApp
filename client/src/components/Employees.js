@@ -5,6 +5,14 @@ import styled from 'styled-components'
 
 
 const BkgdColors = styled.div`
+h1{
+  color: white;
+// text-shadow: 1px 1px 1px rgb(28, 147, 145);
+// border: inset #C0C0C0;
+// background-color: rgba(255,255,255,0.94);
+display: flex;
+justify-content: center;
+}
 a{
   text-decoration: none;
   color: rgb(28, 147, 145);
@@ -15,7 +23,7 @@ a:hover{
 }
 font-size: 12px;
 color: white;
-text-shadow: 1px 1px 10px black;
+// text-shadow: 1px 1px 10px black;
 display: flex ;
 flex-direction: row ;
 // flex-wrap: wrap ;
@@ -143,11 +151,12 @@ class Employee extends Component {
       <div >
         <BkgdColors>
           <div className="overlay">
-        <br/>
-          <h1>👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻 <br/> My Employees</h1>
+          <h1>
+            {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
+            <br/>Employee Directory</h1>
           
 <br/>
-          {this.state.employees.map((employee) => (
+          {this.state.employees.map((employee) => ( 
             <div key={employee._id}>
 
               <EmployeeContainer>

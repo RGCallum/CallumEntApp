@@ -8,9 +8,9 @@ var passport = require('passport');
 
 router.get('/api/employees', employeeController.index)
 router.post('/api/employees', employeeController.create)
-router.get('/api/employees/:employeeId/', employeeController.show)
-router.patch('/api/employees/:employeeId/', employeeController.update)
-router.delete('/api/employees/:employeeId/', employeeController.delete)
+router.get('/api/employees/:employeeId', employeeController.show)
+router.patch('/api/employees/:employeeId', employeeController.update)
+router.delete('/api/employees/:employeeId', employeeController.delete)
 
 /* GET Google Authentication API. */
 router.get(

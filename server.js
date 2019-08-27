@@ -20,9 +20,9 @@ connection.on('error', (err) => {
 }) 
 
 app.use(bodyParser.json());
-app.get('/', (req,res) => {
-  res.send('WTF is up world 2019!')
-});
+// app.get('/', (req,res) => {
+//   res.send('WTF is up world 2019!!')
+// });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

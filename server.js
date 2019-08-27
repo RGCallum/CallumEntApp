@@ -33,11 +33,17 @@ app.use(express.static(__dirname + '/client/build/'));
 
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-    res.send(__dirname + '/client/build/index.html')
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/client/build/index.html')
+// });
 
-
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 const PORT = process.env.PORT || 3001;
 

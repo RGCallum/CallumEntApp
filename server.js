@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/client/build/'));
 // app.use(passport.initialize()); // after line no.20 (express.static)
 // require("./config/passport");
 
-app.get('/*', (req, res) => {
+app.get('/**', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 });
 

@@ -443,10 +443,10 @@ class EmployeeShow extends Component {
                             + Add New Invoice
                     </NewInvoiceButton>
                         <EditProfileBtn onClick={this.state.employee.employeename} >
-                        <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > 
+                        <a href={`/employees/${this.props.match.params.employeeId}/profile`} > 
                         ⚙️ {this.state.employee.employeename} Profile
                             
-                            </Link>
+                            </a>
                         </EditProfileBtn>
 
                     </div>

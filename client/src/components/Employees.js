@@ -15,12 +15,13 @@ justify-content: center ;
 font-family: helvetica;
 background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 background-size: cover;
+// height: 100%;
 background-repeat: no-repeat;
 background-attachment: fixed;
 
 h1{
   color: rgb(28, 147, 145);
-text-shadow: 1px 1px 1px black;
+// text-shadow: 1px 1px 1px black;
 display: flex;
 justify-content: center;
 }
@@ -121,7 +122,7 @@ class Employee extends Component {
             {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
             <br/>Employee Directory</h1>
           
-<br/>
+<br/><br/>
           {this.state.employees.map((employee) => ( 
             <div key={employee._id}>
 

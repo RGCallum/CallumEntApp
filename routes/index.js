@@ -32,11 +32,11 @@ router.delete('/api/invoices/:invoiceId', invoicesController.delete)
 router.patch('/api/invoices/:invoiceId', invoicesController.update)
 router.post('/api/employees/:employeeId/invoices', invoicesController.create)
 
-router.get('/api/invoices/:invoiceId', allClientController.index)
-router.get('/api/invoices/:invoiceId', allClientController.show)
-router.delete('/api/allClients/:allClientId', allClientController.delete)
-router.patch('/api/allClients/:allClientId', allClientController.update)
-router.post('/api/invoices/:invoiceId/allClientId', allClientController.create)
+// router.get('/api/invoices/:invoiceId', allClientController.index)
+// router.get('/api/invoices/:invoiceId', allClientController.show)
+// router.delete('/api/allClients/:allClientId', allClientController.delete)
+// router.patch('/api/allClients/:allClientId', allClientController.update)
+// router.post('/api/invoices/:invoiceId/allClientId', allClientController.create)
 
 router.patch('/api/employees/:employeeId/profile', employeeController.update)
 

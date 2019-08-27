@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/invoices/:invoiceId" component={Invoices}/>
             <Route exact path="/employees/:employeeId" component={EmployeeShow}/>
             <Route exact path="/allClients/:allClientsId" component={AllClient}/>
-            <Route exact path="/employees/:employeeId/profile/" component={Profile}/>
+            <Route exact path="/employees/:employeeId/profile" component={Profile}/>
             <Route exact path="/signup" component={SignUp}/>
 
 

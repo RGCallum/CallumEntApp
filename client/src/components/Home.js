@@ -12,9 +12,9 @@ display:flex;
 }
 font-family: helvetica;
 font-size: 90px;
-color: black;
+color: white;
 font-weight: 700;
-text-shadow: 1px 1px 1px #587d9689;
+text-shadow: 1px 1px 10px rgb(28, 147, 145);
 align-items: center;
 justify-content: center;
 // background-color: #587d9689;
@@ -75,7 +75,7 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles>
-                        CalPay
+                      <br/>  CalPay
 
                         <br />
                         <Link to="/employees">

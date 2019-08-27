@@ -19,6 +19,9 @@ align-items: center;
 justify-content: center;
 // background-color: #587d9689;
 z-index: 1;
+background-attachment: fixed;
+background-size: cover;
+background-image: url('/images/office.jpeg');
 img{
     
   position: absolute;
@@ -43,13 +46,14 @@ button {
     bottom: 5px;
     right: 200px;
     color: white;
-    background-color: #587d96;
+    background-color: rgb(28, 147, 145);
     border-radius: 5px;
+    padding: 10px;
     
   }
   button:hover{
     background-color: white;
-    color: #587d96;
+    color: rgb(28, 147, 145);
   }
 `
 const LoginOutStyles = styled.div`
@@ -88,7 +92,7 @@ class Home extends Component {
 
                     </CountStyles>
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
-                    <img src='/images/office.jpeg' alt="people" />
+                    {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
 
 

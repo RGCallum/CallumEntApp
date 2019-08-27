@@ -19,34 +19,24 @@ connection.on('error', (err) => {
   console.log('Mongoose default connection error: ' + err);
 }) 
 
-// app.use(bodyParser.json());
-// // app.get('/', (req,res) => {
-// //   res.send('WTF is up world 2019!!')
-// // });
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// app.use(express.static(__dirname + '/client/build/'));
-
-// // app.use(passport.initialize()); // after line no.20 (express.static)
-// // require("./config/passport");
-
-// app.use('/', routes);
-
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/client/build/index.html')
+app.use(bodyParser.json());
+// app.get('/', (req,res) => {
+//   res.send('WTF is up world 2019!!')
 // });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(express.static(__dirname + '/client/build/'));
 
-app.use(express.static(__dirname + '/client/build/'))
+// app.use(passport.initialize()); // after line no.20 (express.static)
+// require("./config/passport");
 
-app.use('/', routes)
+app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/build/index.html')
-})
+    res.sendFile(__dirname + '/client/build/index.html')
+});
+
 
 
 const PORT = process.env.PORT || 3001;

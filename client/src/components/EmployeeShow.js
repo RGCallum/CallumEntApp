@@ -442,7 +442,7 @@ class EmployeeShow extends Component {
                         <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
                             + Add New Invoice
                     </NewInvoiceButton>
-                        <EditProfileBtn onClick={this.state.employee.employeename} >
+                        <EditProfileBtn >
                         <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > 
                         ⚙️ {this.state.employee.employeename} Profile
                             

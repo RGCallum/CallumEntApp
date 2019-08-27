@@ -179,7 +179,7 @@ input{
 `
 const TotalsInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 50%;
+// margin-left: 50%;
 
 input{
     background: rgba(151, 240, 240, 0.2);
@@ -325,6 +325,7 @@ class EmployeeShow extends Component {
             subtotal: '',
             arisefee: '',
             callumfee: '',
+            comments: '',
             totaldue: '',
 
         }
@@ -577,8 +578,9 @@ class EmployeeShow extends Component {
                                                             type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                         /></td>
 
-                                                </tr>
-
+                                                </tr> 
+                                                
+                                                 
                                                 <br />
                                                 {/* <div className="lineItem-app container">
                                                     <h1 className="center blue-text">LineItems</h1>
@@ -615,8 +617,16 @@ class EmployeeShow extends Component {
                                         />
                                        
                                     </Client2Invoice> */}
-                                            <br /><br />
+
+                                       
                                             <TotalsInvoice>
+                                            <th><label htmlFor="comments" className='required-field'><span> 📃 </span>Comments </label></th>
+                                             <textarea name="" id="" cols="30" rows="10"
+                                             onBlur={() => this.handleUpdate(invoice._id)}
+                                             onChange={(event) => this.handleChange(event, invoice._id)}
+                                             type="text" name="comments" value={invoice.comments} placeholder='comments'></textarea>  
+                                            <br /><br />
+
                                                 <th>    <label htmlFor="subtotal">Subtotal: </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}

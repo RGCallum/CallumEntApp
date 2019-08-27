@@ -20,7 +20,9 @@ const invoice1 = new Invoice({
     callumfee: .10,
     namefee: .10,
     otherfee: "IB fee",
+    comments: 'for customer service',
     totaldue: 128.75
+
 })
 const invoice2 = new Invoice({
     date: 06/01/2019,
@@ -38,6 +40,7 @@ const invoice2 = new Invoice({
     callumfee: .10,
     namefee: .10,
     otherfee: "IB fee",
+    comments: 'for customer service',
 
     totaldue: 229.20
 })
@@ -56,7 +59,8 @@ const invoice3 = new Invoice({
     arisefee: 19.75,
     callumfee: .10,
     otherfee: "IB fee",
-    namefee: .10,
+    namefee: .10,    
+    comments: 'for customer service',
     totaldue: 70.25
 })
 

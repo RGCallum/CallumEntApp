@@ -20,6 +20,7 @@ const Invoice = new Schema({
     callumfee: Number,
     namefee: String,
     otherfee: String,
+    comments: String,
     totaldue: Number,
     allClients: [
         {

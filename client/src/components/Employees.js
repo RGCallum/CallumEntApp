@@ -133,7 +133,7 @@ class Employee extends Component {
 
               <EmployeeContainer>
                 
-                <Link to={`/employees/${employee._id}`}> 
+                <Link to={`/employees/${employee._id}/profile`}> 
                 <h3>{employee.employeename}</h3>  
                 
                 </Link>

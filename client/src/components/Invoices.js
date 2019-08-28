@@ -49,16 +49,16 @@ class Invoices extends Component {
   render() {
     return (
       <div> 
-        {/* <h3> All About {this.state.invoice.name}'s </h3> */}
+        <h3> All About {this.state.invoice}'s </h3>
         invoices show
 
-                <div>
+                {/* <div>
                     {this.state.invoices.map((invoice) => (
                         <div key={invoice._id}>
-                            {/* <Link to={`/invoices/${invoice._id}`}>{invoice.name}</Link> */}
+                            <Link to={`/invoices/${invoice._id}`}>{invoice.name}</Link>
                         </div>
                     ))}
-                </div>
+                </div> */}
 
         <h3>Edit Invoice Invoice</h3>
         <form onSubmit={this.handleSubmit}>

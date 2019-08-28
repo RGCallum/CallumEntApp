@@ -100,7 +100,7 @@ font-weight: 200;
   }
   @media print
   {
-    height: 90vh;
+    height: 90%;
   .noprint {display:none;}
   }
 
@@ -231,7 +231,6 @@ const NewInvoiceButton = styled.button`
 
 `
 const EditProfileBtn = styled.button`
-font-size: 16px;
 background: #6A7FDB;
 color: white;
 border-radius: 5px;

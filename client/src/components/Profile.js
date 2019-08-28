@@ -54,6 +54,8 @@ const EmployeesContainerStyle = styled.div`
 `
 
 const NameNButtonStyle = styled.div`
+font-weight: 200;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -84,6 +86,26 @@ h1, h2{
   }
   
 `
+const InvoiceBtn = styled.div`
+display: block;
+align-content: center;
+button{
+  background: #6A7FDB;
+  color: white;
+  border-radius: 5px;
+  margin-left: 60%;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+a:visited{
+    color: white;
+}`
 
 class Profile extends Component {
   state = {
@@ -144,12 +166,15 @@ class Profile extends Component {
 
     return (
       <div>
-
+<InvoiceBtn>
+  <br/>
+        <Link to={`/employees/${this.props.match.params.employeeId}`}>
+          <button>📂 Invoices</button></Link></InvoiceBtn>
         <NameNButtonStyle>
-          <br/>
-         Edit Employee info below <br/>
-         All changes are auto saved
-          <h2> 👤 {this.state.employee.employeename}</h2>
+         
+          <h2> Edit {this.state.employee.employeename}'s profile below</h2>
+          (All changes are auto saved)
+<br/><br/>
           <label htmlFor="employeename" >Update Name: </label>
 
           <input
@@ -190,16 +215,16 @@ class Profile extends Component {
 
           <br /> <br />
           <a href={`/employees`}>
-                <button className='noprint' onClick={e =>
-                  window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
-                  this.handleDelete(e)}> ⛔️ Delete {this.state.employee.employeename} from directory</button>
-              </a>
+            <button className='noprint' onClick={e =>
+              window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
+              this.handleDelete(e)}> ⛔️ Delete {this.state.employee.employeename} from directory</button>
+          </a>
         </NameNButtonStyle>
 
         <div>
           <EmployeesContainerStyle>
 
-                    <EmployeeStyles>
+            <EmployeeStyles>
               {/* <label htmlFor="employeename" >Employee Name: </label>
 
               <input
@@ -233,7 +258,7 @@ class Profile extends Component {
                 type='text' name="phone" placeholder='phone'
                 value={this.state.employee.phone}
               /> */}
-              
+
               {/* <Link to={`/employees`}> 
                         <button className='noprint' onClick={e =>
                                             window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&

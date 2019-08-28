@@ -19,6 +19,11 @@ background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
 
+.required:after {
+  content: "*";
+  color: red;
+}
+
 h1{
   color: rgb(28, 147, 145);
 // text-shadow: 1px 1px 1px black;
@@ -145,9 +150,9 @@ class Employee extends Component {
           <h3>Add New Employee</h3> 
 You can also use emojis <br/>
 <h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾 👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
-            <div>
-              <label htmlFor="employeename" >Employee Name: </label>
-              <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" required='true'/>
+            <div >
+              <label className='required' htmlFor="employeename" >Employee Name: </label>
+              <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>
             </div>
             <div>
               <label htmlFor="idnumber">ID Number: </label>

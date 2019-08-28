@@ -45,9 +45,9 @@ font-size: 12px;
     content: "$";
     // color: red;
 }
-.required-field::after {
-    // content: "*";
-    // color: red;
+.required::after {
+    content: "*";
+    color: red;
 }
 .employeename, .idnumber{
     font-size: 20px;
@@ -179,8 +179,9 @@ input{
 `
 const TotalsInvoice = styled.div`
 // border: black solid 1px;
-// margin-left: 50%;
-
+margin-top: 5%;
+display: flex;
+justify-content: space-evenly;
 input{
     background: rgba(151, 240, 240, 0.2);
 
@@ -190,6 +191,11 @@ input::placeholder{
     font-size: 10px;
 }
 `
+const SubtotalBox = styled.div`
+`
+const CommentsBox = styled.div`
+`
+
 const TotalDue = styled.div`
 // border: black solid 1px;
 color: rgb(4, 111, 61);
@@ -520,7 +526,7 @@ class EmployeeShow extends Component {
                                             </LogoStyles>
                                             <TopInvoice>
 
-                                                <th> <label htmlFor="date" className='required-field' > <span> 📆 </span> Today's Date: </label></th>
+                                                <th> <label htmlFor="date" className='required' > <span> 📆 </span> Today's Date: </label></th>
                                                 <input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
@@ -530,7 +536,7 @@ class EmployeeShow extends Component {
                                             </TopInvoice>
                                             <PeriodInvoice>
 
-                                                <th>    <label htmlFor="payperiodstart" className='required-field'><span> 🗓 </span>Pay Period: </label>  </th>
+                                                <th>    <label htmlFor="payperiodstart" className='required'><span> 🗓 </span>Pay Period: </label>  </th>
                                                 <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
                                                 <input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -548,13 +554,13 @@ class EmployeeShow extends Component {
 
                                             <br /><br />
                                             <Client1Invoice>
-                                                <tr> <td id="box"><th><label htmlFor="client" className='required-field'><span> 🗂 </span>Client: </label></th>
+                                                <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="text" name="client" value={invoice.client} placeholder='Client'
                                                     /></td>
-                                                    <td id="box">  <th> <label htmlFor="timew" className='required-field'><span> ⏱ </span>Time Worked:</label></th>
+                                                    <td id="box">  <th> <label htmlFor="timew" className='required'><span> ⏱ </span>Time Worked:</label></th>
                                                         <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -571,7 +577,7 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
                                                         /></td>
-                                                    <td id="box">  <th><label htmlFor="rate" className='required-field'><span> 💵 </span>Interval Rate: </label></th>
+                                                    <td id="box">  <th><label htmlFor="rate" className='required'><span> 💵 </span>Interval Rate: </label></th>
                                                         $<input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -595,7 +601,7 @@ class EmployeeShow extends Component {
                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                             type="text" name="client2" value={invoice.client2} placeholder='Client2'
                                         />
-                                        <label htmlFor="rate2" className='required-field'>Rate: </label>
+                                        <label htmlFor="rate2" className='required'>Rate: </label>
                                         $<input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -609,7 +615,7 @@ class EmployeeShow extends Component {
                                                 <option value="Hour2">Hour(s)</option>
                                             </select>
                                         </label>
-                                        <label htmlFor="timew2"className='required-field' >Time Worked:</label>
+                                        <label htmlFor="timew2"className='required' >Time Worked:</label>
                                         <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -620,13 +626,15 @@ class EmployeeShow extends Component {
 
                                        
                                             <TotalsInvoice>
-                                            <th><label htmlFor="comments" className='required-field'><span> 📃 </span>Comments </label></th>
-                                             <textarea name="" id="" cols="30" rows="10"
+                                                <CommentsBox>
+                                       <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th> 
+                                     <textarea cols="50" rows="11"
                                              onBlur={() => this.handleUpdate(invoice._id)}
                                              onChange={(event) => this.handleChange(event, invoice._id)}
-                                             type="text" name="comments" value={invoice.comments} placeholder='comments'></textarea>  
-                                            <br /><br />
-
+                                             type="text" name="comments" value={invoice.comments} placeholder=''></textarea>  
+                                             </CommentsBox>
+                                           
+<SubtotalBox>
                                                 <th>    <label htmlFor="subtotal">Subtotal: </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -701,6 +709,7 @@ class EmployeeShow extends Component {
                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
                                                     />
                                                 </TotalDue>
+                                                </SubtotalBox>
                                             </TotalsInvoice>
                                             <br /><br /><br />
                                             <OptionsInvoice className='noprint'>

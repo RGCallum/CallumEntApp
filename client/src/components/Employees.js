@@ -147,7 +147,7 @@ You can also use emojis <br/>
 <h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾 👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
             <div>
               <label htmlFor="employeename" >Employee Name: </label>
-              <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" />
+              <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename" required='true'/>
             </div>
             <div>
               <label htmlFor="idnumber">ID Number: </label>

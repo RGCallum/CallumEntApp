@@ -46,8 +46,8 @@ font-size: 12px;
     // color: red;
 }
 .required-field::after {
-    content: "*";
-    color: red;
+    // content: "*";
+    // color: red;
 }
 .employeename, .idnumber{
     font-size: 20px;

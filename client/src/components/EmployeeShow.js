@@ -6,6 +6,10 @@ import Select from 'react-select';
 import AddLineItem from './AddLineItem'
 import LineItems from './LineItems'
 
+
+const BigDiv = styled.div`
+`
+
 const Addlogo = styled.div`
 .addlogotext{
 position: relative;
@@ -22,6 +26,7 @@ position: relative;
 `
 
 const InvoiceStyles = styled.div`
+
 font-weight: 200;
 input::placeholder{
     // color: red;
@@ -100,7 +105,10 @@ font-weight: 200;
   }
   @media print
   {
-    height: 90%;
+@page{
+    size:landscape;
+}
+    // height: 95vh;
   .noprint {display:none;}
   }
 
@@ -139,6 +147,11 @@ margin-top: 10px;
 
 `
 const Client1Invoice = styled.div`
+@media only screen and (max-width: 800px) {
+    background-color: lightblue;
+    flex-direction: column;
+  
+}
 // border: gray solid 1px;
 display: flex;
 justify-content: space-evenly;
@@ -200,11 +213,14 @@ const TotalDue = styled.div`
 // border: black solid 1px;
 color: rgb(4, 111, 61);
 font-weight: bold;
+// padding-bottom: 50px;
+
 input{
     background-color: rgba(01, 255, 20, 0.2);
     color: rgb(4, 111, 61);
     font-weight: bold;
-    width: 138.5px;
+    // width: 138.5px;
+
 }
 `
 const OptionsInvoice = styled.div`
@@ -430,8 +446,7 @@ class EmployeeShow extends Component {
         return (
 
             <div>
-
-
+<BigDiv>
                 <Topbtns>
 
 
@@ -553,6 +568,7 @@ class EmployeeShow extends Component {
 
                                             <br /><br />
                                             <Client1Invoice>
+
                                                 <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
@@ -585,6 +601,10 @@ class EmployeeShow extends Component {
 
                                                 </tr> 
                                                 
+                                                {/* media query invoice */}
+                                                <div className="mqueryInvoice">
+                                                    
+                                                </div>
                                                  
                                                 <br />
                                                 {/* <div className="lineItem-app container">
@@ -710,19 +730,20 @@ class EmployeeShow extends Component {
                                                 </TotalDue>
                                                 </SubtotalBox>
                                             </TotalsInvoice>
-                                            <br /><br /><br />
+                                            <br /><br />
                                             <OptionsInvoice className='noprint'>
                                                 {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                         <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
                                                 <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                 <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
                                                 <br />
-
+<br/>
                                                 {/* <button className='noprint' onClick={(deleteInvoice)} id="delBtn" >Delete Invoice</button> */}
                                             </OptionsInvoice>
                                             <button className='noprint dlet' onClick={e =>
                                                 window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
                                                 deleteInvoice(e)}>Delete this Invoice</button>
+                                                 <br/> <br/><br/><br/><br/>
                                         </BkgdImg>
 
 
@@ -734,6 +755,8 @@ class EmployeeShow extends Component {
                         })}
                     </InvoicesContainerStyle>
                 </div>
+                </BigDiv>
+                
             </div>
         )
     }

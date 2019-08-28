@@ -151,7 +151,7 @@ class Profile extends Component {
           <input
             onBlur={() => this.handleUpdate()}
             onChange={(event) => this.handleChange(event)}
-            type="text" name="employeename" placeholder={this.state.employee.employeename}
+            type="text" name="employeename" placeholder='Employee Name'
             value={this.state.employee.employeename}
           />
           <h2> 💳 ID: {this.state.employee.idnumber} </h2>
@@ -160,7 +160,7 @@ class Profile extends Component {
           <input
             onBlur={() => this.handleUpdate()}
             onChange={(event) => this.handleChange(event)}
-            type='text' placeholder='idnumber'
+            type='text' placeholder='Employee ID'
             value={this.state.employee.idnumber}
             name="idnumber"
           />
@@ -170,7 +170,7 @@ class Profile extends Component {
           <input
             onBlur={() => this.handleUpdate()}
             onChange={(event) => this.handleChange(event)}
-            type='text' name="email" placeholder='Email'
+            type='text' name="email" placeholder='Employee Email'
             value={this.state.employee.email}
           />
           <h2> 📱 Phone: {this.state.employee.phone} </h2>
@@ -179,7 +179,7 @@ class Profile extends Component {
           <input
             onBlur={() => this.handleUpdate()}
             onChange={this.handleChange}
-            type='text' name="phone" placeholder='phone'
+            type='text' name="phone" placeholder='Employee Phone'
             value={this.state.employee.phone}
           />
 

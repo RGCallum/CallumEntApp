@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 
 const BkgdColors = styled.div`
+
 *{
   margin: 0;
 }
@@ -18,7 +19,13 @@ background-size: cover;
 // height: 100%;
 background-repeat: no-repeat;
 background-attachment: fixed;
+form{
+  justify-content: center;
+}
+input{
+  background: rgba(151, 240, 240, 0.2);
 
+}
 .required:after {
   content: "*";
   color: red;
@@ -26,31 +33,42 @@ background-attachment: fixed;
 
 h1{
   color: rgb(28, 147, 145);
-// text-shadow: 1px 1px 1px black;
+// text-shadow: 1px 1px 2px rgba(0,0,0, .5);
 display: flex;
 justify-content: center;
+
+}
+h3{
+  color: rgb(28, 147, 145);
 }
 a{
   text-decoration: none;
-  color: rgb(28, 147, 145);
+  color: blue;
 }
 a:hover{
-  color: blue;
+  color: rgb(28, 125, 145);
 }
 a:visited{
 }
 
-
+button{
+ background: #6A7FDB;
+color: white;
+border-radius: 5px;
+font-size: 16px;
+font-weight: 100;
+}
 .addemp{
-  background-color: rgba(255,255,255,0.94);
+  background-color: rgba(255,255,255,0.95);
 padding: 20px;
-border: inset #C0C0C0;
+border-top: inset #C0C0C0 .5px;
 color: black;
 text-shadow: none;
 }
 .overlay{
-  background-color:  rgba(255,255,255,0.94);
-  border: inset #C0C0C0 1px;
+  background-color:  rgba(255,255,255,0.95);
+  border-top: inset #C0C0C0 .5px;
+  // width: 40vw;
 
 }
 
@@ -58,18 +76,17 @@ text-shadow: none;
 
 `
 const EmployeeContainer = styled.div`
-border: inset #C0C0C0;
-background-color: rgba(255,255,255,0.94);
-// width: 30vw;
+border-top: inset #C0C0C0 .5px;
+// background-color: rgba(255,255,255,0.6);
 // border-radius: 5px;
 display: flex ;
 flex-direction: column ;
 flex-wrap: wrap ;
-justify-content: center ;
+// justify-content: center ;
 align-items: center ;
-align-content: center ;
+// align-content: center ;
 padding: 10px;
-box-shadow: 1px 1px 1px;
+// box-shadow: 1px 1px 1px;
 color: black;
 text-shadow: none;
 
@@ -132,46 +149,49 @@ class Employee extends Component {
             <div key={employee._id}>
 
               <EmployeeContainer>
-                
+             <h3> {employee.employeename}</h3>
+              <h5> ID: {employee.idnumber}</h5> 
+
                 <Link to={`/employees/${employee._id}/profile`}> 
-                <h3>{employee.employeename}</h3>  
+              ⚙️ Profile
                 
                 </Link>
-                <h5> {employee.idnumber}</h5> 
-                <h5> {employee.email}</h5> 
-                <h5> {employee.phone}</h5> 
+                <Link to={`/employees/${employee._id}`}> 
+          📂 Invoices</Link>
+                {/* <h5> {employee.email}</h5> 
+                <h5> {employee.phone}</h5>  */}
               </EmployeeContainer>
 
             </div>
 
-          ))} <br/>
+          ))} 
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
           <h3>Add New Employee</h3> 
 You can also use emojis <br/>
 <h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾 👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
             <div >
-              <label className='required' htmlFor="employeename" >Employee Name: </label>
+           <th>  <label className='required' htmlFor="employeename" >Employee Name: </label></th> 
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>
             </div>
             <div>
-              <label htmlFor="idnumber">ID Number: </label>
+             <th> <label htmlFor="idnumber">ID Number: </label> </th>
               <input onChange={this.handleChange} value={this.state.newEmployee.idnumber} type="idnumber" name="idnumber" />
             </div>
             <div>
-              <label htmlFor="email">Email: </label>
+             <th> <label htmlFor="email">Email: </label> </th>
               <input onChange={this.handleChange} value={this.state.newEmployee.email} type="text" name="email" />
             </div>
             <div>
-              <label htmlFor="phone">Phone: </label>
+             <th> <label htmlFor="phone">Phone: </label> </th>
               <input onChange={this.handleChange} value={this.state.newEmployee.phone} type="text" name="phone" />
             </div>
-
+            <br/>
             {/* <div>
               <label htmlFor="invoices">Invoices: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />
             </div> */}
-            <button type="submit">Create Employee</button>
+            <button type="submit">+ Add Employee</button>
           </form>
           </div>
         </BkgdColors>

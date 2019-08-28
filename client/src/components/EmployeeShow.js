@@ -8,6 +8,11 @@ import LineItems from './LineItems'
 
 
 const BigDiv = styled.div`
+input, textarea{
+    background: rgba(151, 240, 240, 0.2);
+
+}
+
 `
 
 const Addlogo = styled.div`
@@ -196,7 +201,7 @@ margin-top: 5%;
 display: flex;
 justify-content: space-evenly;
 input{
-    background: rgba(151, 240, 240, 0.2);
+    background: transparent;
 
 }
 input::placeholder{
@@ -207,6 +212,7 @@ input::placeholder{
 const SubtotalBox = styled.div`
 `
 const CommentsBox = styled.div`
+
 `
 
 const TotalDue = styled.div`

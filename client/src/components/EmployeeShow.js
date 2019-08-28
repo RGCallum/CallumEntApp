@@ -153,7 +153,6 @@ margin-top: 10px;
 `
 const Client1Invoice = styled.div`
 @media only screen and (max-width: 800px) {
-    background-color: lightblue;
     flex-direction: column;
   
 }

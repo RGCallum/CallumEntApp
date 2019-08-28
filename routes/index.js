@@ -11,6 +11,7 @@ router.post('/api/employees', employeeController.create)
 router.get('/api/employees/:employeeId', employeeController.show)
 router.patch('/api/employees/:employeeId', employeeController.update)
 router.delete('/api/employees/:employeeId', employeeController.delete)
+// router.patch('/api/employees/:employeeId/profile', employeeController.update)
 
 /* GET Google Authentication API. */
 router.get(
@@ -38,6 +39,5 @@ router.post('/api/employees/:employeeId/invoices', invoicesController.create)
 // router.patch('/api/allClients/:allClientId', allClientController.update)
 // router.post('/api/invoices/:invoiceId/allClientId', allClientController.create)
 
-router.patch('/api/employees/:employeeId/profile', employeeController.update)
 
 module.exports = router

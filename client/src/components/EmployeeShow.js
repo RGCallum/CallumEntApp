@@ -132,6 +132,8 @@ padding: 10px;
 `
 
 const Topbtns = styled.div`
+display: flex;
+justify-content: space-around;
 @media print
 {
 .noprint {display:none;}
@@ -255,7 +257,7 @@ const EditProfileBtn = styled.button`
 background: #6A7FDB;
 color: white;
 border-radius: 5px;
-margin-left: 60%;
+// margin-left: 60%;
 font-size: 16px;
 font-weight: 100;
 a{
@@ -467,11 +469,10 @@ class EmployeeShow extends Component {
                         </NameNButtonStyle>
                         <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
                             + Add New Invoice
-                    </NewInvoiceButton>
+                    </NewInvoiceButton> 
                         <EditProfileBtn >
                         <Link to={`/employees/${this.props.match.params.employeeId}/profile`} > 
-                        ⚙️ {this.state.employee.employeename} Profile
-                            
+                        ⚙️ {this.state.employee.employeename} Profile    
                             </Link>
                         </EditProfileBtn>
 

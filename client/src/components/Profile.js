@@ -79,6 +79,9 @@ h1, h2{
     background: rgba(28, 147, 145, 0.2);
 
   }
+  label{
+    font-size: 12px;
+  }
   
 `
 
@@ -144,9 +147,10 @@ class Profile extends Component {
 
         <NameNButtonStyle>
           <br/>
-         Edit Employee info below:
+         Edit Employee info below <br/>
+         All changes are auto saved
           <h2> 👤 {this.state.employee.employeename}</h2>
-          <label htmlFor="employeename" >Edit Name: </label>
+          <label htmlFor="employeename" >Update Name: </label>
 
           <input
             onBlur={() => this.handleUpdate()}
@@ -155,7 +159,7 @@ class Profile extends Component {
             value={this.state.employee.employeename}
           />
           <h2> 💳 ID: {this.state.employee.idnumber} </h2>
-          <label htmlFor="idnumber">Edit ID Number: </label>
+          <label htmlFor="idnumber">Update ID Number: </label>
 
           <input
             onBlur={() => this.handleUpdate()}
@@ -165,7 +169,7 @@ class Profile extends Component {
             name="idnumber"
           />
           <h2> ✉️ Email: {this.state.employee.email}</h2>
-          <label htmlFor="email">Email: </label>
+          <label htmlFor="email">Update Email: </label>
 
           <input
             onBlur={() => this.handleUpdate()}
@@ -174,7 +178,7 @@ class Profile extends Component {
             value={this.state.employee.email}
           />
           <h2> 📱 Phone: {this.state.employee.phone} </h2>
-          <label htmlFor="phone">Phone: </label>
+          <label htmlFor="phone">Update Phone: </label>
 
           <input
             onBlur={() => this.handleUpdate()}

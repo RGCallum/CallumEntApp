@@ -12,6 +12,7 @@ const Invoice = new Schema({
     result: String,
     image: String,
     rate: Number,
+    result2: String,
     client2: String,
     frequency2: Number,
     rate2: Number,

@@ -10,12 +10,14 @@ import LineItems from './LineItems'
 const BigDiv = styled.div`
 input, textarea{
     background: rgba(151, 240, 240, 0.2);
-
+border-radius: 3px;
+border: .5px solid rgba(0,0,0, 0.2);
+padding: 5px;
 }
 @media print
 {
     input{
-        border:none;
+        // border:none;
         background: transparent;
     }
     textarea{
@@ -152,9 +154,9 @@ padding: 10px;
     
 @media print{
   @page{
-      size:landscape;
+    //   size:landscape;
   }
-      // height: 95vh;
+      height: 95vh;
     .noprint {
         display:none;
         }
@@ -242,6 +244,8 @@ input::placeholder{
 `
 const SubtotalBox = styled.div`
 border:.5px solid rgba(0,0,0, 0.2);
+border-radius: 2px;
+padding: 5px;
 // display: flex; 
 // flex-direction: column;
 // justify-content: space-between;
@@ -343,6 +347,7 @@ a:visited {
 `
 
 const InvoicesContainerStyle = styled.div`
+
 //   display: flex;
 //   justify-content: center;
   font-family: helvetica;
@@ -424,11 +429,11 @@ width: 30%;
     align-items: center;
     background-color: rgba(182, 182, 182, 0.2);
     // padding: 10px;
-    // border-left:1px solid rgba(0,0,0, 0.2);
+    border-bottom: solid rgb(182, 182, 182) .5px;
 font-weight: 700;
 }
 .lineItems{
-    border-top: solid rgb(182, 182, 182) .5px;
+    // border-top: solid rgb(182, 182, 182) .5px;
 
     display: flex;
     justify-content: space-around;
@@ -715,7 +720,7 @@ class EmployeeShow extends Component {
                                                         <td>    <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="number" name="frequency2" value={invoice.frequency2} placeholder="Time Worked"
+                                                                type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none"
                                                             /></td> 
                                                        <td>      <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
@@ -725,7 +730,7 @@ class EmployeeShow extends Component {
                                                   <td>     $<input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="number" name="rate2" value={invoice.rate2} placeholder='Rate of pay 0.00'
+                                                                type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
                                                             /> </td> 
                                                     </div>
                                                 </LineItemsGrid>

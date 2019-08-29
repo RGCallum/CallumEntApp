@@ -711,7 +711,7 @@ class EmployeeShow extends Component {
                                                             /> </td> 
                                                     </div>
                                                    
-                                                    <div className="lineItems">
+                                                    <div className="lineItems client2line">
                                                     <td >    <input 
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -720,7 +720,7 @@ class EmployeeShow extends Component {
                                                         <td>    <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none"
+                                                                type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none" 
                                                             /></td> 
                                                        <td>      <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
@@ -826,6 +826,8 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                             type="text" value={"$"+(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+
                                                         /></tr> 
 
                                                         {/* changeable fees for another company fee */}
@@ -861,6 +863,8 @@ class EmployeeShow extends Component {
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="arisefee" value={"$"+19.75} placeholder='enter 0 if none' required='true'
+                                                            // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
+
                                                         /></tr> 
 
                                                       
@@ -871,6 +875,8 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                         type="text" name="callumfee" value={"$"+(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
+                                                        // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+
                                                         /></tr> 
                                                         
 
@@ -893,6 +899,8 @@ class EmployeeShow extends Component {
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                             type="text" name="totaldue" value={"$"+ ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
+                                                            // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+
                                                             /></tr>
                                                         </TotalDue>
                                                     </SubtotalBox>

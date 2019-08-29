@@ -64,6 +64,9 @@ input::placeholder{
 .required::after {
     content: "*";
     color: red;
+    @media print{    
+        display:none;
+    }
 }
 .employeename, .idnumber{
     font-size: 20px;
@@ -360,6 +363,47 @@ font-weight: 200;
     
     
 `
+const LineItemsGrid = styled.div`
+border: solid rgb(182, 182, 182) .5px;
+border-radius: 2px;
+box-sizing: content-box;
+display: flex;
+flex-direction: column;
+
+td{
+    border-left:.5px solid rgba(0,0,0, 0.2);
+width: 30%;
+// padding-top: 1px;
+&:first-of-type {
+    border-left: none;
+  }
+    }
+.row{
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(182, 182, 182, 0.2);
+    // padding: 10px;
+    // border-left:1px solid rgba(0,0,0, 0.2);
+font-weight: 700;
+}
+.lineItems{
+    border-top: solid rgb(182, 182, 182) .5px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    // padding: 10px;
+
+}
+input::placeholder{
+    font-weight: 100;
+    font-size: 10px;
+}
+`
 
 class EmployeeShow extends Component {
 
@@ -602,9 +646,46 @@ class EmployeeShow extends Component {
                                                 </PeriodInvoice>
 
                                                 <br /><br />
+                                                <LineItemsGrid>
+                                                    
+
+  
+                                                <div className="row header">
+                                                   <td>    <div className='required'><span> 🗂 </span> Client</div></td> 
+                                                   <td>    <div className='required'><span> ⏱ </span> Time-Worked</div></td> 
+                                                   <td>    <div ><span> ⌛ </span> Interval Type</div></td> 
+                                                   <td>    <div className='required'><span> 💵 </span>Interval Rate</div></td> 
+                                                    </div>
+                                                    <div className="lineItems">
+                                                    <td >    <input 
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="client" value={invoice.client} placeholder='Client'
+                                                        /></td> 
+                                                        <td>    <input
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
+                                                            /></td> 
+                                                       <td>      <input
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
+                                                            /></td> 
+                                                  <td>     <input
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
+                                                            /> </td> 
+
+                                                  
+
+                                                    </div>
+                                                   
+                                                </LineItemsGrid>
                                                 <Client1Invoice>
 
-                                                    <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
+                                                    {/* <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
                                                         <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -616,8 +697,7 @@ class EmployeeShow extends Component {
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
                                                             />
-                                                            {/* {invoice.result}
-                                                        {this.state.result} */}
+                                                          
                                                         </td>
 
 
@@ -634,7 +714,7 @@ class EmployeeShow extends Component {
                                                                 type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                             /></td>
 
-                                                    </tr>
+                                                    </tr> */}
 
                                                     {/* media query invoice */}
                                                     <div className="mqueryInvoice">

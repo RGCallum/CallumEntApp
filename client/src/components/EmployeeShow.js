@@ -651,10 +651,10 @@ class EmployeeShow extends Component {
 
   
                                                 <div className="row header">
-                                                   <td>    <div className='required'><span> 🗂 </span> Client</div></td> 
-                                                   <td>    <div className='required'><span> ⏱ </span> Time-Worked</div></td> 
-                                                   <td>    <div ><span> ⌛ </span> Interval Type</div></td> 
-                                                   <td>    <div className='required'><span> 💵 </span>Interval Rate</div></td> 
+                                                   <td>    <div className='required'><span> 🗂 </span> Client </div></td> 
+                                                   <td>    <div className='required'><span> ⏱ </span> Time-Worked </div></td> 
+                                                   <td>    <div ><span> ⌛ </span> Interval Type </div></td> 
+                                                   <td>    <div className='required'><span> 💵 </span>Interval Rate </div></td> 
                                                     </div>
                                                     <div className="lineItems">
                                                     <td >    <input 

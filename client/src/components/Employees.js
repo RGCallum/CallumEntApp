@@ -56,7 +56,15 @@ button{
 color: white;
 border-radius: 5px;
 font-size: 16px;
-font-weight: 100;
+font-weight: 300;
+cursor: pointer;
+
+}
+button:hover{
+  background: white;
+  
+      color: #6A7FDB;
+  
 }
 .addemp{
   background-color: rgba(255,255,255,0.95);

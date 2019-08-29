@@ -89,6 +89,12 @@ text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
     border-radius: 5px;
     padding: 10px;
   }
+  button:hover{
+    background-color: white;
+    color:red;
+    cursor:pointer;
+  
+  }
   input{
     background: rgba(28, 147, 145, 0.2);
 
@@ -102,18 +108,24 @@ const InvoiceBtn = styled.div`
 display: flex;
 justify-content: center;
 color: #6A7FDB;
-font-weight: 200;
+font-weight: 300;
 font-family: helvetica;
 
 button{
   background: #6A7FDB;
-  // color: white;
+  color: white;
   border-radius: 5px;
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 300;
 }
-
+button:hover{
+  background: white;
+  cursor:pointer;
+  color: #6A7FDB;
+  
+}
 a{
+  
     text-decoration: none;
     // color: white;
 }
@@ -192,7 +204,7 @@ class Profile extends Component {
 
           <br />
           <Link to={`/employees/${this.props.match.params.employeeId}`}>
-        📂 Invoices</Link></InvoiceBtn>
+       <button>📂 Invoices</button> </Link></InvoiceBtn>
         <br />    <Toptext><div>(All changes are auto saved)</div></Toptext>
         <br />
         <NameNButtonStyle>

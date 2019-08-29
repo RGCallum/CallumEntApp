@@ -11,9 +11,9 @@ display: flex;
 justify-content: space-around;
 padding: 10px;
 background: rgb(28, 147, 145);
-font-weight: 200;
+font-weight: 300;
 color: white;
-font-size: 13px;
+// font-size: 13px;
 font-family: helvetica;
 width: 100%;
 margin-left: -8px;
@@ -33,6 +33,7 @@ a:visited{
 a:hover{
     color: black;
 }
+
 @media print
 {
 .noprint {display:none;}

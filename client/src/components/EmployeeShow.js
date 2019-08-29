@@ -81,7 +81,12 @@ font-weight: bold;
     width: 80px;
     
   }
+button:hover{
+    background-color: white;
+    color:red;
+    cursor:pointer;
 
+}
 
 #print-button {
     width: 50px;
@@ -254,27 +259,46 @@ const BkgdImg = styled.div`
 `
 
 const NewInvoiceButton = styled.button`
-//   background: rgb(28, 125, 147);
-  color: rgb(28, 125, 147);
+  background: rgb(28, 125, 147);
+  color: white;
   font-size: 16px;
   border-radius: 5px;
-  font-weight: 100;
+  font-weight: 300;
 cursor: pointer;
-`
-const EditProfileBtn = styled.button`
-// background: #6A7FDB;
-color: #6A7FDB;
-border-radius: 5px;
-// margin-left: 60%;
-font-size: 16px;
-font-weight: 100;
-a{
+a:visited {
     text-decoration: none;
+  }
+a:hover{
     color: #6A7FDB;
 
 }
-a:visited{
-    color: #6A7FDB;
+:hover{
+    background: white;
+    color: rgb(28, 125, 147);
+}
+height: 26.5px;
+`
+const EditProfileBtn = styled.button`
+background: #6A7FDB;
+color: white;
+border-radius: 5px;
+font-size: 16px;
+font-weight: 300;
+a{
+    text-decoration: none;
+    color: white;
+
+}
+a:visited {
+    text-decoration: none;
+  }
+
+:hover{
+    background: white;
+    a{
+        color: #6A7FDB;
+
+    }
 }
 `
 
@@ -470,13 +494,9 @@ class EmployeeShow extends Component {
                             <NameNButtonStyle>
                                 <h1>{this.state.employee.employeename}'s Invoices </h1>
 
-
-                                <br />
-
-
                             </NameNButtonStyle>
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                                + Add New Invoice
+                                ➕ Add New Invoice
                     </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
@@ -756,7 +776,7 @@ class EmployeeShow extends Component {
                                                 </OptionsInvoice>
                                                 <button className='noprint dlet' onClick={e =>
                                                     window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                    deleteInvoice(e)}>Delete this Invoice</button>
+                                                    deleteInvoice(e)}>⛔️ Delete this Invoice</button>
                                                 <br /> <br /><br /><br /><br />
                                             </BkgdImg>
 

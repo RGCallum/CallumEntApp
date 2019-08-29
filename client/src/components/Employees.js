@@ -24,6 +24,14 @@ form{
 }
 input{
   background: rgba(151, 240, 240, 0.2);
+  border:.5px solid rgba(0,0,0, 0.2);
+border-radius: 2px;
+padding: 5px;
+width: 100%;
+
+}
+input:focus, textarea:focus{
+  background: rgba(255, 212, 39, 0.2);
 
 }
 .required:after {
@@ -68,7 +76,9 @@ button:hover{
 }
 .addemp{
   background-color: rgba(255,255,255,0.95);
-padding: 20px;
+padding-left: 10px;
+padding-right: 20px;
+
 border-top: inset #C0C0C0 .5px;
 color: black;
 text-shadow: none;
@@ -179,9 +189,9 @@ class Employee extends Component {
           ))} 
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
-          <h3>Add New Employee</h3> 
+        <br/>  <h3>Add New Employee</h3> 
 You can also use emojis <br/>
-<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾 👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
+<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
             <div >
            <th>  <label className='required' htmlFor="employeename" >Employee Name: </label></th> 
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>

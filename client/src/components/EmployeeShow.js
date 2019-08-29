@@ -254,27 +254,27 @@ const BkgdImg = styled.div`
 `
 
 const NewInvoiceButton = styled.button`
-  background: rgb(28, 125, 147);
-  color: white;
+//   background: rgb(28, 125, 147);
+  color: rgb(28, 125, 147);
   font-size: 16px;
   border-radius: 5px;
   font-weight: 100;
-
+cursor: pointer;
 `
 const EditProfileBtn = styled.button`
-background: #6A7FDB;
-color: white;
+// background: #6A7FDB;
+color: #6A7FDB;
 border-radius: 5px;
 // margin-left: 60%;
 font-size: 16px;
 font-weight: 100;
 a{
     text-decoration: none;
-    color: white;
+    color: #6A7FDB;
 
 }
 a:visited{
-    color: white;
+    color: #6A7FDB;
 }
 `
 

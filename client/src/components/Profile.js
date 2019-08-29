@@ -6,26 +6,26 @@ import Employee from './Employees';
 
 
 
+const NameContainer = styled.div`
+
+h1{
+  font-family: helvetica;
+font-weight: 500;
+color: rgb(43, 172, 174);
+text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+
+}
+display:flex;
+justify-content: center;
+`
 
 const EmployeeStyles = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
   flex-direction: column;
-  
-  // background: rgb(43, 172, 174, 0.6);
- 
-  
-  button {
-    position: absolute;
-    color: white;
-    background-color: red;
-    border-radius: 5px;
-    padding: 10px;
-  }
 
- 
-  
+  // background: rgb(43, 172, 174, 0.6);
   input {
     background: rgb(43, 172, 174, 0.6);
 
@@ -52,30 +52,42 @@ const EmployeesContainerStyle = styled.div`
   font-weight: 200;
 
 `
+const Toptext = styled.div`
+font-family: helvetica;
+font-size: 10px;
+display:flex;
+justify-content: center;
+`
 
 const NameNButtonStyle = styled.div`
 font-weight: 200;
+box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+padding-left:10%;
+padding-right:10%;
 
-  display: flex;
-  justify-content: center;
+display:flex;
+justify-content: space-around;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
+  // width: 50vw;
   font-family: helvetica;
-h1, h2{
+h1{
   font-weight: 500;
 
 }
-  h3{
-    font-weight: 200;
+h3{
+  color: rgb(43, 172, 174);
+  font-weight: 500;
+margin-bottom: 5px;
+text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
 
-  }
+}
   button {
-    position: absolute;
+    // position: absolute;
     color: white;
     background-color: red;
     border-radius: 5px;
     padding: 10px;
-    margin-left: -11%;
   }
   input{
     background: rgba(28, 147, 145, 0.2);
@@ -87,25 +99,31 @@ h1, h2{
   
 `
 const InvoiceBtn = styled.div`
-display: block;
-align-content: center;
+display: flex;
+justify-content: center;
+color: #6A7FDB;
+font-weight: 200;
+font-family: helvetica;
+
 button{
   background: #6A7FDB;
-  color: white;
+  // color: white;
   border-radius: 5px;
-  margin-left: 60%;
   font-size: 20px;
   font-weight: 200;
 }
 
 a{
     text-decoration: none;
-    color: white;
-
+    // color: white;
 }
 a:visited{
-    color: white;
-}`
+    color: #6A7FDB;
+}
+a:hover{
+  color: blue;
+}
+`
 
 class Profile extends Component {
   state = {
@@ -166,15 +184,20 @@ class Profile extends Component {
 
     return (
       <div>
-<InvoiceBtn>
-  <br/>
-        <Link to={`/employees/${this.props.match.params.employeeId}`}>
-          <button>📂 Invoices</button></Link></InvoiceBtn>
+        <NameContainer>
+        <br /><h1>
+        {this.state.employee.employeename}'s Profile</h1>
+        </NameContainer>
+        <InvoiceBtn>
+
+          <br />
+          <Link to={`/employees/${this.props.match.params.employeeId}`}>
+        📂 Invoices</Link></InvoiceBtn>
+        <br />    <Toptext><div>(All changes are auto saved)</div></Toptext>
+        <br />
         <NameNButtonStyle>
-         
-          <h2> Edit {this.state.employee.employeename}'s profile below</h2>
-          (All changes are auto saved)
-<br/><br/>
+
+          <h3>👤 {this.state.employee.employeename}</h3>
           <label htmlFor="employeename" >Update Name: </label>
 
           <input
@@ -183,7 +206,7 @@ class Profile extends Component {
             type="text" name="employeename" placeholder='Employee Name'
             value={this.state.employee.employeename}
           />
-          <h2> 💳 ID: {this.state.employee.idnumber} </h2>
+          <h3> 💳 {this.state.employee.idnumber} </h3>
           <label htmlFor="idnumber">Update ID Number: </label>
 
           <input
@@ -193,7 +216,7 @@ class Profile extends Component {
             value={this.state.employee.idnumber}
             name="idnumber"
           />
-          <h2> ✉️ Email: {this.state.employee.email}</h2>
+          <h3> ✉️ {this.state.employee.email}</h3>
           <label htmlFor="email">Update Email: </label>
 
           <input
@@ -202,7 +225,7 @@ class Profile extends Component {
             type='text' name="email" placeholder='Employee Email'
             value={this.state.employee.email}
           />
-          <h2> 📱 Phone: {this.state.employee.phone} </h2>
+          <h3>📱{this.state.employee.phone} </h3>
           <label htmlFor="phone">Update Phone: </label>
 
           <input
@@ -213,12 +236,13 @@ class Profile extends Component {
           />
 
 
-          <br /> <br />
+          <br />
           <a href={`/employees`}>
             <button className='noprint' onClick={e =>
               window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
               this.handleDelete(e)}> ⛔️ Delete {this.state.employee.employeename} from directory</button>
           </a>
+          <br />
         </NameNButtonStyle>
 
         <div>
@@ -265,11 +289,13 @@ class Profile extends Component {
                                             this.handleDelete(e)}>Delete Employee</button>
                         </Link>  */}
 
+
             </EmployeeStyles>
+
           </EmployeesContainerStyle>
         </div>
 
-
+        
       </div>
     )
   }

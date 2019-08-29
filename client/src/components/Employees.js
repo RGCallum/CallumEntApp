@@ -100,6 +100,8 @@ class Employee extends Component {
   state = {
     employees: [],
     newEmployee: {
+      index: '',
+
       employeename: '',
       idnumber: '',
       email: '',
@@ -144,18 +146,20 @@ class Employee extends Component {
             {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
             <br/>Employee Directory</h1>
           
-<br/><br/>
+<br/><br/> 
           {this.state.employees.map((employee) => ( 
+           
+           
             <div key={employee._id}>
 
               <EmployeeContainer>
-             <h3> {employee.employeename}</h3>
-              <h5> ID: {employee.idnumber}</h5> 
+             <h3> {employee.employeename} </h3>
+              {/* <h5> ID: {employee.idnumber}</h5>  */}
 
                 <Link to={`/employees/${employee._id}/profile`}> 
               ⚙️ Profile
                 
-                </Link>
+                </Link> 
                 <Link to={`/employees/${employee._id}`}> 
           📂 Invoices</Link>
                 {/* <h5> {employee.email}</h5> 
@@ -163,7 +167,7 @@ class Employee extends Component {
               </EmployeeContainer>
 
             </div>
-
+            
           ))} 
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>

@@ -2,6 +2,7 @@ const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const Employee = new Schema({
+  index: Number,
   employeename: String,
   idnumber: String, 
   email: String,

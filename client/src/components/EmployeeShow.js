@@ -527,12 +527,15 @@ class EmployeeShow extends Component {
 
 
     handleChange = (event, invoiceId) => {
+        
         const { value, name } = event.target
         const newInvoices = [...this.state.invoices]
         const updatedValue = newInvoices.map(invoice => {
             if (invoice._id === invoiceId) {
                 invoice[name] = value
+                
             }
+            // image change
             if (event.target.files && event.target.files[0]) {
                 this.setState({
                     uploadImage: URL.createObjectURL(event.target.files[0])
@@ -542,9 +545,11 @@ class EmployeeShow extends Component {
             }
 
             return invoice
+            
         })
 
         this.setState({ invoices: updatedValue })
+
 
     }
 
@@ -555,6 +560,7 @@ class EmployeeShow extends Component {
         axios.patch(`/api/invoices/${invoiceId}`, invoiceToUpdate).then(() => {
             console.log("Updated Invoice")
         })
+        
     }
     handleSelectChange = (event) => {
         this.setState({
@@ -624,24 +630,24 @@ class EmployeeShow extends Component {
                                 }
 
 
-                                function addMath() {
-                                    var numOne = document.getElementById('sub1').value;
-                                    var numTwo = document.getElementById('sub2').value;
-                                    var viewSubs = parseInt(numOne) + parseInt(numTwo);
-                                    // var p = document.getElementById('viewSubs');
-                                    // p.innerHTML += viewSubs;
+                                // function addMath() {
+                                //     var numOne = document.getElementById('sub1').value;
+                                //     var numTwo = document.getElementById('sub2').value;
+                                //     var viewSubs = parseInt(numOne) + parseInt(numTwo);
+                                //     // var p = document.getElementById('viewSubs');
+                                //     // p.innerHTML += viewSubs;
 
-                                    document.getElementById('viewSubs').value = viewSubs;                                    // p.innerHTML += viewSubs;
-                                    console.log(viewSubs)
-                                    if (document.getElementById('rate2').value === '') {
-                                        // document.getElementById('viewSubs').value === numOne.value;
-                                        console.log("not here")
-                                        document.getElementById('viewSubs').value = document.getElementById('sub1').value;
-                                    } else {
-                                        console.log('im here')
-                                    }
-                                }
-                                // one big function for all client math 
+                                //     document.getElementById('viewSubs').value = viewSubs;                                    // p.innerHTML += viewSubs;
+                                //     console.log(viewSubs)
+                                //     if (document.getElementById('rate2').value === '') {
+                                //         // document.getElementById('viewSubs').value === numOne.value;
+                                //         console.log("not here")
+                                //         document.getElementById('viewSubs').value = document.getElementById('sub1').value;
+                                //     } else {
+                                //         console.log('im here')
+                                //     }
+                                // }
+    // one big function for all client math 
     function executeMath() {
 
         // client1 math
@@ -654,7 +660,8 @@ class EmployeeShow extends Component {
         console.log("Client 1 subtotal is", numOne, addClient1)
   
         // client2 math
-
+        var numOne = document.getElementById('sub1').value;
+        var numTwo = document.getElementById('sub2').value;
         var frequency2 = document.getElementById('frequency2').value;
         var rate2 = document.getElementById('rate2').value;
         var addClient2 = parseInt(frequency2) * parseInt(rate2);
@@ -667,7 +674,8 @@ class EmployeeShow extends Component {
         }
   
         // add subtotals math
-
+        var numOne = document.getElementById('sub1').value;
+        var numTwo = document.getElementById('sub2').value;
         var showSubs = document.getElementById('showSubs').value;
         var viewSubs = parseInt(numOne) + parseInt(numTwo);
         document.getElementById('viewSubs').value = viewSubs;
@@ -681,6 +689,7 @@ class EmployeeShow extends Component {
         }
   
         // multiplication for percentage and show result 
+        var showSubs = document.getElementById('showSubs').value;
         var callumfeeResults = document.getElementById('callumfeeResults').value;
         var callumfee = document.getElementById('callumfee').value;
         var multiCalFee = (showSubs) * (callumfee);
@@ -688,12 +697,12 @@ class EmployeeShow extends Component {
         console.log("callum fee is", multiCalFee);
   
         // subtraction of whole number fee and percentage fee from subtotals
-        // var showSubs = document.getElementById('showSubs').value;
+        var showSubs = document.getElementById('showSubs').value;
         var arisefee = document.getElementById('arisefee').value;
         var total = document.getElementById('total').value;
         var showTotalCalc = document.getElementById('showTotalCalc').value;
-        // var callumfee = document.getElementById('callumfee').value;
-        // var callumfeeResults = document.getElementById('callumfeeResults').value;
+        var callumfee = document.getElementById('callumfee').value;
+        var callumfeeResults = document.getElementById('callumfeeResults').value;
         var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
         document.getElementById('showTotalCalc').value = minus;
         document.getElementById('total').value = document.getElementById('showTotalCalc').value;
@@ -830,9 +839,10 @@ class EmployeeShow extends Component {
                                                             type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                         /> </td>
                                                         <td>     $<input id='sub1'
+                                                        type="text" name="sub2"
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="sub1" value={(invoice.rate * invoice.frequency).toFixed(2)}
+                                                            // type="number" name="sub1" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                         /> </td>
                                                     </div>
 
@@ -858,9 +868,10 @@ class EmployeeShow extends Component {
                                                             type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
                                                         /> </td>
                                                         <td>     $<input id='sub2'
+                                                        type="number" name="sub2"
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="sub2" value={(invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            // type="number" name="sub2" value={(invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                         /> </td>
                                                     </div>
                                                 </LineItemsGrid>
@@ -920,17 +931,18 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
                                                     </CommentsBox>
-                                                    <input type="button" value="Calculate Client Subtotals" onclick="executeMath()"/>
+                                                    <input type="button" value="Calculate Client Subtotals" onClick={e =>
+                                                            executeMath()} />
 
                                                     <SubtotalBox>
-                                                        <input type="button" value="View subtotal" name="math" onClick={e =>
-                                                            addMath()} />
+                                                        {/* <input type="button" value="View subtotal" name="math" onClick={e =>
+                                                            addMath()} /> */}
 
                                                         <tr >  <label htmlFor="subtotal">Subtotal:</label>
                                                             <input id="viewSubs"
-                                                                onBlur={() => this.handleUpdate(invoice._id)}
-                                                                onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="number" name="subtotal"
+                                                                // onBlur={() => this.handleUpdate(invoice._id)}
+                                                                // onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                type="number" name="viewSubs"
                                                             // type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                             // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                             // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
@@ -968,22 +980,26 @@ class EmployeeShow extends Component {
                                                         <input id="showSubs" type="hidden" name="showSubs" />
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee"
+                                                            type="number" name="arisefee" value={20}
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
+                                                                // type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
                                                             // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
 
                                                             /></tr>
 
-                                                        <input id="callumfeeResults" type="hidden" name="callumfeeResults" />
 
                                                         <tr >
                                                             <label htmlFor="callumfee">IB Fee 10%:</label>
+                                                            <input id="callumfeeResults" type="number" name="callumfeeResults" />
+
                                                             <input id="callumfee"
+                                                             type="hidden" name="callumfee" value={0.10}
+                                                             
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
-                                                                type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
+                                                                // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
                                                             // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
@@ -1005,11 +1021,12 @@ class EmployeeShow extends Component {
                                                             <input id="showTotalCalc" type="hidden" name="showTotalCalc" />
 
                                                             <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total <span> 💵 </span> Due: </label>
-                                                                <input
+                                                                <input 
+                                                                id="total" type="number" name="total"
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
-                                                                    type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
+                                                                    // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
                                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>

@@ -825,7 +825,7 @@ class EmployeeShow extends Component {
                                                         /></td>
                                                         <td>    <input id="frequency"
                                                             onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath()) }
                                                             type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
                                                         /></td>
                                                         <td>      <input
@@ -835,7 +835,7 @@ class EmployeeShow extends Component {
                                                         /></td>
                                                         <td>     $<input id='rate'
                                                             onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                         /> </td>
                                                         <td>     $<input id='sub1'
@@ -854,7 +854,7 @@ class EmployeeShow extends Component {
                                                         /></td>
                                                         <td>    <input id="frequency2"
                                                             onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none"
                                                         /></td>
                                                         <td>      <input
@@ -864,7 +864,7 @@ class EmployeeShow extends Component {
                                                         /></td>
                                                         <td>     $<input id="rate2"
                                                             onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
                                                         /> </td>
                                                         <td>     $<input id='sub2'
@@ -931,8 +931,8 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
                                                     </CommentsBox>
-                                                    <input type="button" value="Calculate Client Subtotals" onClick={e =>
-                                                            executeMath()} />
+                                                    {/* <input type="button" value="Calculate Client Subtotals" onClick={e =>
+                                                            executeMath()} /> */}
 
                                                     <SubtotalBox>
                                                         {/* <input type="button" value="View subtotal" name="math" onClick={e =>

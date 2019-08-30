@@ -11,6 +11,7 @@ const Invoice = new Schema({
     frequency: Number,
     result: String,
     image: String,
+    uploadImage: 'String',
     rate: Number,
     result2: String,
     client2: String,
@@ -23,6 +24,9 @@ const Invoice = new Schema({
     otherfee: String,
     comments: String,
     totaldue: Number,
+    math: Number,
+    sub1: Number,
+    sub2: Number,
     allClients: [
         {
           type: Schema.Types.ObjectId,

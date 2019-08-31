@@ -87,7 +87,7 @@ font-weight: bold;
   }
   button {
     // position: relative;
-    margin-left: 41%;
+    // margin-left: 41%;
     color: white;
     background-color: red;
     border-radius: 5px;
@@ -134,7 +134,7 @@ margin-left: 68%;
 color: rgba(0,0,0, 0.7);
 font-weight: 200;
 @media only screen and (max-width: 414px){
-    margin-left: 52%;
+    // margin-left: 52%;
 }
   }
 
@@ -183,7 +183,7 @@ margin-top: 8%;
 position: absolute;
 @media only screen and (max-width: 414px) {
     margin-top: -25%;
-    margin-left: 57%;
+    // margin-left: 57%;
     input{
         width: 105px;
 
@@ -457,14 +457,14 @@ h1{
 const LogoStyles = styled.div`
 font-weight: 200;
 .employeeinfo{
-    // margin-left: 5%;
+    margin-left: 5%;
     margin-top: 8%;
     position: absolute;
     // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;
     @media only screen and (max-width: 414px){
-        margin-left: 0%;
+        // margin-left: 0%;
     }
 }
 
@@ -472,9 +472,9 @@ font-weight: 200;
         width: 8%;
         z-index: 10;
         position: absolute;
-        // margin-left: 60%;
+        margin-left: 60%;
         max-width: 250px;
-        margin-left: 2%;
+        // margin-left: 2%;
 
         margin-top: -5%;
         margin-bottom: 50px;
@@ -486,7 +486,7 @@ font-weight: 200;
      .logo{
         z-index: 10;
         position: absolute;
-        margin-left: 65%;
+        // margin-left: 65%;
 
     }
     
@@ -526,7 +526,7 @@ font-weight: 700;
     // border-top: solid rgb(182, 182, 182) .5px;
 
     display: flex;
-    // justify-content: space-around;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
     // padding: 10px;

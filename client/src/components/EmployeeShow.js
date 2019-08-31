@@ -211,7 +211,7 @@ class EmployeeShow extends Component {
                             </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                    ⚙️ {this.state.employee.employeename} Profile
+                                    ⚙️ Employee Profile
                             </Link>
                             </EditProfileBtn>
 

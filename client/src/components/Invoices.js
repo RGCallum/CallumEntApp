@@ -179,7 +179,7 @@ justify-content: center;
 const TopInvoice = styled.div`
 // border: black solid 1px;
 margin-left: 67%;
-margin-top: 10px;
+margin-top: 8%;
 position: absolute;
 @media only screen and (max-width: 414px) {
     margin-top: -25%;
@@ -193,11 +193,11 @@ position: absolute;
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 40%;
-margin-top: 10px;
+margin-left: 36%;
+margin-top: 8%;
 
 @media only screen and (max-width: 414px){
-margin-left: 60%;
+margin-left: 40%;
 margin-top: 10px;
 
 input{
@@ -412,7 +412,7 @@ button{
   background: #b173a5;
   color: white;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
 }
 button:hover{
@@ -457,7 +457,8 @@ h1{
 const LogoStyles = styled.div`
 font-weight: 200;
 .employeeinfo{
-    margin-left: 5%;
+    // margin-left: 5%;
+    margin-top: 8%;
     position: absolute;
     // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
     padding: 10px;
@@ -470,7 +471,7 @@ font-weight: 200;
     img{
         width: 8%;
         z-index: 10;
-        position: relative;
+        position: absolute;
         // margin-left: 60%;
         max-width: 250px;
         margin-left: 2%;
@@ -478,9 +479,7 @@ font-weight: 200;
         margin-top: -5%;
         margin-bottom: 50px;
         @media only screen and (max-width: 414px){
-            width: 15%; 
-            position: relative;
-
+            
         }
     }
 
@@ -499,6 +498,7 @@ border-radius: 2px;
 box-sizing: content-box;
 display: flex;
 flex-direction: column;
+// width: 90vw;
 input{
     width: 100px;
 }
@@ -520,15 +520,13 @@ width: 30%;
     // padding: 10px;
     border-bottom: solid rgb(182, 182, 182) .5px;
 font-weight: 700;
-@media only screen and (max-width: 414px) {
-    // width: 50%;
-}
+
 }
 .lineItems{
     // border-top: solid rgb(182, 182, 182) .5px;
 
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
     flex-direction: row;
     align-items: center;
     // padding: 10px;
@@ -539,11 +537,12 @@ input::placeholder{
     font-size: 10px;
 }
 @media only screen and (max-width: 414px) {
-    td{
-        width: 40px;
-    }
+    width: 90vw;
     input{
-        width: 30px;
+        width: 20px;
+    }
+    table{
+        width: 90vw;
     }
 }
 `

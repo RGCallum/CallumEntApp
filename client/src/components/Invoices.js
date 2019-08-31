@@ -54,6 +54,9 @@ font-weight: 200;
 
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
   position: relative;
   flex-direction: column;
   width: 800px;
@@ -66,12 +69,7 @@ background-size: cover;
 background-repeat: no-repeat;
 
 input::placeholder{
-    // color: red;
     font-style: italic;
-}
-.dollar::before {
-    content: "$";
-    // color: red;
 }
 .required::after {
     content: "*";
@@ -83,11 +81,10 @@ input::placeholder{
 .employeename, .idnumber{
     font-size: 20px;
 font-weight: bold;
-
   }
   button {
-    // position: relative;
-    margin-left: 41%;
+    // position: absolute;
+    // margin-left: 40vw;
     color: white;
     background-color: red;
     border-radius: 5px;
@@ -96,6 +93,7 @@ font-weight: bold;
     width: 80px;
     
   }
+
 button:hover{
     background-color: white;
     color:red;
@@ -129,14 +127,7 @@ button:hover{
     text-decoration: none;
     font-size: 10px;
   }
-  .invoiceNum{
-margin-left: 68%;
-color: rgba(0,0,0, 0.7);
-font-weight: 200;
-@media only screen and (max-width: 414px){
-    margin-left: 0%;
-}
-  }
+
 
 
 span{
@@ -151,6 +142,14 @@ padding: 10px;
 
     }
     
+
+    @media only screen and (max-width: 414px){
+        textarea{
+            
+        }
+    }
+
+
 @media print{
   @page{
     //   size:landscape;
@@ -180,10 +179,10 @@ const TopInvoice = styled.div`
 // border: black solid 1px;
 margin-left: 67%;
 margin-top: 8%;
-position: absolute;
+position: relative;
 @media only screen and (max-width: 414px) {
-    margin-top: -25%;
-    margin-left: 7%;
+    margin-top: 0%;
+    margin-left: 45%;
     input{
         width: 105px;
 
@@ -194,15 +193,14 @@ position: absolute;
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
 margin-left: 36%;
-margin-top: 8%;
+margin-top: -8%;
 
 @media only screen and (max-width: 414px){
-margin-left: 4%;
 margin-top: 10px;
+margin-left: 20%;
 
 input{
     width: 105px;
-
 }
 
 }
@@ -252,7 +250,7 @@ input{
 
 `
 const TotalsInvoice = styled.div`
-// border: black solid 1px;
+border: black solid 1px;
 margin-top: 5%;
 display: flex;
 justify-content: space-evenly;
@@ -297,19 +295,28 @@ label{
 }
 .subLineBrdr{
     border:.5px solid rgba(0,0,0, 0.2);
+    
+
+}
+#subBtn{
+    float: left;
+    background-color: #b4bfd36d;
+    border:.5px solid rgba(0,0,0, 0.2);
 
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 30px;
+        width: 60px;
     }
-  button{
-      width: 30px;
+    #subBtn{
+      width: 60px;
   }
 }
 `
 const CommentsBox = styled.div`
+textarea{
 
+}
 `
 
 const TotalDue = styled.div`
@@ -327,8 +334,7 @@ input{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 30px;
-    }
+        width: 60px;    }
   textarea{
       width: 60px;
   }
@@ -336,16 +342,20 @@ input{
 `
 const OptionsInvoice = styled.div`
 // border: black solid 1px;
+// width: 50%;
 text-decoration: none;
 display: flex;
-justify-content: space-between;
-margin-left: 25%;
+justify-content: space-evenly;
+text-align: center;
 span{
     font-size: 50px;
 }
 
 `
 const BkgdImg = styled.div`
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
 
 `
 
@@ -455,7 +465,7 @@ h1{
 }
 `
 const LogoStyles = styled.div`
-font-weight: 200;
+
 .employeeinfo{
     margin-left: 5%;
     margin-top: 8%;
@@ -464,33 +474,50 @@ font-weight: 200;
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;
     @media only screen and (max-width: 414px){
+        align-items: center;
         margin-left: 0%;
+position: relative;
     }
 }
+font-weight: 200;
 
-    img{
-        width: 8%;
-        z-index: 10;
+   
+`
+const LogoIdDiv = styled.div`
+display: flex
+justify-content: space-between;
+align-content: center;
+.invoiceNum{
+    // margin-left: 50vw;
+    color: rgba(0,0,0, 0.7);
+    font-weight: 200;
+    @media only screen and (max-width: 414px){
+        // margin-left: 0%;
+    }
+      }
+
+img{
+    width: 8%;
+        // z-index: 10;
         position: absolute;
         max-width: 250px;
-        margin-left: 2%;
+        // margin-left: 2%;
 
         margin-top: -5%;
         margin-bottom: 50px;
         @media only screen and (max-width: 414px){
-            margin-left: 0%;
+            // margin-left: 0%;
         }
     }
-
-     .logo{
+.logo{
         z-index: 10;
         position: absolute;
         margin-left: 65%;
 
     }
-    
-    
 `
+
+
 const LineItemsGrid = styled.div`
 border: solid rgb(182, 182, 182) .5px;
 border-radius: 2px;
@@ -535,10 +562,14 @@ input::placeholder{
     font-weight: 100;
     font-size: 10px;
 }
+align-content: center;
+text-align: center;
 @media only screen and (max-width: 414px) {
-    width: 90vw;
+    align-content: center;
+    text-align: center;
+    width: 100vw;
     input{
-        width: 20px;
+        width: 30px;
     }
     table{
         width: 90vw;
@@ -710,9 +741,9 @@ class Invoices extends Component {
                                     ⚙️ Employee Profile
                                 </Link>
                             </EditProfileBtn>
-                            <InvoiceBtn> 
+                            <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
-                                    <button>📂 All Invoices</button> 
+                                    <button>📂 All Invoices</button>
                                 </Link>
                             </InvoiceBtn>
                         </div>
@@ -891,25 +922,26 @@ class Invoices extends Component {
 
 
                                                 <LogoStyles>
+                                                    <LogoIdDiv>
 
-                                                    <label htmlFor="invoiceNum" className="invoiceNum">ID: {invoice._id} </label><br />
+                                                        <a href={invoice.link} >
 
-                                                    <a href={invoice.link} >
+                                                            {/* another company can add its own logo here */}
 
-                                                        {/* another company can add its own logo here */}
+                                                            {/* below is for url linked image  */}
+                                                            {/* <img src={invoice.image} alt="Add your logo"  />  */}
 
-                                                        {/* below is for url linked image  */}
-                                                        {/* <img src={invoice.image} alt="Add your logo"  />  */}
+                                                            {/* below is for uploaded image  */}
+                                                            {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
 
-                                                        {/* below is for uploaded image  */}
-                                                        {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
+                                                            {/* below is Callum Enterprise logo */}
+                                                            <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
-                                                        {/* below is Callum Enterprise logo */}
-                                                        <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
+                                                        </a>
+                                                        <div className="invoiceNum">ID: {invoice._id} </div><br />
 
-                                                    </a>
+                                                    </LogoIdDiv>
 
-                                                    <br />
                                                     <div className="employeeinfo">
                                                         <label htmlFor="employeename" className='employeename'>
                                                             {/* <span> 👤 </span> */}
@@ -1079,7 +1111,7 @@ class Invoices extends Component {
                                                 <TotalsInvoice>
                                                     <CommentsBox>
                                                         <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th>
-                                                        <textarea cols="50" rows="11"
+                                                        <textarea 
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
@@ -1088,9 +1120,9 @@ class Invoices extends Component {
                                                         executeMath()} /> */}
 
                                                     <SubtotalBox>
-                                                        <input type="button" id="subBtn" value="View subtotal" name="math" onClick={e =>
-                                                            executeMath()} />
 
+                                                        <tr><input type="button" id="subBtn" value="View subtotal" name="math" onClick={e =>
+                                                            executeMath()} /></tr>
                                                         <tr >  <label htmlFor="subtotal">Subtotal:</label>
                                                             <input id="viewSubs"
                                                                 // onBlur={() => this.handleUpdate(invoice._id)}
@@ -1130,7 +1162,7 @@ class Invoices extends Component {
                                             */}
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        <input id="showSubs" type="number" name="showSubs" value={invoice.showSubs} />
+                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} />
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee"
@@ -1190,19 +1222,18 @@ class Invoices extends Component {
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-                                                <br /><br />
+
                                                 <OptionsInvoice className='noprint'>
                                                     {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                     <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
-                                                    <br />
-                                                    <br />
+
                                                 </OptionsInvoice>
                                                 <button className='noprint dlet' onClick={e =>
                                                     window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
                                                     deleteInvoice(e)}>⛔️ Delete this Invoice</button>
-                                                <br /> <br /><br /><br /><br />
+
                                             </BkgdImg>
 
 

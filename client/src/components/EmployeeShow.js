@@ -502,6 +502,9 @@ width: 30%;
     // padding: 10px;
     border-bottom: solid rgb(182, 182, 182) .5px;
 font-weight: 700;
+@media only screen and (max-width: 414px) {
+    // width: 50%;
+}
 }
 .lineItems{
     // border-top: solid rgb(182, 182, 182) .5px;
@@ -518,6 +521,9 @@ input::placeholder{
     font-size: 10px;
 }
 @media only screen and (max-width: 414px) {
+    td{
+        width: 40px;
+    }
     input{
         width: 30px;
     }
@@ -1104,7 +1110,7 @@ class EmployeeShow extends Component {
                                                 */}
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs}/>
+                                                        <input id="showSubs" type="number" name="showSubs" value={invoice.showSubs}/>
                                                         
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee"

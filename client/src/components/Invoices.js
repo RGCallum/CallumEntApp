@@ -87,7 +87,7 @@ font-weight: bold;
   }
   button {
     // position: relative;
-    // margin-left: 41%;
+    margin-left: 41%;
     color: white;
     background-color: red;
     border-radius: 5px;
@@ -134,7 +134,7 @@ margin-left: 68%;
 color: rgba(0,0,0, 0.7);
 font-weight: 200;
 @media only screen and (max-width: 414px){
-    // margin-left: 52%;
+    margin-left: 0%;
 }
   }
 
@@ -183,7 +183,7 @@ margin-top: 8%;
 position: absolute;
 @media only screen and (max-width: 414px) {
     margin-top: -25%;
-    // margin-left: 57%;
+    margin-left: 7%;
     input{
         width: 105px;
 
@@ -197,7 +197,7 @@ margin-left: 36%;
 margin-top: 8%;
 
 @media only screen and (max-width: 414px){
-margin-left: 40%;
+margin-left: 4%;
 margin-top: 10px;
 
 input{
@@ -464,7 +464,7 @@ font-weight: 200;
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;
     @media only screen and (max-width: 414px){
-        // margin-left: 0%;
+        margin-left: 0%;
     }
 }
 
@@ -472,21 +472,20 @@ font-weight: 200;
         width: 8%;
         z-index: 10;
         position: absolute;
-        margin-left: 60%;
         max-width: 250px;
-        // margin-left: 2%;
+        margin-left: 2%;
 
         margin-top: -5%;
         margin-bottom: 50px;
         @media only screen and (max-width: 414px){
-            
+            margin-left: 0%;
         }
     }
 
      .logo{
         z-index: 10;
         position: absolute;
-        // margin-left: 65%;
+        margin-left: 65%;
 
     }
     

@@ -22,7 +22,11 @@ const invoice1 = new Invoice({
     namefee: .10,
     otherfee: "IB fee",
     comments: 'for customer service',
-    totaldue: 128.75
+    totaldue: 128.75,
+    showSubs: '',
+    callumfeeResults: '',
+    showTotalCalc: '',
+    viewSubs: ''
 
 })
 const invoice2 = new Invoice({
@@ -44,7 +48,11 @@ const invoice2 = new Invoice({
     otherfee: "IB fee",
     comments: 'for customer service',
 
-    totaldue: 229.20
+    totaldue: 229.20,
+    showSubs: '',
+    callumfeeResults: '',
+    showTotalCalc: '',
+    viewSubs: ''
 })
 
 const invoice3 = new Invoice({
@@ -64,7 +72,11 @@ const invoice3 = new Invoice({
     otherfee: "IB fee",
     namefee: .10,    
     comments: 'for customer service',
-    totaldue: 70.25
+    totaldue: 70.25,
+    showSubs: '',
+    callumfeeResults: '',
+    showTotalCalc: '',
+    viewSubs: ''
 })
 
 

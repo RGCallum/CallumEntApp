@@ -32,6 +32,7 @@ const Invoice = new Schema({
     showTotalCalc: 'Number',
     viewSubs: 'Number',
     total: 'Number',
+    
     allClients: [
         {
           type: Schema.Types.ObjectId,

@@ -657,7 +657,6 @@ class EmployeeShow extends Component {
 
         // client1 math
         var numOne = document.getElementById('sub1').value;
-        var numTwo = document.getElementById('sub2').value;
         var frequency = document.getElementById('frequency').value;
         var rate = document.getElementById('rate').value;
         var addClient1 = parseInt(frequency) * parseInt(rate);
@@ -665,7 +664,6 @@ class EmployeeShow extends Component {
         console.log("Client 1 subtotal is", numOne, addClient1)
   
         // client2 math
-        var numOne = document.getElementById('sub1').value;
         var numTwo = document.getElementById('sub2').value;
         var frequency2 = document.getElementById('frequency2').value;
         var rate2 = document.getElementById('rate2').value;
@@ -683,14 +681,15 @@ class EmployeeShow extends Component {
         var numTwo = document.getElementById('sub2').value;
         var showSubs = document.getElementById('showSubs').value;
         var viewSubs = parseInt(numOne) + parseInt(numTwo);
+
         document.getElementById('viewSubs').value = viewSubs;
         if (document.getElementById('sub2').value === '') {
           console.log("Subtotal is", numOne)
           document.getElementById('viewSubs').value = document.getElementById('sub1').value;
-          document.getElementById('showSubs').value = document.getElementById('viewSubs').value;
+          document.getElementById('showSubs').value = viewSubs;
         } else {
           console.log('Subtotal is', viewSubs)
-          document.getElementById('showSubs').value = document.getElementById('viewSubs').value;
+          document.getElementById('showSubs').value = viewSubs;
         }
   
         // multiplication for percentage and show result 
@@ -713,7 +712,67 @@ class EmployeeShow extends Component {
         document.getElementById('total').value = document.getElementById('showTotalCalc').value;
         console.log("arise fee is", arisefee);
         console.log("Total due is", document.getElementById('showTotalCalc').value);
-  
+
+
+
+//   var numOne = document.getElementById('sub1').value;
+//   var frequency = document.getElementById('frequency').value;
+//   var rate = document.getElementById('rate').value;
+//   var numTwo = document.getElementById('sub2').value;
+//   var frequency2 = document.getElementById('frequency2').value;
+//   var rate2 = document.getElementById('rate2').value;
+// //   var numOne = document.getElementById('sub1').value;
+// //   var numTwo = document.getElementById('sub2').value;
+//   var showSubs = document.getElementById('showSubs').value;
+// //   var showSubs = document.getElementById('showSubs').value;
+//   var callumfeeResults = document.getElementById('callumfeeResults').value;
+//   var callumfee = document.getElementById('callumfee').value;
+// //   var showSubs = document.getElementById('showSubs').value;
+//   var arisefee = document.getElementById('arisefee').value;
+//   var total = document.getElementById('total').value;
+//   var showTotalCalc = document.getElementById('showTotalCalc').value;
+// //   var callumfee = document.getElementById('callumfee').value;
+// //   var callumfeeResults = document.getElementById('callumfeeResults').value;
+
+// var addClient1 = parseInt(frequency) * parseInt(rate);
+// var addClient2 = parseInt(frequency2) * parseInt(rate2);
+// var viewSubs = parseInt(numOne) + parseInt(numTwo);
+// var multiCalFee = (showSubs) * (callumfee);
+// var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
+
+//   // client1 math
+//   document.getElementById('sub1').value = addClient1;
+//   console.log("Client 1 subtotal is", numOne, addClient1)
+
+//   // client2 math
+//   document.getElementById('sub2').value = addClient2;
+//   if (document.getElementById('sub2').value === ''){
+//     console.log("no client 2 listed")
+//   } else{
+//     console.log("Client 2 subtotal is", addClient2);
+//   }
+
+//   // add subtotals math
+//   document.getElementById('viewSubs').value = viewSubs;
+//   if (document.getElementById('sub2').value === '') {
+//     console.log("Subtotal is", numOne)
+//     document.getElementById('viewSubs').value = document.getElementById('sub1').value;
+//     document.getElementById('showSubs').value = viewSubs;
+//   } else {
+//     console.log('Subtotal is', viewSubs)
+//     document.getElementById('showSubs').value = viewSubs;
+//   }
+
+//   // multiplication for percentage and show result 
+//   document.getElementById('callumfeeResults').value = multiCalFee;
+//   console.log("callum fee is", multiCalFee);
+
+//   // subtraction of whole number fee and percentage fee from subtotals
+//   document.getElementById('showTotalCalc').value = minus;
+//   document.getElementById('total').value = document.getElementById('showTotalCalc').value;
+//   console.log("arise fee is", arisefee);
+//   console.log("Total due is", document.getElementById('showTotalCalc').value);
+
       }
   
                                 return (
@@ -846,9 +905,9 @@ class EmployeeShow extends Component {
                                                         /> </td>
                                                         <td>     <input id='sub1'
                                                         
-                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="number" name="sub1" 
+                                                            type="number" name="sub1" value={invoice.sub1}
                                                             // type="number" name="sub1" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                         /> </td>
                                                     </div>
@@ -876,9 +935,9 @@ class EmployeeShow extends Component {
                                                         /> </td>
                                                         <td>     <input id='sub2'
                                                        
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                        type="number" name="sub2" 
+                                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="number" name="sub2" value={invoice.sub2}
                                                             // type="number" name="sub2" value={(invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                         /> </td>
                                                     </div>
@@ -943,14 +1002,14 @@ class EmployeeShow extends Component {
                                                             executeMath()} /> */}
 
                                                     <SubtotalBox>
-                                                        {/* <input type="button" value="View subtotal" name="math" onClick={e =>
-                                                            addMath()} /> */}
+                                                        <input type="button" value="View subtotal" name="math" onClick={e =>
+                                                            executeMath()} />
 
                                                         <tr >  <label htmlFor="subtotal">Subtotal:</label>
                                                             <input id="viewSubs"
                                                                 // onBlur={() => this.handleUpdate(invoice._id)}
                                                                 // onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                type="number" name="viewSubs"
+                                                                type="number" name="viewSubs" value={invoice.showSubs}
                                                             // type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
                                                             // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                             // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
@@ -1005,7 +1064,7 @@ class EmployeeShow extends Component {
                                                             <input id="callumfee"
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                                type="number" name="callumfee" value={0.10}   
+                                                                type="hidden" name="callumfee" value={0.10}   
 
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                                 // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}

@@ -137,6 +137,9 @@ button:hover{
 margin-left: 68%;
 color: rgba(0,0,0, 0.7);
 font-weight: 200;
+@media only screen and (max-width: 414px){
+    margin-left: 52%;
+}
   }
 
 
@@ -165,10 +168,14 @@ padding: 10px;
 
 const Topbtns = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: center;
 @media print
 {
 .noprint {display:none;}
+}
+@media only screen and (max-width: 414px){
+    display: flex;
+justify-content: center;
 }
 `
 
@@ -177,12 +184,31 @@ const TopInvoice = styled.div`
 margin-left: 67%;
 margin-top: 10px;
 position: absolute;
+@media only screen and (max-width: 414px) {
+    margin-top: -25%;
+    margin-left: 57%;
+    input{
+        width: 105px;
+
+    }
+  
+}
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
 margin-left: 40%;
 margin-top: 10px;
 
+@media only screen and (max-width: 414px){
+margin-left: 60%;
+margin-top: 10px;
+
+input{
+    width: 105px;
+
+}
+
+}
 
 `
 const Client1Invoice = styled.div`
@@ -241,6 +267,14 @@ input::placeholder{
     font-weight: 100;
     font-size: 10px;
 }
+@media only screen and (max-width: 414px) {
+    input{
+        width: 30px;
+    }
+  textarea{
+      width: 60px;
+  }
+}
 `
 const SubtotalBox = styled.div`
 border:.5px solid rgba(0,0,0, 0.2);
@@ -268,6 +302,14 @@ label{
     border:.5px solid rgba(0,0,0, 0.2);
 
 }
+@media only screen and (max-width: 414px) {
+    input{
+        width: 30px;
+    }
+  button{
+      width: 30px;
+  }
+}
 `
 const CommentsBox = styled.div`
 
@@ -285,6 +327,14 @@ input{
     font-weight: bold;
     width: 130px;
 
+}
+@media only screen and (max-width: 414px) {
+    input{
+        width: 30px;
+    }
+  textarea{
+      width: 60px;
+  }
 }
 `
 const OptionsInvoice = styled.div`
@@ -321,6 +371,12 @@ a:hover{
     color: rgb(28, 125, 147);
 }
 height: 26.5px;
+
+@media only screen and (max-width: 414px){
+    font-size: 14px;
+    height: 28px;
+
+}
 `
 const EditProfileBtn = styled.button`
 background: #6A7FDB;
@@ -343,6 +399,9 @@ a:visited {
         color: #6A7FDB;
 
     }
+}
+@media only screen and (max-width: 414px){
+    font-size: 14px;
 }
 `
 
@@ -373,7 +432,9 @@ h1{
         
    }
    font-family: helvetica;
-
+@media only screen and (max-width: 414px){
+    font-size: 14px;
+}
 `
 const LogoStyles = styled.div`
 font-weight: 200;
@@ -383,6 +444,9 @@ font-weight: 200;
     // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;
+    @media only screen and (max-width: 414px){
+        margin-left: 0%;
+    }
 }
 
     img{
@@ -395,6 +459,11 @@ font-weight: 200;
 
         margin-top: -5%;
         margin-bottom: 50px;
+        @media only screen and (max-width: 414px){
+            width: 15%; 
+            position: relative;
+
+        }
     }
 
      .logo{
@@ -412,7 +481,9 @@ border-radius: 2px;
 box-sizing: content-box;
 display: flex;
 flex-direction: column;
-
+input{
+    width: 100px;
+}
 td{
     border-left:.5px solid rgba(0,0,0, 0.2);
 width: 30%;
@@ -445,6 +516,11 @@ font-weight: 700;
 input::placeholder{
     font-weight: 100;
     font-size: 10px;
+}
+@media only screen and (max-width: 414px) {
+    input{
+        width: 30px;
+    }
 }
 `
 
@@ -635,23 +711,7 @@ class EmployeeShow extends Component {
                                 }
 
 
-                                // function addMath() {
-                                //     var numOne = document.getElementById('sub1').value;
-                                //     var numTwo = document.getElementById('sub2').value;
-                                //     var viewSubs = parseInt(numOne) + parseInt(numTwo);
-                                //     // var p = document.getElementById('viewSubs');
-                                //     // p.innerHTML += viewSubs;
-
-                                //     document.getElementById('viewSubs').value = viewSubs;                                    // p.innerHTML += viewSubs;
-                                //     console.log(viewSubs)
-                                //     if (document.getElementById('rate2').value === '') {
-                                //         // document.getElementById('viewSubs').value === numOne.value;
-                                //         console.log("not here")
-                                //         document.getElementById('viewSubs').value = document.getElementById('sub1').value;
-                                //     } else {
-                                //         console.log('im here')
-                                //     }
-                                // }
+                             
     // one big function for all client math 
     function executeMath() {
 
@@ -865,7 +925,7 @@ class EmployeeShow extends Component {
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="date" name="payperiodend" value={invoice.payperiodend}
                                                     /><br />
-
+                          
                                                 </PeriodInvoice>
 
                                                 <br /><br />
@@ -1002,7 +1062,7 @@ class EmployeeShow extends Component {
                                                             executeMath()} /> */}
 
                                                     <SubtotalBox>
-                                                        <input type="button" value="View subtotal" name="math" onClick={e =>
+                                                        <input type="button" id="subBtn" value="View subtotal" name="math" onClick={e =>
                                                             executeMath()} />
 
                                                         <tr >  <label htmlFor="subtotal">Subtotal:</label>

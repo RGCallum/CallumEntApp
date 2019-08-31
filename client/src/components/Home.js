@@ -7,23 +7,38 @@ import { GoogleLogin } from 'react-google-login';
 
 const ImgStyles = styled.div`
 display:flex;
-*{
-    margin: 0;
-}
+
 font-family: helvetica;
+
 font-size: 90px;
+
 color: white;
-font-weight: 700;
-text-shadow: 1px 1px 10px rgb(28, 147, 145);
+
 align-items: center;
 justify-content: center;
 z-index: 1;
+h1{
+    font-size: 90px;
+font-weight: 700;
+text-shadow: 1px 1px 10px rgb(28, 147, 145);
+}
+h2{
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px black;
+}
+h3{
+    font-size: 16px
+    font-weight: 400;
+    text-shadow: 1px 1px 4px black;
+}
 
 background-image: url('/images/office.jpeg');
 background-repeat: no-repeat;
 background-position: center;
 background-attachment: fixed;
 background-size: cover;
+width: 100%;
 
 `
 
@@ -67,10 +82,13 @@ class Home extends Component {
             <div>
 
                 <ImgStyles>
-                    <CountStyles>
-                      <br/>  CalPay
+                    <CountStyles> 
+                      <h1> CalPay</h1> 
+                      <h2>A simple and efficient payroll/invoice app created for the small business</h2>
+                      <h3>Customizable version online and mobile</h3>
+                      <h3>Contact us for a personalized web or mobile version for your business today!</h3>
 
-                        <br />
+                        
                         <Link to="/employees">
                             <HoverButton>
                                 <button>Click to Enter </button>

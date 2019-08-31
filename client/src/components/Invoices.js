@@ -49,12 +49,11 @@ position: relative;
 `
 
 const InvoiceStyles = styled.div`
+
 font-size: 12px;
 font-weight: 200;
-
   display: flex;
   justify-content: center;
-  text-align: center;
   align-content: center;
   align-items: center;
   position: relative;
@@ -64,7 +63,7 @@ font-weight: 200;
   box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 //   margin: 10px 0;
   font-family: helvetica;
-// background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
+background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
 background-repeat: no-repeat;
 
@@ -250,7 +249,7 @@ input{
 
 `
 const TotalsInvoice = styled.div`
-border: black solid 1px;
+// border: black solid 1px;
 margin-top: 5%;
 display: flex;
 justify-content: space-evenly;
@@ -434,6 +433,7 @@ button:hover{
 // 
 `
 const InvoicesContainerStyle = styled.div`
+box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
 //   display: flex;
 //   justify-content: center;

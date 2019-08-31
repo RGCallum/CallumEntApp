@@ -165,6 +165,7 @@ padding: 10px;
 const Topbtns = styled.div`
 display: flex;
 justify-content: center;
+text-align: center;
 @media print
 {
 .noprint {display:none;}
@@ -400,7 +401,28 @@ a:visited {
     font-size: 14px;
 }
 `
+const InvoiceBtn = styled.div`
+// display: flex;
+// justify-content: center;
+color: #b173a5;
+font-weight: 300;
+font-family: helvetica;
 
+button{
+  background: #b173a5;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
+}
+button:hover{
+  background: white;
+  cursor:pointer;
+  color: #b173a5;
+  
+}
+// 
+`
 const InvoicesContainerStyle = styled.div`
 
 //   display: flex;
@@ -527,485 +549,490 @@ input::placeholder{
 `
 
 class Invoices extends Component {
-  state = {
+    state = {
 
-    employee: '',
-    invoices: [],
-    lineItems: [
-
-    ],
-    newInvoice: {
-        date: '',
-        payperiodstart: '',
-        payperiodend: '',
-        name: '',
-        image: '',
-        namefee: '',
-        otherfee: '',
-        idnumber: '',
-        client: '',
-        frequency: '',
-        rate: '',
-        subtotal: '',
-        arisefee: '',
-        callumfee: '',
-        comments: '',
-        totaldue: '',
-        result2: '',
-        client2: '',
-        frequency2: '',
-        rate2: '',
-        uploadImage: '',
-        math: '',
-        sub1: '',
-        sub2: '',
-        showSubs: '',
-        callumfeeResults: '',
-        showTotalCalc: '',
-        viewSubs: '',
-total: ''
-    }
-}
+        employee: '',
+        invoices: [],
 
 
-componentDidMount() {
-    // make an api call to get one single employee
-    // On the server URL is '/api/employees/:employeeId'
-    const employeeId = this.props.match.params.employeeId
-    axios.get(`/api/employees/${employeeId}`).then(res => {
-        console.log(res.data)
-        this.setState({
-            employee: res.data,
-            invoices: res.data.invoices
-        })
-    })
-}
-
-handleCreateNewInvoice = () => {
-    const employeeId = this.props.match.params.employeeId
-    const payload = {
-        name: '',
-
-        //   info: 'Invoice Description'
-
-    }
-    axios.post(`/api/employees/${employeeId}/invoices`, payload).then(res => {
-        const newInvoice = res.data
-        const newStateInvoices = [...this.state.invoices, newInvoice]
-        this.setState({ invoices: newStateInvoices })
-    })
-}
-
-handleDelete = invoiceId => {
-    axios.delete(`/api/invoices/${invoiceId}`).then(() => {
-        const newInvoices = [...this.state.invoices]
-        const filtered = newInvoices.filter(invoice => {
-            return invoice._id !== invoiceId // ! = =
-        })
-        this.setState({ invoices: filtered })
-    })
-}
-
-
-
-handleChange = (event, invoiceId) => {
-    
-    const { value, name } = event.target
-    const newInvoices = [...this.state.invoices]
-    const updatedValue = newInvoices.map(invoice => {
-        if (invoice._id === invoiceId) {
-            invoice[name] = value
-            
+        newInvoice: {
+            date: '',
+            payperiodstart: '',
+            payperiodend: '',
+            name: '',
+            image: '',
+            namefee: '',
+            otherfee: '',
+            idnumber: '',
+            client: '',
+            frequency: '',
+            rate: '',
+            subtotal: '',
+            arisefee: '',
+            callumfee: '',
+            comments: '',
+            totaldue: '',
+            result2: '',
+            client2: '',
+            frequency2: '',
+            rate2: '',
+            uploadImage: '',
+            math: '',
+            sub1: '',
+            sub2: '',
+            showSubs: '',
+            callumfeeResults: '',
+            showTotalCalc: '',
+            viewSubs: '',
+            total: ''
         }
-        // image change
-        if (event.target.files && event.target.files[0]) {
+    }
+
+
+    componentDidMount() {
+        // make an api call to get one single employee
+        // On the server URL is '/api/employees/:employeeId'
+        const employeeId = this.props.match.params.employeeId
+        axios.get(`/api/employees/${employeeId}`).then(res => {
+            console.log(res.data)
             this.setState({
-                uploadImage: URL.createObjectURL(event.target.files[0])
+                employee: res.data,
+                invoices: res.data.invoices,
 
-            });
+            })
+        })
+
+    }
+
+    handleCreateNewInvoice = () => {
+        const employeeId = this.props.match.params.employeeId
+        const payload = {
+            name: '',
+
+            //   info: 'Invoice Description'
 
         }
+        axios.post(`/api/employees/${employeeId}/invoices`, payload).then(res => {
+            const newInvoice = res.data
+            const newStateInvoices = [...this.state.invoices, newInvoice]
+            this.setState({ invoices: newStateInvoices })
+        })
+    }
 
-        return invoice
-        
-    })
-
-    this.setState({ invoices: updatedValue })
-
-
-}
-
-handleUpdate = (invoiceId) => {
-    const invoiceToUpdate = this.state.invoices.find(invoice => {
-        return invoice._id === invoiceId
-    })
-    axios.patch(`/api/invoices/${invoiceId}`, invoiceToUpdate).then(() => {
-        console.log("Updated Invoice")
-    })
-    
-}
-handleSelectChange = (event) => {
-    this.setState({
-        result: event.target.value
-    })
-}
-// onImageChange = (event) => {
-//     if (event.target.files && event.target.files[0]) {
-//       this.setState({
-//         uploadImage: URL.createObjectURL(event.target.files[0])
-
-//       });
-//     }
-//    }
-
-
-// disCli2() {
-//     document.getElementsByName('input').style.display = 'block'
-// }
+    handleDelete = invoiceId => {
+        axios.delete(`/api/invoices/${invoiceId}`).then(() => {
+            const newInvoices = [...this.state.invoices]
+            const filtered = newInvoices.filter(invoice => {
+                return invoice._id !== invoiceId // ! = =
+            })
+            this.setState({ invoices: filtered })
+        })
+    }
 
 
 
-render() {
+    handleChange = (event, invoiceId) => {
 
-    return (
+        const { value, name } = event.target
+        const newInvoices = [...this.state.invoices]
+        const updatedValue = newInvoices.map(invoice => {
+            if (invoice._id === invoiceId) {
+                invoice[name] = value
 
-        <div>
-            <BigDiv>
+            }
+            // image change
+            if (event.target.files && event.target.files[0]) {
+                this.setState({
+                    uploadImage: URL.createObjectURL(event.target.files[0])
 
-                <Topbtns>
+                });
+
+            }
+
+            return invoice
+
+        })
+
+        this.setState({ invoices: updatedValue })
+
+
+    }
+
+    handleUpdate = (invoiceId) => {
+        const invoiceToUpdate = this.state.invoices.find(invoice => {
+            return invoice._id === invoiceId
+        })
+        axios.patch(`/api/invoices/${invoiceId}`, invoiceToUpdate).then(() => {
+            console.log("Updated Invoice")
+        })
+
+    }
+    handleSelectChange = (event) => {
+        this.setState({
+            result: event.target.value
+        })
+    }
+    // onImageChange = (event) => {
+    //     if (event.target.files && event.target.files[0]) {
+    //       this.setState({
+    //         uploadImage: URL.createObjectURL(event.target.files[0])
+
+    //       });
+    //     }
+    //    }
+
+
+    // disCli2() {
+    //     document.getElementsByName('input').style.display = 'block'
+    // }
 
 
 
-                    <div className="noprint">
-                        <NameNButtonStyle>
-                            <h1>{this.state.employee.employeename}'s Invoices </h1>
+    render() {
 
-                        </NameNButtonStyle>
-                        <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                            ➕ Add New Invoice
-                </NewInvoiceButton>
-                        <EditProfileBtn >
-                            <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                ⚙️ {this.state.employee.employeename} Profile
-                        </Link>
-                        </EditProfileBtn>
+        return (
 
-                    </div>
-                </Topbtns>
+            <div>
+                <BigDiv>
 
-                <div>
-                    <br />
-                    <InvoicesContainerStyle>
+                    <Topbtns>
+
 
 
                         <div className="noprint">
-                            {/* Auto update info for another company */}
-                            {/* All updates are auto saved <br /> */}
+                            <NameNButtonStyle>
+                                <h1>{this.state.employee.employeename}'s Invoices </h1>
+                            </NameNButtonStyle>
+
+                            <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
+                                ➕ Add New Invoice
+                            </NewInvoiceButton>
+                            <EditProfileBtn >
+                                <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
+                                    ⚙️ Employee Profile
+                                </Link>
+                            </EditProfileBtn>
+                            <InvoiceBtn> 
+                                <Link to={`/employees/${this.props.match.params.employeeId}`}>
+                                    <button>📂 All Invoices</button> 
+                                </Link>
+                            </InvoiceBtn>
                         </div>
+                    </Topbtns>
 
-                        {this.state.invoices.map(invoice => {
-
-                            const deleteInvoice = () => {
-
-                                return this.handleDelete(invoice._id)
-
-                            }
+                    <div>
+                        <br />
+                        <InvoicesContainerStyle>
 
 
-                         
-// one big function for all client math 
-function executeMath() {
+                            <div className="noprint">
+                                {/* Auto update info for another company */}
+                                {/* All updates are auto saved <br /> */}
+                            </div>
 
-    // client1 math
-    var numOne = document.getElementById('sub1').value;
-    var frequency = document.getElementById('frequency').value;
-    var rate = document.getElementById('rate').value;
-    var addClient1 = parseInt(frequency) * parseInt(rate);
-    document.getElementById('sub1').value = addClient1;
-    console.log("Client 1 subtotal is", numOne, addClient1)
+                            {this.state.invoices.map(invoice => {
 
-    // client2 math
-    var numTwo = document.getElementById('sub2').value;
-    var frequency2 = document.getElementById('frequency2').value;
-    var rate2 = document.getElementById('rate2').value;
-    var addClient2 = parseInt(frequency2) * parseInt(rate2);
-    document.getElementById('sub2').value = addClient2;
-    
-    if (document.getElementById('sub2').value === ''){
-      console.log("no client 2 listed")
-    } else{
-      console.log("Client 2 subtotal is", addClient2);
-    }
+                                const deleteInvoice = () => {
 
-    // add subtotals math
-    var numOne = document.getElementById('sub1').value;
-    var numTwo = document.getElementById('sub2').value;
-    var showSubs = document.getElementById('showSubs').value;
-    var viewSubs = parseInt(numOne) + parseInt(numTwo);
+                                    return this.handleDelete(invoice._id)
 
-    document.getElementById('viewSubs').value = viewSubs;
-    if (document.getElementById('sub2').value === '') {
-      console.log("Subtotal is", numOne)
-      document.getElementById('viewSubs').value = document.getElementById('sub1').value;
-      document.getElementById('showSubs').value = viewSubs;
-    } else {
-      console.log('Subtotal is', viewSubs)
-      document.getElementById('showSubs').value = viewSubs;
-    }
-
-    // multiplication for percentage and show result 
-    var showSubs = document.getElementById('showSubs').value;
-    var callumfeeResults = document.getElementById('callumfeeResults').value;
-    var callumfee = document.getElementById('callumfee').value;
-    var multiCalFee = (showSubs) * (callumfee);
-    document.getElementById('callumfeeResults').value = multiCalFee;
-    console.log("callum fee is", multiCalFee);
-
-    // subtraction of whole number fee and percentage fee from subtotals
-    var showSubs = document.getElementById('showSubs').value;
-    var arisefee = document.getElementById('arisefee').value;
-    var total = document.getElementById('total').value;
-    var showTotalCalc = document.getElementById('showTotalCalc').value;
-    var callumfee = document.getElementById('callumfee').value;
-    var callumfeeResults = document.getElementById('callumfeeResults').value;
-    var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
-    document.getElementById('showTotalCalc').value = minus;
-    document.getElementById('total').value = document.getElementById('showTotalCalc').value;
-    console.log("arise fee is", arisefee);
-    console.log("Total due is", document.getElementById('showTotalCalc').value);
+                                }
 
 
 
-//   var numOne = document.getElementById('sub1').value;
-//   var frequency = document.getElementById('frequency').value;
-//   var rate = document.getElementById('rate').value;
-//   var numTwo = document.getElementById('sub2').value;
-//   var frequency2 = document.getElementById('frequency2').value;
-//   var rate2 = document.getElementById('rate2').value;
-// //   var numOne = document.getElementById('sub1').value;
-// //   var numTwo = document.getElementById('sub2').value;
-//   var showSubs = document.getElementById('showSubs').value;
-// //   var showSubs = document.getElementById('showSubs').value;
-//   var callumfeeResults = document.getElementById('callumfeeResults').value;
-//   var callumfee = document.getElementById('callumfee').value;
-// //   var showSubs = document.getElementById('showSubs').value;
-//   var arisefee = document.getElementById('arisefee').value;
-//   var total = document.getElementById('total').value;
-//   var showTotalCalc = document.getElementById('showTotalCalc').value;
-// //   var callumfee = document.getElementById('callumfee').value;
-// //   var callumfeeResults = document.getElementById('callumfeeResults').value;
+                                // one big function for all client math 
+                                function executeMath() {
 
-// var addClient1 = parseInt(frequency) * parseInt(rate);
-// var addClient2 = parseInt(frequency2) * parseInt(rate2);
-// var viewSubs = parseInt(numOne) + parseInt(numTwo);
-// var multiCalFee = (showSubs) * (callumfee);
-// var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
+                                    // client1 math
+                                    var numOne = document.getElementById('sub1').value;
+                                    var frequency = document.getElementById('frequency').value;
+                                    var rate = document.getElementById('rate').value;
+                                    var addClient1 = parseInt(frequency) * parseInt(rate);
+                                    document.getElementById('sub1').value = addClient1;
+                                    console.log("Client 1 subtotal is", numOne, addClient1)
 
-//   // client1 math
-//   document.getElementById('sub1').value = addClient1;
-//   console.log("Client 1 subtotal is", numOne, addClient1)
+                                    // client2 math
+                                    var numTwo = document.getElementById('sub2').value;
+                                    var frequency2 = document.getElementById('frequency2').value;
+                                    var rate2 = document.getElementById('rate2').value;
+                                    var addClient2 = parseInt(frequency2) * parseInt(rate2);
+                                    document.getElementById('sub2').value = addClient2;
 
-//   // client2 math
-//   document.getElementById('sub2').value = addClient2;
-//   if (document.getElementById('sub2').value === ''){
-//     console.log("no client 2 listed")
-//   } else{
-//     console.log("Client 2 subtotal is", addClient2);
-//   }
+                                    if (document.getElementById('sub2').value === '') {
+                                        console.log("no client 2 listed")
+                                    } else {
+                                        console.log("Client 2 subtotal is", addClient2);
+                                    }
 
-//   // add subtotals math
-//   document.getElementById('viewSubs').value = viewSubs;
-//   if (document.getElementById('sub2').value === '') {
-//     console.log("Subtotal is", numOne)
-//     document.getElementById('viewSubs').value = document.getElementById('sub1').value;
-//     document.getElementById('showSubs').value = viewSubs;
-//   } else {
-//     console.log('Subtotal is', viewSubs)
-//     document.getElementById('showSubs').value = viewSubs;
-//   }
+                                    // add subtotals math
+                                    var numOne = document.getElementById('sub1').value;
+                                    var numTwo = document.getElementById('sub2').value;
+                                    var showSubs = document.getElementById('showSubs').value;
+                                    var viewSubs = parseInt(numOne) + parseInt(numTwo);
 
-//   // multiplication for percentage and show result 
-//   document.getElementById('callumfeeResults').value = multiCalFee;
-//   console.log("callum fee is", multiCalFee);
+                                    document.getElementById('viewSubs').value = viewSubs;
+                                    if (document.getElementById('sub2').value === '') {
+                                        console.log("Subtotal is", numOne)
+                                        document.getElementById('viewSubs').value = document.getElementById('sub1').value;
+                                        document.getElementById('showSubs').value = viewSubs;
+                                    } else {
+                                        console.log('Subtotal is', viewSubs)
+                                        document.getElementById('showSubs').value = viewSubs;
+                                    }
 
-//   // subtraction of whole number fee and percentage fee from subtotals
-//   document.getElementById('showTotalCalc').value = minus;
-//   document.getElementById('total').value = document.getElementById('showTotalCalc').value;
-//   console.log("arise fee is", arisefee);
-//   console.log("Total due is", document.getElementById('showTotalCalc').value);
+                                    // multiplication for percentage and show result 
+                                    var showSubs = document.getElementById('showSubs').value;
+                                    var callumfeeResults = document.getElementById('callumfeeResults').value;
+                                    var callumfee = document.getElementById('callumfee').value;
+                                    var multiCalFee = (showSubs) * (callumfee);
+                                    document.getElementById('callumfeeResults').value = multiCalFee;
+                                    console.log("callum fee is", multiCalFee);
 
-  }
+                                    // subtraction of whole number fee and percentage fee from subtotals
+                                    var showSubs = document.getElementById('showSubs').value;
+                                    var arisefee = document.getElementById('arisefee').value;
+                                    var total = document.getElementById('total').value;
+                                    var showTotalCalc = document.getElementById('showTotalCalc').value;
+                                    var callumfee = document.getElementById('callumfee').value;
+                                    var callumfeeResults = document.getElementById('callumfeeResults').value;
+                                    var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
+                                    document.getElementById('showTotalCalc').value = minus;
+                                    document.getElementById('total').value = document.getElementById('showTotalCalc').value;
+                                    console.log("arise fee is", arisefee);
+                                    console.log("Total due is", document.getElementById('showTotalCalc').value);
 
-                            return (
-                                <Addlogo>
 
-                                    {/* below is add logo url input field for another company */}
-                                    {/* <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
+
+                                    //   var numOne = document.getElementById('sub1').value;
+                                    //   var frequency = document.getElementById('frequency').value;
+                                    //   var rate = document.getElementById('rate').value;
+                                    //   var numTwo = document.getElementById('sub2').value;
+                                    //   var frequency2 = document.getElementById('frequency2').value;
+                                    //   var rate2 = document.getElementById('rate2').value;
+                                    // //   var numOne = document.getElementById('sub1').value;
+                                    // //   var numTwo = document.getElementById('sub2').value;
+                                    //   var showSubs = document.getElementById('showSubs').value;
+                                    // //   var showSubs = document.getElementById('showSubs').value;
+                                    //   var callumfeeResults = document.getElementById('callumfeeResults').value;
+                                    //   var callumfee = document.getElementById('callumfee').value;
+                                    // //   var showSubs = document.getElementById('showSubs').value;
+                                    //   var arisefee = document.getElementById('arisefee').value;
+                                    //   var total = document.getElementById('total').value;
+                                    //   var showTotalCalc = document.getElementById('showTotalCalc').value;
+                                    // //   var callumfee = document.getElementById('callumfee').value;
+                                    // //   var callumfeeResults = document.getElementById('callumfeeResults').value;
+
+                                    // var addClient1 = parseInt(frequency) * parseInt(rate);
+                                    // var addClient2 = parseInt(frequency2) * parseInt(rate2);
+                                    // var viewSubs = parseInt(numOne) + parseInt(numTwo);
+                                    // var multiCalFee = (showSubs) * (callumfee);
+                                    // var minus = parseInt(showSubs) - parseInt(arisefee) - parseInt(callumfeeResults);
+
+                                    //   // client1 math
+                                    //   document.getElementById('sub1').value = addClient1;
+                                    //   console.log("Client 1 subtotal is", numOne, addClient1)
+
+                                    //   // client2 math
+                                    //   document.getElementById('sub2').value = addClient2;
+                                    //   if (document.getElementById('sub2').value === ''){
+                                    //     console.log("no client 2 listed")
+                                    //   } else{
+                                    //     console.log("Client 2 subtotal is", addClient2);
+                                    //   }
+
+                                    //   // add subtotals math
+                                    //   document.getElementById('viewSubs').value = viewSubs;
+                                    //   if (document.getElementById('sub2').value === '') {
+                                    //     console.log("Subtotal is", numOne)
+                                    //     document.getElementById('viewSubs').value = document.getElementById('sub1').value;
+                                    //     document.getElementById('showSubs').value = viewSubs;
+                                    //   } else {
+                                    //     console.log('Subtotal is', viewSubs)
+                                    //     document.getElementById('showSubs').value = viewSubs;
+                                    //   }
+
+                                    //   // multiplication for percentage and show result 
+                                    //   document.getElementById('callumfeeResults').value = multiCalFee;
+                                    //   console.log("callum fee is", multiCalFee);
+
+                                    //   // subtraction of whole number fee and percentage fee from subtotals
+                                    //   document.getElementById('showTotalCalc').value = minus;
+                                    //   document.getElementById('total').value = document.getElementById('showTotalCalc').value;
+                                    //   console.log("arise fee is", arisefee);
+                                    //   console.log("Total due is", document.getElementById('showTotalCalc').value);
+
+                                }
+
+                                return (
+                                    <Addlogo>
+
+                                        {/* below is add logo url input field for another company */}
+                                        {/* <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
                                 <input className='logo noprint' id='imgurl'
                                     onBlur={() => this.handleUpdate(invoice._id)}
                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                     name="image" placeholder='Paste your logo url here. (ie: https://example.com/logo123456.png) '
                                 /> */}
 
-                                    {/* below is upload input field for another company */}
-                                    {/* <input type="file" 
+                                        {/* below is upload input field for another company */}
+                                        {/* <input type="file" 
                                     onBlur={() => this.handleUpdate(invoice._id)}
                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                     name="uploadImage" className="logo noprint filetype" id="imgurl group_image"
                                     /> */}
 
-                                    <InvoiceStyles>
+                                        <InvoiceStyles>
 
-                                        <br />
-                                        <BkgdImg>
-
-
+                                            <br />
+                                            <BkgdImg>
 
 
 
 
 
-                                            <LogoStyles>
-
-                                                <label htmlFor="invoiceNum" className="invoiceNum">ID: {invoice._id} </label><br />
-
-                                                <a href={invoice.link} >
-
-                                                    {/* another company can add its own logo here */}
-
-                                                    {/* below is for url linked image  */}
-                                                    {/* <img src={invoice.image} alt="Add your logo"  />  */}
-
-                                                    {/* below is for uploaded image  */}
-                                                    {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
-
-                                                    {/* below is Callum Enterprise logo */}
-                                                    <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
-
-                                                </a>
-
-                                                <br />
-                                                <div className="employeeinfo">
-                                                    <label htmlFor="employeename" className='employeename'>
-                                                        {/* <span> 👤 </span> */}
-                                                        {this.state.employee.employeename} </label> <br />
-                                                    <label htmlFor="idnumber" className='idnumber'>
-                                                        {/* <span> 💳 </span> */}
-                                                        ID: {this.state.employee.idnumber} </label><br />
-                                                    <label htmlFor="email" className='email'>
-                                                        {/* <span> ✉️ </span> */}
-                                                        {this.state.employee.email} </label><br />
-                                                    <label htmlFor="phone" className='phone'>
-                                                        {/* <span>📱</span>  */}
-                                                        {this.state.employee.phone} </label>
-                                                </div>
-
-                                            </LogoStyles>
-                                            <TopInvoice>
-
-                                                <th> <label htmlFor="date" className='required' > <span> 📆 </span> Today's Date: </label></th>
-                                                <input
-                                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    type="date" name="date" value={invoice.date}
-                                                /><br />
-                                                <br /><br />
-                                            </TopInvoice>
-                                            <PeriodInvoice>
-
-                                                <th>    <label htmlFor="payperiodstart" className='required'><span> 🗓 </span>Pay Period: </label>  </th>
-                                                <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
-                                                <input
-                                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    type="date" name="payperiodstart" value={invoice.payperiodstart}
-                                                />
-                                                <tr> <label htmlFor="payperiodend">End: </label></tr>
-                                                <input
-                                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    type="date" name="payperiodend" value={invoice.payperiodend}
-                                                /><br />
-                      
-                                            </PeriodInvoice>
-
-                                            <br /><br />
-                                            <LineItemsGrid>
 
 
+                                                <LogoStyles>
 
-                                                <div className="row header">
-                                                    <td>    <div className='required'><span> 🗂 </span> Client </div></td>
-                                                    <td>    <div className='required'><span> ⏱ </span> Time-Worked </div></td>
-                                                    <td>    <div ><span> ⌛ </span> Interval Type </div></td>
-                                                    <td>    <div className='required'><span> 💵 </span>Interval Rate </div></td>
-                                                    <td>    <div ><span> 💵 </span>Subtotals </div></td>
+                                                    <label htmlFor="invoiceNum" className="invoiceNum">ID: {invoice._id} </label><br />
 
-                                                </div>
-                                                <div className="lineItems">
-                                                    <td >    <input
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="client" value={invoice.client} placeholder='Client'
-                                                    /></td>
-                                                    <td>    <input id="frequency"
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath()) }
-                                                        type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
-                                                    /></td>
-                                                    <td>      <input
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
-                                                    /></td>
-                                                    
-                                                    <td>     <input id='rate'
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                        type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
-                                                    /> </td>
-                                                    <td>     <input id='sub1'
-                                                    
+                                                    <a href={invoice.link} >
+
+                                                        {/* another company can add its own logo here */}
+
+                                                        {/* below is for url linked image  */}
+                                                        {/* <img src={invoice.image} alt="Add your logo"  />  */}
+
+                                                        {/* below is for uploaded image  */}
+                                                        {/* <img id="target" src={this.state.uploadImage} name='image' alt="Add your logo" />  */}
+
+                                                        {/* below is Callum Enterprise logo */}
+                                                        <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
+
+                                                    </a>
+
+                                                    <br />
+                                                    <div className="employeeinfo">
+                                                        <label htmlFor="employeename" className='employeename'>
+                                                            {/* <span> 👤 </span> */}
+                                                            {this.state.employee.employeename} </label> <br />
+                                                        <label htmlFor="idnumber" className='idnumber'>
+                                                            {/* <span> 💳 </span> */}
+                                                            ID: {this.state.employee.idnumber} </label><br />
+                                                        <label htmlFor="email" className='email'>
+                                                            {/* <span> ✉️ </span> */}
+                                                            {this.state.employee.email} </label><br />
+                                                        <label htmlFor="phone" className='phone'>
+                                                            {/* <span>📱</span>  */}
+                                                            {this.state.employee.phone} </label>
+                                                    </div>
+
+                                                </LogoStyles>
+                                                <TopInvoice>
+
+                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span> Today's Date: </label></th>
+                                                    <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                        type="number" name="sub1" value={invoice.sub1}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="date" name="date" value={invoice.date}
+                                                    /><br />
+                                                    <br /><br />
+                                                </TopInvoice>
+                                                <PeriodInvoice>
+
+                                                    <th>    <label htmlFor="payperiodstart" className='required'><span> 🗓 </span>Pay Period: </label>  </th>
+                                                    <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
+                                                    <input
+                                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="date" name="payperiodstart" value={invoice.payperiodstart}
+                                                    />
+                                                    <tr> <label htmlFor="payperiodend">End: </label></tr>
+                                                    <input
+                                                        onBlur={() => this.handleUpdate(invoice._id)}
+                                                        onChange={(event) => this.handleChange(event, invoice._id)}
+                                                        type="date" name="payperiodend" value={invoice.payperiodend}
+                                                    /><br />
+
+                                                </PeriodInvoice>
+
+                                                <br /><br />
+                                                <LineItemsGrid>
+
+
+
+                                                    <div className="row header">
+                                                        <td>    <div className='required'><span> 🗂 </span> Client </div></td>
+                                                        <td>    <div className='required'><span> ⏱ </span> Time-Worked </div></td>
+                                                        <td>    <div ><span> ⌛ </span> Interval Type </div></td>
+                                                        <td>    <div className='required'><span> 💵 </span>Interval Rate </div></td>
+                                                        <td>    <div ><span> 💵 </span>Subtotals </div></td>
+
+                                                    </div>
+                                                    <div className="lineItems">
+                                                        <td >    <input
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="client" value={invoice.client} placeholder='Client'
+                                                        /></td>
+                                                        <td>    <input id="frequency"
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            type="number" name="frequency" value={invoice.frequency} placeholder="Time Worked"
+                                                        /></td>
+                                                        <td>      <input
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
+                                                        /></td>
+
+                                                        <td>     <input id='rate'
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
+                                                        /> </td>
+                                                        <td>     <input id='sub1'
+
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            type="number" name="sub1" value={invoice.sub1}
                                                         // type="number" name="sub1" value={(invoice.rate * invoice.frequency).toFixed(2)}
-                                                    /> </td>
-                                                </div>
+                                                        /> </td>
+                                                    </div>
 
-                                                <div className="lineItems client2line">
-                                                    <td >    <input
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="client2" value={invoice.client2} placeholder='Client'
-                                                    /></td>
-                                                    <td>    <input id="frequency2"
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                        type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none"
-                                                    /></td>
-                                                    <td>      <input
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="result2" value={invoice.result2} placeholder='Minutes/Half-Hour/Hour'
-                                                    /></td>
-                                                    <td>     <input id="rate2"
-                                                        onBlur={() => this.handleUpdate(invoice._id, executeMath())}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                        type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
-                                                    /> </td>
-                                                    <td>     <input id='sub2'
-                                                   
-                                                    onBlur={() => this.handleUpdate(invoice._id)}
-                                                    onChange={(event) => this.handleChange(event, invoice._id)}
-                                                    type="number" name="sub2" value={invoice.sub2}
+                                                    <div className="lineItems client2line">
+                                                        <td >    <input
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="client2" value={invoice.client2} placeholder='Client'
+                                                        /></td>
+                                                        <td>    <input id="frequency2"
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            type="number" name="frequency2" value={invoice.frequency2} placeholder="Enter 0 if none"
+                                                        /></td>
+                                                        <td>      <input
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="result2" value={invoice.result2} placeholder='Minutes/Half-Hour/Hour'
+                                                        /></td>
+                                                        <td>     <input id="rate2"
+                                                            onBlur={() => this.handleUpdate(invoice._id, executeMath())}
+                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
+                                                        /> </td>
+                                                        <td>     <input id='sub2'
+
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="number" name="sub2" value={invoice.sub2}
                                                         // type="number" name="sub2" value={(invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                    /> </td>
-                                                </div>
-                                            </LineItemsGrid>
-                                            <Client1Invoice>
+                                                        /> </td>
+                                                    </div>
+                                                </LineItemsGrid>
+                                                <Client1Invoice>
 
-                                                {/* <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
+                                                    {/* <tr> <td id="box"><th><label htmlFor="client" className='required'><span> 🗂 </span>Client: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1036,50 +1063,50 @@ function executeMath() {
 
                                                 </tr> */}
 
-                                                {/* media query invoice */}
-                                                <div className="mqueryInvoice">
+                                                    {/* media query invoice */}
+                                                    <div className="mqueryInvoice">
 
-                                                </div>
+                                                    </div>
 
-                                                <br />
-                                                {/* <div className="lineItem-app container">
+                                                    <br />
+                                                    {/* <div className="lineItem-app container">
                                                 <h1 className="center blue-text">LineItems</h1>
                                                 <LineItems lineItems={this.state.lineItems} deleteLineItem={this.deleteLineItem} />
                                                 <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
                                             </div> */}
-                                            </Client1Invoice>
+                                                </Client1Invoice>
 
 
 
-                                            <TotalsInvoice>
-                                                <CommentsBox>
-                                                    <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th>
-                                                    <textarea cols="50" rows="11"
-                                                        onBlur={() => this.handleUpdate(invoice._id)}
-                                                        onChange={(event) => this.handleChange(event, invoice._id)}
-                                                        type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
-                                                </CommentsBox>
-                                                {/* <input type="button" value="Calculate Client Subtotals" onClick={e =>
+                                                <TotalsInvoice>
+                                                    <CommentsBox>
+                                                        <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th>
+                                                        <textarea cols="50" rows="11"
+                                                            onBlur={() => this.handleUpdate(invoice._id)}
+                                                            onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
+                                                    </CommentsBox>
+                                                    {/* <input type="button" value="Calculate Client Subtotals" onClick={e =>
                                                         executeMath()} /> */}
 
-                                                <SubtotalBox>
-                                                    <input type="button" id="subBtn" value="View subtotal" name="math" onClick={e =>
-                                                        executeMath()} />
+                                                    <SubtotalBox>
+                                                        <input type="button" id="subBtn" value="View subtotal" name="math" onClick={e =>
+                                                            executeMath()} />
 
-                                                    <tr >  <label htmlFor="subtotal">Subtotal:</label>
-                                                        <input id="viewSubs"
-                                                            // onBlur={() => this.handleUpdate(invoice._id)}
-                                                            // onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="number" name="viewSubs" value={invoice.showSubs}
-                                                        // type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
-                                                        // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                        // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+                                                        <tr >  <label htmlFor="subtotal">Subtotal:</label>
+                                                            <input id="viewSubs"
+                                                                // onBlur={() => this.handleUpdate(invoice._id)}
+                                                                // onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                type="number" name="viewSubs" value={invoice.showSubs}
+                                                            // type="number" name="subtotal" value={(invoice.rate * invoice.frequency).toFixed(2)}
+                                                            // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
-                                                        /></tr>
+                                                            /></tr>
 
 
-                                                    {/* changeable fees for another company fee */}
-                                                    {/* <br/> <br/>
+                                                        {/* changeable fees for another company fee */}
+                                                        {/* <br/> <br/>
                                             <th>   <label htmlFor="namefee" >Add'l Fees to subtract (opt):</label></th>
                                             <input
                                             onBlur={() => this.handleUpdate(invoice._id)}
@@ -1104,96 +1131,96 @@ function executeMath() {
                                             <br/> <br/> 
                                             */}
 
-                                                    {/* Callum Enterprise Arise fees */}
-                                                    <input id="showSubs" type="number" name="showSubs" value={invoice.showSubs}/>
-                                                    
-                                                    <tr > <label htmlFor="arisefee" >Arise Fee:</label>
-                                                        <input className="arfee" id="arisefee"
-                                                        type="number" name="arisefee" value={20}
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            // type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
-                                                        // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
+                                                        {/* Callum Enterprise Arise fees */}
+                                                        <input id="showSubs" type="number" name="showSubs" value={invoice.showSubs} />
 
-                                                        /></tr>
-                                                    <tr >
-                                                        <label htmlFor="callumfee">IB Fee 10%:</label>
-                                                        <input id="callumfeeResults" type="number" name="callumfeeResults" value={invoice.callumfeeResults} 
-                                                        onBlur={() => this.handleUpdate(invoice._id)}
-                                                        onChange={(event) => this.handleChange(event, invoice._id, executeMath()) }
-                                                        />
-                                                        <input id="callumfee"
-                                                            onBlur={() => this.handleUpdate(invoice._id)}
-                                                            onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="hidden" name="callumfee" value={0.10}   
+                                                        <tr > <label htmlFor="arisefee" >Arise Fee:</label>
+                                                            <input className="arfee" id="arisefee"
+                                                                type="number" name="arisefee" value={20}
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            // type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
+                                                            // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
+
+                                                            /></tr>
+                                                        <tr >
+                                                            <label htmlFor="callumfee">IB Fee 10%:</label>
+                                                            <input id="callumfeeResults" type="number" name="callumfeeResults" value={invoice.callumfeeResults}
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                            />
+                                                            <input id="callumfee"
+                                                                onBlur={() => this.handleUpdate(invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
+                                                                type="hidden" name="callumfee" value={0.10}
 
                                                             // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                             // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
-                                                        // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+                                                            // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
-                                                        /></tr>
+                                                            /></tr>
 
 
 
-                                                    <TotalDue>
-                                                        {/* another company totals */}
-                                                        {/* <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
+                                                        <TotalDue>
+                                                            {/* another company totals */}
+                                                            {/* <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                     type="number" name="totaldue" value={((invoice.callumfee * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - invoice.arisefee).toFixed(2)}
                                                 /> */}
-                                                        {/* type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)} */}
+                                                            {/* type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)} */}
 
 
-                                                        {/* Callum Ent totals */}
-                                                        <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc}/>
+                                                            {/* Callum Ent totals */}
+                                                            <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
-                                                        <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total <span> 💵 </span> Due: </label>
-                                                            <input 
-                                                            id="total" type="number" name="total"
-                                                                onBlur={() => this.handleUpdate(invoice._id)}
-                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total <span> 💵 </span> Due: </label>
+                                                                <input
+                                                                    id="total" type="number" name="total"
+                                                                    onBlur={() => this.handleUpdate(invoice._id)}
+                                                                    onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                                 // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                            // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+                                                                // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
-                                                            /></tr>
-                                                    </TotalDue>
+                                                                /></tr>
+                                                        </TotalDue>
 
 
-                                                </SubtotalBox>
+                                                    </SubtotalBox>
 
-                                            </TotalsInvoice>
-                                            <br /><br />
-                                            <OptionsInvoice className='noprint'>
-                                                {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
+                                                </TotalsInvoice>
+                                                <br /><br />
+                                                <OptionsInvoice className='noprint'>
+                                                    {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                     <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
-                                                <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
-                                                <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
-                                                <br />
-                                                <br />
-                                            </OptionsInvoice>
-                                            <button className='noprint dlet' onClick={e =>
-                                                window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                deleteInvoice(e)}>⛔️ Delete this Invoice</button>
-                                            <br /> <br /><br /><br /><br />
-                                        </BkgdImg>
+                                                    <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
+                                                    <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
+                                                    <br />
+                                                    <br />
+                                                </OptionsInvoice>
+                                                <button className='noprint dlet' onClick={e =>
+                                                    window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
+                                                    deleteInvoice(e)}>⛔️ Delete this Invoice</button>
+                                                <br /> <br /><br /><br /><br />
+                                            </BkgdImg>
 
 
-                                    </InvoiceStyles>
-                                </Addlogo>
+                                        </InvoiceStyles>
+                                    </Addlogo>
 
-                            )
+                                )
 
-                        })}
-                    </InvoicesContainerStyle>
-                </div>
-            </BigDiv>
+                            })}
+                        </InvoicesContainerStyle>
+                    </div>
+                </BigDiv>
 
-        </div>
-    )
-}
+            </div>
+        )
+    }
 }
 export default Invoices;
 

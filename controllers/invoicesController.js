@@ -16,6 +16,7 @@ const invoicesController = {
                 res.send(invoice)
             })
     },
+    
     delete: (req, res) => {
         var invoiceId = req.params.invoiceId
         Invoice.findByIdAndDelete(invoiceId)

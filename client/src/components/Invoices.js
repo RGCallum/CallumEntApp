@@ -264,10 +264,10 @@ input{
 
 `
 const TotalsInvoice = styled.div`
-// border: black solid 1px;
+// border: solid rgb(182, 182, 182) .5px;
 margin-top: 5%;
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 input{
     background: transparent;
 
@@ -281,7 +281,7 @@ input::placeholder{
         width: 30px;
     }
   textarea{
-      width: 60px;
+      width: 100px;
   }
 }
 `
@@ -289,11 +289,6 @@ const SubtotalBox = styled.div`
 border:.5px solid rgba(0,0,0, 0.2);
 border-radius: 2px;
 padding: 5px;
-// display: flex; 
-// flex-direction: column;
-// justify-content: space-between;
-
-
 
 input{
     border: none;
@@ -324,7 +319,7 @@ label{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 60px;
+        width: 100px;
         #subBtn{
             width: 100px;
         }
@@ -333,6 +328,7 @@ label{
 }
 `
 const CommentsBox = styled.div`
+
 textarea{
 
 }
@@ -354,13 +350,12 @@ input{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 45px;    }
-  textarea{
-      width: 60px;
-  }
+        width: 60px;    }
+  
 }
 `
 const OptionsInvoice = styled.div`
+padding-top: 10px;
 // border: black solid 1px;
 // width: 50%;
 text-decoration: none;
@@ -372,6 +367,14 @@ span{
 }
 
 `
+const DletBtn = styled.div`
+display: flex;
+justify-content: space-evenly;
+text-align: center;
+padding-top: 20px;
+`
+
+
 const BkgdImg = styled.div`
 // display: flex;
 // flex-direction: column;
@@ -478,9 +481,9 @@ const LogoStyles = styled.div`
     margin-left: 5%;
     margin-top: 8%;
     position: absolute;
-    // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;
+    // background-color: rgba(182, 182, 182, 0.2);
     @media only screen and (max-width: 414px){
         align-items: center;
         margin-left: 0%;
@@ -788,9 +791,9 @@ class Invoices extends Component {
                         <InvoicesContainerStyle>
 
 
-                            
-                                {/* Auto update info for another company */}
-                                {/* <div className="noprint">     All updates are auto saved <br /> 
+
+                            {/* Auto update info for another company */}
+                            {/* <div className="noprint">     All updates are auto saved <br /> 
                             </div> */}
 
                             {this.state.invoices.map(invoice => {
@@ -1062,7 +1065,7 @@ class Invoices extends Component {
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub1" value={invoice.sub1}
-                                                        type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)}
+                                                            type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)}
                                                         /> </td>
                                                     </div>
 
@@ -1094,7 +1097,7 @@ class Invoices extends Component {
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub2" value={invoice.sub2}
-                                                        type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                         /> </td>
                                                     </div>
                                                 </LineItemsGrid>
@@ -1132,7 +1135,7 @@ class Invoices extends Component {
                                                 </tr> */}
 
                                                     {/* media query invoice */}
-                     
+
 
                                                     <br />
                                                     {/* <div className="lineItem-app container">
@@ -1147,7 +1150,7 @@ class Invoices extends Component {
                                                 <TotalsInvoice>
                                                     <CommentsBox>
                                                         <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th>
-                                                        <textarea 
+                                                        <textarea
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="comments" value={invoice.comments} placeholder=''></textarea>
@@ -1165,8 +1168,8 @@ class Invoices extends Component {
                                                                 // onBlur={() => this.handleUpdate(invoice._id)}
                                                                 // onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 // type="number" name="viewSubs" value={invoice.showSubs}
-                                                            // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
-                                                            type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                                // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
+                                                                type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                             // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
                                                             /></tr>
@@ -1206,13 +1209,13 @@ class Invoices extends Component {
                                                                 // type="number" name="arisefee" value={20}
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
+                                                                type="text" name="arisefee" value={"$" + 19.75} placeholder='enter 0 if none' required='true'
                                                             // type="text" name="arisefee" value={19.75} placeholder='enter 0 if none' required='true'
 
                                                             /></tr>
                                                         <tr >
                                                             <label htmlFor="callumfee">IB Fee 10%:</label>
-                                                            
+
 
                                                             {/* for function calculations below */}
 
@@ -1228,8 +1231,8 @@ class Invoices extends Component {
                                                                 // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                                 // type="hidden" name="callumfee" value={0.10} 
 
-                                                            // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
-                                                            type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
+                                                                // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
+                                                                type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
                                                             // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
@@ -1255,33 +1258,33 @@ class Invoices extends Component {
                                                                     // id="total" type="number" name="total"  //for function calculations
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
-                                                                type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
+                                                                    // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
+                                                                    type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
                                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
-                                                                
+
                                                         </TotalDue>
 
 
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-                                                <br/>
-                                                                <br/>
-                                                                <br/>
-                                                <OptionsInvoice className='noprint'>
                                                 
+                                                <OptionsInvoice className='noprint'>
+
                                                     {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                     <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
 
                                                 </OptionsInvoice>
-                                                <button className='noprint dlet' onClick={e =>
-                                                    window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                    deleteInvoice(e)}>⛔️ Delete this Invoice</button>
-<br/><br/><br/>
+                                                
+                                                <DletBtn>
+                                                    <button className='noprint dlet' onClick={e =>
+                                                        window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
+                                                        deleteInvoice(e)}>⛔️ Delete this Invoice</button>
+                                                </DletBtn><br />
                                             </BkgdImg>
 
 
@@ -1294,7 +1297,7 @@ class Invoices extends Component {
                         </InvoicesContainerStyle>
                     </div>
                 </BigDiv>
-                
+
             </div>
         )
     }

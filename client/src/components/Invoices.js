@@ -53,9 +53,9 @@ const InvoiceStyles = styled.div`
 font-size: 12px;
 font-weight: 200;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+//   justify-content: center;
+//   align-content: center;
+//   align-items: center;
   position: relative;
   flex-direction: column;
   width: 800px;
@@ -63,7 +63,7 @@ font-weight: 200;
   box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 //   margin: 10px 0;
   font-family: helvetica;
-background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
+// background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
 background-repeat: no-repeat;
 

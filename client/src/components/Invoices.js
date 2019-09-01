@@ -196,7 +196,7 @@ margin-top: 8%;
 position: relative;
 @media only screen and (max-width: 414px) {
     margin-top: 0%;
-    margin-left: 45%;
+    margin-left: 60%;
     input{
         width: 105px;
 
@@ -210,8 +210,8 @@ margin-left: 36%;
 margin-top: -8%;
 
 @media only screen and (max-width: 414px){
-margin-top: 10px;
-margin-left: 20%;
+// margin-top: 5%;
+margin-left: 5%;
 
 input{
     width: 105px;
@@ -267,7 +267,7 @@ const TotalsInvoice = styled.div`
 // border: solid rgb(182, 182, 182) .5px;
 margin-top: 5%;
 display: flex;
-justify-content: space-between;
+justify-content: space-evenly;
 input{
     background: transparent;
 
@@ -503,7 +503,7 @@ align-content: center;
     color: rgba(0,0,0, 0.7);
     font-weight: 200;
     @media only screen and (max-width: 414px){
-        // margin-left: 0%;
+        margin-left: 30%;
     }
       }
 

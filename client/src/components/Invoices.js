@@ -95,6 +95,7 @@ input::placeholder{
     font-size: 20px;
 font-weight: bold;
   }
+
   button {
     // position: absolute;
     // margin-left: 40vw;
@@ -533,12 +534,13 @@ display: flex;
 flex-direction: column;
 #sub1, #sub2{
     background: transparent;
-}
-input{
-    width: 100px;
-    #sub1, #sub2{
+    input{
         border: none;
     }
+}
+input{
+    // width: 100px;
+    
 }
 td{
     border-left:.5px solid rgba(0,0,0, 0.2);
@@ -556,13 +558,14 @@ td{
     // flex-direction: row;
     align-items: center;
     background-color: rgba(182, 182, 182, 0.2);
-    border-bottom: solid rgb(182, 182, 182) .5px;
+    // border-bottom: solid rgb(182, 182, 182) .5px;
+   
 font-weight: 700;
 
 }
 .lineItems{
-    // border-top: solid rgb(182, 182, 182) .5px;
-
+    border-top: solid rgb(182, 182, 182) .5px;
+    
     // display: flex;
     // justify-content: space-around;
     // flex-direction: row;
@@ -571,13 +574,21 @@ font-weight: 700;
 
 }
 .row, .lineItems{
+    
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     td{
-        width: 100%;
+        // width: 100%;
+        input{
+            margin-left:-5.5px;
+            width: 100%;
+            text-align: center;
+
+        }
     }
 }
+
 input::placeholder{
     font-weight: 100;
     font-size: 10px;
@@ -588,17 +599,15 @@ text-align: center;
     align-content: center;
     text-align: center;
     justify-content: center;
-    width: 85vw;
+    width: 95vw;
+    margin-left: -20px;
     #sub1, #sub2, #subsHead{
         // display: none;
     }
     input{
-        width: 30px;
+        // width: 30px;
     }
-    table{
-        width: 90vw;
-        
-    }
+    
 }
 `
 
@@ -1020,7 +1029,7 @@ class Invoices extends Component {
                                                         <td>    <div className='required'><span> 🗂 </span> Client </div></td>
                                                         <td>    <div className='required'><span> ⏱ </span> Time-Worked </div></td>
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
-                                                        <td>    <div className='required'><span> 💵 </span>Interval Rate </div></td>
+                                                        <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
                                                         <td id='subsHead'>    <div  ><span> 💵 </span>Subtotals </div></td>
 
                                                     </div>
@@ -1046,7 +1055,7 @@ class Invoices extends Component {
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="text" name="rate" value={"$" + invoice.rate} placeholder='Rate of pay 0.00'
+                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                         /> </td>
                                                         <td id='sub1'>     <input id='sub1'
 
@@ -1078,7 +1087,7 @@ class Invoices extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="text" name="rate2" value={"$" + invoice.rate2} placeholder="Enter 0 if none"
+                                                            type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
                                                         /> </td>
                                                         <td id='sub2'>     <input id='sub2'
 
@@ -1241,7 +1250,7 @@ class Invoices extends Component {
                                                             {/* Callum Ent totals */}
                                                             <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
-                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total <span> 💵 </span> Due: </label>
+                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total<span>💰 </span> Due: </label>
                                                                 <input
                                                                     // id="total" type="number" name="total"  //for function calculations
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -1251,14 +1260,18 @@ class Invoices extends Component {
                                                                 // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
+                                                                
                                                         </TotalDue>
 
 
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-
+                                                <br/>
+                                                                <br/>
+                                                                <br/>
                                                 <OptionsInvoice className='noprint'>
+                                                
                                                     {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
                                     <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>

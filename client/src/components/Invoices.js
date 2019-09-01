@@ -47,20 +47,34 @@ position: relative;
 }
 
 `
+const InvoicesContainerStyle = styled.div`
+box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
+//   display: flex;
+//   justify-content: center;
+  font-family: helvetica;
+  font-size: 10px;
+  padding: 20px;
+  @media print
+  {
+  .noprint {display:none;}
+
+  }
+
+`
 const InvoiceStyles = styled.div`
 
 font-size: 12px;
 font-weight: 200;
-  display: flex;
+//   display: flex;
 //   justify-content: center;
 //   align-content: center;
 //   align-items: center;
-  position: relative;
-  flex-direction: column;
-  width: 800px;
-  padding: 20px;
-  box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+//   position: relative;
+//   flex-direction: column;
+//   width: 800px;
+//   padding: 20px;
+//   box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 //   margin: 10px 0;
   font-family: helvetica;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
@@ -432,20 +446,7 @@ button:hover{
 }
 // 
 `
-const InvoicesContainerStyle = styled.div`
-// box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
-//   display: flex;
-//   justify-content: center;
-  font-family: helvetica;
-  font-size: 10px;
-  @media print
-  {
-  .noprint {display:none;}
-
-  }
-
-`
 
 const NameNButtonStyle = styled.div`
 display: flex;
@@ -754,10 +755,10 @@ class Invoices extends Component {
                         <InvoicesContainerStyle>
 
 
-                            <div className="noprint">
+                            
                                 {/* Auto update info for another company */}
-                                {/* All updates are auto saved <br /> */}
-                            </div>
+                                {/* <div className="noprint">     All updates are auto saved <br /> 
+                            </div> */}
 
                             {this.state.invoices.map(invoice => {
 

@@ -433,7 +433,7 @@ button:hover{
 // 
 `
 const InvoicesContainerStyle = styled.div`
-box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+// box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
 //   display: flex;
 //   justify-content: center;

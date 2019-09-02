@@ -23,30 +23,34 @@ font-weight: 700;
 text-shadow: 1px 1px 10px rgb(28, 147, 145);
 }
 h2{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 400;
     text-shadow: 1px 1px 4px black;
 }
 h3{
-    font-size: 16px
+    font-size: 18px
     font-weight: 400;
     text-shadow: 1px 1px 4px black;
 }
 
 background-image: url('/images/office.jpeg');
 background-repeat: no-repeat;
-background-position: center;
+// background-position: center;
 background-attachment: fixed;
 background-size: cover;
-width: 100%;
 
 `
-
+const Text = styled.div`
+// background-color: rgba(28, 147, 145, 0.5);
+padding: 10px;
+margin-top: -70px;
+`
 const CountStyles = styled.div`
     z-index: 1;
     // height: 100vw;
     text-align: center;
-    
+    background-color: rgba(0,0,0, 0.7);
+
 `
 const HoverButton = styled.div`
 button {
@@ -83,11 +87,11 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles> 
-                      <h1> CalPay</h1> 
-                      <h2>A simple and efficient payroll/invoice app created for the small business</h2>
-                      <h3>Customizable version online and mobile</h3>
+                    <h1> CalPay</h1> 
+                        <Text>
+                      <h2>A simple efficient payroll/invoice app created for small business Entrepreneurs</h2> 
                       <h3>Contact us for a personalized web or mobile version for your business today!</h3>
-
+                      </Text>
                         
                         <Link to="/employees">
                             <HoverButton>

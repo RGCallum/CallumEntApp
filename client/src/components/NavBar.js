@@ -65,7 +65,7 @@ class NavBar extends Component {
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                         </Link> 
                         &#160;&#160;&#160;&#160;
-                        <Link to="/employees"> 👩🏽‍🦱Employees </Link>
+                        <Link to="/employees"> 👩🏽Employees </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

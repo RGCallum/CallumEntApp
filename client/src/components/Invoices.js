@@ -649,7 +649,7 @@ class Invoices extends Component {
             addLine: true,
         }
     }
-    operation() {
+    addStuff() {
         this.setState({
             addLine: !this.state.addLine
         })
@@ -928,19 +928,7 @@ class Invoices extends Component {
                                     //   console.log("Total due is", document.getElementById('showTotalCalc').value);
 
                                 }
-                                // let addStuff = document.getElementsByClassName('addStuff')
-                                // addStuff.addEventListener('click', function(){
-                                //     document.getElementById('client2line').styleDisplay = 'none';
-                                // })
-                                // function addStuff() {
-                                //     document.getElementsByClassName('client2line').styleDisplay = 'none';
-                                //     console.log('added')
-                                // }
-
-
-
-
-
+       
                                 return (
                                     <Addlogo>
 
@@ -1158,7 +1146,7 @@ class Invoices extends Component {
                                                 <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
                                             </div> */}
                                                 </Client1Invoice>
-                                                <button onClick={() => this.operation()}>add item</button>
+                                                <button onClick={() => this.addStuff()}>add item</button>
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
@@ -1183,7 +1171,7 @@ class Invoices extends Component {
                                                                 // type="number" name="viewSubs" value={invoice.showSubs}
                                                                 // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
                                                                 // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                                type="number" value={((invoice.rate * invoice.frequency).toFixed(2) || (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+                                                                type="number" value={((invoice.rate * invoice.frequency).toFixed(2) &&(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
                                                             /></tr>
 
@@ -1246,7 +1234,7 @@ class Invoices extends Component {
 
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                                 // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
-                                                                type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2) || (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+                                                                type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2) &&(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
 
@@ -1273,7 +1261,7 @@ class Invoices extends Component {
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                                     // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                                    type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+                                                                    type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
 

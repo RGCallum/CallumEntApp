@@ -16,7 +16,7 @@ justify-content: center ;
 font-family: helvetica;
 background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 background-size: cover;
-// height: 100%;
+height: 100vh;
 background-repeat: no-repeat;
 background-attachment: fixed;
 form{

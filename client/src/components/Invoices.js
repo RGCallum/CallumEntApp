@@ -188,6 +188,8 @@ margin-top: 8%;
 }
 `
 const PeriodInvoice = styled.div`
+padding-top: 20px;
+padding-bottom: 10px;
 // border: black solid 1px;
 // margin-left: 20%;
 // margin-top: 5%;
@@ -201,6 +203,7 @@ text-align: center;
 
 input{
     width: 105px;
+    height: 100%;
 }
 
 }
@@ -347,7 +350,8 @@ input{
 }
 `
 const OptionsInvoice = styled.div`
-padding-top: 10px;
+padding-top: 40px;
+padding-bottom: 40px;
 // border: black solid 1px;
 // width: 50%;
 text-decoration: none;
@@ -369,6 +373,8 @@ display: flex;
 justify-content: space-evenly;
 text-align: center;
 padding-top: 20px;
+padding-bottom: 40px;
+
 `
 
 
@@ -492,6 +498,9 @@ font-weight: 200;
    
 `
 const LogoIdDiv = styled.div`
+padding-top: 40px;
+padding-bottom: 40px;
+
 display: flex
 justify-content: space-between;
 align-content: center;

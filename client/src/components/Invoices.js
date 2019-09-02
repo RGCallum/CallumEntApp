@@ -73,6 +73,12 @@ font-weight: 200;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
 background-repeat: no-repeat;
+.memo{
+    padding: 10px;
+    // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+    border: dashed rgb(182, 182, 182) .5px;
+
+}
 
 input::placeholder{
     font-style: italic;
@@ -257,6 +263,8 @@ const TotalsInvoice = styled.div`
 margin-top: 5%;
 display: flex;
 justify-content: space-evenly;
+padding-bottom: 20px;
+
 input{
     background: transparent;
 
@@ -350,8 +358,8 @@ input{
 }
 `
 const OptionsInvoice = styled.div`
-padding-top: 40px;
-padding-bottom: 40px;
+padding-top: 5px;
+padding-bottom: 20px;
 // border: black solid 1px;
 // width: 50%;
 text-decoration: none;
@@ -1281,9 +1289,14 @@ class Invoices extends Component {
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-
+                                                <div className="memo noprint"> <b>Square Memo:</b>  <br/>
+                                                <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> {"$" + (invoice.rate * invoice.frequency).toFixed(2)} </b>
+ <b>+</b> {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>  
+  <b> - </b> Arise Service Fee <b>{"$" + 19.75}</b> <b>-</b> IB 10% Fee <b>{'$'+((invoice.rate * invoice.frequency * .10).toFixed(2) &&(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}</b>. 
+ <b>  Total Due = {'$'+((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>  
+</div>
+<br/>
                                                 <OptionsInvoice className='noprint'>
-
 
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>

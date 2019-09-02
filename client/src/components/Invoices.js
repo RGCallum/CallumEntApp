@@ -533,6 +533,9 @@ border-radius: 2px;
 // box-sizing: content-box;
 display: flex;
 flex-direction: column;
+.client2line{
+    display: block;
+}
 #sub1, #sub2{
     background: transparent;
     input{
@@ -606,6 +609,7 @@ text-align: center;
 `
 
 class Invoices extends Component {
+   
     state = {
 
         employee: '',
@@ -641,10 +645,15 @@ class Invoices extends Component {
             callumfeeResults: '',
             showTotalCalc: '',
             viewSubs: '',
-            total: ''
+            total: '',
+            addLine: true,
         }
     }
-
+    operation() {
+        this.setState({
+            addLine: !this.state.addLine
+        })
+    }
 
     componentDidMount() {
         // make an api call to get one single employee
@@ -919,18 +928,18 @@ class Invoices extends Component {
                                     //   console.log("Total due is", document.getElementById('showTotalCalc').value);
 
                                 }
+                                // let addStuff = document.getElementsByClassName('addStuff')
+                                // addStuff.addEventListener('click', function(){
+                                //     document.getElementById('client2line').styleDisplay = 'none';
+                                // })
+                                // function addStuff() {
+                                //     document.getElementsByClassName('client2line').styleDisplay = 'none';
+                                //     console.log('added')
+                                // }
 
-function add0(){
-    // var frequency2 = document.getElementById('frequency2').value;
-    var sub2 = document.getElementById('sub2');
-    if (sub2.value === null ) {
-        // document.getElementById('sub2').value = 0.00
-        // document.getElementById('rate2').value = 0
-        console.log("no client 2 listed")
-    } else {
-        console.log("i have something here");
-    }
-}
+
+
+
 
                                 return (
                                     <Addlogo>
@@ -1005,7 +1014,7 @@ function add0(){
                                                 </TopInvoice>
                                                 <PeriodInvoice>
 
-                                                    <tr> <th>  <label htmlFor="payperiod" className='required'><span> 🗓 </span>Pay Period: </label></th>   </tr>  
+                                                    <tr> <th>  <label htmlFor="payperiod" className='required'><span> 🗓 </span>Pay Period: </label></th>   </tr>
                                                     <tr>  <label htmlFor="payperiodstart"> Start: </label></tr>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
@@ -1028,7 +1037,7 @@ function add0(){
 
                                                     <div className="row header">
                                                         <td>    <div className='required'><span> 🗂 </span> Client </div></td>
-                                                        <td>    <div className='required'><span> ⏱ </span> Time-Worked </div></td>
+                                                        <td>    <div className='required'><span> ⏱ </span> Time </div></td>
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
                                                         <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
                                                         <td id='subsHead'>    <div  ><span> 💵 </span>Subtotals </div></td>
@@ -1056,18 +1065,23 @@ function add0(){
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00' 
+                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
                                                         /> </td>
                                                         <td id='sub1'>     <input id='sub1' readOnly
 
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub1" value={invoice.sub1}
-                                                            type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)} 
+                                                            type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)}
                                                         /> </td>
                                                     </div>
-
-                                                    <div className="lineItems client2line">
+                                                    
+{
+    this.state.addLine ?
+        <div>
+            
+       
+                                                    <div className="lineItems client2line" id='client2line'>
                                                         <td >    <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1095,9 +1109,11 @@ function add0(){
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub2" value={invoice.sub2}
-                                                            type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2) || 0.00} 
+                                                            type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                         /> </td>
-                                                    </div>
+                                                    </div> </div>
+        : null
+}
                                                 </LineItemsGrid>
                                                 <Client1Invoice>
 
@@ -1142,8 +1158,7 @@ function add0(){
                                                 <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
                                             </div> */}
                                                 </Client1Invoice>
-
-
+                                                <button onClick={() => this.operation()}>add item</button>
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
@@ -1168,7 +1183,7 @@ function add0(){
                                                                 // type="number" name="viewSubs" value={invoice.showSubs}
                                                                 // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
                                                                 // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                            type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+                                                                type="number" value={((invoice.rate * invoice.frequency).toFixed(2) || (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
                                                             /></tr>
 
@@ -1231,7 +1246,7 @@ function add0(){
 
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                                 // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
-                                                            type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+                                                                type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2) || (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
 
@@ -1258,7 +1273,7 @@ function add0(){
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                                     // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                                type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+                                                                    type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
 
@@ -1268,15 +1283,15 @@ function add0(){
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-                                                
+
                                                 <OptionsInvoice className='noprint'>
 
-                                                    
+
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
                                                     <a href="https://squareup.com/login" target="_blank"> <span>💸</span> <br /> Pay </a>
                                                 </OptionsInvoice>
-                                                
+
                                                 <DletBtn>
                                                     <button className='noprint dlet' onClick={e =>
                                                         window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&

@@ -920,6 +920,18 @@ class Invoices extends Component {
 
                                 }
 
+function add0(){
+    // var frequency2 = document.getElementById('frequency2').value;
+    var sub2 = document.getElementById('sub2');
+    if (sub2.value === null ) {
+        // document.getElementById('sub2').value = 0.00
+        // document.getElementById('rate2').value = 0
+        console.log("no client 2 listed")
+    } else {
+        console.log("i have something here");
+    }
+}
+
                                 return (
                                     <Addlogo>
 
@@ -1044,14 +1056,14 @@ class Invoices extends Component {
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
-                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00'
+                                                            type="number" name="rate" value={invoice.rate} placeholder='Rate of pay 0.00' 
                                                         /> </td>
-                                                        <td id='sub1'>     <input id='sub1'
+                                                        <td id='sub1'>     <input id='sub1' readOnly
 
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub1" value={invoice.sub1}
-                                                            type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)}
+                                                            type="text" name="sub1" value={"$" + (invoice.rate * invoice.frequency).toFixed(2)} 
                                                         /> </td>
                                                     </div>
 
@@ -1078,12 +1090,12 @@ class Invoices extends Component {
                                                             // onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             type="number" name="rate2" value={invoice.rate2} placeholder="Enter 0 if none"
                                                         /> </td>
-                                                        <td id='sub2'>     <input id='sub2'
+                                                        <td id='sub2'>     <input id='sub2' readOnly
 
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             // type="number" name="sub2" value={invoice.sub2}
-                                                            type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2) || 0.00} 
                                                         /> </td>
                                                     </div>
                                                 </LineItemsGrid>
@@ -1150,13 +1162,13 @@ class Invoices extends Component {
                                                             executeMath()} /></tr> */}
 
                                                         <tr >  <label htmlFor="subtotal">Subtotal:</label>
-                                                            <input id="viewSubs"
+                                                            <input id="viewSubs" readOnly
                                                                 // onBlur={() => this.handleUpdate(invoice._id)}
                                                                 // onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 // type="number" name="viewSubs" value={invoice.showSubs}
                                                                 // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
-                                                                type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                            // type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+                                                                // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
+                                                            type="number" value={((invoice.rate * invoice.frequency).toFixed(2)||(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
                                                             /></tr>
 
@@ -1191,7 +1203,7 @@ class Invoices extends Component {
                                                         {/* <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} /> */}
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
-                                                            <input className="arfee" id="arisefee"
+                                                            <input className="arfee" id="arisefee" readOnly
                                                                 // type="number" name="arisefee" value={20}
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1210,7 +1222,7 @@ class Invoices extends Component {
                                                                 onChange={(event) => this.handleChange(event, invoice._id, executeMath())}
                                                             /> */}
 
-                                                            <input id="callumfee"
+                                                            <input id="callumfee" readOnly
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
                                                                 onChange={(event) => this.handleChange(event, invoice._id)}
 
@@ -1218,8 +1230,8 @@ class Invoices extends Component {
                                                                 // type="hidden" name="callumfee" value={0.10} 
 
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
-                                                                type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
-                                                            // type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+                                                                // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
+                                                            type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2)||(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
 
@@ -1240,13 +1252,13 @@ class Invoices extends Component {
                                                             <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
                                                             <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total<span>💰 </span> Due: </label>
-                                                                <input
+                                                                <input readOnly
                                                                     // id="total" type="number" name="total"  //for function calculations
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
-                                                                    type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                                // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+                                                                    // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
+                                                                type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) || ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
 

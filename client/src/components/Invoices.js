@@ -26,9 +26,9 @@ input:focus, textarea:focus{
 }
 h1{
     font-family: helvetica;
-  font-weight: 500;
+  font-weight: 700;
   color: rgb(43, 172, 174);
-  text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+//   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
   
   }
 `
@@ -191,11 +191,11 @@ justify-content: center;
 
 const TopInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 68%;
-margin-top: 10%;
+margin-left: 75%;
+margin-top: 8%;
 // position: relative;
 @media only screen and (max-width: 414px) {
-    margin-top: 0%;
+    margin-top: -15%;
     margin-left: 60%;
     input{
         width: 105px;
@@ -204,12 +204,15 @@ margin-top: 10%;
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 38%;
-margin-top: -9.5%;
-
+// margin-left: 20%;
+// margin-top: 5%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-align: center;
 @media only screen and (max-width: 414px){
-margin-top: -26%;
-margin-left: 5%;
+// margin-top: -26%;
+// margin-left: 5%;
 
 input{
     width: 105px;
@@ -435,12 +438,12 @@ a:visited {
 const InvoiceBtn = styled.div`
 // display: flex;
 // justify-content: center;
-color: #b173a5;
+color: #d090c3;
 font-weight: 300;
 font-family: helvetica;
 
 button{
-  background: #b173a5;
+  background: #d090c3;
   color: white;
   border-radius: 5px;
   font-size: 14px;
@@ -449,7 +452,7 @@ button{
 button:hover{
   background: white;
   cursor:pointer;
-  color: #b173a5;
+  color: #d090c3;
   
 }
 // 
@@ -498,10 +501,10 @@ justify-content: space-between;
 align-content: center;
 .invoiceNum{
     // margin-left: 50vw;
-    color: rgba(0,0,0, 0.7);
+    color: rgba(0,0,0, 0.3);
     font-weight: 200;
     @media only screen and (max-width: 414px){
-        margin-left: 30%;
+        margin-left: 50%;
     }
       }
 
@@ -557,22 +560,15 @@ td{
     // display: flex;
     // justify-content: space-around;
     // flex-direction: row;
-    align-items: center;
-    background-color: rgba(182, 182, 182, 0.2);
-    // border-bottom: solid rgb(182, 182, 182) .5px;
-   
+    // align-items: center;
+    background-color: rgba(182, 182, 182, 0.2);   
 font-weight: 700;
 
 }
 .lineItems{
     border-top: solid rgb(182, 182, 182) .5px;
-    
-    // display: flex;
-    // justify-content: space-around;
-    // flex-direction: row;
-    align-items: center;
-    // padding: 10px;
-
+  align-items: center;
+   
 }
 .row, .lineItems{
     
@@ -580,7 +576,7 @@ font-weight: 700;
     justify-content: space-around;
     flex-direction: row;
     td{
-        // width: 100%;
+        width: 100%;
         input{
             margin-left:-5.5px;
             width: 100%;
@@ -1005,7 +1001,7 @@ class Invoices extends Component {
                                                 </TopInvoice>
                                                 <PeriodInvoice>
 
-                                                    <th>    <label htmlFor="payperiodstart" className='required'><span> 🗓 </span>Pay Period: </label>  </th>
+                                                    <tr> <th>  <label htmlFor="payperiod" className='required'><span> 🗓 </span>Pay Period: </label></th>   </tr>  
                                                     <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}

@@ -107,12 +107,12 @@ text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
 const InvoiceBtn = styled.div`
 display: flex;
 justify-content: center;
-color: #af64a0;
+color: #d090c3;
 font-weight: 300;
 font-family: helvetica;
 
 button{
-  background: #af64a0;
+  background: #d090c3;
   color: white;
   border-radius: 5px;
   font-size: 16px;
@@ -121,7 +121,7 @@ button{
 button:hover{
   background: white;
   cursor:pointer;
-  color: #af64a0;
+  color: #d090c3;
   
 }
 a{
@@ -130,7 +130,7 @@ a{
     // color: white;
 }
 a:visited{
-    color: #af64a0;
+    color: #d090c3;
 }
 a:hover{
   color: blue;

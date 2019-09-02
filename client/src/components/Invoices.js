@@ -646,14 +646,14 @@ class Invoices extends Component {
             showTotalCalc: '',
             viewSubs: '',
             total: '',
-            addLine: true,
+            // addLine: true,
         }
     }
-    addStuff() {
-        this.setState({
-            addLine: !this.state.addLine
-        })
-    }
+    // addStuff() {
+    //     this.setState({
+    //         addLine: !this.state.addLine
+    //     })
+    // }
 
     componentDidMount() {
         // make an api call to get one single employee
@@ -1065,7 +1065,7 @@ class Invoices extends Component {
                                                     </div>
                                                     
 {
-    this.state.addLine ?
+    // this.state.addLine ?
         <div>
             
        
@@ -1100,7 +1100,7 @@ class Invoices extends Component {
                                                             type="text" name="sub2" value={"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)}
                                                         /> </td>
                                                     </div> </div>
-        : null
+        // : null
 }
                                                 </LineItemsGrid>
                                                 <Client1Invoice>
@@ -1146,7 +1146,8 @@ class Invoices extends Component {
                                                 <AddLineItem addLineItem={this.addLineItem} value={invoice.frequency} />
                                             </div> */}
                                                 </Client1Invoice>
-                                                <button onClick={() => this.addStuff()}>add item</button>
+                                                {/* button for next line */}
+                                                {/* <button onClick={() => this.addStuff()}>add item</button> */}
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
@@ -1203,7 +1204,7 @@ class Invoices extends Component {
                                             */}
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        {/* <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} /> */}
+                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} />
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee" readOnly

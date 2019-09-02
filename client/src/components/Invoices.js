@@ -276,6 +276,12 @@ border:.5px solid rgba(0,0,0, 0.2);
 border-radius: 2px;
 padding: 5px;
 
+tr{
+    // display: flex;
+    
+    align-items: center;
+
+}
 input{
     border: none;
     float: right; 
@@ -351,7 +357,12 @@ text-align: center;
 span{
     font-size: 50px;
 }
-
+a:visited {
+    color: blue;
+  }
+  a:active{
+      color: red;
+  }
 `
 const DletBtn = styled.div`
 display: flex;
@@ -390,7 +401,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    height: 23px;
+    height: 22.5px;
 
 }
 `
@@ -485,7 +496,7 @@ display: flex
 justify-content: space-between;
 align-content: center;
 .invoiceNum{
-    // margin-left: 50vw;
+    margin-left: 50vw;
     color: rgba(0,0,0, 0.3);
     font-weight: 200;
     @media only screen and (max-width: 414px){
@@ -983,13 +994,13 @@ class Invoices extends Component {
                                                 <PeriodInvoice>
 
                                                     <tr> <th>  <label htmlFor="payperiod" className='required'><span> 🗓 </span>Pay Period: </label></th>   </tr>  
-                                                    <tr>  <label htmlFor="payperiodstart">Start: </label></tr>
+                                                    <tr>  <label htmlFor="payperiodstart"> Start: </label></tr>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
                                                         type="date" name="payperiodstart" value={invoice.payperiodstart}
                                                     />
-                                                    <tr> <label htmlFor="payperiodend">End: </label></tr>
+                                                    <tr> <label htmlFor="payperiodend"> End: </label></tr>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1248,11 +1259,10 @@ class Invoices extends Component {
                                                 
                                                 <OptionsInvoice className='noprint'>
 
-                                                    {/* <a href="javascript:window.print()" ><img src="https://cdn1.iconfinder.com/data/icons/universal-shop-icons/512/Print.png" alt="print this page" id="print-button" /></a>
-                                    <a href="javascript:window.print()"><img src="https://www.pngfind.com/pngs/m/205-2059706_adobe-pdf-downloads-pdf-icon-png-transparent-png.png" alt="save this page" id="save-button" /> <br />Select Destination</a> */}
+                                                    
                                                     <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
-
+                                                    <a href="https://squareup.com/login" target="_blank"> <span>💸</span> <br /> Pay </a>
                                                 </OptionsInvoice>
                                                 
                                                 <DletBtn>

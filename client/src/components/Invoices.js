@@ -67,15 +67,7 @@ const InvoiceStyles = styled.div`
 
 font-size: 12px;
 font-weight: 200;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  position: relative;
-  flex-direction: column;
-  width: 800px;
-  padding: 20px;
-  margin: 10px 0;
+  
   font-family: helvetica;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
@@ -405,7 +397,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    // height: 28px;
+    height: 25px;
 
 }
 `

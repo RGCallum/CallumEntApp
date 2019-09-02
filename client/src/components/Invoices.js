@@ -1332,9 +1332,10 @@ class Invoices extends Component {
 
                                                 </TotalsInvoice>
                                                 <div className="memo noprint"> <b>Square Memo:</b>  <br />
-                                                    <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> +{"$" + (invoice.rate * invoice.frequency).toFixed(2)} </b>
-                                                         {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> +{"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
-                                                        Arise Service Fee <b>-{"$" + 19.75}</b> IB 10% Fee <b>-{'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}</b>.
+                                                    <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> {"$" + (invoice.rate * invoice.frequency).toFixed(2)}. </b>
+                                                         {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
+                                                    for a total of <b>{'$' + ((invoice.rate * invoice.frequency).toFixed(2) && (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))} </b> 
+                                                    minus Arise Service Fee <b>({"$" + 19.75})</b> and IB 10% Fee <b>({'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))})</b>.
  <b>  Total Due = {'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
                                                 </div>
                                                 <br />

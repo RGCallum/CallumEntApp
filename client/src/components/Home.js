@@ -50,6 +50,7 @@ const CountStyles = styled.div`
     // height: 100vw;
     text-align: center;
     background-color: rgba(0,0,0, 0.7);
+    width: 100vw;
 
 `
 const HoverButton = styled.div`

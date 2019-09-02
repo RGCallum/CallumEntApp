@@ -50,6 +50,7 @@ position: relative;
 const InvoicesContainerStyle = styled.div`
 box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
+
 //   display: flex;
 //   justify-content: center;
   font-family: helvetica;
@@ -66,16 +67,15 @@ const InvoiceStyles = styled.div`
 
 font-size: 12px;
 font-weight: 200;
-//   display: flex;
-//   justify-content: center;
-//   align-content: center;
-//   align-items: center;
-//   position: relative;
-//   flex-direction: column;
-//   width: 800px;
-//   padding: 20px;
-//   box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
-//   margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  width: 800px;
+  padding: 20px;
+  margin: 10px 0;
   font-family: helvetica;
 // background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg?size=626&ext=jpg');
 background-size: cover;
@@ -405,7 +405,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    height: 28px;
+    // height: 28px;
 
 }
 `
@@ -505,6 +505,7 @@ align-content: center;
     font-weight: 200;
     @media only screen and (max-width: 414px){
         margin-left: 50%;
+        font-size: 9px;
     }
       }
 

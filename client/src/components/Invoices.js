@@ -1087,7 +1087,7 @@ class Invoices extends Component {
                                                         <td>    <div className='required'><span> ⏱ </span> Intervals </div></td>
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
                                                         <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
-                                                        <td id='subsHead'>    <div  ><span>  💵  </span> Total </div></td>
+                                                        <td id='subsHead'>    <div  ><span>  💵  </span>  <br/> Total </div></td>
 
                                                     </div>
                                                     <div className="lineItems">

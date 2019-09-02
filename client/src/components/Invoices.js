@@ -1171,7 +1171,7 @@ class Invoices extends Component {
                                                                 // type="number" name="viewSubs" value={invoice.showSubs}
                                                                 // type="number" name="subtotal" value={(invoice.sub1 + invoice.sub2).toFixed(2)}
                                                                 // type="text" name="subtotal" value={"$" + (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2)}
-                                                                type="number" value={((invoice.rate * invoice.frequency).toFixed(2) &&(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
+                                                                type="text" value={'$'+ ((invoice.rate * invoice.frequency).toFixed(2) &&(invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))}
 
                                                             /></tr>
 
@@ -1234,7 +1234,7 @@ class Invoices extends Component {
 
                                                                 // type="number" name="callumfee" value={(invoice.rate * invoice.frequency * .10).toFixed(2)}
                                                                 // type="text" name="callumfee" value={"$" + (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2)}
-                                                                type="number" name="callumfee" value={((invoice.rate * invoice.frequency * .10).toFixed(2) &&(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
+                                                                type="text" name="callumfee" value={'$'+((invoice.rate * invoice.frequency * .10).toFixed(2) &&(invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))}
 
                                                             /></tr>
 
@@ -1261,7 +1261,7 @@ class Invoices extends Component {
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                                                     // type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) - 19.75).toFixed(2)}
                                                                     // type="text" name="totaldue" value={"$" + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2)}
-                                                                    type="number" name="totaldue" value={((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
+                                                                    type="text" name="totaldue" value={'$'+((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}
 
                                                                 /></tr>
 

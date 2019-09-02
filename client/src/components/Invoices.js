@@ -191,26 +191,24 @@ justify-content: center;
 
 const TopInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 67%;
-margin-top: 8%;
-position: relative;
+margin-left: 68%;
+margin-top: 10%;
+// position: relative;
 @media only screen and (max-width: 414px) {
     margin-top: 0%;
     margin-left: 60%;
     input{
         width: 105px;
-
-    }
-  
+    }  
 }
 `
 const PeriodInvoice = styled.div`
 // border: black solid 1px;
-margin-left: 36%;
-margin-top: -8%;
+margin-left: 38%;
+margin-top: -9.5%;
 
 @media only screen and (max-width: 414px){
-// margin-top: 5%;
+margin-top: -26%;
 margin-left: 5%;
 
 input{
@@ -479,7 +477,7 @@ const LogoStyles = styled.div`
 
 .employeeinfo{
     margin-left: 5%;
-    margin-top: 8%;
+    margin-top: 6%;
     position: absolute;
     padding: 10px;
     // border: solid rgba(0,0,0, 0.2) .5px;

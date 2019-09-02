@@ -101,7 +101,9 @@ display: flex;
 justify-content: center;
 
 h1{
-    font-weight: 200;
+    font-weight: 500;
+  
+    color: rgb(43, 172, 174);
 }  
   img{
     max-width: 200px;

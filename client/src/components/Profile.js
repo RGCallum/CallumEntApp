@@ -12,8 +12,8 @@ h1{
   font-family: helvetica;
 font-weight: 500;
 color: rgb(43, 172, 174);
-text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
-
+font-size: 30px;
+text-align: center;
 }
 display:flex;
 justify-content: center;
@@ -64,7 +64,6 @@ font-weight: 200;
 box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 padding-left:10%;
 padding-right:10%;
-
 display:flex;
 justify-content: space-around;
   flex-direction: column;
@@ -79,7 +78,7 @@ h3{
   color: rgb(43, 172, 174);
   font-weight: 500;
 margin-bottom: 5px;
-text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
+// text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
 
 }
   button {
@@ -97,6 +96,9 @@ text-shadow: 1px 1px 1px rgba(0,0,0, 0.1);
   }
   input{
     background: rgba(28, 147, 145, 0.2);
+    border-radius: 3px;
+    border: .5px solid rgba(0,0,0, 0.2);
+    padding: 5px;
 
   }
   label{

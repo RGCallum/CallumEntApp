@@ -9,6 +9,7 @@ input, textarea{
 border-radius: 3px;
 border: .5px solid rgba(0,0,0, 0.2);
 padding: 5px;
+font-family: helvetica;
 }
 @media print
 {
@@ -26,7 +27,6 @@ input:focus, textarea:focus{
 }
 h1{
     font-family: helvetica;
-  font-weight: 700;
   color: rgb(43, 172, 174);
 //   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
   
@@ -64,6 +64,7 @@ box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
 `
 const InvoiceStyles = styled.div`
+border: 1px 1px 5px rgba(0,0,0, 0.4);
 
 font-size: 12px;
 font-weight: 200;
@@ -147,14 +148,6 @@ span{
 padding: 10px;
 
     }
-    
-
-    @media only screen and (max-width: 414px){
-        textarea{
-            
-        }
-    }
-
 
 @media print{
   @page{
@@ -343,7 +336,7 @@ input{
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 60px;    }
+        width: 88px;    }
   
 }
 `
@@ -372,7 +365,7 @@ const BkgdImg = styled.div`
 // display: flex;
 // flex-direction: column;
 // justify-content: center;
-
+// box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 `
 
 const NewInvoiceButton = styled.button`
@@ -397,7 +390,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    height: 25px;
+    height: 23px;
 
 }
 `
@@ -456,7 +449,7 @@ display: flex;
 justify-content: center;
 
 h1{
-    font-weight: 200;
+    font-weight: 500;
 }  
   img{
     max-width: 200px;
@@ -938,11 +931,6 @@ class Invoices extends Component {
 
                                             <br />
                                             <BkgdImg>
-
-
-
-
-
 
 
                                                 <LogoStyles>

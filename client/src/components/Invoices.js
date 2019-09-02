@@ -189,10 +189,11 @@ margin-left: 75%;
 margin-top: 8%;
 // position: relative;
 @media only screen and (max-width: 414px) {
-    margin-top: -15%;
-    margin-left: 60%;
+    margin-top: -27%;
+    margin-left: 55%;
+    margin-bottom: -10px;
     input{
-        width: 105px;
+        width: 115px;
     }  
 }
 @media print { 
@@ -201,6 +202,7 @@ margin-top: 8%;
         }  
 
 }
+z-index: 1000;
 `
 const PeriodInvoice = styled.div`
 padding-top: 20px;

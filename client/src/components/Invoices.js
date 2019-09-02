@@ -405,11 +405,10 @@ a:visited {
   }
   a:active{
       color: red;
-      text-shadow: 1px 1px 10px black;
+    //   text-shadow: 1px 1px 10px black;
   }
 span:hover{
     text-shadow: 1px 1px 5px rgb(28, 125, 147);
-    animation: btn-animation .2s;
 
   }
 
@@ -586,7 +585,7 @@ img{
 
 const LineItemsGrid = styled.div`
 border: solid rgb(182, 182, 182) .5px;
-border-radius: 2px;
+border-radius: 3px;
 // box-sizing: content-box;
 display: flex;
 flex-direction: column;

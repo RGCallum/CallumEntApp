@@ -1042,7 +1042,7 @@ class Invoices extends Component {
 
                                                     <div className="row header">
                                                         <td>    <div className='required'><span> 🗂 </span> Client </div></td>
-                                                        <td>    <div className='required'><span> ⏱ </span> Time </div></td>
+                                                        <td>    <div className='required'><span> ⏱ </span> Intervals </div></td>
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
                                                         <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
                                                         <td id='subsHead'>    <div  ><span> 💵 </span>Subtotals </div></td>

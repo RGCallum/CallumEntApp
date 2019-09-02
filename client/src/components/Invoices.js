@@ -405,7 +405,16 @@ a:visited {
   }
   a:active{
       color: red;
+      text-shadow: 1px 1px 10px black;
   }
+span:hover{
+    text-shadow: 1px 1px 5px rgb(28, 125, 147);
+    animation: btn-animation .2s;
+
+  }
+
+
+}
 `
 const DletBtn = styled.div`
 display: flex;
@@ -644,14 +653,21 @@ input::placeholder{
 }
 align-content: center;
 text-align: center;
+
+#subsHead2{
+    display:none;
+}
 @media only screen and (max-width: 414px) {
     align-content: center;
     text-align: center;
     justify-content: center;
     width: 95vw;
     margin-left: -20px;
-    #sub1, #sub2, #subsHead{
-        // display: none;
+    #subsHead{
+        display: none;
+    }
+    #subsHead2{
+        display:block;
     }
     input{
         // width: 30px;
@@ -1087,7 +1103,8 @@ class Invoices extends Component {
                                                         <td>    <div className='required'><span> ⏱ </span> Intervals </div></td>
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
                                                         <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
-                                                        <td id='subsHead'>    <div  ><span>  💵  </span>  <br/> Total </div></td>
+                                                        <td id='subsHead'>    <div  ><span>  💵  </span>  Total </div></td>
+                                                        <td id='subsHead2'>    <div  ><span>  💵  </span>  <br/> Total </div></td>
 
                                                     </div>
                                                     <div className="lineItems">

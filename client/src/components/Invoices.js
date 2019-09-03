@@ -159,7 +159,7 @@ padding: 10px;
   @page{
     //   size:landscape;
   }
-      height: 95vh;
+      height: 100vh;
     .noprint {
         display:none;
         }
@@ -543,6 +543,8 @@ position: relative;
     }
 }
 font-weight: 200;
+
+   
 
    
 `
@@ -1051,7 +1053,7 @@ class Invoices extends Component {
 
                                                         </a>
                                                         <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}>
-                                                        <div className="invoiceNum">ID: {invoice._id} </div><br />
+                                                            <div className="invoiceNum">ID: {invoice._id} </div><br />
                                                         </Link>
                                                     </LogoIdDiv>
 
@@ -1110,7 +1112,7 @@ class Invoices extends Component {
                                                         <td>    <div ><span> ⌛ </span> Interval Type </div></td>
                                                         <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
                                                         <td id='subsHead'>    <div  ><span>  💵  </span>  Total </div></td>
-                                                        <td id='subsHead2'>    <div  ><span>  💵  </span>  <br/> Total </div></td>
+                                                        <td id='subsHead2'>    <div  ><span>  💵  </span>  <br /> Total </div></td>
 
                                                     </div>
                                                     <div className="lineItems">
@@ -1356,10 +1358,10 @@ class Invoices extends Component {
                                                 </TotalsInvoice>
                                                 <div className="memo noprint"> <b>Memo:</b>  <br />
                                                     <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> {"$" + (invoice.rate * invoice.frequency).toFixed(2)}. </b>
-                                                         {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
-                                                    for a total of <b>{'$' + ((invoice.rate * invoice.frequency).toFixed(2) && (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))} </b> 
-                                                    minus Arise Service Fee <b>({"$" + 19.75})</b> and IB 10% Fee <b>({'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))})</b>.
- <b>  Total Due = {'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
+                                                        {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
+                                                        for a total of <b>{'$' + ((invoice.rate * invoice.frequency).toFixed(2) && (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))} </b>
+                                                        minus Arise Service Fee <b>({"$" + 19.75})</b> and IB 10% Fee <b>({'$' + ((invoice.rate * invoice.frequency * .10).toFixed(2) && (invoice.rate * invoice.frequency * .10 + invoice.rate2 * invoice.frequency2 * .10).toFixed(2))})</b>.
+                                                <b>  Total Due = {'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
                                                 </div>
                                                 <br />
                                                 <OptionsInvoice className='noprint'>

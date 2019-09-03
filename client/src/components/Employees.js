@@ -46,8 +46,9 @@ display: flex;
 justify-content: center;
 
 }
-h3{
+h2, h3{
   color: rgb(28, 147, 145);
+  text-align: center;
 }
 a{
   text-decoration: none;
@@ -100,14 +101,15 @@ border-top: inset #C0C0C0 .5px;
 display: flex ;
 flex-direction: column ;
 flex-wrap: wrap ;
-// justify-content: center ;
-align-items: center ;
-// align-content: center ;
+align-items: left ;
 padding: 10px;
-// box-shadow: 1px 1px 1px;
 color: black;
 text-shadow: none;
+font-size: 15px;
+#link{
+  margin-left: 35%;
 
+}
 `
 
 
@@ -174,11 +176,11 @@ class Employee extends Component {
              <h3> {employee.employeename} </h3>
               {/* <h5> ID: {employee.idnumber}</h5>  */}
 
-                <Link to={`/employees/${employee._id}/profile`}> 
+                <Link id="link" to={`/employees/${employee._id}/profile`}> 
               ⚙️ Profile
                 
                 </Link> 
-                <Link to={`/employees/${employee._id}`}> 
+                <Link id="link" to={`/employees/${employee._id}`}> 
           📂 Invoices</Link>
                 {/* <h5> {employee.email}</h5> 
                 <h5> {employee.phone}</h5>  */}
@@ -189,9 +191,9 @@ class Employee extends Component {
           ))} 
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
-        <br/>  <h3>Add New Employee</h3> 
-You can also use emojis <br/>
-<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 😎 😃<br/></h3>
+        <br/>  <h2>Add New Employees</h2> 
+
+<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 <br/></h3>
             <div >
            <th>  <label className='required' htmlFor="employeename" >Employee Name: </label></th> 
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>

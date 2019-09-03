@@ -557,12 +557,15 @@ align-content: center;
     margin-left: 50vw;
     color: rgba(0,0,0, 0.3);
     font-weight: 200;
+    
     @media only screen and (max-width: 414px){
         margin-left: 50%;
         font-size: 9px;
     }
       }
-
+      .invoiceNum:hover{
+        color: blue;
+    }
 img{
     width: 8%;
         // z-index: 10;
@@ -582,6 +585,7 @@ img{
         margin-left: 65%;
 
     }
+    
 `
 
 
@@ -1046,8 +1050,9 @@ class Invoices extends Component {
                                                             <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
                                                         </a>
+                                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}>
                                                         <div className="invoiceNum">ID: {invoice._id} </div><br />
-
+                                                        </Link>
                                                     </LogoIdDiv>
 
                                                     <div className="employeeinfo">

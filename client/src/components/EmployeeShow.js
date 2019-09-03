@@ -242,7 +242,7 @@ class EmployeeShow extends Component {
 
 
 
-                                    <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${this.props.match.params.invoiceId}`}>
+                                    <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}>
                                         
                                             
                                              <p> 📄 <br/> Invoice: {invoice._id} </p> 

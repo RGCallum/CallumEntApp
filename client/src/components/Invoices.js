@@ -1128,7 +1128,7 @@ class Invoices extends Component {
                                                         <td>      <input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
-                                                            type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
+                                                            type="text" name="result" value={invoice.result} placeholder='Minute/Half-Hour/Hour'
                                                         /></td>
 
                                                         <td>     <input id='rate'
@@ -1166,7 +1166,7 @@ class Invoices extends Component {
                                                                 <td>      <input
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
-                                                                    type="text" name="result2" value={invoice.result2} placeholder='Minutes/Half-Hour/Hour'
+                                                                    type="text" name="result2" value={invoice.result2} placeholder='Minute/Half-Hour/Hour'
                                                                 /></td>
                                                                 <td>     <input id="rate2"
                                                                     onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1354,7 +1354,7 @@ class Invoices extends Component {
                                                     </SubtotalBox>
 
                                                 </TotalsInvoice>
-                                                <div className="memo noprint"> <b>Square Memo:</b>  <br />
+                                                <div className="memo noprint"> <b>Memo:</b>  <br />
                                                     <i> {this.state.employee.employeename} serviced {invoice.client} for {invoice.frequency} {invoice.result}s at a rate of {"$" + invoice.rate} per {invoice.result} = <b> {"$" + (invoice.rate * invoice.frequency).toFixed(2)}. </b>
                                                          {this.state.employee.employeename} serviced {invoice.client2} for {invoice.frequency2} {invoice.result2}s at a rate of {"$" + invoice.rate2} per {invoice.result2} = <b> {"$" + (invoice.rate2 * invoice.frequency2).toFixed(2)} </b>
                                                     for a total of <b>{'$' + ((invoice.rate * invoice.frequency).toFixed(2) && (invoice.rate * invoice.frequency + invoice.rate2 * invoice.frequency2).toFixed(2))} </b> 

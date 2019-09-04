@@ -859,7 +859,7 @@ class EmployeeShow extends Component {
 
                         <div className="noprint">
                             <NameNButtonStyle>
-                                <h1>{this.state.employee.employeename} Invoice </h1>
+                                <h1>{this.state.employee.employeename}'s Invoices </h1>
                             </NameNButtonStyle>
 
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>

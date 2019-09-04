@@ -118,57 +118,66 @@ h1{
 class Invoices extends Component {
     state = {
 
-        employee: '',
+        employee: {},
+        employeename: '',
+        idnumber: '',
+        email: '',
+        phone: '',
         invoices: [],
-        lineItems: [
-
-        ],
-        newInvoice: {
-            date: '',
-            payperiodstart: '',
-            payperiodend: '',
-            name: '',
-            image: '',
-            namefee: '',
-            otherfee: '',
-            idnumber: '',
-            client: '',
-            frequency: '',
-            rate: '',
-            subtotal: '',
-            arisefee: '',
-            callumfee: '',
-            comments: '',
-            totaldue: '',
-            result2: '',
-            client2: '',
-            frequency2: '',
-            rate2: '',
-            uploadImage: '',
-            math: '',
-            sub1: '',
-            sub2: '',
-            showSubs: '',
-            callumfeeResults: '',
-            showTotalCalc: '',
-            viewSubs: '',
-            total: ''
-        }
+invoice: {
+    date: '',
+    payperiodstart: '',
+    payperiodend: '',
+    name: '',
+    image: '',
+    namefee: '',
+    otherfee: '',
+    idnumber: '',
+    client: '',
+    frequency: '',
+    rate: '',
+    subtotal: '',
+    arisefee: '',
+    callumfee: '',
+    comments: '',
+    totaldue: '',
+    result2: '',
+    client2: '',
+    frequency2: '',
+    rate2: '',
+    uploadImage: '',
+    math: '',
+    sub1: '',
+    sub2: '',
+    showSubs: '',
+    callumfeeResults: '',
+    showTotalCalc: '',
+    viewSubs: '',
+    total: ''
+}
+      
+       
     }
 
 
     componentDidMount() {
         // make an api call to get one single employee
         // On the server URL is '/api/employees/:employeeId'
+        const invoiceId = this.props.match.params.invoiceId
         const employeeId = this.props.match.params.employeeId
-        axios.get(`/api/employees/${employeeId}`).then(res => {
-            console.log(res.data)
+        
+        axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`).then(res => {
+            console.log(res.data._id, res.data.client, res.data.rate, res.data.frequency, res.data.result)
+            
+
             this.setState({
                 employee: res.data,
-                invoices: res.data.invoices
+                invoices: res.data
 
             })
         })
+        
+        
     }
 
     handleCreateNewInvoice = () => {
@@ -196,12 +205,15 @@ class Invoices extends Component {
         return (
 
             <div>
+                  
                 <BigDiv>
 
                     <Topbtns>
                         <div className="noprint">
                             <NameNButtonStyle>
-                                <h1>{this.state.employee.employeename}'s Invoices </h1>
+                               emp{this.props.match.params.employeeId}'s  
+                               Invoice# {this.props.match.params.invoiceId}
+
 
                             </NameNButtonStyle>
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
@@ -211,6 +223,7 @@ class Invoices extends Component {
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
                                     ⚙️ Employee Profile
                             </Link>
+                            
                             </EditProfileBtn>
 
                         </div>
@@ -219,40 +232,34 @@ class Invoices extends Component {
                     <div>
                         <br />
 
+employeeId# {this.props.match.params.employeeId} <br/>
+invoiceId# {this.props.match.params.invoiceId}
 
-
-
-
-                        {this.state.invoices.map((invoice, i) => {
+                        {/* {this.state.invoices.map((invoice, i) => { */}
                             
-                            const deleteInvoice = () => {
-
-                                return this.handleDelete(invoice._id)
-                            }
-                            console.log({i})
-
-
-                            return (
-                                <Addlogo>
+                        
+                           
+                                    
+                                    <Addlogo>
 
 
-                                <div className="div" key={i}>{invoice._id}</div>
 
-
+{/* 
                                     <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}>
                                         
                                             
                                              <p> 📄 <br/> Invoice: {invoice._id} </p> 
-                                    </Link>
+                                    </Link> */}
 
 
 
 
                                 </Addlogo>
+                                
+                             
 
-                            )
 
-                        })}
+                          
 
                     </div>
                 </BigDiv>

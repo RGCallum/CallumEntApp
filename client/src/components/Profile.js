@@ -146,6 +146,7 @@ class Profile extends Component {
     idnumber: '',
     email: '',
     phone: '',
+    
   }
 
   componentDidMount() {

@@ -189,7 +189,7 @@ const TopInvoice = styled.div`
 // border: black solid 1px;
 margin-left: 75%;
 margin-top: 8%;
-// position: relative;
+position: relative;
 @media only screen and (max-width: 414px) {
     margin-top: -27%;
     margin-left: 55%;
@@ -563,7 +563,7 @@ align-content: center;
     font-weight: 200;
     
     @media only screen and (max-width: 414px){
-        margin-left: 50%;
+        // margin-left: 30%;
         font-size: 9px;
     }
       }
@@ -1065,7 +1065,7 @@ class EmployeeShow extends Component {
 
                                                         </a>
                                                         <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`} onClick = {this.handleClick.bind(this, index)} >
-                                                            <div className="invoiceNum">ID: {invoice._id} </div><br />
+                                                            <div className="invoiceNum">ID:{invoice._id} </div><br />
                                                         </Link>
                                                     </LogoIdDiv>
 
@@ -1087,7 +1087,7 @@ class EmployeeShow extends Component {
                                                 </LogoStyles>
                                                 <TopInvoice>
 
-                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span>Today's Date: </label></th>
+                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span>Today's Date: </label></th><br/>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}

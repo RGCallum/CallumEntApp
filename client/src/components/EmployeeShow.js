@@ -401,8 +401,12 @@ text-decoration: none;
 display: flex;
 justify-content: space-evenly;
 text-align: center;
+
 span{
     font-size: 50px;
+}
+a{
+    font-size: 12px;
 }
 a:visited {
     color: blue;

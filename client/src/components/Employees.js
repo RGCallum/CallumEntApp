@@ -46,28 +46,35 @@ display: flex;
 justify-content: center;
 
 }
+
 h2, h3{
   color: rgb(28, 147, 145);
-  text-align: center;
+  text-align: left;
+  // text-align: center;
+
 }
+
 a{
+  margin-left: 10%;
   text-decoration: none;
-  color: blue;
+  color: rgb(28, 147, 145);
 }
-a:hover{
-  color: rgb(28, 125, 145);
+ a:hover{
+  color: blue;
+  h3{
+    color: blue;
+  }
 }
 a:visited{
 }
 
 button{
- background: #6A7FDB;
+background: #6A7FDB;
 color: white;
 border-radius: 5px;
 font-size: 16px;
 font-weight: 300;
 cursor: pointer;
-
 }
 button:hover{
   background: white;
@@ -83,7 +90,11 @@ padding-right: 20px;
 border-top: inset #C0C0C0 .5px;
 color: black;
 text-shadow: none;
+h2, h3{
+  text-align: center;
 }
+}
+
 .overlay{
   background-color:  rgba(255,255,255,0.95);
   border-top: inset #C0C0C0 .5px;
@@ -107,9 +118,10 @@ color: black;
 text-shadow: none;
 font-size: 15px;
 #link{
-  margin-left: 35%;
+  // margin-left: 35%;
 
 }
+
 `
 
 
@@ -167,17 +179,17 @@ class Employee extends Component {
             <br/>Employee Directory</h1>
           
 <br/><br/> 
-          {this.state.employees.map((employee) => ( 
+          {this.state.employees.map((employee, index) => ( 
            
            
             <div key={employee._id}>
 
               <EmployeeContainer>
-             <h3> {employee.employeename} </h3>
+             
               {/* <h5> ID: {employee.idnumber}</h5>  */}
 
                 <Link id="link" to={`/employees/${employee._id}/profile`}> 
-              ⚙️ Profile
+               <h3> {index + 1}. {employee.employeename} </h3>
                 
                 </Link> 
                 <Link id="link" to={`/employees/${employee._id}`}> 
@@ -191,9 +203,9 @@ class Employee extends Component {
           ))} 
 
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
-        <br/>  <h2>Add New Employees</h2> 
+        <br/>  <h2 id='empText'>Add New Employees</h2> 
 
-<h3> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻 <br/></h3>
+<h3 id='empText'> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻</h3>
             <div >
            <th>  <label className='required' htmlFor="employeename" >Employee Name: </label></th> 
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>

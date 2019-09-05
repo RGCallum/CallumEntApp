@@ -1382,7 +1382,7 @@ class EmployeeShow extends Component {
                                                 <br />
                                                 <OptionsInvoice className='noprint'>
 
-                                                    <a href="javascript:window.print()" ><span>🖨</span> <br /> Print Invoice</a>
+                                                    <a href="javascript:window.print()" ><span>🖨</span> <br /> Print </a>
                                                     <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
                                                     <a href="https://squareup.com/login" target="_blank"> <span>💸</span> <br /> Pay </a>
                                                 </OptionsInvoice>

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NavBarStyles = styled.div`
+const FooterStyles = styled.div`
 *{
     margin: 0;   
 }
+position: absolute;
 display: flex;
 justify-content: space-around;
 padding: 10px;
@@ -17,6 +18,8 @@ font-family: helvetica;
 width: 100%;
 margin-left: -8px;
 margin-top: -8px;
+bottom: 0
+z-index: 1;
 
 i{
     color: turquoise;
@@ -41,7 +44,7 @@ a:hover{
 //     display: flex;
 //     justify-content: space-around;
 // }
-@media only screen and (max-width: 414px){
+@media only screen and (min-width: 415px){
     display: none;
 
 }
@@ -57,11 +60,11 @@ justify-content: space-around;
     `
 
 
-class NavBar extends Component {
+class Footer extends Component {
     render() {
         return (
 
-            <NavBarStyles >
+            <FooterStyles >
                 <div className="noprint">
                     <LogoStyles>
                         <Link to="/"> 🏠Home 
@@ -79,9 +82,9 @@ class NavBar extends Component {
 
                     </div>
                 </div>
-            </NavBarStyles>
+            </FooterStyles>
         );
     }
 }
 
-export default NavBar;
+export default Footer;

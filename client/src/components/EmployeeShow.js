@@ -943,7 +943,7 @@ class EmployeeShow extends Component {
                                         console.log('Subtotal is', viewSubs)
                                         document.getElementById('showSubs').value = viewSubs;
                                     }
-
+                                    
                                     // multiplication for percentage and show result 
                                     var showSubs = document.getElementById('showSubs').value;
                                     var callumfeeResults = document.getElementById('callumfeeResults').value;
@@ -1025,7 +1025,18 @@ class EmployeeShow extends Component {
                                     //   console.log("arise fee is", arisefee);
                                     //   console.log("Total due is", document.getElementById('showTotalCalc').value);
 
+                                    // addSubMath
+
+                                    
                                 }
+                                // function  addSubMath(){          
+                                //     var frequency2 = document.getElementById('frequency2').value;
+                                //     var rate2 = document.getElementById('rate2').value;
+                                // if (frequency2.value !== undefined) {
+                                //     frequency2.value = 0
+                                // } 
+                                // }
+
 
                                 return (
                                     <Addlogo>
@@ -1304,7 +1315,7 @@ class EmployeeShow extends Component {
                                             */}
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} />
+                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0'/>
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee" readOnly

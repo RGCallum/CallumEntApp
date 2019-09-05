@@ -694,6 +694,8 @@ text-align: center;
 
 class Invoices extends Component {
     state= {
+        employee: '',
+        employeename: '',
         invoice: {
             date: '',
             payperiodstart: '',
@@ -735,17 +737,16 @@ class Invoices extends Component {
         // On the server URL is '/api/employees/:employeeId'
         const invoiceId = this.props.match.params.invoiceId
         const employeeId = this.props.match.params.employeeId
+        // const invoiceRate = this.props.match.params.invoiceRate
         
         axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`).then(res => {
             console.log(res.data._id, res.data.client, res.data.rate, res.data.frequency, res.data.result)
 
             this.setState({
-                // employee: res.data,
+                employee: res.data,
                 invoices: res.data,
-                invoice: res.data,
-                Invoices: res.data
-
-            })
+            
+            }) 
         })
 
     }
@@ -778,7 +779,6 @@ class Invoices extends Component {
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
                                     ⚙️ Employee Profile
                             </Link>
-invoice._id
                             </EditProfileBtn>
 
                         </div>
@@ -786,9 +786,9 @@ invoice._id
 
                     <div>
                         <br />
+                        
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
-
 
                         <Addlogo>
                             
@@ -1313,6 +1313,7 @@ invoice._id
 
         // })}
     }
+   
 }
 export default Invoices;
 

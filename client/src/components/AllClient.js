@@ -5,7 +5,7 @@ import axios from 'axios'
 
 class AllClient extends Component {
       state = {
-        allClients: [],
+        // allClients: [],
         newAllClient: {
           name:'',  
           synopsis: '',

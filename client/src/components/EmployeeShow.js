@@ -832,7 +832,7 @@ class EmployeeShow extends Component {
 
     // Handle click function for the invoice link
     handleClick = (index) => {
-        console.log("This is the handle click event for" + index);
+        console.log("This is the handle click event for" + index );
     }
     // onImageChange = (event) => {
     //     if (event.target.files && event.target.files[0]) {

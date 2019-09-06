@@ -744,7 +744,7 @@ class Invoices extends Component {
 
             this.setState({
                 employee: res.data,
-                invoices: res.data,
+                invoice: res.data,
             
             }) 
         })
@@ -757,9 +757,9 @@ class Invoices extends Component {
 
 
     render() {
-
+     
         return (
-
+           
             <div>
            
                 <BigDiv>
@@ -789,7 +789,8 @@ class Invoices extends Component {
                         
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
-
+<button onClick={console.log(this.state.invoice)}>button</button>
+{/* i can call it in the array by index number but I want it to show me the id and details of the current invoice depending on user click to corresponding id number from prior page */}
                         <Addlogo>
                             
                             {/* 
@@ -802,7 +803,7 @@ class Invoices extends Component {
                 </BigDiv>
 
             </div>
-
+  
         )
         // {this.state.invoices.map((invoice, index) => {
 

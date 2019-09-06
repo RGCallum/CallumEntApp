@@ -6,7 +6,7 @@ const FooterStyles = styled.div`
 *{
     margin: 0;   
 }
-position: absolute;
+position: fixed;
 display: flex;
 justify-content: space-around;
 padding: 10px;
@@ -20,7 +20,7 @@ margin-left: -8px;
 margin-top: -8px;
 bottom: 0
 z-index: 1;
-
+background-attachment: fixed;
 i{
     color: turquoise;
     font-size: 18px;
@@ -44,6 +44,8 @@ a:hover{
 //     display: flex;
 //     justify-content: space-around;
 // }
+
+// display: none;
 @media only screen and (min-width: 415px){
     display: none;
 

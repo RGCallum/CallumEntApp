@@ -9,7 +9,7 @@ import EmployeeShow from './components/EmployeeShow';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
-
+import styled from 'styled-components'
 
 
 
@@ -29,10 +29,7 @@ class App extends Component {
             <Route exact path="/allClients/:allClientsId" component={AllClient}/>
             <Route exact path="/employees/:employeeId/profile" component={Profile}/>
             <Route exact path="/signup" component={SignUp}/>
-            
-
-
-            
+      
             <Route path="/" component={Home}/>
 
           </Switch>

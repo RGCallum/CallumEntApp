@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 const BkgdColors = styled.div`
 
+
 *{
   margin: 0;
 }
@@ -16,9 +17,12 @@ justify-content: center ;
 font-family: helvetica;
 background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 background-size: cover;
-height: 100vh;
 background-repeat: no-repeat;
 background-attachment: fixed;
+width: 100vw;
+margin-left: -10px;
+margin-top: -10px;
+height: 100vh;
 form{
   justify-content: center;
 }

@@ -17,7 +17,8 @@ font-family: helvetica;
 width: 100%;
 margin-left: -8px;
 margin-top: -8px;
-
+// position: relative;
+// z-index: 10;
 i{
     color: turquoise;
     font-size: 18px;
@@ -32,6 +33,7 @@ a:visited{
 a:hover{
     color: black;
 }
+
 
 @media print
 {

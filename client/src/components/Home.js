@@ -6,14 +6,16 @@ import { GoogleLogin } from 'react-google-login';
 
 
 const ImgStyles = styled.div`
+width: 100vw;
+margin-left: -10px;
+background-image: url('/images/office.jpeg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
 display:flex;
-
 font-family: helvetica;
-
 font-size: 90px;
-
 color: white;
-
 align-items: center;
 justify-content: center;
 z-index: 1;
@@ -33,12 +35,10 @@ h3{
     text-shadow: 1px 1px 4px black;
 }
 
-background-image: url('/images/office.jpeg');
-background-repeat: no-repeat;
-// background-position: center;
-background-attachment: fixed;
-background-size: cover;
+@media only screen and (max-width: 414px){
+    margin-top: -10%;
 
+}
 `
 const Text = styled.div`
 // background-color: rgba(28, 147, 145, 0.5);

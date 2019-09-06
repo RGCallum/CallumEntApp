@@ -6,9 +6,10 @@ const FooterStyles = styled.div`
 *{
     margin: 0;   
 }
+text-align: center;
 position: fixed;
-display: flex;
-justify-content: space-around;
+// display: flex;
+// justify-content: space-around;
 padding: 10px;
 background: rgb(28, 147, 145);
 font-weight: 300;
@@ -48,16 +49,18 @@ a:hover{
 // display: none;
 @media only screen and (min-width: 415px){
     display: none;
-
 }
 `
 const LogoStyles = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: space-evenly;
 {
     img{
         width: 5%;
     }
+}
+@media only screen and (max-width: 414px){
+    font-size: 13px;
 }
     `
 
@@ -69,11 +72,11 @@ class Footer extends Component {
             <FooterStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> 🏠Home 
+                        <Link to="/"> 🏠  <br/> Home 
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                         </Link> 
-                        &#160;&#160;&#160;&#160;
-                        <Link to="/employees"> 👩🏽Employees </Link>
+                        {/* &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;  */}
+                        <Link to="/employees"> 👩🏽  <br/>Employees </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

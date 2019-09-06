@@ -6,13 +6,11 @@ const NavBarStyles = styled.div`
 *{
     margin: 0;   
 }
-display: flex;
-justify-content: space-around;
+
 padding: 10px;
 background: rgb(28, 147, 145);
 font-weight: 300;
 color: white;
-// font-size: 13px;
 font-family: helvetica;
 width: 100%;
 margin-left: -8px;
@@ -50,7 +48,7 @@ a:hover{
 `
 const LogoStyles = styled.div`
 display: flex;
-justify-content: space-around;
+justify-content: space-evenly;
 {
     img{
         width: 5%;
@@ -66,11 +64,11 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> 🏠Home 
+                        <Link to="/"> 🏠&#160;&#160;Home 
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                         </Link> 
-                        &#160;&#160;&#160;&#160;
-                        <Link to="/employees"> 👩🏽Employees </Link>
+                       
+                        <Link to="/employees"> 👩🏽&#160;&#160;Employees </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

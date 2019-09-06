@@ -25,6 +25,8 @@ margin-top: -10px;
 height: 100vh;
 form{
   justify-content: center;
+  // padding-bottom: 80px;
+
 }
 input{
   background: rgba(151, 240, 240, 0.2);
@@ -91,6 +93,7 @@ button:hover{
 padding-left: 10px;
 padding-right: 20px;
 
+
 border-top: inset #C0C0C0 .5px;
 color: black;
 text-shadow: none;
@@ -106,6 +109,12 @@ h2, h3{
 
 }
 
+@media only screen and (max-width: 414px){
+  form{
+    padding-bottom: 100px;
+  
+  }
+}
 
 
 `

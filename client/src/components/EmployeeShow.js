@@ -1102,7 +1102,7 @@ class EmployeeShow extends Component {
                                                 </LogoStyles>
                                                 <TopInvoice>
 
-                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span>Today's Date: </label></th><br/>
+                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span>Today's Date: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}

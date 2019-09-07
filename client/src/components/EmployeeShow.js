@@ -243,8 +243,7 @@ input{
         border: none;
         
     } 
-    input[type="date"]::-webkit-calendar-picker-indicator,
-    input[type="date"]::-webkit-inner-spin-button{
+    input[type="date"]::-webkit-calendar-picker-indicator{
         display: none;
     }
 

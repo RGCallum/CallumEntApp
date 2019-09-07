@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employees from './Employees';
 import { GoogleLogin } from 'react-google-login';
+import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
 
 const ImgStyles = styled.div`
 width: 100vw;
@@ -15,13 +16,15 @@ display:flex;
 font-family: helvetica;
 font-size: 90px;
 color: white;
+
 align-items: center;
 justify-content: center;
 z-index: 1;
 h1{
     font-size: 90px;
 font-weight: 700;
-text-shadow: 1px 1px 10px rgb(28, 147, 145);
+// text-shadow: 1px 1px 10px rgb(28, 147, 145);
+
 }
 h2{
     font-size: 25px;
@@ -36,7 +39,12 @@ h3{
 
 @media only screen and (max-width: 414px){
     margin-top: -10%;
+h1{
+    font-size: 50px;
+padding-bottom: 20px;
+padding-top: 50px;
 
+}
 }
 `
 const Text = styled.div`
@@ -87,7 +95,10 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles> 
-                    <h1>PaidInFull</h1> 
+                    <h1>
+                        {/* 💰 */}
+                        <FaFileInvoiceDollar/>
+                        Tender</h1> 
                         <Text>
                       <h2>A simple efficient payroll/invoice app created for small business Entrepreneurs</h2> 
                       <h3>Contact us for a personalized web or mobile version for your business today!</h3>

@@ -16,8 +16,10 @@ font-family: helvetica;
 width: 100%;
 margin-left: -8px;
 margin-top: -8px;
-// position: relative;
-// z-index: 10;
+z-index: 1000;
+position: fixed;
+background-attachment: fixed;
+
 i{
     color: turquoise;
     font-size: 18px;
@@ -36,15 +38,11 @@ a:hover{
 
 @media print{
     display: none;
-.noprint {display:none;}
 }
-// .noprint{
-//     display: flex;
-//     justify-content: space-around;
-// }
 @media only screen and (max-width: 414px){
     // display: none;
-
+    margin-left: -8px;
+    margin-top: 20px;
 }
 `
 const LogoStyles = styled.div`

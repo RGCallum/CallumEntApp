@@ -241,11 +241,12 @@ input{
     padding-top: 80px;
     input{
         border: none;
-        select{
-            display: none;
-        }
+        
     } 
-
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-webkit-inner-spin-button{
+        display: none;
+    }
 
 }
 `

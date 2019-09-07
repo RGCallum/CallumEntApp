@@ -159,9 +159,7 @@ padding: 10px;
     }
 
 @media print{
-    select{
-        display: none;
-    }
+
   @page{
     //   size:landscape;
   }
@@ -234,7 +232,7 @@ input{
 // margin-left: 5%;
 
 input{
-    width: 105px;
+    width: 115px;
     height: 100%;
 }
 
@@ -243,8 +241,11 @@ input{
     padding-top: 80px;
     input{
         border: none;
+        select{
+            display: none;
+        }
     } 
-    
+
 
 }
 `

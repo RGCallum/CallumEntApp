@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import {FaMinusCircle, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 
 
 
@@ -403,13 +404,20 @@ justify-content: space-evenly;
 text-align: center;
 
 span{
-    font-size: 50px;
+    font-size: 30px;
+    color: rgb(28, 125, 147);
+    font-weight: 200;
 }
 a{
+    color: rgb(28, 125, 147);
+
     font-size: 12px;
 }
 a:visited {
-    color: blue;
+    color: rgb(28, 125, 147);
+  }
+  a:hover{
+      color: blue;
   }
   a:active{
       color: red;
@@ -417,6 +425,7 @@ a:visited {
   }
 span:hover{
     text-shadow: 1px 1px 5px rgb(28, 125, 147);
+    color: blue;
 
   }
 
@@ -867,16 +876,16 @@ class EmployeeShow extends Component {
                             </NameNButtonStyle>
 
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                                ➕ Add New Invoice
+                                <FaPlusCircle/> Add New Invoice
                             </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                    ⚙️ Employee Profile
+                                    <FaIdBadge/> Employee Profile
                                 </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
-                                    <button>📂 All Invoices</button>
+                                    <button><FaFileInvoiceDollar/> Invoices</button>
                                 </Link>
                             </InvoiceBtn>
                         </div>
@@ -1102,7 +1111,7 @@ class EmployeeShow extends Component {
                                                 </LogoStyles>
                                                 <TopInvoice>
 
-                                                    <th> <label htmlFor="date" className='required' > <span> 📆 </span>Today's Date: </label></th>
+                                                    <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay/> </span>Today's Date: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1112,7 +1121,7 @@ class EmployeeShow extends Component {
                                                 </TopInvoice>
                                                 <PeriodInvoice>
                                                     <table>
-                                                        <th>  <label htmlFor="payperiod" className='required'><span> 🗓 </span>Pay Period: </label></th>
+                                                        <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt/> </span>Pay Period: </label></th>
                                                         <tr>  <label htmlFor="payperiodstart"> Start:</label>
                                                             <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
@@ -1134,12 +1143,12 @@ class EmployeeShow extends Component {
 
 
                                                     <div className="row header">
-                                                        <td>    <div className='required'><span> 🗂 </span> Client </div></td>
-                                                        <td>    <div className='required'><span> ⏱ </span> Intervals </div></td>
-                                                        <td>    <div ><span> ⌛ </span> Interval Type </div></td>
-                                                        <td>    <div className='required'><span> 💲 </span> Interval Rate </div></td>
-                                                        <td id='subsHead'>    <div  ><span>  💵  </span>  Total </div></td>
-                                                        <td id='subsHead2'>    <div  ><span>  💵  </span>  <br /> Total </div></td>
+                                                        <td>    <div className='required'><span> <FaBriefcase/> </span> <br/> Client </div></td>
+                                                        <td>    <div className='required'><span> <FaUserClock/> </span> <br/> Intervals </div></td>
+                                                        <td>    <div ><span> <FaClock/> </span> <br/>Interval Type </div></td>
+                                                        <td>    <div className='required'><span> <FaDollarSign/> </span><br/> Interval Rate </div></td>
+                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt/></span><br/> Total </div></td>
+                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt/></span><br/> Total </div></td>
 
                                                     </div>
                                                     <div className="lineItems">
@@ -1238,7 +1247,7 @@ class EmployeeShow extends Component {
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
                                                             type="text" name="result" value={invoice.result} placeholder='Minutes/Half-Hour/Hour'
                                                         /></td>
-                                                    <td id="box">  <th><label htmlFor="rate" className='required'><span> 💵 </span>Interval Rate: </label></th>
+                                                    <td id="box">  <th><label htmlFor="rate" className='required'><span> <FaMoneyBillAlt/> </span>Interval Rate: </label></th>
                                                         $<input
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1262,7 +1271,7 @@ class EmployeeShow extends Component {
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
-                                                        <th>   <label htmlFor="comments"><span> 📃 </span>Comments </label></th>
+                                                        <th>   <label htmlFor="comments"><span><FaComments/></span> Comments </label></th>
                                                         <textarea
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1354,7 +1363,7 @@ class EmployeeShow extends Component {
 
                                                         <TotalDue>
                                                             {/* another company totals */}
-                                                            {/* <th>   <label htmlFor="totaldue">Total <span> 💵 </span> Due this period: </label></th>
+                                                            {/* <th>   <label htmlFor="totaldue">Total <span> <FaMoneyBillAlt/> </span> Due this period: </label></th>
                                                 $<input
                                                     onBlur={() => this.handleUpdate(invoice._id)}
                                                     onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1366,7 +1375,7 @@ class EmployeeShow extends Component {
                                                             {/* Callum Ent totals */}
                                                             <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
-                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total<span>💰 </span> Due: </label>
+                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total Due <span><FaHandHoldingUsd/></span> </label>
                                                                 <input readOnly
                                                                     // id="total" type="number" name="total"  //for function calculations
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -1393,15 +1402,15 @@ class EmployeeShow extends Component {
                                                 <br />
                                                 <OptionsInvoice className='noprint'>
 
-                                                    <a href="javascript:window.print()" ><span>🖨</span> <br /> Print </a>
-                                                    <a href="javascript:window.print()"><span>📥</span> <br /> Download <br /> (Select Destination) </a>
-                                                    <a href="https://squareup.com/login" target="_blank"> <span>💸</span> <br /> Pay </a>
+                                                    <a href="javascript:window.print()" ><span><FaPrint/></span> <br /> Print </a>
+                                                    <a href="javascript:window.print()"><span><FaFileDownload/></span> <br /> Download <br /></a>
+                                                    <a href="https://squareup.com/login" target="_blank"> <span><FaMoneyCheckAlt/></span> <br /> Pay </a>
                                                 </OptionsInvoice>
 
                                                 <DletBtn>
                                                     <button className='noprint dlet' onClick={e =>
                                                         window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                        deleteInvoice(e)}>⛔️ Delete this Invoice</button>
+                                                        deleteInvoice(e)}><FaMinusCircle/> Delete this Invoice</button>
                                                 </DletBtn><br />
                                             </BkgdImg>
 

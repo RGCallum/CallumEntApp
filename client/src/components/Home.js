@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Employees from './Employees';
 import { GoogleLogin } from 'react-google-login';
 
-
 const ImgStyles = styled.div`
 width: 100vw;
 margin-left: -10px;
@@ -88,12 +87,11 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles> 
-                    <h1> CalPay</h1> 
+                    <h1>PaidInFull</h1> 
                         <Text>
                       <h2>A simple efficient payroll/invoice app created for small business Entrepreneurs</h2> 
                       <h3>Contact us for a personalized web or mobile version for your business today!</h3>
                       </Text>
-                        
                         <Link to="/employees">
                             <HoverButton>
                                 <button>Click to Enter </button>

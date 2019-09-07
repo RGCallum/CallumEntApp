@@ -3,6 +3,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import EmployeeShow from './EmployeeShow'
+import {FaMinusCircle, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
+
 
 const BigDiv = styled.div`
 input, textarea{
@@ -773,14 +775,18 @@ class Invoices extends Component {
 
                             </NameNButtonStyle>
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                                ➕ Add New Invoice
+                                <FaPlusCircle/> Add New Invoice
                             </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                    ⚙️ Employee Profile
+                                <FaIdBadge/> Employee Profile
                             </Link>
                             </EditProfileBtn>
-
+                            <InvoiceBtn>
+                                <Link to={`/employees/${this.props.match.params.employeeId}`}>
+                                    <button><FaFileInvoiceDollar/> Invoices</button>
+                                </Link>
+                            </InvoiceBtn>
                         </div>
                     </Topbtns>
 

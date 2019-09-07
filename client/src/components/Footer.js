@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { FaHome, FaUsers, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 
 const FooterStyles = styled.div`
 *{
@@ -60,7 +61,7 @@ justify-content: space-evenly;
     }
 }
 @media only screen and (max-width: 414px){
-    font-size: 13px;
+    // font-size: 13px;
 }
     `
 
@@ -71,12 +72,14 @@ class Footer extends Component {
 
             <FooterStyles >
                 <div className="noprint">
-                    <LogoStyles>
-                        <Link to="/"> 🏠  <br/> Home 
+                <LogoStyles>
+                        <Link to="/"> <FaHome /> <br/>
+                        Home 
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                         </Link> 
-                        {/* &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;  */}
-                        <Link to="/employees"> 👩🏽  <br/>Employees </Link>
+
+                        <Link to="/employees"> <FaUsers/>
+                        <br/> Employees </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

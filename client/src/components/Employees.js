@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
 
 
 const BkgdColors = styled.div`
@@ -57,7 +58,7 @@ h2, h3{
   color: rgb(28, 147, 145);
   text-align: left;
   // text-align: center;
-
+// font-weight: 540;
 }
 
 a{
@@ -202,11 +203,12 @@ class Employee extends Component {
               {/* <h5> ID: {employee.idnumber}</h5>  */}
 
                 <Link id="link" to={`/employees/${employee._id}/profile`}> 
-               <h3> {index + 1}. {employee.employeename} </h3>
+               <h3> {index + 1}) {employee.employeename} </h3>
                 
                 </Link> 
                 <Link id="link" to={`/employees/${employee._id}`}> 
-          📂 Invoices</Link>
+          {/* 📂 */}
+          &#160;&#160;&#160;&#160; < FaFileInvoiceDollar/> Invoices</Link>
                 {/* <h5> {employee.email}</h5> 
                 <h5> {employee.phone}</h5>  */}
               </EmployeeContainer>
@@ -240,7 +242,7 @@ class Employee extends Component {
               <label htmlFor="invoices">Invoices: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />
             </div> */}
-            <button type="submit">+ Add Employee</button>
+            <button type="submit"><FaPlusCircle/>  Add Employee</button>
           </form>
           </div>
         </BkgdColors>

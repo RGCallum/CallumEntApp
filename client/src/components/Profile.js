@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employee from './Employees';
+import {FaMinusCircle, FaUser, FaEnvelope, FaMobileAlt, FaAddressCard, FaPlusCircle, FaFolder, FaFileInvoiceDollar } from 'react-icons/fa';
 
 
 
@@ -207,21 +208,21 @@ class Profile extends Component {
 
           <br />
           <Link to={`/employees/${this.props.match.params.employeeId}`}>
-       <button>📂 Invoices</button> </Link></InvoiceBtn>
+       <button><FaFileInvoiceDollar/> Invoices</button> </Link></InvoiceBtn>
         <br />    <Toptext><div>(All changes are auto saved)</div></Toptext>
         <br />
         <NameNButtonStyle>
 
-          <h3>👤 {this.state.employee.employeename}</h3>
+          <h3><FaUser/> {this.state.employee.employeename}</h3>
           <label htmlFor="employeename" >Update Name: </label>
-
+          
           <input
             onBlur={() => this.handleUpdate()}
             onChange={(event) => this.handleChange(event)}
             type="text" name="employeename" placeholder='Employee Name'
             value={this.state.employee.employeename}
           />
-          <h3> 💳 {this.state.employee.idnumber} </h3>
+          <h3> <FaAddressCard/> {this.state.employee.idnumber} </h3>
           <label htmlFor="idnumber">Update ID Number: </label>
 
           <input
@@ -231,7 +232,7 @@ class Profile extends Component {
             value={this.state.employee.idnumber}
             name="idnumber"
           />
-          <h3> ✉️ {this.state.employee.email}</h3>
+          <h3> <FaEnvelope/> {this.state.employee.email}</h3>
           <label htmlFor="email">Update Email: </label>
 
           <input
@@ -240,7 +241,7 @@ class Profile extends Component {
             type='text' name="email" placeholder='Employee Email'
             value={this.state.employee.email}
           />
-          <h3>📱{this.state.employee.phone} </h3>
+          <h3><FaMobileAlt/> {this.state.employee.phone} </h3>
           <label htmlFor="phone">Update Phone: </label>
 
           <input
@@ -255,7 +256,7 @@ class Profile extends Component {
           <a href={`/employees`}>
             <button className='noprint' onClick={e =>
               window.confirm("Are you sure you want to delete this employee? All their invoices will be deleted as well!") &&
-              this.handleDelete(e)}> ⛔️ Delete {this.state.employee.employeename} from directory</button>
+              this.handleDelete(e)}> <FaMinusCircle/> Delete {this.state.employee.employeename} from directory</button>
           </a>
           <br />
         </NameNButtonStyle>

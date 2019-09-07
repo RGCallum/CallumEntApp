@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { FaHome, FaUsers, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 
 const NavBarStyles = styled.div`
 *{
@@ -64,11 +65,11 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> 🏠&#160;&#160;Home 
+                        <Link to="/"> <FaHome />&#160;Home 
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                         </Link> 
-                       
-                        <Link to="/employees"> 👩🏽&#160;&#160;Employees </Link>
+
+                        <Link to="/employees"> <FaUsers/>&#160;Employees </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

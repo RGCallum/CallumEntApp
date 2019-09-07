@@ -229,10 +229,10 @@ input{
 }
 @media only screen and (max-width: 414px){
 // margin-top: -26%;
-// margin-left: 5%;
+margin-left: -5%;
 
 input{
-    width: 115px;
+    width: 100px;
     height: 100%;
 }
 
@@ -587,7 +587,7 @@ align-content: center;
     font-weight: 200;
     
     @media only screen and (max-width: 414px){
-        // margin-left: 30%;
+        margin-left: -5%;
         font-size: 9px;
     }
       }

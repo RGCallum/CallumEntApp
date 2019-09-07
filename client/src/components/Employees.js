@@ -48,7 +48,7 @@ input:focus, textarea:focus{
 
 h1{
   color: rgb(28, 147, 145);
-// text-shadow: 1px 1px 2px rgba(0,0,0, .5);
+text-shadow: .5px .5px .5px rgb(0,0,0);
 display: flex;
 justify-content: center;
 
@@ -56,6 +56,7 @@ justify-content: center;
 
 h2, h3{
   color: rgb(28, 147, 145);
+  
   text-align: left;
   // text-align: center;
 // font-weight: 540;
@@ -90,7 +91,7 @@ button:hover{
   
 }
 .addemp{
-  background-color: rgba(255,255,255,0.95);
+  // background-color: rgba(255,255,255,0.95);
 padding-left: 10px;
 padding-right: 20px;
 
@@ -112,11 +113,13 @@ h2, h3{
 
 @media only screen and (max-width: 414px){
   form{
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
   
   }
 }
-
+.icons{
+  padding-top: 3px;
+}
 
 `
 const EmployeeContainer = styled.div`
@@ -242,12 +245,12 @@ class Employee extends Component {
               <label htmlFor="invoices">Invoices: </label>
               <input onChange={this.handleChange} value={this.state.newEmployee.invoices} type="text" name="invoices" />
             </div> */}
-            <button type="submit"><FaPlusCircle/>  Add Employee</button>
+            <button type="submit"><FaPlusCircle className='icons'/> Add Employee</button>
           </form>
           </div>
         </BkgdColors>
       </div>
-    );
+    )
   }
 
 }

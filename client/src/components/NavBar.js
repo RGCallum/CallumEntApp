@@ -34,8 +34,8 @@ a:hover{
 }
 
 
-@media print
-{
+@media print{
+    display: none;
 .noprint {display:none;}
 }
 // .noprint{
@@ -43,7 +43,7 @@ a:hover{
 //     justify-content: space-around;
 // }
 @media only screen and (max-width: 414px){
-    display: none;
+    // display: none;
 
 }
 `

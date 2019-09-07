@@ -159,10 +159,13 @@ padding: 10px;
     }
 
 @media print{
+    select{
+        display: none;
+    }
   @page{
     //   size:landscape;
   }
-      height: 100vh;
+      height: 93vh;
     .noprint {
         display:none;
         }
@@ -183,6 +186,9 @@ text-align: center;
 @media only screen and (max-width: 414px){
     display: flex;
 justify-content: center;
+}
+.icons{
+    padding-top: 3px;
 }
 `
 
@@ -218,7 +224,7 @@ flex-direction: row;
 flex-wrap: no-wrap;
 
 justify-content: center;
-text-align: left;
+// text-align: left;
 align-content: center;
 input{
     width: 35%;
@@ -238,6 +244,7 @@ input{
     input{
         border: none;
     } 
+    
 
 }
 `
@@ -876,16 +883,16 @@ class EmployeeShow extends Component {
                             </NameNButtonStyle>
 
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                                <FaPlusCircle/> Add New Invoice
+                                <FaPlusCircle className='icons'/> Add New Invoice
                             </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                    <FaIdBadge/> Employee Profile
+                                    <FaIdBadge className='icons'/> Employee Profile
                                 </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
-                                    <button><FaFileInvoiceDollar/> Invoices</button>
+                                    <button><FaFileInvoiceDollar className='icons'/> Invoices</button>
                                 </Link>
                             </InvoiceBtn>
                         </div>

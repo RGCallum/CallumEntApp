@@ -7,6 +7,7 @@ const FooterStyles = styled.div`
 *{
     margin: 0;   
 }
+display: none;
 text-align: center;
 position: fixed;
 // display: flex;

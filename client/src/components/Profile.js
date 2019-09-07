@@ -138,6 +138,9 @@ a:visited{
 a:hover{
   color: blue;
 }
+.icons{
+  padding-top: 3px;
+}
 `
 
 class Profile extends Component {
@@ -208,7 +211,7 @@ class Profile extends Component {
 
           <br />
           <Link to={`/employees/${this.props.match.params.employeeId}`}>
-       <button><FaFileInvoiceDollar/> Invoices</button> </Link></InvoiceBtn>
+       <button><FaFileInvoiceDollar className='icons'/> Invoices</button> </Link></InvoiceBtn>
         <br />    <Toptext><div>(All changes are auto saved)</div></Toptext>
         <br />
         <NameNButtonStyle>

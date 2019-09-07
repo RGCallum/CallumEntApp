@@ -8,6 +8,7 @@ import {FaMinusCircle, FaUser, FaEnvelope, FaMobileAlt, FaAddressCard, FaPlusCir
 
 
 const NameContainer = styled.div`
+padding-top: 20px;
 
 h1{
   font-family: helvetica;

@@ -22,8 +22,10 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 width: 100vw;
 margin-left: -10px;
-margin-top: -10px;
+margin-top: 0px;
+padding-top: 20px;
 height: 100vh;
+
 form{
   justify-content: center;
   // padding-bottom: 80px;

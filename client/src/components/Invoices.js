@@ -176,6 +176,8 @@ const Topbtns = styled.div`
 display: flex;
 justify-content: center;
 text-align: center;
+padding-top: 40px;
+
 @media print
 {
 .noprint {display:none;}

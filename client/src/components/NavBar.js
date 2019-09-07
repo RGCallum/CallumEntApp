@@ -19,7 +19,7 @@ margin-top: -8px;
 z-index: 1000;
 position: fixed;
 background-attachment: fixed;
-
+top:0;
 i{
     color: turquoise;
     font-size: 18px;
@@ -42,7 +42,7 @@ a:hover{
 @media only screen and (max-width: 414px){
     // display: none;
     margin-left: -8px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 `
 const LogoStyles = styled.div`

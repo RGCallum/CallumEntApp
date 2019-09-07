@@ -51,7 +51,7 @@ position: relative;
 
 `
 const InvoicesContainerStyle = styled.div`
-box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+// box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
 
 
 //   display: flex;
@@ -105,8 +105,8 @@ font-weight: bold;
     background-color: red;
     border-radius: 5px;
     font-size: 10px;
-    height: 40px;
-    width: 80px;
+    // height: 40px;
+    // width: 80px;
     
   }
 
@@ -445,16 +445,19 @@ display: flex;
 justify-content: space-evenly;
 text-align: center;
 padding-top: 20px;
-padding-bottom: 40px;
+padding-bottom: 10px;
+button{
+    padding: 10px;
 
+}
 `
 
 
 const BkgdImg = styled.div`
-// display: flex;
-// flex-direction: column;
-// justify-content: center;
-// box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+width: 100%;
+box-shadow: 1px 1px 10px  rgba(0,0,0, 0.4);
+padding: 20px;
+margin-left: -20px;
 `
 
 const NewInvoiceButton = styled.button`
@@ -572,7 +575,7 @@ font-weight: 200;
    
 `
 const LogoIdDiv = styled.div`
-padding-top: 30px;
+padding-top: 50px;
 padding-bottom: 20px;
 
 display: flex
@@ -700,9 +703,11 @@ text-align: center;
         display:block;
     }
     input{
-        // width: 30px;
+        height: 30px;
     }
-    
+//     input:focus{
+// position: absolute;
+//     }
 }
 @media print {
     .row, .lineItems {
@@ -1418,7 +1423,7 @@ class EmployeeShow extends Component {
                                                 <DletBtn>
                                                     <button className='noprint dlet' onClick={e =>
                                                         window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                        deleteInvoice(e)}><FaMinusCircle/> Delete this Invoice</button>
+                                                        deleteInvoice(e)}><FaMinusCircle/> Delete Record</button>
                                                 </DletBtn><br />
                                             </BkgdImg>
 

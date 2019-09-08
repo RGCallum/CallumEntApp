@@ -29,7 +29,7 @@ margin-left: 40px;
 }
 .icons {
     font-size: 65px;
-    filter: drop-shadow(0 0 1.5px gray);
+    filter: drop-shadow(1px 1px .5px black);
 }
 h2{
     font-size: 25px;

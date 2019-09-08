@@ -22,23 +22,24 @@ justify-content: center;
 z-index: 1;
 h1{
     font-size: 90px;
-font-weight: 700;
-text-shadow: 1px 1px 1px black;
+font-weight: 500;
+text-shadow: 1px 1px .5px gray;
+margin-left: 40px;
 
 }
 .icons {
     font-size: 65px;
-    filter: drop-shadow(0 0 3px black);
+    filter: drop-shadow(0 0 1.5px gray);
 }
 h2{
     font-size: 25px;
-    font-weight: 400;
-    text-shadow: 1px 1px 4px black;
+    font-weight: 200;
+    text-shadow: 1px 1px .5px gray;
 }
 h3{
     font-size: 18px
     font-weight: 400;
-    text-shadow: 1px 1px 4px black;
+    text-shadow: 1px 1px .5px gray;
 }
 #tenderWebPhone{
     width: 50%;
@@ -49,10 +50,13 @@ h3{
 }
 @media only screen and (max-width: 414px){
     margin-top: -10%;
+
 h1{
     font-size: 50px;
 padding-bottom: 20px;
 padding-top: 50px;
+margin-left: 0px;
+
 }
 .icons {
     font-size: 40px;
@@ -76,7 +80,8 @@ width: 50%;
 @media only screen and (max-width: 414px){
     width: 100%;
     margin-top: 25%;
-
+text-align: center;
+margin-left: -18px;
 }
 `
 const CountStyles = styled.div`
@@ -136,19 +141,19 @@ class Home extends Component {
                         <FaFileInvoiceDollar className='icons'/>
                         Tender</h1> 
                         <Text>
-                      <h2>A simple efficient payroll/invoice app created for small business Entrepreneurs</h2> 
-                      <h3>Contact us for a personalized web or mobile version for your business today!</h3>
+                      <h2>The quick and easy way to payroll, in the office or on the go. </h2> 
                       </Text>
                         <Link to="/employees">
                             <HoverButton>
                                 <button>Click to Enter </button>
                             </HoverButton></Link>
-                        <GoogleLogin
+
+                        {/* <GoogleLogin
                             clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'} />
+                            cookiePolicy={'single_host_origin'} /> */}
 
 <br/>
 <br/>
@@ -156,9 +161,11 @@ class Home extends Component {
 <br/>
 
                     </CountStyles>
+
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
+                <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. Contact us for a personalized web or mobile version for your business today!</h3>
 
 
             </div>

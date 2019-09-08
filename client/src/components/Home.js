@@ -23,8 +23,12 @@ z-index: 1;
 h1{
     font-size: 90px;
 font-weight: 700;
-// text-shadow: 1px 1px 10px rgb(28, 147, 145);
+text-shadow: 1px 1px 1px black;
 
+}
+.icons {
+    font-size: 65px;
+    filter: drop-shadow(0 0 3px black);
 }
 h2{
     font-size: 25px;
@@ -36,16 +40,6 @@ h3{
     font-weight: 400;
     text-shadow: 1px 1px 4px black;
 }
-
-@media only screen and (max-width: 414px){
-    margin-top: -10%;
-h1{
-    font-size: 50px;
-padding-bottom: 20px;
-padding-top: 50px;
-
-}
-}
 #tenderWebPhone{
     width: 50%;
     // float: right;
@@ -53,6 +47,24 @@ padding-top: 50px;
     margin-top: 10%;
     position: absolute;
 }
+@media only screen and (max-width: 414px){
+    margin-top: -10%;
+h1{
+    font-size: 50px;
+padding-bottom: 20px;
+padding-top: 50px;
+}
+.icons {
+    font-size: 40px;
+}
+#tenderWebPhone{
+    margin-top: 40%;
+    margin-left: 10%;
+
+    width: 80%;
+}
+}
+
 `
 const Text = styled.div`
 // background-color: rgba(28, 147, 145, 0.5);
@@ -61,6 +73,11 @@ margin-top: -70px;
 z-index: 100;
 position: absolute;
 width: 50%;
+@media only screen and (max-width: 414px){
+    width: 100%;
+    margin-top: 25%;
+
+}
 `
 const CountStyles = styled.div`
     z-index: 1;
@@ -68,19 +85,26 @@ const CountStyles = styled.div`
     text-align: left;
     background-color: rgba(28, 147, 145, 0.5);
     width: 100vw;
+    @media only screen and (max-width: 414px){
+    height: 65vh;
+    h1{
+        text-align: center;
+
+    }
+    }
 
 `
 const HoverButton = styled.div`
-// position: absolute;
+position: relative;
 button {
     cursor: pointer;
-    bottom: 5px;
-    right: 200px;
+    // bottom: 5px;
+    // right: 200px;
     color: white;
     background-color: rgb(28, 147, 145);
     border-radius: 5px;
     padding: 10px;
-    
+    z-index: 1;
   }
   button:hover{
     background-color: white;
@@ -109,7 +133,7 @@ class Home extends Component {
                     <img id="tenderWebPhone"src="/images/TenderWebPhone.png" alt=""/>
                     <h1>
                         {/* 💰 */}
-                        <FaFileInvoiceDollar/>
+                        <FaFileInvoiceDollar className='icons'/>
                         Tender</h1> 
                         <Text>
                       <h2>A simple efficient payroll/invoice app created for small business Entrepreneurs</h2> 

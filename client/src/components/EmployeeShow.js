@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import {FaMinusCircle, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
+import { FaMinusCircle, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 
 
 
@@ -727,8 +727,6 @@ class EmployeeShow extends Component {
 
         employee: '',
         invoices: [],
-
-
         newInvoice: {
             date: '',
             payperiodstart: '',
@@ -773,10 +771,11 @@ class EmployeeShow extends Component {
         // make an api call to get one single employee
         // On the server URL is '/api/employees/:employeeId'
         const employeeId = this.props.match.params.employeeId
- 
+
 
         axios.get(`/api/employees/${employeeId}`).then(res => {
             console.log(res.data)
+            
             this.setState({
                 employee: res.data,
                 invoices: res.data.invoices,
@@ -819,7 +818,6 @@ class EmployeeShow extends Component {
         const updatedValue = newInvoices.map(invoice => {
             if (invoice._id === invoiceId) {
                 invoice[name] = value
-
             }
             // image change
             if (event.target.files && event.target.files[0]) {
@@ -845,6 +843,7 @@ class EmployeeShow extends Component {
         })
         axios.patch(`/api/invoices/${invoiceId}`, invoiceToUpdate).then(() => {
             console.log("Updated Invoice")
+
         })
 
     }
@@ -856,6 +855,7 @@ class EmployeeShow extends Component {
 
     // Handle click function for the invoice link
     handleClick = (index) => {
+      
         console.log("This is the handle click event for" + index );
     }
     // onImageChange = (event) => {
@@ -871,6 +871,7 @@ class EmployeeShow extends Component {
     // disCli2() {
     //     document.getElementsByName('input').style.display = 'block'
     // }
+ 
 
 
 
@@ -891,19 +892,20 @@ class EmployeeShow extends Component {
                             </NameNButtonStyle>
 
                             <NewInvoiceButton onClick={this.handleCreateNewInvoice}>
-                                <FaPlusCircle className='icons'/> Add New Invoice
+                                <FaPlusCircle className='icons' /> Add New Invoice
                             </NewInvoiceButton>
                             <EditProfileBtn >
                                 <Link to={`/employees/${this.props.match.params.employeeId}/profile`} >
-                                    <FaIdBadge className='icons'/> Employee Profile
+                                    <FaIdBadge className='icons' /> Employee Profile
                                 </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
-                                    <button><FaFileInvoiceDollar className='icons'/> Invoices</button>
+                                    <button><FaFileInvoiceDollar className='icons' /> Invoices</button>
                                 </Link>
                             </InvoiceBtn>
                         </div>
+                        
                     </Topbtns>
 
                     <div>
@@ -916,16 +918,16 @@ class EmployeeShow extends Component {
                             {/* <div className="noprint">     All updates are auto saved <br /> 
                             </div> */}
 
-                            
-                    {this.state.invoices.map((invoice, index) => {
+
+                            {this.state.invoices.map((invoice, index) => {
 
                                 const deleteInvoice = () => {
 
                                     return this.handleDelete(invoice._id)
-                                   
+
 
                                 }
-                                console.log(invoice._id)
+                                // console.log(invoice._id)
 
 
                                 // one big function for all client math 
@@ -967,7 +969,7 @@ class EmployeeShow extends Component {
                                         console.log('Subtotal is', viewSubs)
                                         document.getElementById('showSubs').value = viewSubs;
                                     }
-                                    
+
                                     // multiplication for percentage and show result 
                                     var showSubs = document.getElementById('showSubs').value;
                                     var callumfeeResults = document.getElementById('callumfeeResults').value;
@@ -1051,7 +1053,7 @@ class EmployeeShow extends Component {
 
                                     // addSubMath
 
-                                    
+
                                 }
                                 // function  addSubMath(){          
                                 //     var frequency2 = document.getElementById('frequency2').value;
@@ -1103,7 +1105,10 @@ class EmployeeShow extends Component {
                                                             <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
                                                         </a>
-                                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`} onClick = {this.handleClick.bind(this, index)} >
+                                                        <Link to={`/${this.props.match.params.employeeId}/${invoice._id}`}
+                                                            onClick=
+                                                            {this.handleClick.bind(this, invoice._id)}
+                                                             >
                                                             <div className="invoiceNum">ID:{invoice._id} </div><br />
                                                         </Link>
                                                     </LogoIdDiv>
@@ -1126,7 +1131,7 @@ class EmployeeShow extends Component {
                                                 </LogoStyles>
                                                 <TopInvoice>
 
-                                                    <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay/> </span>Today's Date: </label></th>
+                                                    <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay /> </span>Today's Date: </label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1136,11 +1141,11 @@ class EmployeeShow extends Component {
                                                 </TopInvoice>
                                                 <PeriodInvoice>
                                                     <table>
-                                                        <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt/> </span>Pay Period: </label></th>
+                                                        <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt /> </span>Pay Period: </label></th>
                                                         <tr>  <label htmlFor="payperiodstart"> Start:</label>
                                                             <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
-                                                                onChange={(event) => this.handleChange(event, invoice._id)}
+                                                                onChange={(event) => this.handleChange(event, invoice._id)} 
                                                                 type="date" name="payperiodstart" value={invoice.payperiodstart}
                                                             />
                                                             <label htmlFor="payperiodend"> End:</label>
@@ -1158,12 +1163,12 @@ class EmployeeShow extends Component {
 
 
                                                     <div className="row header">
-                                                        <td>    <div className='required'><span> <FaBriefcase/> </span> <br/> Client </div></td>
-                                                        <td>    <div className='required'><span> <FaUserClock/> </span> <br/> Intervals </div></td>
-                                                        <td>    <div ><span> <FaClock/> </span> <br/>Interval Type </div></td>
-                                                        <td>    <div className='required'><span> <FaDollarSign/> </span><br/> Interval Rate </div></td>
-                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt/></span><br/> Total </div></td>
-                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt/></span><br/> Total </div></td>
+                                                        <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Client </div></td>
+                                                        <td>    <div className='required'><span> <FaUserClock /> </span> <br /> Intervals </div></td>
+                                                        <td>    <div ><span> <FaClock /> </span> <br />Interval Type </div></td>
+                                                        <td>    <div className='required'><span> <FaDollarSign /> </span><br /> Interval Rate </div></td>
+                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
+                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
 
                                                     </div>
                                                     <div className="lineItems">
@@ -1286,7 +1291,7 @@ class EmployeeShow extends Component {
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
-                                                        <th>   <label htmlFor="comments"><span><FaComments/></span> Comments </label></th>
+                                                        <th>   <label htmlFor="comments"><span><FaComments /></span> Comments </label></th>
                                                         <textarea
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1339,7 +1344,7 @@ class EmployeeShow extends Component {
                                             */}
 
                                                         {/* Callum Enterprise Arise fees */}
-                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0'/>
+                                                        <input id="showSubs" type="hidden" name="showSubs" value={invoice.showSubs} placeholder='0' />
 
                                                         <tr > <label htmlFor="arisefee" >Arise Fee:</label>
                                                             <input className="arfee" id="arisefee" readOnly
@@ -1390,7 +1395,7 @@ class EmployeeShow extends Component {
                                                             {/* Callum Ent totals */}
                                                             <input id="showTotalCalc" type="hidden" name="showTotalCalc" value={invoice.showTotalCalc} />
 
-                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total Due <span><FaHandHoldingUsd/></span> </label>
+                                                            <tr className='subLineBrdr'>   <label htmlFor="totaldue">Total Due <span><FaHandHoldingUsd /></span> </label>
                                                                 <input readOnly
                                                                     // id="total" type="number" name="total"  //for function calculations
                                                                     onBlur={() => this.handleUpdate(invoice._id)}
@@ -1417,15 +1422,15 @@ class EmployeeShow extends Component {
                                                 <br />
                                                 <OptionsInvoice className='noprint'>
 
-                                                    <a href="javascript:window.print()" ><span><FaPrint/></span> <br /> Print </a>
-                                                    <a href="javascript:window.print()"><span><FaFileDownload/></span> <br /> Download <br /></a>
-                                                    <a href="https://squareup.com/login" target="_blank"> <span><FaMoneyCheckAlt/></span> <br /> Pay </a>
+                                                    <a href="javascript:window.print()" ><span><FaPrint /></span> <br /> Print </a>
+                                                    <a href="javascript:window.print()"><span><FaFileDownload /></span> <br /> Download <br /></a>
+                                                    <a href="https://squareup.com/login" target="_blank"> <span><FaMoneyCheckAlt /></span> <br /> Pay </a>
                                                 </OptionsInvoice>
 
                                                 <DletBtn>
                                                     <button className='noprint dlet' onClick={e =>
                                                         window.confirm("Are you sure you want to delete this invoice? There's no going back from here!") &&
-                                                        deleteInvoice(e)}><FaMinusCircle/> Delete Record</button>
+                                                        deleteInvoice(e)}><FaMinusCircle /> Delete Record</button>
                                                 </DletBtn><br />
                                             </BkgdImg>
 

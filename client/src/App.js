@@ -21,10 +21,11 @@ class App extends Component {
     return (
       <Router>
         <div>
+          
           <NavBar />
           <Switch>
             <Route exact path="/employees" component={Employees}/>
-            <Route exact path="/employees/:employeeId/invoices/:invoiceId" component={Invoices}/>
+            <Route exact path="/:employeeId/:invoiceId" component={Invoices}/>
             <Route exact path="/employees/:employeeId" component={EmployeeShow}/>
             <Route exact path="/allClients/:allClientsId" component={AllClient}/>
             <Route exact path="/employees/:employeeId/profile" component={Profile}/>

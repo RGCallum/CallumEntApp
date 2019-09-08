@@ -8,7 +8,7 @@ import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
 const ImgStyles = styled.div`
 width: 100vw;
 margin-left: -10px;
-background-image: url('/images/office.jpeg');
+// background-image: url('/images/TenderWebPhone.png');
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;
@@ -46,21 +46,32 @@ padding-top: 50px;
 
 }
 }
+#tenderWebPhone{
+    width: 50%;
+    // float: right;
+    margin-left: 50%;
+    margin-top: 10%;
+    position: absolute;
+}
 `
 const Text = styled.div`
 // background-color: rgba(28, 147, 145, 0.5);
-padding: 10px;
+padding: 20px;
 margin-top: -70px;
+z-index: 100;
+position: absolute;
+width: 50%;
 `
 const CountStyles = styled.div`
     z-index: 1;
-    // height: 100vw;
-    text-align: center;
-    background-color: rgba(0,0,0, 0.7);
+    height: 50vw;
+    text-align: left;
+    background-color: rgba(28, 147, 145, 0.5);
     width: 100vw;
 
 `
 const HoverButton = styled.div`
+// position: absolute;
 button {
     cursor: pointer;
     bottom: 5px;
@@ -95,6 +106,7 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles> 
+                    <img id="tenderWebPhone"src="/images/TenderWebPhone.png" alt=""/>
                     <h1>
                         {/* 💰 */}
                         <FaFileInvoiceDollar/>

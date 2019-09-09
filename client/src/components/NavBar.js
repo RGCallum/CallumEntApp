@@ -32,8 +32,10 @@ a{
 a:visited{
     color: white;
 }
+
 a:hover{
     filter: drop-shadow(1px 1px 5px black);
+    transform: scale(1.2);
     // p{
     //     display: block;
     // }

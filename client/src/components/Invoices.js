@@ -702,6 +702,7 @@ class Invoices extends Component {
     state= {
         employee: '',
         employeename: '',
+        invoices:[],
         invoice: {
             date: '',
             payperiodstart: '',
@@ -741,23 +742,21 @@ class Invoices extends Component {
  componentDidMount() {
         // make an api call to get one single employee
        
-        const id = this.props.match.params.invoiceId      
+        // const id = this.props.match.params.invoiceId      
         const invoiceId = this.props.match.params.invoiceId
         const employeeId = this.props.match.params.employeeId
        
-       
         
-        axios.get(`/api/employees/${employeeId}/${invoiceId}`)
-            .then(res => {
+        axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`).then(res => {
 
-// console.log(res.data, invoiceId, id)
+console.log(invoiceId, this.state)
 
             this.setState({
-                // employee: res.data,
-                invoices: res.data
+                employee: res.data,
+                invoices: res.data,
             // i need to tell react to give me data associated with database id
             }) 
-            console.log(id)
+            // console.log(res.data._id)
         })
 
     }
@@ -792,7 +791,7 @@ class Invoices extends Component {
                             </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
-                                <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${this.props.match.params.invoiceId}`}>
+                                <Link to={`/employees/${this.props.match.params.employeeId}`}>
                                     <button><FaFileInvoiceDollar className='icons'/> Invoices</button>
                                 </Link>
                             </InvoiceBtn>
@@ -804,7 +803,7 @@ class Invoices extends Component {
                         
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
- <button onClick={console.log(this.state.invoices)}>button</button> 
+ <button onClick={console.log(this.props.match.params)}>button</button> 
 {/* i can call it in the array by index number but I want it to show me the id and details of the current invoice depending on user click to corresponding id number from prior page */}
                         <Addlogo>
                             

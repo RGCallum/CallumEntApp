@@ -775,7 +775,7 @@ class EmployeeShow extends Component {
 
         axios.get(`/api/employees/${employeeId}`).then(res => {
             console.log(res.data)
-            
+
             this.setState({
                 employee: res.data,
                 invoices: res.data.invoices,
@@ -855,23 +855,10 @@ class EmployeeShow extends Component {
 
     // Handle click function for the invoice link
     handleClick = (index) => {
-      
-        console.log("This is the handle click event for" + index );
+
+        console.log("This is the handle click event for invoiceId" + ' ' + index);
     }
-    // onImageChange = (event) => {
-    //     if (event.target.files && event.target.files[0]) {
-    //       this.setState({
-    //         uploadImage: URL.createObjectURL(event.target.files[0])
 
-    //       });
-    //     }
-    //    }
-
-
-    // disCli2() {
-    //     document.getElementsByName('input').style.display = 'block'
-    // }
- 
 
 
 
@@ -905,7 +892,7 @@ class EmployeeShow extends Component {
                                 </Link>
                             </InvoiceBtn>
                         </div>
-                        
+
                     </Topbtns>
 
                     <div>
@@ -1106,9 +1093,8 @@ class EmployeeShow extends Component {
 
                                                         </a>
                                                         <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick=
-                                                            {this.handleClick.bind(this, invoice._id)}
-                                                             >
+                                                            onClick={this.handleClick.bind(this, invoice._id)}
+                                                        >
                                                             <div className="invoiceNum">ID:{invoice._id} </div><br />
                                                         </Link>
                                                     </LogoIdDiv>
@@ -1145,7 +1131,7 @@ class EmployeeShow extends Component {
                                                         <tr>  <label htmlFor="payperiodstart"> Start:</label>
                                                             <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
-                                                                onChange={(event) => this.handleChange(event, invoice._id)} 
+                                                                onChange={(event) => this.handleChange(event, invoice._id)}
                                                                 type="date" name="payperiodstart" value={invoice.payperiodstart}
                                                             />
                                                             <label htmlFor="payperiodend"> End:</label>

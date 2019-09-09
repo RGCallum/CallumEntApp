@@ -747,7 +747,7 @@ class Invoices extends Component {
        
        
         
-        axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`)
+        axios.get(`/api/employees/${employeeId}/${invoiceId}`)
             .then(res => {
 
 // console.log(res.data, invoiceId, id)
@@ -792,7 +792,7 @@ class Invoices extends Component {
                             </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
-                                <Link to={`/employees/${this.props.match.params.employeeId}/invoives/${this.props.match.params.invoiceId}`}>
+                                <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${this.props.match.params.invoiceId}`}>
                                     <button><FaFileInvoiceDollar className='icons'/> Invoices</button>
                                 </Link>
                             </InvoiceBtn>
@@ -804,7 +804,7 @@ class Invoices extends Component {
                         
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
- <button onClick={console.log(this.state.invoice)}>button</button> 
+ <button onClick={console.log(this.state.invoices)}>button</button> 
 {/* i can call it in the array by index number but I want it to show me the id and details of the current invoice depending on user click to corresponding id number from prior page */}
                         <Addlogo>
                             

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employees from './Employees';
 import { GoogleLogin } from 'react-google-login';
-import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
+import { FaFileInvoiceDollar, FaFolder, FaPlusCircle } from 'react-icons/fa';
 
 const ImgStyles = styled.div`
 width: 100vw;
@@ -29,7 +29,7 @@ margin-left: 40px;
 }
 .icons {
     font-size: 65px;
-    filter: drop-shadow(1px 1px .5px black);
+    filter: drop-shadow(1px 1px .5px gray);
 }
 h2{
     font-size: 25px;
@@ -100,11 +100,9 @@ const CountStyles = styled.div`
 
 `
 const HoverButton = styled.div`
-position: relative;
+
 button {
     cursor: pointer;
-    // bottom: 5px;
-    // right: 200px;
     color: white;
     background-color: rgb(28, 147, 145);
     border-radius: 5px;
@@ -116,12 +114,27 @@ button {
     color: rgb(28, 147, 145);
   }
 `
+
+const Paragraph = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+h3{
+    font-family: helvetica;
+    font-size: 18px
+    font-weight: 100;
+    color: rgb(28, 147, 145);
+    text-align: center;
+}
+    
+
+`
 const LoginOutStyles = styled.div`
 // display: flex;
 // flex-direction: column;
 // justify-content: center;
 `
-
 
 
 class Home extends Component {
@@ -134,19 +147,17 @@ class Home extends Component {
             <div>
 
                 <ImgStyles>
-                    <CountStyles> 
-                    <img id="tenderWebPhone"src="/images/TenderWebPhone.png" alt=""/>
-                    <h1>
-                        {/* 💰 */}
-                        <FaFileInvoiceDollar className='icons'/>
-                        Tender</h1> 
+                    <CountStyles>
+                        <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
+                        <h1>
+                            {/* 💰 💸*/}
+                            <FaFileInvoiceDollar className='icons' />
+
+                            Tender</h1>
                         <Text>
-                      <h2>The quick and easy way to payroll, in the office or on the go. </h2> 
-                      </Text>
-                        <Link to="/employees">
-                            <HoverButton>
-                                <button>Click to Enter </button>
-                            </HoverButton></Link>
+                            <h2>The quick and easy way to do payroll, whether in the office or on the go. </h2>
+                        </Text>
+
 
                         {/* <GoogleLogin
                             clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
@@ -155,18 +166,25 @@ class Home extends Component {
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'} /> */}
 
-<br/>
-<br/>
-<br/>
-<br/>
-
+                        <br />
+                        
+                        
+                        <HoverButton>
+                        <Link to="/employees"> <button>Click to Enter </button></Link>
+                        </HoverButton>
+                        <br />
+                        <br />
+                        <br />
+                        
                     </CountStyles>
 
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
-                <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. Contact us for a personalized web or mobile version for your business today!</h3>
-
+                <Paragraph>
+                    <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. Contact us for a personalized web or mobile version for your business today!</h3>
+                   
+                </Paragraph>
 
             </div>
         );

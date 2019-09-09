@@ -16,20 +16,22 @@ color: white;
 display: flex ;
 justify-content: center ;
 font-family: helvetica;
-background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+// background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+
+background-color: rgba(28, 147, 145, 0.5);
 background-size: cover;
-background-repeat: no-repeat;
-background-attachment: fixed;
 width: 100vw;
 margin-left: -10px;
 margin-top: 0px;
 padding-top: 20px;
-height: 100vh;
+height: 100%;
 
 form{
   justify-content: center;
-  // padding-bottom: 80px;
-
+  padding-bottom: 10px;
+  box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+  background-color:  rgba(255,255,255,0.95);
+  
 }
 input{
   background: rgba(151, 240, 240, 0.2);
@@ -49,25 +51,41 @@ input:focus, textarea:focus{
 }
 
 h1{
-  color: rgb(28, 147, 145);
-text-shadow: .5px .5px .5px rgb(0,0,0);
+  color: white;
+text-shadow: .5px .5px .5px gray;
 display: flex;
 justify-content: center;
-
+font-weight: 500;
+}
+span{
+  color: white;
+  background-color: rgba(28, 147, 145, 0.5); 
+  padding: 5px 9px 5px 9px;
+  border-radius: 50px;
 }
 
-h2, h3{
-  color: rgb(28, 147, 145);
-  
+h3{
+  color: rgb(60, 60, 60);
   text-align: left;
-  // text-align: center;
-// font-weight: 540;
+font-weight: 540;
+}
+h2{
+  color: rgb(60, 60, 60);
+  font-weight: 540;
+font-size: 14px;
+}
+label{
+  font-size: 12px;
+  color: rgb(60, 60, 60);
+font-weight: 400;
 }
 
 a{
-  margin-left: 10%;
+  // margin-left: 10%;
   text-decoration: none;
   color: rgb(28, 147, 145);
+  font-size: 12px;
+
 }
  a:hover{
   color: blue;
@@ -98,7 +116,6 @@ padding-left: 10px;
 padding-right: 20px;
 
 
-border-top: inset #C0C0C0 .5px;
 color: black;
 text-shadow: none;
 h2, h3{
@@ -107,9 +124,10 @@ h2, h3{
 }
 
 .overlay{
-  background-color:  rgba(255,255,255,0.95);
-  border-top: inset #C0C0C0 .5px;
+  // background-color:  rgba(255,255,255,0.95);
+  // border-top: inset #C0C0C0 .5px;
   // width: 40vw;
+
 
 }
 
@@ -122,11 +140,14 @@ h2, h3{
 .icons{
   padding-top: 3px;
 }
-
+#linkNum{
+  display: flex;
+  flex-direction: row;
+}
 `
 const EmployeeContainer = styled.div`
-border-top: inset #C0C0C0 .5px;
-// background-color: rgba(255,255,255,0.6);
+background-color:  rgba(255,255,255,0.95);
+border-bottom: inset #C0C0C0 .5px;
 // border-radius: 5px;
 display: flex ;
 flex-direction: column ;
@@ -144,7 +165,11 @@ font-size: 15px;
 `
 
 
+const EmployeeOutline = styled.div`
+box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+// border: solid black .5px;
 
+`
 
 
 class Employee extends Component {
@@ -198,6 +223,8 @@ class Employee extends Component {
             <br/>Employee Directory</h1>
           
 <br/><br/> 
+<EmployeeOutline>
+
           {this.state.employees.map((employee, index) => ( 
            
            
@@ -207,13 +234,13 @@ class Employee extends Component {
              
               {/* <h5> ID: {employee.idnumber}</h5>  */}
 
-                <Link id="link" to={`/employees/${employee._id}/profile`}> 
-               <h3> {index + 1}) {employee.employeename} </h3>
+                <Link id="linkNum" to={`/employees/${employee._id}/profile`}> 
+                <span>{index + 1}</span>&#160;&#160; <h3>{employee.employeename} </h3>
                 
                 </Link> 
                 <Link id="link" to={`/employees/${employee._id}`}> 
           {/* 📂 */}
-          &#160;&#160;&#160;&#160; < FaFileInvoiceDollar/> Invoices</Link>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; < FaFileInvoiceDollar/>Invoices</Link>
                 {/* <h5> {employee.email}</h5> 
                 <h5> {employee.phone}</h5>  */}
               </EmployeeContainer>
@@ -221,11 +248,12 @@ class Employee extends Component {
             </div>
             
           ))} 
-
+</EmployeeOutline>
+<br/><br/>
           <form onSubmit={this.handleSubmit} className='addemp' id='employeename'>
         <br/>  <h2 id='empText'>Add New Employees</h2> 
 
-<h3 id='empText'> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻</h3>
+<h3 id='empText'> 👩🏾‍🦱 👨🏽‍🦳 👩🏾‍🦳 🧔🏾 👱🏽‍♀️ 👨🏾‍ 👵🏾  👨🏿‍🦱 👨🏼‍ 👩🏾 👴🏾 👩🏻</h3> <br/>
             <div >
            <th>  <label className='required' htmlFor="employeename" >Employee Name: </label></th> 
               <input onChange={this.handleChange} value={this.state.newEmployee.employeename} type="text" name="employeename"  required='true'/>

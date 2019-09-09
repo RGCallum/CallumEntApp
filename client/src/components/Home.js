@@ -67,6 +67,9 @@ margin-left: 0px;
 
     width: 80%;
 }
+
+  
+
 }
 
 `
@@ -112,6 +115,10 @@ button {
   button:hover{
     background-color: white;
     color: rgb(28, 147, 145);
+  }
+  @media only screen and (max-width: 414px){
+    margin-top: 40px;
+    
   }
 `
 
@@ -167,6 +174,7 @@ class Home extends Component {
                             cookiePolicy={'single_host_origin'} /> */}
 
                         <br />
+                        
                         
                         
                         <HoverButton>

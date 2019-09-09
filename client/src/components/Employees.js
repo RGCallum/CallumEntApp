@@ -18,7 +18,7 @@ justify-content: center ;
 font-family: helvetica;
 // background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
 
-background-color: rgba(28, 147, 145, 0.5);
+background-color: white;
 background-size: cover;
 width: 100vw;
 margin-left: -10px;
@@ -29,7 +29,7 @@ height: 100%;
 form{
   justify-content: center;
   padding-bottom: 10px;
-  box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+  box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
   background-color:  rgba(255,255,255,0.95);
   
 }
@@ -51,8 +51,8 @@ input:focus, textarea:focus{
 }
 
 h1{
-  color: white;
-text-shadow: .5px .5px .5px gray;
+  color: rgb(43, 172, 174);
+// text-shadow: .5px .5px .5px gray;
 display: flex;
 justify-content: center;
 font-weight: 500;
@@ -146,7 +146,7 @@ h2, h3{
 }
 `
 const EmployeeContainer = styled.div`
-background-color:  rgba(255,255,255,0.95);
+background-color:  white;
 border-bottom: inset #C0C0C0 .5px;
 // border-radius: 5px;
 display: flex ;
@@ -166,7 +166,7 @@ font-size: 15px;
 
 
 const EmployeeOutline = styled.div`
-box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
 // border: solid black .5px;
 
 `
@@ -220,7 +220,7 @@ class Employee extends Component {
           <div className="overlay">
           <h1>
             {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
-            <br/>Employee Directory</h1>
+            <br/>Directory</h1>
           
 <br/><br/> 
 <EmployeeOutline>

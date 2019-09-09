@@ -345,7 +345,7 @@ input:focus, textarea:focus{
 }
 label{
     font-weight: 600;
-    
+
 }
 .subLineBrdr{
     border:.5px solid rgba(0,0,0, 0.2);
@@ -379,20 +379,20 @@ textarea{
 const TotalDue = styled.div`
 border-top: solid rgb(182, 182, 182) .5px;
 
-color: rgb(4, 111, 61);
+color: rgb(28, 147, 145);
 font-weight: bold;
 // padding-bottom: 50px;
 
 input{
     // background-color: rgba(01, 255, 20, 0.2);
-    color: rgb(4, 111, 61);
+    color: rgb(28, 147, 145);
     font-weight: bold;
-    width: 130px;
+    width: 132.5px;
 
 }
 @media only screen and (max-width: 414px) {
     input{
-        width: 88px;    }
+        width: 95px;    }
   
 }
 @media print{
@@ -415,7 +415,7 @@ text-align: center;
 
 span{
     font-size: 30px;
-    color: rgb(28, 125, 147);
+    color: rgb(43, 172, 174);
     font-weight: 200;
 }
 a{

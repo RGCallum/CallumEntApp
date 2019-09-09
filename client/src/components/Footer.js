@@ -80,7 +80,7 @@ class Footer extends Component {
                         </Link> 
 
                         <Link to="/employees"> <FaUsers/>
-                        <br/> Employees </Link>
+                        <br/> Directory </Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

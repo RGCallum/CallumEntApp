@@ -8,14 +8,14 @@ const NavBarStyles = styled.div`
     margin: 0;   
 }
 
-padding: 10px;
+padding: 5px;
 background: rgb(28, 147, 145);
 font-weight: 300;
 color: white;
 font-family: helvetica;
 width: 100%;
 margin-left: -8px;
-margin-top: -8px;
+// margin-top: -8px;
 z-index: 1000;
 position: fixed;
 background-attachment: fixed;
@@ -26,13 +26,20 @@ i{
 }
 a{
     text-decoration: none; 
-     
+    font-size: 20px;
+
 }
 a:visited{
     color: white;
 }
 a:hover{
-    color: black;
+    filter: drop-shadow(1px 1px 5px black);
+    // p{
+    //     display: block;
+    // }
+}
+p{
+    display: none;
 }
 
 
@@ -63,11 +70,11 @@ class NavBar extends Component {
             <NavBarStyles >
                 <div className="noprint">
                     <LogoStyles>
-                        <Link to="/"> <FaHome />&#160;Home 
+                        <Link to="/"> <FaHome />&#160; <p>Home</p>
                         {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
-                        </Link> 
+                         </Link> 
 
-                        <Link to="/employees"> <FaUsers/>&#160;Employees </Link>
+                        <Link to="/employees"> <FaUsers/>&#160; <p>Directory</p></Link>
                         {/* <Link to="/employees/#employeename"> 👩🏿‍💻Add New Employee </Link> */}
 
                     </LogoStyles>

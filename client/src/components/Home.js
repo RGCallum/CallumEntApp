@@ -182,7 +182,7 @@ class Home extends Component {
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. Contact us for a personalized web or mobile version for your business today!</h3>
+                    <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. <br/> Contact us for a personalized web or mobile version for your business today!</h3>
                    
                 </Paragraph>
 

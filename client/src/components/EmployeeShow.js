@@ -1105,7 +1105,7 @@ class EmployeeShow extends Component {
                                                             <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
                                                         </a>
-                                                        <Link to={`/${this.props.match.params.employeeId}/${invoice._id}`}
+                                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
                                                             onClick=
                                                             {this.handleClick.bind(this, invoice._id)}
                                                              >

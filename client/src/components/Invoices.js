@@ -747,7 +747,7 @@ class Invoices extends Component {
        
        
         
-        axios.get(`/api/${employeeId}/${invoiceId}`)
+        axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`)
             .then(res => {
 
 // console.log(res.data, invoiceId, id)
@@ -792,7 +792,7 @@ class Invoices extends Component {
                             </Link>
                             </EditProfileBtn>
                             <InvoiceBtn>
-                                <Link to={`/employees/${this.props.match.params.employeeId}`}>
+                                <Link to={`/employees/${this.props.match.params.employeeId}/invoives/${this.props.match.params.invoiceId}`}>
                                     <button><FaFileInvoiceDollar className='icons'/> Invoices</button>
                                 </Link>
                             </InvoiceBtn>

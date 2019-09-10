@@ -57,14 +57,14 @@ h3{
     position: absolute;
 }
 
-.bubbles{
+.iconsAnim{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
-.bubbles li {     
+.iconsAnim li {     
     opacity: 0;   
     z-index: -10;
     position: absolute;
@@ -74,69 +74,69 @@ h3{
     // margin-top: 150px;
     animation: animate 25s linear infinite;
 }
-.bubbles li:nth-child(1){
+.iconsAnim li:nth-child(1){
     left: 25%;
     font-size: 80px;
     animation-delay: 0;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(2){
+.iconsAnim li:nth-child(2){
     left: 10%;
     font-size: 20px;
     animation-delay: 2s;
     animation-duration: 12s;
 }
-.bubbles li:nth-child(3){
+.iconsAnim li:nth-child(3){
     left: 70%;
     font-size: 80px;
     animation-delay: 4s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(4){
+.iconsAnim li:nth-child(4){
     left: 40%;
     font-size: 60px;
     animation-delay: 6s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(5){
+.iconsAnim li:nth-child(5){
     left: 65%;
     font-size: 20px;
     animation-delay: 1s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(6){
+.iconsAnim li:nth-child(6){
     left: 25%;
     font-size: 110px;
     animation-delay: 3s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(7){
+.iconsAnim li:nth-child(7){
     left: 35%;
     font-size: 120px;
     animation-delay: 7s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(8){
+.iconsAnim li:nth-child(8){
     left: 50%;
     font-size: 25px;
     animation-delay: 5s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(9){
+.iconsAnim li:nth-child(9){
     left: 20%;
     font-size: 15px;
     animation-delay: 2s;
     animation-duration: 12s;
 
 }
-.bubbles li:nth-child(10){
+.iconsAnim li:nth-child(10){
     left: 5%;
     font-size: 50px;
     animation-delay: 2s;
@@ -177,14 +177,14 @@ margin-left: 0px;
     width: 80%;
 }
 
-.bubbles li{
+.iconsAnim li{
     // margin-top: 350px;
 }
 
 }
 
 @media only screen and (min-width: 1280px){
-    .bubbles li{
+    .iconsAnim li{
         margin-top: 450px;
     }
 }
@@ -296,7 +296,7 @@ class Home extends Component {
                         <HoverButton>
                         <Link to="/employees"> <button>Click to Enter </button></Link>
                         </HoverButton>
-                        <ul className='bubbles'>
+                        <ul className='iconsAnim'>
                         <li><FaFileInvoiceDollar className='icons2' /></li>
                         <li><FaFileInvoiceDollar className='icons2' /></li>
                         <li><FaFileInvoiceDollar className='icons2' /></li>

@@ -917,11 +917,11 @@ class EmployeeShow extends Component {
                                     <FaIdBadge className='icons' /> Employee Profile
                                 </Link>
                             </EditProfileBtn>
-                            <InvoiceBtn>
+                            {/* <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
                                     <button><FaFileInvoiceDollar className='icons' /> Invoices</button>
                                 </Link>
-                            </InvoiceBtn>
+                            </InvoiceBtn> */}
                         </div>
 
                     </Topbtns>

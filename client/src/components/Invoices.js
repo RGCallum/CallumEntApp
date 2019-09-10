@@ -805,11 +805,14 @@ class Invoices extends Component {
 
                     <div>
                         <br />
-                        
+                      client:  {this.state.invoice.client} <br/>
+                      rate1:  {this.state.invoice.rate} <br/>
+                       frequency1: {this.state.invoice.frequency} <br/>
+                       todays date {this.state.invoice.date} <br/>
+
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
- <button onClick={console.log(this.state.invoice.client)}>button</button> 
-{/* i can call it in the array by index number but I want it to show me the id and details of the current invoice depending on user click to corresponding id number from prior page */}
+ <button onClick={console.log(this.state.invoice.totaldue)}>button</button> 
                         <Addlogo>
                             
                             {/* 

@@ -89,8 +89,8 @@ input::placeholder{
     font-style: italic;
 }
 .required::after {
-    content: "*";
-    color: red;
+    // content: "*";
+    // color: red;
     @media print{    
         display:none;
     }
@@ -225,9 +225,8 @@ padding-bottom: 10px;
 display: flex;
 flex-direction: row;
 flex-wrap: no-wrap;
-
 justify-content: center;
-// text-align: left;
+text-align: center;
 align-content: center;
 input{
     width: 35%;
@@ -882,7 +881,7 @@ class Invoices extends Component {
                             </EditProfileBtn>
                             <InvoiceBtn>
                                 <Link to={`/employees/${this.props.match.params.employeeId}`}>
-                                    <button><FaFileInvoiceDollar className='icons' /> Invoices</button>
+                                    <button><FaFileInvoiceDollar className='icons' /> All Invoices</button>
                                 </Link>
                             </InvoiceBtn>
                         </div>

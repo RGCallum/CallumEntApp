@@ -220,6 +220,7 @@ const CountStyles = styled.div`
 
 `
 const HoverButton = styled.div`
+text-align: center;
 
 button {
     cursor: pointer;
@@ -227,14 +228,16 @@ button {
     background-color: rgb(28, 147, 145);
     border-radius: 5px;
     padding: 10px;
+    position: relative;
     z-index: 1000;
+
   }
   button:hover{
     background-color: white;
     color: rgb(28, 147, 145);
   }
   @media only screen and (max-width: 414px){
-    margin-top: 40px;
+    margin-top: 63px;
     
   }
 `

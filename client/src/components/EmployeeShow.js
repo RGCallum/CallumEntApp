@@ -255,9 +255,8 @@ padding-bottom: 10px;
 display: flex;
 flex-direction: row;
 flex-wrap: no-wrap;
-
 justify-content: center;
-// text-align: left;
+text-align: center;
 align-content: center;
 input{
     width: 35%;
@@ -1153,7 +1152,7 @@ class EmployeeShow extends Component {
                                                 </LogoStyles>
                                                 <TopInvoice>
 
-                                                    <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay /> </span>Today's Date: </label></th>
+                                                    <th> <label htmlFor="date" className='required' > <span> <FaCalendarDay /> </span>Today's Date:</label></th>
                                                     <input
                                                         onBlur={() => this.handleUpdate(invoice._id)}
                                                         onChange={(event) => this.handleChange(event, invoice._id)}
@@ -1163,7 +1162,7 @@ class EmployeeShow extends Component {
                                                 </TopInvoice>
                                                 <PeriodInvoice>
                                                     <table>
-                                                        <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt /> </span>Pay Period: </label></th>
+                                                        <th>  <label htmlFor="payperiod" className='required'><span><FaCalendarAlt /> </span>Pay Period:</label></th>
                                                         <tr>  <label htmlFor="payperiodstart"> Start:</label>
                                                             <input
                                                                 onBlur={() => this.handleUpdate(invoice._id)}
@@ -1185,12 +1184,12 @@ class EmployeeShow extends Component {
 
 
                                                     <div className="row header">
-                                                        <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Client </div></td>
-                                                        <td>    <div className='required'><span> <FaUserClock /> </span> <br /> Intervals </div></td>
-                                                        <td>    <div ><span> <FaClock /> </span> <br />Interval Type </div></td>
-                                                        <td>    <div className='required'><span> <FaDollarSign /> </span><br /> Interval Rate </div></td>
-                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
-                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br /> Total </div></td>
+                                                        <td>    <div className='required'><span> <FaBriefcase /> </span> <br /> Client</div></td>
+                                                        <td>    <div className='required'><span> <FaUserClock /> </span> <br /> Intervals</div></td>
+                                                        <td>    <div ><span> <FaClock /> </span> <br />Interval Type</div></td>
+                                                        <td>    <div className='required'><span> <FaDollarSign /> </span><br /> Interval Rate</div></td>
+                                                        <td id='subsHead'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
+                                                        <td id='subsHead2'>    <div  ><span><FaMoneyBillAlt /></span><br />Total</div></td>
 
                                                     </div>
                                                     <div className="lineItems">

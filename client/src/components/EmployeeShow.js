@@ -608,7 +608,7 @@ align-content: center;
     font-weight: 200;
     
     @media only screen and (max-width: 414px){
-        margin-left: -5%;
+        // margin-left: -5%;
         font-size: 9px;
     }
       }
@@ -1128,10 +1128,9 @@ class EmployeeShow extends Component {
                                                             <img src="/images/CAL_ent_logo.png" alt="Add your logo" />
 
                                                         </a>
-                                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick={this.handleClick.bind(this, invoice._id)}>
+                                                        
                                                             <div className="invoiceNum">ID:{invoice._id}  </div><br />
-                                                        </Link>
+                                                        
                                                     </LogoIdDiv>
 
                                                     <div className="employeeinfo">

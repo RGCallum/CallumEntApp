@@ -645,6 +645,8 @@ border-radius: 3px;
 // box-sizing: content-box;
 display: flex;
 flex-direction: column;
+
+
 .client2line{
     display: block;
 }
@@ -656,7 +658,7 @@ flex-direction: column;
 }
 input{
     // width: 100px;
-    
+    flex-flow: row wrap;
 }
 td{
     border-left:.5px solid rgba(0,0,0, 0.2);

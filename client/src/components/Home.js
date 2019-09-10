@@ -20,34 +20,143 @@ color: white;
 align-items: center;
 justify-content: center;
 z-index: 1;
-h1{
+h1{        z-index: 1000;
+
     font-size: 90px;
 font-weight: 500;
 text-shadow: 1px 1px .5px gray;
 margin-left: 40px;
 
 }
-.icons {
+.icons {       
+    z-index: 1000;
     font-size: 65px;
     filter: drop-shadow(1px 1px .5px gray);
 }
-h2{
+
+
+
+h2{        
+    z-index: 1000;
     font-size: 25px;
     font-weight: 200;
     text-shadow: 1px 1px .5px gray;
 }
-h3{
+h3{        
+    z-index: 1000;
     font-size: 18px
     font-weight: 400;
     text-shadow: 1px 1px .5px gray;
 }
-#tenderWebPhone{
+#tenderWebPhone{        
+    z-index: 1000;
     width: 50%;
     // float: right;
     margin-left: 50%;
     margin-top: 10%;
     position: absolute;
 }
+
+.bubbles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.bubbles li {     
+    opacity: 0;   
+    z-index: -10;
+    position: absolute;
+    font-size: 20px;
+    list-styles: none;
+    display: block;
+    // margin-top: 150px;
+    animation: animate 25s linear infinite;
+}
+.bubbles li:nth-child(1){
+    left: 25%;
+    font-size: 80px;
+    animation-delay: 0;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(2){
+    left: 10%;
+    font-size: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+.bubbles li:nth-child(3){
+    left: 70%;
+    font-size: 80px;
+    animation-delay: 4s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(4){
+    left: 40%;
+    font-size: 60px;
+    animation-delay: 6s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(5){
+    left: 65%;
+    font-size: 20px;
+    animation-delay: 1s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(6){
+    left: 25%;
+    font-size: 110px;
+    animation-delay: 3s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(7){
+    left: 35%;
+    font-size: 120px;
+    animation-delay: 7s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(8){
+    left: 50%;
+    font-size: 25px;
+    animation-delay: 5s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(9){
+    left: 20%;
+    font-size: 15px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+
+}
+.bubbles li:nth-child(10){
+    left: 5%;
+    font-size: 50px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+
+}
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10%{
+opacity: .2;
+    }
+    100%{
+        transform: translateY(-400px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
 @media only screen and (max-width: 414px){
     margin-top: -10%;
 
@@ -68,16 +177,23 @@ margin-left: 0px;
     width: 80%;
 }
 
-  
+.bubbles li{
+    // margin-top: 350px;
+}
 
+}
+
+@media only screen and (min-width: 1280px){
+    .bubbles li{
+        margin-top: 450px;
+    }
 }
 
 `
 const Text = styled.div`
-// background-color: rgba(28, 147, 145, 0.5);
 padding: 20px;
 margin-top: -70px;
-z-index: 100;
+z-index: 1000;
 position: absolute;
 width: 50%;
 @media only screen and (max-width: 414px){
@@ -96,6 +212,7 @@ const CountStyles = styled.div`
     @media only screen and (max-width: 414px){
     height: 65vh;
     h1{
+        z-index: 1000;
         text-align: center;
 
     }
@@ -110,7 +227,7 @@ button {
     background-color: rgb(28, 147, 145);
     border-radius: 5px;
     padding: 10px;
-    z-index: 1;
+    z-index: 1000;
   }
   button:hover{
     background-color: white;
@@ -159,7 +276,6 @@ class Home extends Component {
                         <h1>
                             {/* 💰 💸*/}
                             <FaFileInvoiceDollar className='icons' />
-
                             Tender</h1>
                         <Text>
                             <h2>The quick and easy way to do payroll, whether in the office or on the go. </h2>
@@ -175,14 +291,23 @@ class Home extends Component {
 
                         <br />
                         
-                        
-                        
+                       
+
                         <HoverButton>
                         <Link to="/employees"> <button>Click to Enter </button></Link>
                         </HoverButton>
-                        <br />
-                        <br />
-                        <br />
+                        <ul className='bubbles'>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                        </ul>
                         
                     </CountStyles>
 

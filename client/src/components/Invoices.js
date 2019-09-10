@@ -700,9 +700,13 @@ text-align: center;
 
 class Invoices extends Component {
     state= {
-        employee: '',
+        
+        employee: {},
         employeename: '',
-        invoices:[],
+        idnumber: '',
+        email: '',
+        phone: '',
+        invoices: [],
         invoice: {
             date: '',
             payperiodstart: '',
@@ -732,10 +736,10 @@ class Invoices extends Component {
             callumfeeResults: '',
             showTotalCalc: '',
             viewSubs: '',
-            total: '',
-            // id: 'idnumber'
-         
+            total: ''
         }
+        
+        
     }
 
 
@@ -747,16 +751,16 @@ class Invoices extends Component {
         const employeeId = this.props.match.params.employeeId
        
         
-        axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`).then(res => {
-
-console.log(invoiceId, this.state)
-
+        // axios.get(`/api/employees/${employeeId}/invoices/${invoiceId}`).then(res => {
+            axios.get(`/api/employees/${employeeId}/${invoiceId}`).then(res => {
+                console.log(res.data, res.data.client, res.data.rate, res.data.frequency, res.data.result )
+        // console.log(res.data)
             this.setState({
                 employee: res.data,
-                invoices: res.data,
+                invoice: res.data
             // i need to tell react to give me data associated with database id
             }) 
-            // console.log(res.data._id)
+            console.log(this.state.invoice)
         })
 
     }
@@ -769,7 +773,8 @@ console.log(invoiceId, this.state)
     render() {
      
         return (
-           
+            
+                
             <div>
            
                 <BigDiv>
@@ -803,7 +808,7 @@ console.log(invoiceId, this.state)
                         
                         employeeId# {this.props.match.params.employeeId} <br />
                         invoiceId# {this.props.match.params.invoiceId}
- <button onClick={console.log(this.props.match.params)}>button</button> 
+ <button onClick={console.log(this.state.invoice.client)}>button</button> 
 {/* i can call it in the array by index number but I want it to show me the id and details of the current invoice depending on user click to corresponding id number from prior page */}
                         <Addlogo>
                             

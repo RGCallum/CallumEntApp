@@ -48,7 +48,18 @@ position: relative;
     font-size: 10px;
 
 }
-
+button{
+    background: turquoise;
+}
+h3{
+    font-weight: 200;
+    color: rgb(60,60,60);
+    // text-align: center;
+    margin-bottom: 2px;
+}
+h3:hover{
+    color: rgb(43, 172, 174);
+}
 `
 const InvoicesContainerStyle = styled.div`
 // box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
@@ -115,6 +126,28 @@ button:hover{
     color:red;
     cursor:pointer;
 
+}
+.printSave{
+    text-align: center;
+
+button{
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    color: rgb(43, 172, 174);
+    
+}
+button:hover{
+    color: white;
+    background-color: rgb(43, 172, 174);
+}
+p{
+    margin-bottom: -2px;
+    margin-top: -3px;
+}
+span, p{
+    font-size: 15px;
+    font-weight: 100;
+}
 }
 
 #print-button {
@@ -413,34 +446,21 @@ display: flex;
 justify-content: space-evenly;
 text-align: center;
 
-span{
-    font-size: 30px;
-    color: rgb(43, 172, 174);
-    font-weight: 200;
-}
-a{
-    color: rgb(28, 125, 147);
+// span{
+//     font-size: 30px;
+//     color: rgb(43, 172, 174);
+//     font-weight: 200;
+// }
+// a{
+//     color: rgb(28, 125, 147);
 
-    font-size: 12px;
-}
-a:visited {
-    color: rgb(28, 125, 147);
-  }
-  a:hover{
-      color: blue;
-  }
-  a:active{
-      color: red;
-    //   text-shadow: 1px 1px 10px black;
-  }
-span:hover{
-    text-shadow: 1px 1px 5px rgb(28, 125, 147);
-    color: blue;
+//     font-size: 12px;
+// }
+// a:visited {
+//     color: rgb(28, 125, 147);
+//   }
+  
 
-  }
-
-
-}
 `
 const DletBtn = styled.div`
 display: flex;
@@ -534,7 +554,7 @@ button:hover{
   color: #d090c3;
   
 }
-// 
+
 `
 
 
@@ -594,7 +614,7 @@ align-content: center;
     }
       }
       .invoiceNum:hover{
-        color: blue;
+        // color: blue;
     }
 img{
     width: 8%;
@@ -719,12 +739,12 @@ text-align: center;
     }
 }
 `
-
+const DisplayInvoice = styled.div``
 
 class EmployeeShow extends Component {
 
     state = {
-
+        isHidden : true,
         employee: '',
         invoices: [],
         newInvoice: {
@@ -766,6 +786,7 @@ class EmployeeShow extends Component {
     //         addLine: !this.state.addLine
     //     })
     // }
+    
 
     componentDidMount() {
         // make an api call to get one single employee
@@ -860,7 +881,16 @@ class EmployeeShow extends Component {
     }
 
 
-
+// handleDisplay = (event) => {
+//     function myFunction() {
+//         var x = document.getElementById("displayInvoice");
+//         if (x.style.display === "none") {
+//           x.style.display = "block";
+//         } else {
+//           x.style.display = "none";
+//         }
+//       }
+// }
 
     render() {
 
@@ -896,7 +926,7 @@ class EmployeeShow extends Component {
                     </Topbtns>
 
                     <div>
-                        <br />
+                        
                         <InvoicesContainerStyle>
 
 
@@ -1052,8 +1082,8 @@ class EmployeeShow extends Component {
 
 
                                 return (
+                                    
                                     <Addlogo>
-
                                         {/* below is add logo url input field for another company */}
                                         {/* <label className="noprint addlogotext" htmlFor=""> Add your logo by copying and pasting a url link to the image here⬇ <a href="https://imgbb.com" target="_blank"> to upload from your 💻 computer click here for a url </a><br /> </label>
                                 <input className='logo noprint' id='imgurl'
@@ -1068,13 +1098,18 @@ class EmployeeShow extends Component {
                                     onChange={(event) => this.handleChange(event, invoice._id)}
                                     name="uploadImage" className="logo noprint filetype" id="imgurl group_image"
                                     /> */}
-
                                         <InvoiceStyles>
-
-                                            <br />
+                                        <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                            onClick={this.handleClick.bind(this, invoice._id)}>
+                                        <h3>(Invoice{index +1}) <br/> ID:{invoice._id}</h3>
+</Link>
+               
                                             <BkgdImg>
 
-
+                                            <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                            onClick={this.handleClick.bind(this, invoice._id, index)}>
+                                                            <div className="printSave"><button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button></div>
+                                                        </Link>
                                                 <LogoStyles>
                                                     <LogoIdDiv>
 
@@ -1093,9 +1128,8 @@ class EmployeeShow extends Component {
 
                                                         </a>
                                                         <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
-                                                            onClick={this.handleClick.bind(this, invoice._id)}
-                                                        >
-                                                            <div className="invoiceNum">ID:{invoice._id} </div><br />
+                                                            onClick={this.handleClick.bind(this, invoice._id)}>
+                                                            <div className="invoiceNum">ID:{invoice._id}  </div><br />
                                                         </Link>
                                                     </LogoIdDiv>
 
@@ -1406,11 +1440,14 @@ class EmployeeShow extends Component {
                                                 <b>  Total Due = {'$' + ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency - 19.75).toFixed(2) && ((.10 * -invoice.rate * invoice.frequency + invoice.rate * invoice.frequency) + (.10 * -invoice.rate2 * invoice.frequency2 + invoice.rate2 * invoice.frequency2) - 19.75).toFixed(2))}</b></i>
                                                 </div>
                                                 <br />
-                                                <OptionsInvoice className='noprint'>
-
-                                                    <a href="javascript:window.print()" ><span><FaPrint /></span> <br /> Print </a>
-                                                    <a href="javascript:window.print()"><span><FaFileDownload /></span> <br /> Download <br /></a>
-                                                    <a href="https://squareup.com/login" target="_blank"> <span><FaMoneyCheckAlt /></span> <br /> Pay </a>
+                                                <OptionsInvoice className='noprint printSave'>
+                                                <Link to={`/employees/${this.props.match.params.employeeId}/invoices/${invoice._id}`}
+                                                            onClick={this.handleClick.bind(this, invoice._id)}>
+                                                            <button > <span><FaPrint /> <FaFileDownload />  </span><p>Export</p>  </button>
+                                                        </Link>
+                                                    {/* <a href="javascript:window.print()" ><span><FaPrint /></span> <br /> Print </a> 
+                                                    <a href="javascript:window.print()"><span><FaFileDownload /></span> <br /> Download <br /></a> */}
+                                                    <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br /><p>Pay</p></button> </a>
                                                 </OptionsInvoice>
 
                                                 <DletBtn>
@@ -1420,8 +1457,8 @@ class EmployeeShow extends Component {
                                                 </DletBtn><br />
                                             </BkgdImg>
 
-
-                                        </InvoiceStyles>
+                                            
+                                        </InvoiceStyles> <br/><br/>
                                     </Addlogo>
 
                                 )

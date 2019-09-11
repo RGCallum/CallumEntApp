@@ -856,7 +856,7 @@ class Invoices extends Component {
 
 
     render() {
-
+        
         return (
 
 

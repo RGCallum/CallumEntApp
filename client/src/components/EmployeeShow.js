@@ -745,7 +745,6 @@ const DisplayInvoice = styled.div``
 class EmployeeShow extends Component {
 
     state = {
-        isHidden : true,
         employee: '',
         invoices: [],
         newInvoice: {
@@ -877,12 +876,11 @@ class EmployeeShow extends Component {
 
     // Handle click function for the invoice link
     handleClick = (index) => {
-
         console.log("This is the handle click event for invoiceId" + ' ' + index);
     }
 
 
-// handleDisplay = (event) => {
+
 //     function myFunction() {
 //         var x = document.getElementById("displayInvoice");
 //         if (x.style.display === "none") {
@@ -891,7 +889,7 @@ class EmployeeShow extends Component {
 //           x.style.display = "none";
 //         }
 //       }
-// }
+// 
 
     render() {
 
@@ -1080,7 +1078,7 @@ class EmployeeShow extends Component {
                                 //     frequency2.value = 0
                                 // } 
                                 // }
-
+                                
 
                                 return (
                                     

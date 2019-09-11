@@ -1108,7 +1108,7 @@ class Invoices extends Component {
 
                                         <TotalsInvoice>
                                             <CommentsBox>
-                                                <th>   <label htmlFor="comments"><span><FaComments /></span> Comments </label></th>
+                                                <th>   <label htmlFor="comments"><span><FaComments /></span> Notes </label></th>
                                                 <textarea
                                                     
                                                     type="text" name="comments" value={this.state.invoice.comments} placeholder=''></textarea>

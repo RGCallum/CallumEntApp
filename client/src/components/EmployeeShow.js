@@ -1311,7 +1311,7 @@ class EmployeeShow extends Component {
 
                                                 <TotalsInvoice>
                                                     <CommentsBox>
-                                                        <th>   <label htmlFor="comments"><span><FaComments /></span> Comments </label></th>
+                                                        <th>   <label htmlFor="comments"><span><FaComments /></span> Notes </label></th>
                                                         <textarea
                                                             onBlur={() => this.handleUpdate(invoice._id)}
                                                             onChange={(event) => this.handleChange(event, invoice._id)}

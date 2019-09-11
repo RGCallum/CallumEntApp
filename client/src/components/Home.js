@@ -39,8 +39,8 @@ margin-left: 40px;
 h2{        
     z-index: 1000;
     font-size: 25px;
-    font-weight: 200;
-    text-shadow: 1px 1px .5px gray;
+    font-weight: 300;
+    // text-shadow: 1px 1px .5px gray;
 }
 h3{        
     z-index: 1000;
@@ -53,7 +53,7 @@ h3{
     width: 50%;
     // float: right;
     margin-left: 50%;
-    margin-top: 10%;
+    margin-top: -15%;
     position: absolute;
 }
 
@@ -71,7 +71,7 @@ h3{
     font-size: 20px;
     list-styles: none;
     display: block;
-    // margin-top: 150px;
+    margin-top:100px;
     animation: animate 25s linear infinite;
 }
 .iconsAnim li:nth-child(1){
@@ -171,9 +171,8 @@ margin-left: 0px;
     font-size: 40px;
 }
 #tenderWebPhone{
-    margin-top: 40%;
+    margin-top: 5%;
     margin-left: 10%;
-
     width: 80%;
 }
 
@@ -198,7 +197,7 @@ position: absolute;
 width: 50%;
 @media only screen and (max-width: 414px){
     width: 100%;
-    margin-top: 25%;
+    margin-top: 55%;
 text-align: center;
 margin-left: -18px;
 }
@@ -210,7 +209,7 @@ const CountStyles = styled.div`
     background-color: rgba(28, 147, 145, 0.5);
     width: 100vw;
     @media only screen and (max-width: 414px){
-    height: 65vh;
+    height: 100vh;
     h1{
         z-index: 1000;
         text-align: center;
@@ -237,7 +236,7 @@ button {
     color: rgb(28, 147, 145);
   }
   @media only screen and (max-width: 414px){
-    margin-top: 63px;
+    margin-top: 60%;
     
   }
 `
@@ -275,13 +274,14 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles>
-                        <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
+                        
                         <h1>
                             {/* 💰 💸*/}
                             <FaFileInvoiceDollar className='icons' />
                             Tender</h1>
+                            <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
                         <Text>
-                            <h2>The quick and easy way to do payroll, whether in the office or on the go. </h2>
+                            <h2>The quick and easy way to do your payroll, in the office or on the go. </h2>
                         </Text>
 
 
@@ -318,7 +318,7 @@ class Home extends Component {
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <h3>Tender is a simple an efficient payroll/invoice app created for small business Entrepreneurs. <br/> Contact us for a personalized web or mobile version for your business today!</h3>
+                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors. After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just two clicks. Tender automatically creates a memo summary of the transaction for your records. The pay button links to your payment option of choice. Easily share the invoice with the employee/contractor. Keep all your employee and contractor information in one place that you can reach from anywhere! <br/><br/> Contact us for a personalized web or mobile version for your business today!</h3>
                    
                 </Paragraph>
 

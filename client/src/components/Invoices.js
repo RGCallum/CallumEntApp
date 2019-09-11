@@ -3,7 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import EmployeeShow from './EmployeeShow'
-import { FaMinusCircle, FaShareAlt, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
+import { FaPaperPlane, FaMinusCircle, FaShareAlt, FaIdBadge, FaBriefcase, FaAddressCard, FaPlusCircle, FaComments, FaCog, FaStopwatch, FaFolder, FaHourglassHalf, FaCalendarDay, FaCalendarAlt, FaUserClock, FaClock, FaMoneyCheckAlt, FaMoneyBillAlt, FaHandHoldingUsd, FaFileInvoiceDollar, FaDollarSign, FaFolderOpen, FaPrint, FaFileDownload, FaCartPlus } from 'react-icons/fa';
 import NavBar from '../components/NavBar'
 
 
@@ -914,7 +914,7 @@ class Invoices extends Component {
                                     <OptionsInvoice className='noprint printSave'>
 <a href="javascript:window.print()" > <button><span><FaPrint /></span><br />Print</button> </a>
 <a href="javascript:window.print()">  <button><span><FaFileDownload /></span><br />Download<br /> </button> </a>
-<a href="mailto:add@ddress.com"><button><span><FaShareAlt /></span><br />Share</button>  </a>
+<a href="mailto:AddThe@ddress.com"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
 <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br />Pay</button>  </a>
 
 

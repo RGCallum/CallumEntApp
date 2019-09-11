@@ -244,7 +244,7 @@ position: relative;
         }  
 
 }
-z-index: 1000;
+z-index: 100;
 `
 const PeriodInvoice = styled.div`
 padding-top: 20px;
@@ -503,7 +503,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    height: 22.8px;
+    height: 25px;
 
 }
 `

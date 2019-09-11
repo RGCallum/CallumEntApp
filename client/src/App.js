@@ -22,7 +22,7 @@ class App extends Component {
       <Router>
         <div>
           
-          <NavBar />
+          {/* <NavBar /> */}
           <Switch>
             <Route exact path="/employees" component={Employees}/>
             <Route exact path="/employees/:employeeId/invoices/:invoiceId" component={Invoices}/>

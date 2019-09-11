@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Employee from './Employees';
 import {FaMinusCircle, FaUser, FaEnvelope, FaMobileAlt, FaAddressCard, FaPlusCircle, FaFolder, FaFileInvoiceDollar } from 'react-icons/fa';
+import NavBar from '../components/NavBar'
 
 
 
@@ -204,6 +205,7 @@ class Profile extends Component {
 
     return (
       <div>
+        <NavBar />
         <NameContainer>
         <br /><h1>
         {this.state.employee.employeename}'s Profile</h1>

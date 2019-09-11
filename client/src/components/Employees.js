@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaFileInvoiceDollar, FaFolder, FaPlusCircle} from 'react-icons/fa';
+import NavBar from '../components/NavBar'
 
 
 const BkgdColors = styled.div`
@@ -215,7 +216,9 @@ class Employee extends Component {
 
   render() {
     return (
+      
       <div >
+        <NavBar />
         <BkgdColors>
           <div className="overlay">
           <h1>

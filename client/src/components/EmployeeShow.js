@@ -503,7 +503,7 @@ height: 26.5px;
 
 @media only screen and (max-width: 414px){
     font-size: 14px;
-    height: 25px;
+    height: 26.5px;
 
 }
 `

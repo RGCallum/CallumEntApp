@@ -207,6 +207,7 @@ position: relative;
     margin-bottom: -10px;
     input{
         width: 115px;
+        background-color: white;
     }  
 }
 @media print { 

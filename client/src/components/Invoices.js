@@ -405,7 +405,7 @@ input{
     color: black;
 input{
         color: black;
-        // width: 115%;
+        width: 158px;
 }
 }
 `
@@ -493,6 +493,11 @@ box-shadow: 1px 1px 10px  rgba(0,0,0, 0.4);
 padding: 20px;
 margin-left: -20px;
 // font-family: helvetica;
+
+@media print{
+    box-shadow: none;
+    border: #c0c0c0 solid .5px;
+}
 `
 
 const NewInvoiceButton = styled.button`
@@ -916,7 +921,7 @@ class Invoices extends Component {
                                     <OptionsInvoice className='noprint printSave'>
 <a href="javascript:window.print()" > <button><span><FaPrint /></span><br />Print</button> </a>
 <a href="javascript:window.print()">  <button><span><FaFileDownload /></span><br />Download<br /> </button> </a>
-<a href="mailto:AddThe@ddress.com?subject=Your New Invoice&body=Attached is your invoice for &#160; **ADD PAY PERIOD HERE AND ATTACH INVOICE**"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
+<a href="mailto:AddThe@ddress.com?subject=Your New Invoice&body=Attached is your invoice for **ADD PAY PERIOD HERE and ATTACH INVOICE**"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
 <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br />Pay</button>  </a>
 
 

@@ -24,7 +24,7 @@ i{
     color: turquoise;
     font-size: 18px;
 }
-a{
+a{ color: white;
     text-decoration: none; 
     font-size: 20px;
 

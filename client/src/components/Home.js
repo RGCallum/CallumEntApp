@@ -7,6 +7,7 @@ import { FaFileInvoiceDollar, FaFolder, FaPlusCircle } from 'react-icons/fa';
 
 const ImgStyles = styled.div`
 width: 100vw;
+margin-top: -10px;
 margin-left: -10px;
 // background-image: url('/images/TenderWebPhone.png');
 background-repeat: no-repeat;
@@ -161,14 +162,14 @@ opacity: .2;
     margin-top: -10%;
 
 h1{
-    font-size: 50px;
-padding-bottom: 20px;
-padding-top: 50px;
+    font-size: 70px;
+// padding-bottom: 20px;
+padding-top: 30px;
 margin-left: 0px;
 
 }
 .icons {
-    font-size: 40px;
+    font-size: 50px;
 }
 #tenderWebPhone{
     margin-top: 5%;
@@ -318,7 +319,8 @@ class Home extends Component {
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors. After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just two clicks. Tender automatically creates a memo summary of the transaction for your records. The pay button links to your payment option of choice. Easily share the invoice with the employee/contractor. Keep all your employee and contractor information in one place that you can reach from anywhere! <br/><br/> Contact us for a personalized web or mobile version for your business today!</h3>
+                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors. 
+                        <br/><br/> After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just two clicks. <br/><br/> Tender automatically creates a memo summary of the transaction for your records. The pay button links to your payment option of choice. Easily share the invoice with the employee/contractor. Keep all your employee and contractor information in one place that you can reach from anywhere! <br/><br/> Contact us for a personalized web or mobile version for your business today!</h3>
                    
                 </Paragraph>
 

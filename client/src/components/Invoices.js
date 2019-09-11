@@ -240,6 +240,7 @@ padding-top:30px;
 input{
     width: 100px;
     height: 100%;
+    background-color: white;
 }
 
 }

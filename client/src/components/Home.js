@@ -217,7 +217,10 @@ const CountStyles = styled.div`
 
     }
     }
-
+    .googlelog{
+        z-index: 1000;
+        position: absolute;
+    }
 `
 const HoverButton = styled.div`
 text-align: center;
@@ -285,14 +288,14 @@ class Home extends Component {
                             <h2>The quick and easy way to do your payroll, in the office or on the go. </h2>
                         </Text>
 
-
-                        {/* <GoogleLogin
+<div className="googlelog">
+                        <GoogleLogin
                             clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'} /> */}
-
+                            cookiePolicy={'single_host_origin'} />
+                            </div>
                         <br />
                         
                        

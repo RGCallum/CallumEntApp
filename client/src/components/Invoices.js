@@ -914,7 +914,7 @@ class Invoices extends Component {
                                     <OptionsInvoice className='noprint printSave'>
 <a href="javascript:window.print()" > <button><span><FaPrint /></span><br />Print</button> </a>
 <a href="javascript:window.print()">  <button><span><FaFileDownload /></span><br />Download<br /> </button> </a>
-<a href="mailto:AddThe@ddress.com"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
+<a href="mailto:AddThe@ddress.com?subject=Your New Invoice&body=Attached is your invoice for **ADD PAY PERIOD** **ATTACH INVOICE HERE**"><button><span><FaPaperPlane /></span><br />Share</button>  </a>
 <a href="https://squareup.com/login" target="_blank"><button><span><FaMoneyCheckAlt /></span><br />Pay</button>  </a>
 
 

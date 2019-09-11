@@ -1020,36 +1020,36 @@ class Invoices extends Component {
 
                                             {
                                                 
-                                                // <div>
+                                                <div>
 
 
-                                                //     <div className="lineItems client2line" id='client2line'>
-                                                //         <td >    <input
+                                                    <div className="lineItems client2line" id='client2line'>
+                                                        <td >    <input
                                                             
-                                                //             type="text" name="client2" value={this.state.invoice.client2} placeholder='Client'
-                                                //         /></td>
-                                                //         <td>    <input id="frequency2"
+                                                            type="text" name="client2" value={this.state.invoice.client2} placeholder='Client'
+                                                        /></td>
+                                                        <td>    <input id="frequency2"
                                                             
-                                                //             // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
-                                                //             type="number" name="frequency2" value={this.state.invoice.frequency2} placeholder="Enter 0 if none"
-                                                //         /></td>
-                                                //         <td>      <input
+                                                            // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
+                                                            type="number" name="frequency2" value={this.state.invoice.frequency2} placeholder="Enter 0 if none"
+                                                        /></td>
+                                                        <td>      <input
                                                             
-                                                //             type="text" name="result2" value={this.state.invoice.result2} placeholder='Minute/Half-Hour/Hour'
-                                                //         /></td>
-                                                //         <td>     <input id="rate2"
+                                                            type="text" name="result2" value={this.state.invoice.result2} placeholder='Minute/Half-Hour/Hour'
+                                                        /></td>
+                                                        <td>     <input id="rate2"
                                                             
-                                                //             // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
-                                                //             type="number" name="rate2" value={this.state.invoice.rate2} placeholder="Enter 0 if none"
-                                                //         /> </td>
-                                                //         <td id='sub2'>     <input id='sub2' readOnly
+                                                            // onChange={(event) => this.handleChange(event, this.state.invoice._id, executeMath())}
+                                                            type="number" name="rate2" value={this.state.invoice.rate2} placeholder="Enter 0 if none"
+                                                        /> </td>
+                                                        <td id='sub2'>     <input id='sub2' readOnly
 
                                                             
-                                                //             // type="number" name="sub2" value={this.state.invoice.sub2}
-                                                //             type="text" name="sub2" value={"$" + (this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2)}
-                                                //         /> </td>
-                                                //     </div>
-                                                // </div>
+                                                            // type="number" name="sub2" value={this.state.invoice.sub2}
+                                                            type="text" name="sub2" value={"$" + (this.state.invoice.rate2 * this.state.invoice.frequency2).toFixed(2)}
+                                                        /> </td>
+                                                    </div>
+                                                </div>
                                                
                                             }
                                         </LineItemsGrid>

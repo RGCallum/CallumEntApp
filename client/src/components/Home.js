@@ -288,14 +288,14 @@ class Home extends Component {
                             <h2>The quick and easy way to do your payroll, in the office or on the go. </h2>
                         </Text>
 
-<div className="googlelog">
+{/* <div className="googlelog">
                         <GoogleLogin
                             clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
                             buttonText="Login"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'} />
-                            </div>
+                            </div> */}
                         <br />
                         
                        

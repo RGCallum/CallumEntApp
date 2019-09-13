@@ -281,6 +281,15 @@ img{
     h3{
        
     }
+    @media only screen and (max-width: 414px){
+        flex-direction: column;
+        h3{
+            text-align: center;
+        }
+        img{
+            width: 70%;
+        }
+    }
 }
 .second{
     display: flex;
@@ -289,6 +298,27 @@ img{
 img{
     width: 65%;
 }
+@media only screen and (max-width: 414px){
+display: none;
+}
+}
+.second2{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+img{
+    width: 65%;
+}
+@media only screen and (max-width: 414px){
+    display: flex;
+    flex-direction: column;
+    h3{
+        text-align: center;
+    }
+    img{
+        width: 95%;
+    }
+}
 }
 .third{
     display: flex;
@@ -296,6 +326,15 @@ img{
     align-items: center;
     img{
         width: 55%;
+    }
+    @media only screen and (max-width: 414px){
+        flex-direction: column;
+        h3{
+            text-align: center;
+        }
+        img{
+            width: 85%;
+        }
     }
 }
 .fourth{
@@ -433,7 +472,12 @@ class Home extends Component {
 <br/><br/>
                     <div className="second">
                         <h3>After simply entering two numbers, Tender automatically calculates all data and creates a summary of the transaction for your records.</h3>
-                        <img src="/images/laptopgif.gif" alt="value" /></div>
+                        <img src="/images/laptopgif.gif" alt="value" />
+                        </div>
+                        <div className="second2">
+                        <img src="/images/laptopgif.gif" alt="value" />
+                        <h3>After simply entering two numbers, Tender automatically calculates all data and creates a summary of the transaction for your records.</h3>
+                        </div>
 <br/><br/>
 
                     <div className="third"><img src="/images/monitorPrint.png" alt="print" />

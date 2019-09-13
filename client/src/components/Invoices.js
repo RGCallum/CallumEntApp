@@ -10,8 +10,8 @@ import NavBar from '../components/NavBar'
 
 const BigDiv = styled.div`
 input, textarea{
-    // background: rgba(151, 240, 240, 0.2);
-border-radius: 3px;
+    background-color: transparent;
+    border-radius: 3px;
 border: none;
 padding: 5px;
 font-family: helvetica;
@@ -207,7 +207,7 @@ position: relative;
     margin-bottom: -10px;
     input{
         width: 115px;
-        background-color: white;
+        // background-color: transparent;
     }  
 }
 @media print { 
@@ -240,7 +240,7 @@ padding-top:30px;
 input{
     width: 100px;
     height: 100%;
-    background-color: white;
+    // background-color: transparent;
 }
 
 }
@@ -667,7 +667,24 @@ img{
         margin-left: 65%;
 
     }
-    
+    .watermark{
+        position: absolute;
+        text-align: center;
+        justify-content: center;
+            font-size: 90px;
+            font-weight: 600;
+            color: rgb(245,245,245);
+        margin-left: 8%;
+        // margin-top: 30%;
+        // transform: rotate(-20deg);
+        z-index: -1;
+        p{
+            font-size: 30px;
+        }
+        @media only screen and (max-width: 414px){
+            margin-left: -8%;
+        }
+    }
 `
 
 
@@ -929,7 +946,9 @@ class Invoices extends Component {
 
                                         <LogoStyles>
                                             <LogoIdDiv>
-
+<div className="watermark noprint">For Export Only
+<p>(go back to edit)</p>
+</div>
                                                 <a href={this.state.invoice.link} >
 
                                                     {/* another company can add its own logo here */}

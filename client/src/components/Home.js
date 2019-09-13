@@ -256,7 +256,7 @@ h3{
     font-size: 18px
     font-weight: 100;
     color: rgb(28, 147, 145);
-    text-align: center;
+    text-align: left;
 }
 a{
     color: rgb(28, 147, 145);
@@ -268,7 +268,42 @@ a:visited{
 a:hover{
     color: blue;
 } 
-
+img{
+    // width: 50%;
+}
+.first{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img{
+        width: 40%;
+    }
+    h3{
+       
+    }
+}
+.second{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+img{
+    width: 65%;
+}
+}
+.third{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img{
+        width: 55%;
+    }
+}
+.fourth{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
 `
 const LoginOutStyles = styled.div`
 // display: flex;
@@ -391,8 +426,25 @@ class Home extends Component {
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors.
-                        <br /><br /> After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just a few clicks. Tender automatically creates a memo summary of the transaction for your records. <br /><br /> Export a professional version for your records and easily share with employees and contractors. The pay button links to your payment option of choice. Keep all your information organized and in one place that you can reach from anywhere! <br /><br />  <a href="mailto:sceneitpix@gmail.com ">  ✉️ Contact us </a> for a personalized web or mobile version for your business today!</h3>
+                    <div className="first">
+                        <img src="/images/handPhone.png" alt="mobile" />
+                        <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors.</h3>
+                    </div>
+<br/><br/>
+                    <div className="second">
+                        <h3>After simply entering two numbers, Tender automatically calculates all data and creates a summary of the transaction for your records.</h3>
+                        <img src="/images/laptopgif.gif" alt="value" /></div>
+<br/><br/>
+
+                    <div className="third"><img src="/images/monitorPrint.png" alt="print" />
+                        <h3>    Export a professional version and easily share with just a few clicks. Keep all your information organized and in one place that you can reach from anywhere at anytime! </h3>
+                    </div>
+<br/>
+
+                    <div className="fourth">
+                        <h3>  <a href="mailto:sceneitpix@gmail.com "> Contact us </a> for a personalized web or mobile version for your business today!</h3>
+                    </div> 
+<br/>
 
                 </Paragraph>
                 {/* <MyForm>

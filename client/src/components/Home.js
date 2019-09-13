@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Employees from './Employees';
 import { GoogleLogin } from 'react-google-login';
 import { FaFileInvoiceDollar, FaFolder, FaPlusCircle } from 'react-icons/fa';
+import axios from 'axios'
 
 const ImgStyles = styled.div`
 width: 100vw;
@@ -257,7 +258,16 @@ h3{
     color: rgb(28, 147, 145);
     text-align: center;
 }
-    
+a{
+    color: rgb(28, 147, 145);
+    text-decoration: none;
+}
+a:visited{
+    color: rgb(28, 147, 145);
+}
+a:hover{
+    color: blue;
+} 
 
 `
 const LoginOutStyles = styled.div`
@@ -265,10 +275,69 @@ const LoginOutStyles = styled.div`
 // flex-direction: column;
 // justify-content: center;
 `
+const HomeFooter = styled.div`
+bottom: 0;
+font-family: helvetica;
+font-weight: 200;
+font-size: 10px;
+margin-left: -15px;
+padding-bottom: 3px;
+padding-top: 3px;
+width: 100vw;
 
-
+background-color: rgb(240,240,240);
+color: rgb(28, 147, 145);
+text-align: center;
+a{
+    color: rgb(28, 147, 145);
+    text-decoration: none;
+}
+a:visited{
+    color: rgb(28, 147, 145);
+}
+a:hover{
+    color: black;
+}
+footer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#rights{
+    padding-top: 3px;
+}
+`
+const MyForm = styled.div``
 class Home extends Component {
+    handleSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        axios({
+            method: "POST",
+            url: "http://localhost:3000/",
+            data: {
+                name: name,
+                email: email,
+                messsage: message
+            }
+        }).then((response) => {
+            if (response.data.msg === 'success') {
+                alert("Message Sent.");
+                this.resetForm()
+            } else if (response.data.msg === 'fail') {
+                alert("Message failed to send.")
+            }
+
+        })
+
+    }
+    resetForm() {
+        document.getElementById('contact-form').reset();
+    }
     render() {
+
         const responseGoogle = (response) => {
             console.log(response);
         }
@@ -278,17 +347,17 @@ class Home extends Component {
 
                 <ImgStyles>
                     <CountStyles>
-                        
+
                         <h1>
                             {/* 💰 💸*/}
                             <FaFileInvoiceDollar className='icons' />
                             Tender</h1>
-                            <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
+                        <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
                         <Text>
                             <h2>The quick and easy way to do your payroll, in the office or on the go. </h2>
                         </Text>
 
-{/* <div className="googlelog">
+                        {/* <div className="googlelog">
                         <GoogleLogin
                             clientId="345787281281-lk9ltpc9a1asua9drk5ovr6cjg7ntsjl.apps.googleusercontent.com"
                             buttonText="Login"
@@ -297,36 +366,66 @@ class Home extends Component {
                             cookiePolicy={'single_host_origin'} />
                             </div> */}
                         <br />
-                        
-                       
+
+
 
                         <HoverButton>
-                        <Link to="/employees"> <button>Click to Enter </button></Link>
+                            <Link to="/employees"> <button>Click to Enter </button></Link>
                         </HoverButton>
                         <ul className='iconsAnim'>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
-                        <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
+                            <li><FaFileInvoiceDollar className='icons2' /></li>
                         </ul>
-                        
+
                     </CountStyles>
 
                     {/* <img src="/images/CAL_ent_logo.png" alt="logo" /> */}
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors. 
-                        <br/><br/> After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just two clicks. <br/><br/> Tender automatically creates a memo summary of the transaction for your records. The pay button links to your payment option of choice. Easily share the invoice with the employee/contractor. Keep all your employee and contractor information in one place that you can reach from anywhere! <br/><br/> Contact us for a personalized web or mobile version for your business today!</h3>
-                   
-                </Paragraph>
+                    <h3>Tender is a simple an efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors.
+                        <br /><br /> After simply entering two numbers, Tender automatically calculates all data, and when you're done, print or save your invoice with just a few clicks. Tender automatically creates a memo summary of the transaction for your records. <br /><br /> Export a professional version for your records and easily share with employees and contractors. The pay button links to your payment option of choice. Keep all your information organized and in one place that you can reach from anywhere! <br /><br />  <a href="mailto:sceneitpix@gmail.com ">  ✉️ Contact us </a> for a personalized web or mobile version for your business today!</h3>
 
+                </Paragraph>
+                {/* <MyForm>
+
+                    <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                        <div className="form-group">
+                            <label htmlFor="name">Name</label>
+                            <input type="text" className="form-control" id="name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Email address</label>
+                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Message</label>
+                            <textarea className="form-control" rows="5" id="message"></textarea>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+
+                </MyForm> */}
+                <HomeFooter>
+                    <footer>
+                        <a href="#" id="rights">2019 ©️ All Rights Reserved.</a>
+                        <a href="https://rgcallum.herokuapp.com/">  Built with ❤️ by  RGC</a>
+                        <a href="mailto:sceneitpix@gmail.com "> ✉️ Email us at sceneitpix@gmail.com </a>
+
+
+
+
+
+                    </footer>
+                </HomeFooter>
             </div>
         );
     }

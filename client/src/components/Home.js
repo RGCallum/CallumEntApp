@@ -329,7 +329,7 @@ img{
     h3{
         text-align: center;
         margin-top: -30px;
-        // padding: 0 13px 0 13px;
+        padding-top: 5px;
     }
     img{
         width: 135%;

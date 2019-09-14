@@ -329,10 +329,10 @@ img{
     h3{
         text-align: center;
         margin-top: -30px;
-        padding: 0 13px 0 13px;
+        // padding: 0 13px 0 13px;
     }
     img{
-        width: 155%;
+        width: 135%;
     }
 }
 }
@@ -351,7 +351,7 @@ img{
 
         }
         img{
-            width: 145%;
+            width: 125%;
         }
     }
 }
@@ -499,7 +499,7 @@ class Home extends Component {
 <br/><br/>
 
                     <div className="third"><img src="/images/monitorPrint3.png" alt="print" />
-                        <h3>    Export a professional version and easily share with just a few clicks. Keep all your information organized and in one place that you can reach from anywhere at anytime! </h3>
+                        <h3>    Export a professional version and easily share with just a few clicks. <br/>Keep all your information organized in one place that you can reach from anywhere at anytime! </h3>
                     </div>
 <br/>
 

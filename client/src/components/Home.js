@@ -485,7 +485,7 @@ class Home extends Component {
                 <Paragraph>
                     <div className="first">
                         <img src="/images/handPhone.png" alt="mobile" />
-                        <h3>Tender is a simple and efficient payroll/invoice app created for the small business owner to create invoices and check stubs for your employees and contractors.</h3>
+                        <h3>Tender is a simple and efficient payroll/invoice app created for the small business owner to create invoices and pay stubs for your employees and contractors.</h3>
                     </div>
 <br/><br/>
                     <div className="second">

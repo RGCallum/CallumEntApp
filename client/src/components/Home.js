@@ -215,7 +215,6 @@ const CountStyles = styled.div`
     h1{
         z-index: 1000;
         text-align: center;
-
     }
     }
     .googlelog{
@@ -465,10 +464,10 @@ class Home extends Component {
                         <h1>
                             {/* 💰 💸*/}
                             <FaFileInvoiceDollar className='icons' />
-                            Tender</h1>
+                            Calpay </h1>
                         <img id="tenderWebPhone" src="/images/TenderWebPhone.png" alt="" />
                         <Text>
-                            <h2>The quick and easy way to do your payroll, in the office or on the go. </h2>
+                            <h2>a Tender app for Callum Enterprise</h2>
                         </Text>
 
                         {/* <div className="googlelog">
@@ -503,7 +502,7 @@ class Home extends Component {
                     {/* <img src='/images/office.jpeg' alt="people" /> */}
                 </ImgStyles>
                 <Paragraph>
-                    <div className="first">
+                    {/* <div className="first">
                         <img src="/images/handPhone.png" alt="mobile" />
                         <h3>Tender is a simple and efficient payroll/invoice app created for the small business owner to create invoices and pay stubs for your employees and contractors.</h3>
                     </div>
@@ -522,7 +521,7 @@ class Home extends Component {
                         <h3>    Export a professional version and easily share with just a few clicks. <br />Keep all your information organized in one place that you can reach from anywhere at anytime! </h3>
                     </div>
                     <br />
-                    <br />
+                    <br /> */}
                     <HoverButton>
                         <Link to="/employees"> <button>Enter Tender here</button></Link>
                     </HoverButton>

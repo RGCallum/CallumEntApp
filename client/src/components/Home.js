@@ -525,8 +525,9 @@ class Home extends Component {
 
                 </Paragraph>
                 <MyForm>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIVJknuqNa24FnduXyMJAZiFmZ6cwa1Qa6JJT2hBWsmIikuw/viewform?embedded=true" width="440" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-                    <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
+                    {/* <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
                         <div className="form-group">
                             <label htmlFor="name">Name:</label><br/>
                             <input type="text" className="form-control" id="name" />
@@ -540,7 +541,7 @@ class Home extends Component {
                             <textarea className="form-control" rows="5" id="message"></textarea>
                         </div>
                         <button type="submit" className="btn">Submit</button>
-                    </form>
+                    </form> */}
 
                 </MyForm>
                 <HomeFooter>

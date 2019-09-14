@@ -408,7 +408,7 @@ class Home extends Component {
         const message = document.getElementById('message').value;
         axios({
             method: "POST",
-            url: "http://callumpay.herokuapp.com",
+            url: "http://localhost:3000",
             data: {
                 name: name,
                 email: email,
@@ -511,7 +511,7 @@ class Home extends Component {
                 </Paragraph>
                 <MyForm>
 
-                    <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                    <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <input type="text" className="form-control" id="name" />

@@ -223,7 +223,7 @@ class Employee extends Component {
           <div className="overlay">
           <h1>
             {/* 👩🏾‍🦱👨🏽‍🦳👩🏾‍🦳🧔🏾👱🏽‍♀️👨🏾‍👵🏾👨🏿‍🦱👨🏼‍👩🏾👴🏾👩🏻  */}
-            <br/>Directory</h1>
+            <br/>Employee Directory</h1>
           
 <br/><br/> 
 <EmployeeOutline>

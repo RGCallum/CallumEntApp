@@ -241,7 +241,7 @@ button {
     color: rgb(28, 147, 145);
   }
   @media only screen and (max-width: 414px){
-    margin-top: 60%;
+    // margin-top: 60%;
     
   }
 `
@@ -297,7 +297,7 @@ img{
 }
 .second{
     width:100%;
-background-color: rgb(245, 245, 245);
+// background-color: rgb(245, 245, 245);
     display: flex;
     // flex-direction: row;
     align-items: center;
@@ -341,7 +341,7 @@ img{
     flex-direction: row;
     align-items: center;
     img{
-        width: 55%;
+        width: 60%;
     }
     @media only screen and (max-width: 414px){
         flex-direction: column;
@@ -400,6 +400,7 @@ footer{
 }
 `
 const MyForm = styled.div`
+margin-top:-30px;
 display: flex;
 flex-direction: column;  
 justify-content: center;
@@ -482,9 +483,7 @@ class Home extends Component {
 
 
 
-                        <HoverButton>
-                            <Link to="/employees"> <button>Click to Enter </button></Link>
-                        </HoverButton>
+
                         <ul className='iconsAnim'>
                             <li><FaFileInvoiceDollar className='icons2' /></li>
                             <li><FaFileInvoiceDollar className='icons2' /></li>
@@ -508,30 +507,35 @@ class Home extends Component {
                         <img src="/images/handPhone.png" alt="mobile" />
                         <h3>Tender is a simple and efficient payroll/invoice app created for the small business owner to create invoices and pay stubs for your employees and contractors.</h3>
                     </div>
-<br/><br/>
+                    <br /><br />
                     <div className="second">
                         <h3>After simply entering two numbers, Tender automatically calculates all data and creates a summary of the transaction for your records.</h3>
                         <img src="/images/laptopgif.gif" alt="value" />
-                        </div>
-                        <div className="second2">
+                    </div>
+                    <div className="second2">
                         <img src="/images/laptopgif.gif" alt="value" />
                         <h3>After simply entering two numbers, Tender automatically calculates all data and creates a summary of the transaction for your records.</h3>
-                        </div>
-<br/><br/>
+                    </div>
+                    <br /><br />
 
                     <div className="third"><img src="/images/monitorPrint3.png" alt="print" />
-                        <h3>    Export a professional version and easily share with just a few clicks. <br/>Keep all your information organized in one place that you can reach from anywhere at anytime! </h3>
+                        <h3>    Export a professional version and easily share with just a few clicks. <br />Keep all your information organized in one place that you can reach from anywhere at anytime! </h3>
                     </div>
-<br/>
+                    <br />
+                    <br />
+                    <HoverButton>
+                        <Link to="/employees"> <button>Enter Tender here</button></Link>
+                    </HoverButton>
+                    <br />
 
                     <div className="fourth">
                         <h3>  Contact us below for a quote on your personalized version of Tender today!</h3>
-                    </div> 
-<br/>
+                    </div>
+                    <br />
 
                 </Paragraph>
                 <MyForm>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIVJknuqNa24FnduXyMJAZiFmZ6cwa1Qa6JJT2hBWsmIikuw/viewform?embedded=true" width="640" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIVJknuqNa24FnduXyMJAZiFmZ6cwa1Qa6JJT2hBWsmIikuw/viewform?embedded=true" width="640" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
                     {/* <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
                         <div className="form-group">

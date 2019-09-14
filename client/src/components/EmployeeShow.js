@@ -135,7 +135,9 @@ button{
     background-color: white;
     padding: 5px 5px 5px 5px;
     color: rgb(43, 172, 174);
-    
+    border: inset .5px #c0c0c0;
+        
+         
 }
 button:hover{
     color: white;
@@ -459,7 +461,10 @@ text-align: center;
 // a:visited {
 //     color: rgb(28, 125, 147);
 //   }
-  
+  button{
+border: inset .5px #c0c0c0;
+
+  }
 
 `
 const DletBtn = styled.div`

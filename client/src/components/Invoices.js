@@ -432,7 +432,8 @@ button{
     border-radius: 5px;
     cursor: pointer;
     padding: 8px 10px 5px 10px;
-
+border: inset .5px #c0c0c0;
+// box-shadow: 1px 1px 2px black;
 }
 button:hover{
     color: white;

@@ -406,13 +406,19 @@ justify-content: center;
 align-items: center;
 align-content: center;
 text-align: center;
-input, textarea{
-width: 50vw;
+// input, textarea{
+// width: 50vw;
 
+// }
+// width: 100vw;
+//   padding-bottom: 10px;
+
+@media only screen and (max-width: 414px){
+    iframe{
+width: 440px;
+    }
 }
-width: 100vw;
-  padding-bottom: 10px;
-  box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
+
 `
 
 class Home extends Component {
@@ -519,13 +525,13 @@ class Home extends Component {
 <br/>
 
                     <div className="fourth">
-                        <h3>  <a href="mailto:sceneitpix@gmail.com "> Contact us </a> for a personalized web or mobile version for your business today!</h3>
+                        <h3>  Contact us below for a quote on your personalized version of Tender today!</h3>
                     </div> 
 <br/>
 
                 </Paragraph>
                 <MyForm>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIVJknuqNa24FnduXyMJAZiFmZ6cwa1Qa6JJT2hBWsmIikuw/viewform?embedded=true" width="440" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIVJknuqNa24FnduXyMJAZiFmZ6cwa1Qa6JJT2hBWsmIikuw/viewform?embedded=true" width="640" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
                     {/* <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
                         <div className="form-group">

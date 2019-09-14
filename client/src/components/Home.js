@@ -251,6 +251,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 padding: 10px;
+// overflow-y: scroll;
 h3{
     font-family: helvetica;
     font-size: 18px
@@ -259,11 +260,11 @@ h3{
     text-align: left;
 }
 a{
-    color: rgb(28, 147, 145);
+    color: black;
     text-decoration: none;
 }
 a:visited{
-    color: rgb(28, 147, 145);
+    color: black;
 }
 a:hover{
     color: blue;
@@ -279,12 +280,15 @@ img{
         width: 40%;
     }
     h3{
-       
+        width:50%; 
     }
     @media only screen and (max-width: 414px){
         flex-direction: column;
         h3{
             text-align: center;
+        margin-top: 5px;
+        width:100%; 
+
         }
         img{
             width: 70%;
@@ -292,11 +296,19 @@ img{
     }
 }
 .second{
+    width:100%;
+background-color: rgb(245, 245, 245);
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    padding-left: 50px;
+    h3{
+       width:100%;
+    }
 img{
-    width: 65%;
+    width: 75%;
+    margin-left: -90px;
 }
 @media only screen and (max-width: 414px){
 display: none;
@@ -306,6 +318,8 @@ display: none;
     display: none;
     flex-direction: row;
     align-items: center;
+// background-color: rgb(245, 245, 245);
+// width: 100vw;
 img{
     width: 65%;
 }
@@ -314,9 +328,11 @@ img{
     flex-direction: column;
     h3{
         text-align: center;
+        margin-top: -30px;
+        padding: 0 13px 0 13px;
     }
     img{
-        width: 95%;
+        width: 155%;
     }
 }
 }
@@ -331,9 +347,11 @@ img{
         flex-direction: column;
         h3{
             text-align: center;
+        margin-top: 1px;
+
         }
         img{
-            width: 85%;
+            width: 145%;
         }
     }
 }
@@ -480,7 +498,7 @@ class Home extends Component {
                         </div>
 <br/><br/>
 
-                    <div className="third"><img src="/images/monitorPrint.png" alt="print" />
+                    <div className="third"><img src="/images/monitorPrint3.png" alt="print" />
                         <h3>    Export a professional version and easily share with just a few clicks. Keep all your information organized and in one place that you can reach from anywhere at anytime! </h3>
                     </div>
 <br/>
@@ -513,8 +531,8 @@ class Home extends Component {
                 <HomeFooter>
                     <footer>
                         <a href="#" id="rights">2019 ©️ All Rights Reserved.</a>
-                        <a href="https://rgcallum.herokuapp.com/">  Built with ❤️ by  RGC</a>
-                        <a href="mailto:sceneitpix@gmail.com "> ✉️ Email us at sceneitpix@gmail.com </a>
+                        <a href="https://rgcallum.herokuapp.com/">  Built with ❤️ by RGC</a>
+                        <a href="mailto:sceneitpix@gmail.com "> ✉️Email: sceneitpix@gmail.com </a>
 
 
 

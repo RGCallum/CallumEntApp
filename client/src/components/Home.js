@@ -399,7 +399,19 @@ footer{
     padding-top: 3px;
 }
 `
-const MyForm = styled.div``
+const MyForm = styled.div`
+display: flex;
+flex-direction: column;  
+justify-content: center;
+align-items: center;
+align-content: center;
+text-align: center;
+
+width: 50%;
+  padding-bottom: 10px;
+  box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
+`
+
 class Home extends Component {
     handleSubmit(e) {
         e.preventDefault();
@@ -513,18 +525,18 @@ class Home extends Component {
 
                     <form action='mailto:sceneitpix@gmail.com' id="contact-form" method="POST">
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Name:</label><br/>
                             <input type="text" className="form-control" id="name" />
-                        </div>
+                        </div> 
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Email address</label>
+                            <label htmlFor="InputEmail1">Email:</label><br/>
                             <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message">Message:</label><br/>
                             <textarea className="form-control" rows="5" id="message"></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn">Submit</button>
                     </form>
 
                 </MyForm>

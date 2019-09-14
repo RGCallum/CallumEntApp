@@ -408,7 +408,7 @@ class Home extends Component {
         const message = document.getElementById('message').value;
         axios({
             method: "POST",
-            url: "http://localhost:3000/",
+            url: "http://callumpay.herokuapp.com",
             data: {
                 name: name,
                 email: email,
@@ -509,7 +509,7 @@ class Home extends Component {
 <br/>
 
                 </Paragraph>
-                {/* <MyForm>
+                <MyForm>
 
                     <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
                         <div className="form-group">
@@ -527,12 +527,12 @@ class Home extends Component {
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
 
-                </MyForm> */}
+                </MyForm>
                 <HomeFooter>
                     <footer>
                         <a href="#" id="rights">2019 ©️ All Rights Reserved.</a>
                         <a href="https://rgcallum.herokuapp.com/">  Built with ❤️ by RGC</a>
-                        <a href="mailto:sceneitpix@gmail.com "> ✉️Email: sceneitpix@gmail.com </a>
+                        {/* <a href="mailto:sceneitpix@gmail.com "> ✉️Email: sceneitpix@gmail.com </a> */}
 
 
 

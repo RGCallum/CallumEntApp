@@ -406,8 +406,11 @@ justify-content: center;
 align-items: center;
 align-content: center;
 text-align: center;
+input, textarea{
+width: 50vw;
 
-width: 50%;
+}
+width: 100vw;
   padding-bottom: 10px;
   box-shadow: 1px 1px 5px rgba(28, 147, 145, 0.4);
 `

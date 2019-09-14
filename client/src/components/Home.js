@@ -255,7 +255,7 @@ padding: 10px;
 h3{
     font-family: helvetica;
     font-size: 18px
-    font-weight: 100;
+    font-weight: 300;
     color: rgb(28, 147, 145);
     text-align: left;
 }
